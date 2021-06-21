@@ -1,0 +1,44 @@
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+
+super + Return
+	kitty
+super + u
+	notify-send hahaha
+super + b
+	qutebrowser
+super + f 
+	xfce4-appfinder
+super + x
+	xsecurelock -- xset dpms force off
+Print
+	flameshot gui
+ctrl + Print
+	flameshot full -c
+### audio
+#XF86AudioRaiseVolume
+#	amixer -D pulse sset Master 5%+
+#XF86AudioLowerVolume
+#	amixer -D pulse sset Master 5%- 
+#XF86AudioMute
+#	amixer -D pulse sset Master toggle
+XF86AudioMicMute
+	amixer -D pulse sset Capture toggle 
+
+### Brightness
+#XF86MonBrightnessUp
+#	notify-send "cum?"
+#XF86MonBrightnessDown
+#	notify-send "cum?"
+
+###keyboard layout
+super + i 
+	setxkbmap us 
+super + o 
+	setxkbmap ro std 
+super + p 
+	setxkbmap ru 
+
+

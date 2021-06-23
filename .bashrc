@@ -7,6 +7,8 @@ then
 bind -x '"\C-x":startx'
 fi
 
+set -o vi
+
 bind -x '"\C-l":clear'
 RESET='\[\033[00m\]'
 LRED='\[\033[01;31m\]'

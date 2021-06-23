@@ -10,7 +10,7 @@
 	{ "keys": ["DELETE", "BACKSPACE"], "type": "function", "command": "delete" },
 	{ "keys": [" "], "command": "todo toggle $n" },
 	{ "keys": ["n"], "type": "function", "command": "next_link" },
-	{ "keys": ["b"], "type": "function", "command": "previous_link" },
+	{ "keys": ["b","N"], "type": "function", "command": "previous_link" },
 	{ "keys": ["o"], "type": "function", "command": "open_link" },
 	{ "keys": ["tc"], "type": "function", "command": "toggle_console" },
 	{ "keys": ["tm"], "type": "function", "command": "toggle_metadata" },

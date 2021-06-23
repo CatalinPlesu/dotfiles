@@ -5,10 +5,6 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 ###gruvbox
-background           ='#282828'
-foreground           ='#fbf1c7'
-selection_foreground ='#928374'
-selection_background ='#ebdbb2'
 black='#282828'
 black0='#7c6f64'
 red='#cc241d'
@@ -25,6 +21,22 @@ aqua='#689d6a'
 aqua0='#8ec07c'
 white='#a89984'
 white0='#fbf1c7'
+
+
+### main colors
+background=black
+foreground=white0
+### borders
+focus_t=green
+normal_t=blue
+focus_f=aqua
+normal_f=white
+### bar
+mark=green
+active=foreground
+inactive=foreground
+
+warning=red0
 
 #programs are handled by sxhkd
 keys = [
@@ -72,8 +84,8 @@ for i in groups:
 layouts = [
     layout.Columns(
         margin_on_single=0,
-        border_focus=green,
-        border_normal=blue,
+        border_focus=focus_t,
+        border_normal=normal_t,
         border_width=5,
         margin=5,
         ),
@@ -98,31 +110,58 @@ screens = [
                     disable_drag=True,
                     spacing=0,
                     center_aligned=True,
-                    active=foreground,
-                    inactive=foreground,
+                    active=active,
+                    inactive=inactive,
                     highlight_method="block",
-                    highlight_color=selection_foreground,
-                    this_current_screen_border=selection_foreground,
+                    this_current_screen_border=mark,
+                    urgent_border=warning,
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
+                widget.Systray(
+                    icon_size=25,
+                    ),
+                widget.TextBox(
+                    padding=0,
+                    text= '',
+                    foreground=green,
+                    ),
                 widget.Battery(
                     format='{percent:2.0%}',
                     low_percentage=0.2,
-                    low_foreground=red0,
+                    low_foreground=warning,
+                    background=green,
                 ),
-                widget.Systray(
-                    icon_size=25,
+                widget.TextBox(
+                    padding=0,
+                    text= '',
+                    foreground=aqua,
+                    background=green,
                     ),
                 widget.KeyboardLayout(
                     configured_keyboards=['us','ro std','ru'],
                     display_map={'us':'US','ro std':'RO','ru':'RU'},
+                    background=aqua,
+                    ),
+                widget.TextBox(
+                    padding=0,
+                    text= '',
+                    foreground=blue,
+                    background=aqua,
                     ),
                 widget.Clock(
                     format='%I:%M %p',
+                    background=blue,
+                    ),
+                widget.TextBox(
+                    padding=0,
+                    text= '',
+                    foreground=purple,
+                    background=blue,
                     ),
                 widget.Clock(
                     format='%d.%m.%Y',
+                    background=purple,
                     ),
             ],
             30,
@@ -146,8 +185,8 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-        border_focus=aqua,
-        border_normal=white,
+        border_focus=focus_f,
+        border_normal=normal_f,
         border_width=3, 
         float_rules=[
     *layout.Floating.default_float_rules,

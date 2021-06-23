@@ -1,6 +1,7 @@
 adobe-source-han-sans-otc-fonts
 alsa-utils
 amd-ucode
+android-file-transfer
 arandr
 arc-gtk-theme
 audacity
@@ -77,8 +78,12 @@ pavucontrol
 picom
 pkgconf
 poppler-glib
+powerline
+powerline-fonts
+powertop
 pulseaudio
 pulseaudio-alsa
+python-pip
 python-pyalsa
 qtile
 qutebrowser
@@ -91,7 +96,6 @@ sxiv
 terminus-font
 texinfo
 tlp
-tp_smapi
 tree
 ttf-fira-code
 tumbler

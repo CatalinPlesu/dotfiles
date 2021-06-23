@@ -41,4 +41,6 @@ super + o
 super + p 
 	setxkbmap ru 
 
-
+###
+super + a; {a,z}
+    {notify-send "a",notify-send "z"}

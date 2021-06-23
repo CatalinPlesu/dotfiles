@@ -9,7 +9,7 @@ nm-applet &
 #mate-power-manager &
 xfce4-power-manager &
 volumeicon &
-nitrogen --set-zoom --set-color=#282828 --random ./Pictures/nice_wallpapers/ &
+nitrogen --set-zoom-fill --set-color=#282828 --random ./Pictures/nice_wallpapers/ &
 
 kitty &
 

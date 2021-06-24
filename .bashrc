@@ -7,6 +7,8 @@ then
 bind -x '"\C-x":startx'
 fi
 
+export PATH=/home/catalin/scripts:$PATH
+
 set -o vi
 
 bind -x '"\C-l":clear'

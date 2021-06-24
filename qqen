@@ -44,7 +44,6 @@ libgepub
 libopenraw
 libreoffice-fresh
 libtool
-light
 linux
 linux-firmware
 linux-headers
@@ -102,10 +101,10 @@ tumbler
 udisks2
 unrar
 unzip
+vi
 vim
 virtualbox
 virtualbox-host-dkms
-volumeicon
 wget
 which
 wireless_tools

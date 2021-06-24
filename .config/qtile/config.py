@@ -2,41 +2,10 @@ from typing import List
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from gruvbox.gruvbox import *
+from theme import *
 
 mod = "mod4"
-###gruvbox
-black='#282828'
-black0='#7c6f64'
-red='#cc241d'
-red0='#fb4934'
-green='#98971a'
-green0='#b8bb26'
-yellow='#d79921'
-yellow0='#fabd2f'
-blue='#458588'
-blue0='#83a598'
-purple='#b16286'
-purple0='#d3869b'
-aqua='#689d6a'
-aqua0='#8ec07c'
-white='#a89984'
-white0='#fbf1c7'
-
-
-### main colors
-background=black
-foreground=white0
-### borders
-focus_t=green
-normal_t=blue
-focus_f=aqua
-normal_f=white
-### bar
-mark=green
-active=foreground
-inactive=foreground
-
-warning=red0
 
 #programs are handled by sxhkd
 keys = [
@@ -124,7 +93,38 @@ screens = [
                 widget.TextBox(
                     padding=0,
                     text= '',
+                    foreground=purple,
+                    ),
+                widget.TextBox(
+                    text= 'scr:',
+                    background=purple,
+                    ),
+                widget.Backlight(
+                    backlight_name="amdgpu_bl0",
+                    background=purple,
+                ),
+                widget.TextBox(
+                    padding=0,
+                    text= '',
+                    foreground=yellow,
+                    background=purple,
+                    ),
+                widget.TextBox(
+                    text= 'vol:',
+                    background=yellow,
+                    ),
+                widget.Volume(
+                    background=yellow,
+                ),
+                widget.TextBox(
+                    padding=0,
+                    text= '',
                     foreground=green,
+                    background=yellow,
+                    ),
+                widget.TextBox(
+                    text= 'bat:',
+                    background=green,
                     ),
                 widget.Battery(
                     format='{percent:2.0%}',
@@ -150,7 +150,8 @@ screens = [
                     background=aqua,
                     ),
                 widget.Clock(
-                    format='%I:%M %p',
+                    #format='%I:%M %p',
+                    format='%d.%m',
                     background=blue,
                     ),
                 widget.TextBox(
@@ -160,7 +161,8 @@ screens = [
                     background=blue,
                     ),
                 widget.Clock(
-                    format='%d.%m.%Y',
+                    #format='%d.%m.%Y',
+                    format='%I:%M',
                     background=purple,
                     ),
             ],

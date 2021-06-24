@@ -1,5 +1,6 @@
 audacious-gtk3
 audacious-plugins-gtk3
+backlight_control
 gruvbox-dark-gtk
 gruvbox-dark-icons-gtk
 gtk-theme-arc-gruvbox-git
@@ -10,7 +11,6 @@ nerd-fonts-fira-code
 otf-monaco-powerline-font-git
 pfetch
 pipes.sh
-ryzenadj-git
 timeshift
 tlpui-git
 ttf-ms-win10-auto

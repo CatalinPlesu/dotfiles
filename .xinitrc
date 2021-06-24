@@ -4,10 +4,10 @@ picom &
 sxhkd &
 lxpolkit &
 dunst &
+nm-applet &
 flameshot &
 #parcellite &
-nm-applet &
-nitrogen --set-zoom-fill --set-color=#282828 --random ./Pictures/nice_wallpapers/ &
+nitrogen --set-zoom-fill --set-color=#282828 --random ./Pictures/wallpapers/ &
 
 kitty &
 

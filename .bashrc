@@ -31,5 +31,6 @@ alias y='yay -S'
 alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 alias ad='git add'
 alias st='git status'
+alias vim='nvim'
 
 pfetch

@@ -9,15 +9,24 @@ Plug 'vimwiki/vimwiki' " have to test
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
-Plug 'jiangmiao/auto-pairs'
+Plug 'freitass/todo.txt-vim'
+" Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " airline plugin
 let g:airline_powerline_fonts=1
 " gruvbox plugin
-" colorscheme gruvbox
+colorscheme gruvbox
+
 " raimbow
 let g:rainbow_active = 1
+
+" vim wiki
+let g:vimwiki_list = [{'path': '~/Documents/notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" todo.txt
+let maplocalleader=";"
 
 syntax on
 set noerrorbells
@@ -49,10 +58,6 @@ set incsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=darkgrey
 
-" Copy To Keyboard
-vnoremap <leader>y "+y
-" Paste From Keyboard
-vnoremap <leader>p "+p
 
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -67,3 +72,6 @@ nnoremap <silent> <leader>H :vertical resize -5<CR>
 map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+" for markdown previewing
+nnoremap <silent> <leader>br :!qutebrowser --target window http://localhost:6419/<cr>
+nnoremap <silent> <leader>md :!grip %<cr>

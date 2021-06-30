@@ -11,12 +11,13 @@ Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 Plug 'freitass/todo.txt-vim'
 " Plug 'jiangmiao/auto-pairs'
+Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
 " airline plugin
 let g:airline_powerline_fonts=1
 " gruvbox plugin
-colorscheme gruvbox
+" colorscheme gruvbox
 
 " raimbow
 let g:rainbow_active = 1
@@ -55,8 +56,21 @@ set noswapfile
 set undodir=~/.local/share/nvim/undodir
 set undofile
 set incsearch
+set ignorecase
 set colorcolumn=80
 highlight ColorColumn ctermbg=darkgrey
+set scrolloff=10
+
+" " trigger `autoread` when files changes on disk
+" set autoread
+" autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" " notification after file change
+" autocmd FileChangedShellPost *
+" \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+" " autosave on FocusLost
+" :au FocusLost * silent! wa
+" " autocmd FileType md,markdown,MarkDown
+" " 	\autocmd FocusLost * :wa
 
 
 " j/k will move virtual lines (lines that wrap)
@@ -73,5 +87,6 @@ map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " for markdown previewing
-nnoremap <silent> <leader>br :!qutebrowser --target window http://localhost:6419/<cr>
+nnoremap <silent> <leader>br :!qutebrowser --target window http://localhost:6419/ &<cr>
 nnoremap <silent> <leader>md :!grip %<cr>
+nnoremap <leader>s :!syncthing<cr>

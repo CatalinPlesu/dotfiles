@@ -5,28 +5,34 @@ super + Escape
 
 super + Return
 	kitty
-super + u
+super + q
 	~/.config/qtile/toggle_qtile.sh && ~/.config/kitty/toggle_kitty.sh && ~/.config/VSCodium/theme.sh
 super + b
 	qutebrowser
-super + f 
+super + f
 	xfce4-appfinder
 super + x
 	xsecurelock -- xset dpms force off
 Print
-	flameshot gui
+	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 ctrl + Print
-	flameshot full -c
+	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+super + g
+	thunar
+ctrl + alt + e
+	emote
+super + d
+	dmenu_run -i -fn "Fira Code-20" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#98971a' -nf '#98971a'
 
 ### audio
 XF86AudioRaiseVolume
 	amixer -D pulse sset Master 5%+
 XF86AudioLowerVolume
-	amixer -D pulse sset Master 5%- 
+	amixer -D pulse sset Master 5%-
 XF86AudioMute
 	amixer -D pulse sset Master toggle
 XF86AudioMicMute
-	amixer -D pulse sset Capture toggle 
+	amixer -D pulse sset Capture toggle
 
 ### Brightness
 XF86MonBrightnessUp
@@ -35,12 +41,12 @@ XF86MonBrightnessDown
 	backlight_control -5
 
 ###keyboard layout
-super + i 
-	setxkbmap us 
-super + o 
-	setxkbmap ro std 
-super + p 
-	setxkbmap ru 
+super + 0
+	setxkbmap us
+super + 9
+	setxkbmap ro std
+super + 8
+	setxkbmap ru
 
 ###
 super + a; {a,z}

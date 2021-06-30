@@ -6,9 +6,10 @@ sxhkd &
 lxpolkit &
 dunst &
 nm-applet &
-flameshot &
 #parcellite &
-nitrogen --set-zoom --set-color=#282828 --random ./Pictures/wallpapers/ &
+nitrogen --restore &
+
+setxkbmap -option caps:super &
 
 kitty &
 

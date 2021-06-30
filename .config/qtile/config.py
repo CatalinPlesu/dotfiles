@@ -13,34 +13,33 @@ keys = [
     Key([mod], "l", lazy.layout.right(), ),
     Key([mod], "j", lazy.layout.down(), ),
     Key([mod], "k", lazy.layout.up(), ),
-   
+
     Key([mod], "space", lazy.layout.next(), ),
-   
+
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), ),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), ),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), ),
-   
+
     Key([mod, "control"], "h", lazy.layout.grow_left(), ),
     Key([mod, "control"], "l", lazy.layout.grow_right(), ),
     Key([mod, "control"], "j", lazy.layout.grow_down(), ),
     Key([mod, "control"], "k", lazy.layout.grow_up(), ),
-   
+
     Key([mod], "Tab", lazy.next_layout(), ),
-    Key([mod], "w", lazy.window.kill(), ),
+    Key([mod], "c", lazy.window.kill(), ),
     Key([mod, "control"], "r", lazy.restart(), ),
     Key([mod, "control"], "q", lazy.shutdown(), ),
 
-    Key([mod], "r", lazy.spawncmd(), ),
     Key([mod], "e",lazy.window.toggle_floating(),),
-    Key([mod], "d",lazy.window.toggle_fullscreen(),),
+    Key([mod], "w",lazy.window.toggle_fullscreen(),),
     Key([mod], "t",lazy.hide_show_bar(),),
 ]
 
 groups = []
-group_names ="1234567890"
-group_labels = "一二三四五六七八九十"
-group_layouts = ["Columns", "Max","Columns","Columns","Columns","Columns","Columns","Columns","Columns","Columns",]
+group_names ="12345"
+group_labels = "💻🌐💬📂📌"
+group_layouts = ["Columns", "Max","Columns","Columns","Columns",]
 for i in range(len(group_names)):
         groups.append( Group( name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i],))
 
@@ -67,7 +66,7 @@ widget_defaults = dict(
     padding=5,
     foreground=foreground,
     background=background,
-    
+
 )
 extension_defaults = widget_defaults.copy()
 
@@ -189,7 +188,7 @@ cursor_warp = False
 floating_layout = layout.Floating(
         border_focus=focus_f,
         border_normal=normal_f,
-        border_width=3, 
+        border_width=3,
         float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),  # gitk
@@ -198,7 +197,7 @@ floating_layout = layout.Floating(
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(title='Application Finder'), 
+    Match(title='Application Finder'),
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

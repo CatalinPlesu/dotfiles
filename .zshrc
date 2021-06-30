@@ -1,12 +1,11 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -v
+HISTSIZE=10000
+SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 
 pfetch
-
+setopt AUTO_CD
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -31,6 +30,9 @@ _comp_options+=(globdots)		# Include hidden files.
 EDITOR='nvim'
 # vi mode
 bindkey -v
+
+# Enable searching through history
+bindkey '^R' history-incremental-pattern-search-backward
 
 # Edit line in vim buffer ctrl-v
 autoload edit-command-line; zle -N edit-command-line
@@ -66,8 +68,6 @@ zle -N zle-keymap-select
 
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml
-if [ $TERM != "linux" ]
-then
 eval "$(starship init zsh)"
-fi
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

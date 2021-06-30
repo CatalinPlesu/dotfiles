@@ -15,3 +15,8 @@ alias vim='nvim'
 alias note='cd ~/Documents/notes && vim index.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
 alias ntbak='rsync /home/catalin/Documents/notes/ /media/catalin/catalin/notes -r'
+
+alias evim="nvim ~/.config/nvim/init.vim"
+alias eqtile="nvim ~/.config/qtile/config.py"
+alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
+alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"

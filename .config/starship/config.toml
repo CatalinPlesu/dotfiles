@@ -2,56 +2,22 @@
 
 # Use custom format
 format = """
-[╭─](bold blue)$username\
 $directory\
-$git_branch\
-$git_status\
-$cmd_duration\
 $status\
-$nodejs\
-$python\
-$ruby\
-$line_break\
-[╰](bold blue)$character """
-
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+$character """
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
-[username]
-show_always = true
-
 [directory]
+truncation_length=1
 read_only = " 🔒"
 read_only_style = "red bold"
 style = "blue bold"
 format = "[$path ]($style)[$read_only]($read_only_style)"
 
-[git_branch]
-symbol = " "
-always_show_remote = false
-format = "[on $symbol$branch]($style) "
-style = "purple bold"
-truncation_length = "2^63 - 1"
-truncation_symbol = "…"
-only_attached = false
-disabled = false
-
 [character]
-success_symbol = "[❯](bold blue)"
+success_symbol = "[❯](bold green)"
 error_symbol= "[✖](bold red)"
 vicmd_symbol="[❮](bold yellow)"
 
-[nodejs]
-format="js [🤖 ($version )]($style)"
-
-[ruby]
-format="rb [$symbol($version )]($style)"
-
-[python]
-format="py [$symbol($version )]($style)"
-
-[cmd_duration]
-format="[$duration]($style) "

@@ -5,8 +5,8 @@ super + Escape
 
 super + Return
 	kitty
-super + q
-	~/.config/qtile/toggle_qtile.sh && ~/.config/kitty/toggle_kitty.sh && ~/.config/VSCodium/theme.sh
+# super + q
+# 	~/.config/qtile/toggle_qtile.sh && ~/.config/kitty/toggle_kitty.sh && ~/.config/VSCodium/theme.sh
 super + b
 	qutebrowser
 super + f
@@ -22,7 +22,7 @@ super + g
 ctrl + alt + e
 	emote
 super + d
-	dmenu_run -i -fn "Fira Code-20" -nb '#1e1e1e' -sf '#1e1e1e' -sb '#98971a' -nf '#98971a'
+	dmenu_run -i -fn "Fira Code-17" -nb '#282828' -sf '#282828' -sb '#98971a' -nf '#98971a'
 
 ### audio
 XF86AudioRaiseVolume

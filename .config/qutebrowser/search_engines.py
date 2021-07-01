@@ -27,5 +27,8 @@ c.url.searchengines = {
 
     't': 'https://translate.google.com/?sl=auto&tl=ro&text={}&op=translate',
     'te': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
-    'tr': 'https://translate.google.com/?sl=auto&tl=ru&text={}&op=translate'
+    'tr': 'https://translate.google.com/?sl=auto&tl=ru&text={}&op=translate',
+
+    'dict': 'https://www.urbandictionary.com/define.php?term={}',
+    'dex': 'https://dexonline.ro/definitie/{}',
 }

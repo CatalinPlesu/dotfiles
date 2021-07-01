@@ -38,7 +38,7 @@ keys = [
 
 groups = []
 group_names ="12345"
-group_labels = "💻🌐💬📂📌"
+group_labels = "一二三四五"
 group_layouts = ["Columns", "Max","Columns","Columns","Columns",]
 for i in range(len(group_names)):
         groups.append( Group( name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i],))
@@ -86,9 +86,6 @@ screens = [
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Systray(
-                    icon_size=25,
-                    ),
                 widget.TextBox(
                     padding=0,
                     text= '',
@@ -163,6 +160,10 @@ screens = [
                     #format='%d.%m.%Y',
                     format='%I:%M',
                     background=purple,
+                    ),
+                widget.Systray(
+                    background=purple,
+                    icon_size=25,
                     ),
             ],
             30,

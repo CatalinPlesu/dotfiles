@@ -13,7 +13,7 @@ map <C-l> <C-w>l
 nnoremap <silent> <leader>L :vertical resize +5<CR>
 nnoremap <silent> <leader>H :vertical resize -5<CR>
 
-map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " for markdown previewing

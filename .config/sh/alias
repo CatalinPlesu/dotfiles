@@ -2,14 +2,19 @@ alias ls='ls --color=auto'
 alias la='ls -a --color=auto'
 alias l='ls -l --color=auto'
 alias grep='grep --color=auto'
+
 alias s='sudo pacman -S'
 alias ss='pacman -Ss'
 alias i='pacman -Si'
 alias r='sudo pacman -Rsn'
 alias y='yay -S'
 alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
-alias ad='git add'
-alias st='git status'
+
+alias gad='git add'
+alias gst='git status'
+alias ecm='git commit --allow-empty-message'
+alias gph='git push'
+
 alias vim='nvim'
 
 alias note='cd ~/Documents/notes && vim index.md'

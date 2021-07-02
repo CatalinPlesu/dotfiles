@@ -1,0 +1,22 @@
+.*
+*/
+!/.gitignore
+# Another example
+!/.config/
+/.config/*
+!/.config/dunst/
+!/.config/htop/
+!/.config/kitty/
+!/.config/nvim/
+!/.config/nvim/*
+!/.config/nvim/**
+!/.config/nvim/*/
+!/.config/picom/
+!/.config/qtile/
+!/.config/qutebrowser/
+/.config/qutebrowser/autoconfig.yml
+!/.config/sh/
+!/.config/starship/
+!/.config/sxhkd/
+!/.config/sxiv/
+!/.config/zathura/

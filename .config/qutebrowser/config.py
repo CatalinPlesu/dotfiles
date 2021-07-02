@@ -1,7 +1,8 @@
 config.load_autoconfig()
 config.source("bindings.py")
 config.source("search_engines.py")
-config.source('themes/gruvbox.py')
+config.source("themes/gruvbox.py")
+config.source("startpage.py")
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"
@@ -34,7 +35,7 @@ c.content.javascript.enabled = True #False
 
 #new page
 c.url.default_page = "~/.config/qutebrowser/blank.html"
-c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
+# c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
 
 
 js_whitelist = [

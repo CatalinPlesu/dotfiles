@@ -15,6 +15,7 @@
 !/.config/qtile/
 !/.config/qutebrowser/
 /.config/qutebrowser/autoconfig.yml
+!/.config/qutebrowser/*/
 !/.config/sh/
 !/.config/starship/
 !/.config/sxhkd/

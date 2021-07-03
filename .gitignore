@@ -14,8 +14,9 @@
 !/.config/picom/
 !/.config/qtile/
 !/.config/qutebrowser/
-/.config/qutebrowser/autoconfig.yml
 !/.config/qutebrowser/*/
+!/.config/qutebrowser/**
+/.config/qutebrowser/autoconfig.yml
 !/.config/sh/
 !/.config/starship/
 !/.config/sxhkd/

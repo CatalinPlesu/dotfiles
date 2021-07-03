@@ -22,6 +22,7 @@ startpage = [
 'https://www.reddit.com/r/ecchi/',
 'https://www.pixiv.net/en/users/6210796/illustrations',
 'https://www.pixiv.net/en/users/554102/illustrations',
+'https://www.deviantart.com/watch/deviations',
 '',
 ]
-c.url.start_pages = [startpage[randrange(0,len(startpage)-2)]]
+c.url.default_page= startpage[randrange(0,len(startpage)-2)]

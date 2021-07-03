@@ -1,6 +1,6 @@
 #!/bin/bash
 file='/home/catalin/.config/qutebrowser/artists'
-out='/home/catalin/.config/qutebrowser/page.py'
+out='/home/catalin/.config/qutebrowser/modules/page.py'
 echo "from random import randrange" > $out
 echo "startpage = [" >> $out
 while read line; do

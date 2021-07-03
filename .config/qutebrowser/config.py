@@ -1,8 +1,8 @@
 config.load_autoconfig()
-config.source("bindings.py")
-config.source("search_engines.py")
-config.source("themes/gruvbox.py")
-config.source("page.py")
+config.source("modules/bindings.py")
+config.source("modules/search_engines.py")
+config.source("themes/gruvbox/gruvbox.py")
+config.source("modules/page.py")
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"
@@ -31,11 +31,11 @@ c.content.headers.user_agent = (
     " Chrome/80.0.3987.163 Safari/537.36"
 )
 c.content.javascript.enabled = True #False
-# c.content.user_stylesheets = "./themes/gruvbox-all-sites.css"
+# c.content.user_stylesheets = "./themes/gruvbox/gruvbox-all-sites.css"
 
 #new page
 # c.url.default_page = "~/.config/qutebrowser/blank.html"
-c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
+c.url.start_pages = ["~/.config/qutebrowser/assets/blank.html"]
 
 
 js_whitelist = [

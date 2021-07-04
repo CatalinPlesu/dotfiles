@@ -1,6 +1,6 @@
 !xrdb .Xresources
-!Xft.dpi: 96
-Xft.dpi: 192
+Xft.dpi: 96
+!Xft.dpi: 192
 !Xft.dpi: 120
 
 Xft.autohint: 0
@@ -10,11 +10,12 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+*.font: Fira Code:size=16:style=regular
+!Sxiv.font: Fira Code:size=16:style=regular
+!Sxiv.foreground: #ebdbb2
+!Sxiv.background: #282828
 
-
-! hard contrast: *background: #1d2021
 *background: #282828
-! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828

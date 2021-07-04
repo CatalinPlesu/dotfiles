@@ -9,7 +9,7 @@ super + Return
 # 	~/.config/qtile/toggle_qtile.sh && ~/.config/kitty/toggle_kitty.sh && ~/.config/VSCodium/theme.sh
 super + b
 	qutebrowser
-super + f
+super + q
 	xfce4-appfinder
 super + x
 	xsecurelock -- xset dpms force off
@@ -17,9 +17,9 @@ Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 ctrl + Print
 	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
-super + g
+super + f
 	thunar
-ctrl + alt + e
+super +s
 	emote
 super + d
 	dmenu_run -i -fn "Fira Code-17" -nb '#282828' -sf '#282828' -sb '#98971a' -nf '#98971a'

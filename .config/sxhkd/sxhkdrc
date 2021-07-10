@@ -23,6 +23,8 @@ super +s
 	emote
 super + d
 	dmenu_run -i -fn "Fira Code-17" -nb '#282828' -sf '#282828' -sb '#98971a' -nf '#98971a'
+super + shift + m
+	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
 
 ### audio
 XF86AudioRaiseVolume

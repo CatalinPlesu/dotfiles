@@ -8,6 +8,7 @@ alias ss='pacman -Ss'
 alias i='pacman -Si'
 alias r='sudo pacman -Rsn'
 alias y='yay -S'
+alias q='pacman -Q'
 alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 
 alias gad='git add'
@@ -16,8 +17,13 @@ alias ecm='git commit --allow-empty-message'
 alias gph='git push'
 
 alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+
+alias z="zathura"
 
 alias note='cd ~/Documents/notes && vim index.md'
+alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
 alias ntbak='rsync /home/catalin/Documents/notes/ /media/catalin/catalin/notes -r'
 

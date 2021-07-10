@@ -26,6 +26,14 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), ),
     Key([mod, "control"], "k", lazy.layout.grow_up(), ),
 
+    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
+    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
+    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
+    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
+
+    Key([mod, "shift"], "n", lazy.layout.normalize()),
+    Key([mod], "n", lazy.layout.toggle_split()),
+
     Key([mod], "Tab", lazy.next_layout(), ),
     Key([mod], "c", lazy.window.kill(), ),
     Key([mod, "control"], "r", lazy.restart(), ),
@@ -39,7 +47,7 @@ keys = [
 groups = []
 group_names ="12345"
 group_labels = "一二三四五"
-group_layouts = ["Columns", "Max","Columns","Columns","Columns",]
+group_layouts = ["Bsp", "Max","Bsp","Bsp","Bsp",]
 for i in range(len(group_names)):
         groups.append( Group( name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i],))
 
@@ -58,6 +66,11 @@ layouts = [
         margin=5,
         ),
     layout.Max(),
+    layout.Bsp(
+        border_focus=red,
+        border_normal=normal_t,
+        border_width=3,
+        ),
 ]
 
 widget_defaults = dict(

@@ -8,7 +8,6 @@ searx = [
         "https://searx.zackptg5.com/",
         "https://s.zhaocloud.net/",
         "https://searx.divided-by-zero.eu/",
-        "https://swag.pw/",
         "https://searx.sp-codes.de/",
         "https://searx.lnode.net/",
         ]

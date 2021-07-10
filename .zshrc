@@ -4,13 +4,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 
-pfetch
 setopt AUTO_CD
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-# Enable colors and change prompt:
-autoload -U colors && colors
 
 # Source configs
 for f in ~/.config/sh/*; do source "$f"; done
@@ -26,6 +22,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+
 
 EDITOR='nvim'
 # vi mode
@@ -48,7 +45,10 @@ bindkey -M menuselect 'l' vi-forward-char
 # Fix backspace bug when switching modes
 bindkey "^?" backward-delete-char
 
-export STARSHIP_CONFIG=~/.config/starship/config.toml
-eval "$(starship init zsh)"
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+PATH=/home/catalin/.local/share/gem/ruby/3.0.0/bin:$PATH
 
+export STARSHIP_CONFIG=~/.config/starship/config.toml
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
+
+pfetch

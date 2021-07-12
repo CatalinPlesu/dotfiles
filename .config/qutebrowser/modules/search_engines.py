@@ -14,10 +14,13 @@ searx = [
 c.url.searchengines = {
     'DEFAULT': searx[randrange(0,len(searx)-1)]+'search?q={}',
     'd': 'https://duckduckgo.com/?q={}',
+
     'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',
     'arch': 'https://archlinux.org/packages/?q={}',
     'wiki': 'https://wiki.archlinux.org/index.php/Special:Search?search={}',
+
     'git': 'http://github.com/search?q={}',
+    'rb': 'https://rubygems.org/search?query={}',
 
     'y': 'https://www.youtube.com/results?search_query={}&search=Search',
     'g': 'https://www.google.com/search?q={}',

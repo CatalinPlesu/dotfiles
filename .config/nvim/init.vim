@@ -50,7 +50,7 @@ set incsearch
 set ignorecase
 set colorcolumn=80
 set scrolloff=10
-set cursorline cursorcolumn
+" set cursorline cursorcolumn
 " to be able to write anywhere even in the midle of nowhere
 set virtualedit=all
 

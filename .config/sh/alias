@@ -31,3 +31,5 @@ alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
+
+alias acad="cd ~/code/ruby/academy"

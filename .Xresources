@@ -11,9 +11,9 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 *.font: Fira Code:size=16:style=regular
-!Sxiv.font: Fira Code:size=16:style=regular
-!Sxiv.foreground: #ebdbb2
-!Sxiv.background: #282828
+Sxiv.font: Fira Code:size=16:style=regular
+Sxiv.foreground: #ebdbb2
+Sxiv.background: #282828
 
 *background: #282828
 *foreground: #ebdbb2

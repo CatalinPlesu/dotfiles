@@ -52,7 +52,7 @@ set colorcolumn=80
 set scrolloff=10
 " set cursorline cursorcolumn
 " to be able to write anywhere even in the midle of nowhere
-set virtualedit=all
+" set virtualedit=all
 
 highlight ColorColumn ctermbg=darkgrey
 " 232 blackest to 255 white

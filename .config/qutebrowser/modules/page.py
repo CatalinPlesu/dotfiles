@@ -24,6 +24,7 @@ startpage = [
 'https://www.pixiv.net/en/users/554102/illustrations',
 'https://www.deviantart.com/watch/deviations',
 'https://www.pixiv.net/en/users/189732',
+'https://www.pixiv.net/en/users/14143785',
 '',
 ]
 c.url.default_page= startpage[randrange(0,len(startpage)-2)]

@@ -32,4 +32,4 @@ alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
 
-alias acad="cd ~/code/ruby/academy"
+alias task="cd ~/code/ruby/academy/SaltEdge_TestTask"

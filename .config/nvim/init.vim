@@ -6,22 +6,28 @@ Plug 'gruvbox-community/gruvbox' " sexy color scheme
 Plug 'vim-airline/vim-airline' " bottom line
 Plug 'mbbill/undotree' " leader u
 Plug 'preservim/nerdtree' " leader n
-Plug 'vimwiki/vimwiki' " have to test
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
-Plug 'freitass/todo.txt-vim'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'maxboisvert/vim-simple-complete'
+
+Plug 'vimwiki/vimwiki' " great note taking experience
+Plug 'freitass/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
+
+" games XD
+Plug 'ThePrimeagen/vim-be-good'
+Plug 'johngrib/vim-game-snake'
+Plug 'johngrib/vim-game-code-break'
 call plug#end()
 
 "plugin settings
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 
 let g:rainbow_active = 1
 
-" colorscheme gruvbox
+colorscheme gruvbox
 
 let maplocalleader=";"
 

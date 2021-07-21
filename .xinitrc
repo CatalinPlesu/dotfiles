@@ -11,7 +11,7 @@ nitrogen --restore &
 emote &
 
 setxkbmap -option caps:super &
-xset r rate 300 50 &
+xset r rate 900 1 &
 
 kitty &
 

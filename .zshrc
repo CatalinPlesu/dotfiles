@@ -46,6 +46,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey "^?" backward-delete-char
 
 PATH=/home/catalin/.local/share/gem/ruby/3.0.0/bin:$PATH
+PATH=/home/catalin/scripts:$PATH
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

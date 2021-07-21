@@ -18,8 +18,6 @@ Plug 'dhruvasagar/vim-table-mode'
 
 " games XD
 Plug 'ThePrimeagen/vim-be-good'
-Plug 'johngrib/vim-game-snake'
-Plug 'johngrib/vim-game-code-break'
 call plug#end()
 
 "plugin settings

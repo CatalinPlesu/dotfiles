@@ -52,4 +52,4 @@ export STARSHIP_CONFIG=~/.config/starship/config.toml
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 
-pfetch
+pfetch | lolcat

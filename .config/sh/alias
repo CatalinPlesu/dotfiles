@@ -1,4 +1,5 @@
 alias ls='ls --color=auto'
+alias lls='ls | lolcat'
 alias la='ls -a --color=auto'
 alias l='ls -l --color=auto'
 alias grep='grep --color=auto'

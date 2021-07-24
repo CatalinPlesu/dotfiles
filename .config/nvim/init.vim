@@ -98,6 +98,6 @@ nnoremap <leader>O O<Esc>
 autocmd InsertEnter * norm zz
 
 " Remove trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
 
 

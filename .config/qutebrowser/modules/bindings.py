@@ -8,6 +8,8 @@ bindings = {
     ';d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     ";I": "hint images download",
 
+    'sl': 'set-cmd-text :open -t localhost',
+
     "<Ctrl-Shift-J>": "tab-move -",
     "<Ctrl-Shift-K>": "tab-move +",
     "<Shift-Escape>": "fake-key <Escape>",
@@ -27,12 +29,10 @@ bindings = {
     "cc": "jseval --quiet --file ~/.config/qutebrowser/assets/no-cookies.js",
 
     "ar": "yank ;; spawn nvim -c ':norm Gp<cr>' -c ':norm o' -c 'write' -c 'quit' /home/catalin/.config/qutebrowser/artists ;; spawn --userscript artists.sh",
+    "<Ctrl-t>": "open -t ;; set url.default_page `spawn python /home/catalin/.config/qutebrowser/modules/page.py`" 
 
 }
 for key, bind in bindings.items():
     config.bind(key, bind)
-
-
-
 
 

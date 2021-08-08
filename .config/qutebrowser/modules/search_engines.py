@@ -6,8 +6,6 @@ searx = [
         "https://searx.tux.land/",
         "https://searx.tuxcloud.net/",
         "https://searx.zackptg5.com/",
-        "https://s.zhaocloud.net/",
-        "https://searx.divided-by-zero.eu/",
         "https://searx.sp-codes.de/",
         "https://searx.lnode.net/",
         ]

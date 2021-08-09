@@ -18,7 +18,6 @@ alias ecm='git commit --allow-empty-message'
 alias gph='git push'
 
 alias vim='nvim'
-alias vi='nvim'
 alias v='nvim'
 
 alias z="zathura"

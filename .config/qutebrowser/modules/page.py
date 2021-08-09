@@ -26,7 +26,8 @@ def startpage():
 	'https://www.deviantart.com/watch/deviations',
 	'https://www.pixiv.net/en/users/189732',
 	'https://www.pixiv.net/en/users/14143785',
-	'https://www.artstation.com/nefred',
+	'hhttps://www.instagram.com/sakusya2/ttps://www.artstation.com/nefred',
+	'https://www.artstation.com/phw',
 	'',
 	]
 	return pages[randrange(0,len(pages)-2)]

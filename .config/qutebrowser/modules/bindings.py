@@ -29,10 +29,11 @@ bindings = {
     "cc": "jseval --quiet --file ~/.config/qutebrowser/assets/no-cookies.js",
 
     "ar": "yank ;; spawn nvim -c ':norm Gp<cr>' -c ':norm o' -c 'write' -c 'quit' /home/catalin/.config/qutebrowser/artists ;; spawn --userscript artists.sh",
-    "<Ctrl-t>": "open -t ;; set url.default_page `spawn python /home/catalin/.config/qutebrowser/modules/page.py`" 
+    "<Ctrl-t>": "spawn --userscript random_page.sh" 
 
 }
 for key, bind in bindings.items():
     config.bind(key, bind)
 
+# qutebrowser set url.default_page `python /home/catalin/.config/qutebrowser/modules/page.py` --target tab-silent
 

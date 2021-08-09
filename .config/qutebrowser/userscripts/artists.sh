@@ -9,3 +9,4 @@ echo "	'$line'," >> $out
 done < $file
 echo "	]" >> $out
 echo "	return pages[randrange(0,len(pages)-2)]" >> $out
+echo "print(startpage())" >> $out

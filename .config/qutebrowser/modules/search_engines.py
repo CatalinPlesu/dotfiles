@@ -3,7 +3,6 @@ searx = [
         "https://search.mdosch.de/",
         "https://searx.info/",
         "https://searx.tunkki.xyz/searx/",
-        "https://searx.tux.land/",
         "https://searx.tuxcloud.net/",
         "https://searx.zackptg5.com/",
         "https://searx.sp-codes.de/",

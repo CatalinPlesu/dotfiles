@@ -2,7 +2,6 @@
 *
 */
 !/.gitignore
-# Another example
 !/.config/
 /.config/*
 !/.config/dunst/

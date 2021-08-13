@@ -16,6 +16,7 @@ alias gad='git add'
 alias gst='git status'
 alias ecm='git commit --allow-empty-message'
 alias gph='git push'
+alias gcl='git clone'
 
 alias vim='nvim'
 alias v='nvim'

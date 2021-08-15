@@ -6,6 +6,7 @@
 /.config/*
 !/.config/x11/
 !/.config/tmux/
+!/.config/wakatime/
 !/.config/dunst/
 !/.config/htop/
 !/.config/kitty/

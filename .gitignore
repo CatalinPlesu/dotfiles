@@ -17,7 +17,7 @@
 !/.config/qutebrowser/*/
 !/.config/qutebrowser/**
 /.config/qutebrowser/autoconfig.yml
-!/.config/sh/
+!/.config/shell/
 !/.config/starship/
 !/.config/sxhkd/
 !/.config/sxiv/

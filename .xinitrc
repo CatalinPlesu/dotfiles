@@ -14,5 +14,6 @@ setxkbmap -option caps:super &
 xset r rate 900 1 &
 
 kitty &
+# xrandr --output eDP --mode 1280x720
 
 exec qtile start

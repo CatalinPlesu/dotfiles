@@ -3,8 +3,6 @@
 [[ $- != *i* ]] && return
 bind 'set completion-ignore-case on'
 
-export PATH=/home/catalin/scripts:$PATH
-
 set -o vi
 
 RESET='\[\033[00m\]'
@@ -15,6 +13,7 @@ LBLUE='\[\033[01;34m\]'
 LPURPLE='\[\033[01;35m\]'
 PS1="${RESET}${LRED}[${LYELLOW}c${LGREEN}a${LBLUE}t${LPURPLE}a${LRED}l${LYELLOW}i${LGREEN}n${LPURPLE} \W${LRED}]${RESET} "
 
-source ~/.config/sh/alias
+source ~/.config/shell/alias
+source ~/.config/shell/tty
 
 pfetch

@@ -4,6 +4,8 @@
 !/.gitignore
 !/.config/
 /.config/*
+!/.config/x11/
+!/.config/tmux/
 !/.config/dunst/
 !/.config/htop/
 !/.config/kitty/

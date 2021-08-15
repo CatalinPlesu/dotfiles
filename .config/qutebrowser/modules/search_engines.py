@@ -1,6 +1,5 @@
 from random import randrange
 searx = [
-        "https://search.mdosch.de/",
         "https://searx.info/",
         "https://searx.tunkki.xyz/searx/",
         "https://searx.tuxcloud.net/",

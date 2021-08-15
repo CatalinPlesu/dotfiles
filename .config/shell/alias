@@ -1,9 +1,11 @@
 #!/bin/sh
 alias ls='ls --color=auto'
-alias lls='ls | lolcat'
 alias la='ls -a --color=auto'
 alias l='ls -l --color=auto'
+alias lah='ls -lah --color=auto'
 alias grep='grep --color=auto'
+
+alias lls='ls | lolcat'
 
 alias s='doas pacman -S'
 alias ss='pacman -Ss'
@@ -36,3 +38,5 @@ alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
 
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
+
+alias stx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'

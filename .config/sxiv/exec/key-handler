@@ -1,0 +1,16 @@
+#!/bin/sh
+while read file
+do
+        case "$1" in
+        "C-c")
+                echo -n "$file" | xargs -I x xclip -selection clipboard -t "image/png" -i x;;
+        "C-w")
+                nitrogen --save --set-zoom-fill "$file" ;;
+		"C-comma")
+                convert -rotate 90 "$file" "$file" ;;
+		"C-period")
+                convert -rotate 180 "$file" "$file" ;;
+		"C-slash")
+                convert -rotate 270 "$file" "$file" ;;
+        esac
+done

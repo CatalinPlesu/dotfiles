@@ -19,7 +19,7 @@ alias gad='git add'
 alias gst='git status'
 alias ecm='git commit --allow-empty-message'
 alias gph='git push'
-alias gcl='git clone'
+alias gcl='git clone `xclip -out -selection clipboard`'
 
 alias vim='nvim'
 alias v='nvim'
@@ -38,5 +38,3 @@ alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
 
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
-
-alias stx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'

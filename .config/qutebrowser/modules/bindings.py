@@ -23,8 +23,13 @@ bindings = {
 
     "xx": "config-cycle content.javascript.enabled false true ;; reload",
 
-    ';b': 'config-cycle content.user_stylesheets ./themes/gruvbox/gruvbox-all-sites.css ""',
-    ';t': 'config-cycle statusbar.show always never ;; config-cycle tabs.show always never',
+    ',gr': 'config-cycle content.user_stylesheets ./css/gruvbox-all-sites.css ""',
+    ',sd': 'config-cycle content.user_stylesheets ./css/solarized-dark-all-sites.css ""',
+    ',sl': 'config-cycle content.user_stylesheets ./css/solarized-light-all-sites.css ""',
+    ',ap': 'config-cycle content.user_stylesheets ./css/apprentice-all-sites.css ""',
+    ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
+
+    ',t': 'config-cycle statusbar.show always never ;; config-cycle tabs.show always never',
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/assets/no-cookies.js",
 

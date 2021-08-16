@@ -3,7 +3,7 @@ config.source("modules/bindings.py")
 config.source("modules/search_engines.py")
 config.source("themes/gruvbox/gruvbox.py")
 # config.source("modules/page.py")
-from modules.page import startpage
+from modules.page import newpage
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"
@@ -34,10 +34,9 @@ c.content.headers.user_agent = (
 c.content.javascript.enabled = True #False
 # c.content.user_stylesheets = "./themes/gruvbox/gruvbox-all-sites.css"
 
-#new page
-# c.url.default_page = "~/.config/qutebrowser/blank.html"
-c.url.default_page = startpage()
-c.url.start_pages = ["~/.config/qutebrowser/assets/blank.html"]
+c.url.default_page = newpage()
+c.url.start_pages = ["~/code/web/start_pages/tree_of_life/index.html"]
+
 
 js_whitelist = [
     "*://localhost/*",

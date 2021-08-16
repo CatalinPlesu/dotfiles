@@ -1,5 +1,5 @@
 from random import randrange
-def startpage():
+def newpage():
 	pages = [
 	'https://twitter.com/Raichiyo33',
 	'https://twitter.com/akairiot?lang=en',
@@ -26,9 +26,11 @@ def startpage():
 	'https://www.deviantart.com/watch/deviations',
 	'https://www.pixiv.net/en/users/189732',
 	'https://www.pixiv.net/en/users/14143785',
-	'hhttps://www.instagram.com/sakusya2/ttps://www.artstation.com/nefred',
+	'https://www.instagram.com/sakusya2/',
+	'https://www.artstation.com/nefred',
 	'https://www.artstation.com/phw',
+	'https://www.artstation.com/arowana',
 	'',
 	]
 	return pages[randrange(0,len(pages)-2)]
-print(startpage())
+print(newpage())

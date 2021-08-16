@@ -31,7 +31,7 @@ bindings = {
 
     ',t': 'config-cycle statusbar.show always never ;; config-cycle tabs.show always never',
 
-    "cc": "jseval --quiet --file ~/.config/qutebrowser/assets/no-cookies.js",
+    "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
 
     "ar": "yank ;; spawn nvim -c ':norm Gp<cr>' -c ':norm o' -c 'write' -c 'quit' /home/catalin/.config/qutebrowser/artists ;; spawn --userscript artists.sh",
     "<Ctrl-t>": "spawn --userscript random_page.sh" 

@@ -27,6 +27,7 @@ alias v='nvim'
 alias z="zathura"
 
 alias note='cd ~/Documents/notes && vim index.md'
+alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'
 alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
 alias ntbak='rsync /home/catalin/Documents/notes/ /media/catalin/catalin/notes -r'
@@ -35,7 +36,8 @@ alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
+alias esh="nvim ~/.config/shell/alias"
 
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
-alias stx='startx "$XDG_CONFIG_HOME/X11/xinitrc" -- "$XDG_CONFIG_HOME/X11/xserverrc" vt1'
+alias now="date +%d_%m_%Y"

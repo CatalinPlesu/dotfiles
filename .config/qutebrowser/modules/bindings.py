@@ -34,6 +34,7 @@ bindings = {
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
 
     "ar": "yank ;; spawn --userscript links.sh",
+    "al": "spawn --userscript open_links.sh",
     "<Ctrl-t>": "spawn --userscript random_page.sh" 
 
 }

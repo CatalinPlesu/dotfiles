@@ -97,6 +97,7 @@ function Preview()
 endfunction
 nnoremap <leader>md :call Preview()<cr>
 nnoremap <leader>s :!syncthing<cr>
+nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 
 ""inserting empty lines
 nnoremap <leader>o o<Esc>

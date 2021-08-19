@@ -1,8 +1,6 @@
 #!/bin/sh
 
-export PATH=/home/catalin/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=/home/catalin/code/scripts:$PATH
-export PATH=/home/catalin/scripts:$PATH
 
 # Default programs:
 export EDITOR="nvim"
@@ -21,7 +19,7 @@ export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"

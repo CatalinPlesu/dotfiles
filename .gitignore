@@ -21,6 +21,7 @@
 !/.config/qutebrowser/**
 /.config/qutebrowser/autoconfig.yml
 /.config/qutebrowser/qsettings/*
+/.config/qutebrowser/bookmarks/*
 !/.config/shell/
 !/.config/starship/
 !/.config/sxhkd/

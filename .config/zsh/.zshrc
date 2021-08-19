@@ -12,7 +12,7 @@ setopt AUTO_CD
 for f in ~/.config/shell/*; do source "$f"; done
 
 # Source plugins
-for f in ~/.config/zsh/*; do source "$f"; done
+for f in ~/.config/zsh/plugins/*; do source "$f"; done
 
 autoload -U compinit && compinit -u
 zstyle ':completion:*' menu select

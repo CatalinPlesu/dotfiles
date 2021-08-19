@@ -20,6 +20,8 @@ c.url.searchengines = {
     'i': 'https://yandex.com/search/?text={}',
     's': 'https://swisscows.com/web?culture=en&query={}',
     'y': 'https://www.youtube.com/results?search_query={}&search=Search',
+        # entertainment
+    'r': 'https://www.reddit.com/r/{}/',
         # arch linux
     'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',
     'arch': 'https://archlinux.org/packages/?q={}',
@@ -35,7 +37,7 @@ c.url.searchengines = {
         #anime
     'z': 'https://zoro.to/search?keyword={}',
         # tech
-    'git': 'http://github.com/search?q={}',
-    'rb': 'https://rubygems.org/search?query={}',
+    'hub': 'http://github.com/search?q={}',
+    'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
     'repo': 'http://github.com/catalinhimself/{}',
 }

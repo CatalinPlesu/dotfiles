@@ -2,7 +2,6 @@ config.load_autoconfig()
 config.source("modules/bindings.py")
 config.source("modules/search_engines.py")
 config.source("themes/gruvbox.py")
-from modules.page import newpage
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"
@@ -21,8 +20,8 @@ c.downloads.position = 'bottom'
 c.zoom.default = "150%"
 
 
-c.url.default_page = newpage()
-c.url.start_pages = ["~/code/web/start_pages/tree_of_life/index.html"]
+c.url.default_page = "~/code/web/start_pages/18_08_2021/index.html"
+c.url.start_pages = ["~/code/web/start_pages/18_08_2021/index.html"]
 
 
 # Content (JS, cookies, encoding, etc)

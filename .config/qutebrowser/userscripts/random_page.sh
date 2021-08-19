@@ -1,2 +1,3 @@
 #!/bin/sh
-qutebrowser `python /home/catalin/.config/qutebrowser/modules/page.py` --target tab-bg-silent 
+url=`shuf -n 1 /home/catalin/.config/qutebrowser/artists`  
+qutebrowser $url --target tab-bg-silent 

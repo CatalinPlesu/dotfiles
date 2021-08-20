@@ -4,9 +4,7 @@ super + Escape
 
 
 super + Return
-	kitty
-# super + q
-# 	~/.config/qtile/toggle_qtile.sh && ~/.config/kitty/toggle_kitty.sh && ~/.config/VSCodium/theme.sh
+	$TERMINAL	
 super + b
 	qutebrowser
 super + q
@@ -23,7 +21,7 @@ super +s
 	emote
 super + d
 	rofi -show combi 
-super + shift + m
+super + m
 	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
 
 ### audio

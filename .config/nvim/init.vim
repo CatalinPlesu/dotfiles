@@ -20,33 +20,28 @@ Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'maxboisvert/vim-simple-complete'
-
 Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'freitass/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
-
 "" games XD
 Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 ""plugin settings
 let g:airline_powerline_fonts=0
-
 let g:rainbow_active = 1
-
 colorscheme gruvbox
-
 let maplocalleader=";"
-
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
 
 "" settings
 syntax on
 set noerrorbells
 ""use system clipboard
 set clipboard+=unnamedplus
+""mouse selection
+set mouse=a
 set wildmode=longest,list,full
 set encoding=utf-8
 set number relativenumber
@@ -66,7 +61,6 @@ set scrolloff=10
 " set cursorline cursorcolumn
 "" to be able to write anywhere even in the midle of nowhere
 " set virtualedit=all
-
 highlight ColorColumn ctermbg=darkgrey
 "" 232 blackest to 255 white
 :hi CursorLine   cterm=NONE ctermbg=238
@@ -74,31 +68,23 @@ highlight ColorColumn ctermbg=darkgrey
 
 ""bindings
 let mapleader = " "
-
 nnoremap <Leader>c :set cursorline! cursorcolumn!<cr>
 nnoremap <leader>va :set virtualedit=all<cr>
 nnoremap <leader>vo :set virtualedit=""<cr>
- 
 "" j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
 "" Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
 nnoremap <silent> <leader>l :vertical resize +5<CR>
 nnoremap <silent> <leader>h :vertical resize -5<CR>
-
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-
 "" clean white space
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
-
-
 "" for markdown previewing
 function Preview()
 	!qutebrowser --target window http://localhost:6419/ &
@@ -107,7 +93,6 @@ endfunction
 nnoremap <leader>md :call Preview()<cr>
 nnoremap <leader>s :!syncthing<cr>
 nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
-
 ""inserting empty lines
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
@@ -115,6 +100,5 @@ nnoremap <leader>O O<Esc>
 ""autocmd settings
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz
-
 "" Remove trailing whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e

@@ -1,87 +1,22 @@
-#blank line between shell prompts
-add_newline = true
+# starship config.toml
 
+# Use custom format
 format = """
-$username\
-$hostname\
-$shlvl\
-$kubernetes\
 $directory\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
-$cmd_duration\
-$line_break\
-$lua\
-$jobs\
-$battery\
-$time\
 $status\
-$shell\
-$character"""
+$character """
 
-#[line_break]
-#disabled = true
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[directory]
+truncation_length=1
+read_only = " 🔒"
+read_only_style = "red bold"
+style = "blue bold"
+format = "[$path ]($style)[$read_only]($read_only_style)"
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol= "[✖](bold red)"
 vicmd_symbol="[❮](bold yellow)"
-
-[username]
-format = "[$user](bold bright-blue)@"
-show_always = true
-
-[hostname]
-ssh_only = false
-format = "[$hostname](bold red):"
-disabled = false
-
-[directory]
-truncation_symbol = "/"
-truncation_length = 2
-truncate_to_repo = false
-home_symbol = "~"
-style = "bold bright-green"

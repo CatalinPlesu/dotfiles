@@ -6,7 +6,6 @@ sxhkd &
 lxpolkit &
 dunst &
 nm-applet &
-#parcellite &
 nitrogen --restore &
 emote &
 

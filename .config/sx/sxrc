@@ -1,5 +1,5 @@
 #!/bin/sh
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+xrdb $XDG_CONFIG_HOME/x11/Xresources &
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 picom &
 sxhkd &

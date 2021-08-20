@@ -3,10 +3,11 @@ bindings = {
     "M": "nop",
     "co": "nop",
 
-    ";m": "hint links spawn mpv {hint-url}",
-    ';M': 'spawn mpv {url}',
-    ';d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
-    ";I": "hint images download",
+    '"m': "hint links spawn mpv {hint-url}",
+    '"M': 'yank ;; spawn mpv {url}',
+    '"d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
+    '"I': "hint images download",
+    '"a': "yank ;; spawn --userscript muzd {url}",
 
     'sl': 'set-cmd-text :open -t localhost',
 
@@ -21,17 +22,15 @@ bindings = {
     'k': 'scroll-px 0 -75',
     'l': 'run-with-count 2 scroll right',
 
-    "xx": "config-cycle content.javascript.enabled false true ;; reload",
-
     ',gr': 'config-cycle content.user_stylesheets ./css/gruvbox-all-sites.css ""',
     ',sd': 'config-cycle content.user_stylesheets ./css/solarized-dark-all-sites.css ""',
     ',sl': 'config-cycle content.user_stylesheets ./css/solarized-light-all-sites.css ""',
     ',ap': 'config-cycle content.user_stylesheets ./css/apprentice-all-sites.css ""',
     ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
-
     ',t': 'config-cycle statusbar.show always never ;; config-cycle tabs.show always never',
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
+    "xx": "config-cycle content.javascript.enabled false true ;; reload",
 
     "ar": "yank ;; spawn --userscript links.sh",
     "al": "spawn --userscript open_links.sh",

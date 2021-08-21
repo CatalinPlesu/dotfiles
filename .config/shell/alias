@@ -43,6 +43,8 @@ alias gst='git status'
 alias ecm='git commit --allow-empty-message'
 alias gph='git push'
 alias gcl='git clone `xclip -out -selection clipboard`'
+alias glt='git log --oneline --decorate --graph --all'
+alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
 alias vim='nvim'
 alias v='nvim'

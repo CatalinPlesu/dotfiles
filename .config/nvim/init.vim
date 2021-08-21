@@ -105,3 +105,5 @@ nnoremap <leader>me :silent exec '!groff -Tpdf -me % > %.pdf'<cr>
 autocmd InsertEnter * norm zz
 "" Remove trailing whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e
+autocmd BufEnter NERD_tree_* | execute 'normal R'
+

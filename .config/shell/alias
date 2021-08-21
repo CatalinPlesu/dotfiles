@@ -17,6 +17,7 @@ alias ar='doas pacman -Rcns $(pacman -Qdtq)'
 
 alias gad='git add'
 alias gst='git status'
+alias gcm='git commit'
 alias ecm='git commit --allow-empty-message'
 alias gph='git push'
 alias gcl='git clone `xclip -out -selection clipboard`'

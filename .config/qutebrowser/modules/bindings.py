@@ -8,6 +8,7 @@ bindings = {
     '"d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     '"I': "hint images download",
     '"a': "yank ;; spawn --userscript muzd {url}",
+    '"i': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
 
     'sl': 'set-cmd-text :open -t localhost',
 
@@ -31,6 +32,8 @@ bindings = {
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
     "xx": "config-cycle content.javascript.enabled false true ;; reload",
+    "xr": "hint links right-click",
+    "xh": "hint links hover",
 
     "ar": "yank ;; spawn --userscript links.sh",
     "al": "spawn --userscript open_links.sh",

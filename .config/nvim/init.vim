@@ -25,6 +25,7 @@ Plug 'freitass/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
 "" games XD
 Plug 'ThePrimeagen/vim-be-good'
+Plug 'johngrib/vim-game-snake'
 call plug#end()
 
 ""plugin settings
@@ -96,6 +97,8 @@ nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 ""inserting empty lines
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
+""compile groff files
+nnoremap <leader>me :silent exec '!groff -Tpdf -me % > %.pdf'<cr>
 
 ""autocmd settings
 " Vertically center document when entering insert mode

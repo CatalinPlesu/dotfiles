@@ -75,7 +75,7 @@ layouts = [
 
 widget_defaults = dict(
     font='FiraCode',
-    fontsize=25,
+    fontsize=18,
     padding=5,
     foreground=foreground,
     background=background,
@@ -176,10 +176,10 @@ screens = [
                     ),
                 widget.Systray(
                     background=purple,
-                    icon_size=25,
+                    icon_size=15,
                     ),
             ],
-            30,
+            20,
         ),
     ),
 ]

@@ -14,10 +14,10 @@ c.scrolling.smooth = True
 
 #fonts
 c.fonts.default_family = "Fira Code"
-c.fonts.default_size = "20pt"
+c.fonts.default_size = "15pt"
 
 c.downloads.position = 'bottom'
-c.zoom.default = "150%"
+c.zoom.default = "100%"
 
 
 c.url.default_page = "~/code/web/start_pages/18_08_2021/index.html"

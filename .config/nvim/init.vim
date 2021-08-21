@@ -19,13 +19,13 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 " Plug 'jiangmiao/auto-pairs'
-Plug 'maxboisvert/vim-simple-complete'
+Plug 'maxboisvert/vim-simple-complete' " autocompletion for everything
 Plug 'vimwiki/vimwiki' " great note taking experience
-Plug 'freitass/todo.txt-vim'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'freitass/todo.txt-vim' " toto 
+Plug 'dhruvasagar/vim-table-mode' " good looking tables
 "" games XD
-Plug 'ThePrimeagen/vim-be-good'
-Plug 'johngrib/vim-game-snake'
+Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
+Plug 'johngrib/vim-game-snake' " snake game
 call plug#end()
 
 ""plugin settings

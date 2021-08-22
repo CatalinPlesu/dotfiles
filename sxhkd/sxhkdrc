@@ -1,0 +1,53 @@
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+
+super + Return
+	$TERMINAL	
+super + b
+	qutebrowser
+super + q
+	xfce4-appfinder
+super + x
+	xsecurelock -- xset dpms force off
+Print
+	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+ctrl + Print
+	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+super + f
+	thunar
+super +s
+	emote
+super + d
+	rofi -show combi 
+super + m
+	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
+
+### audio
+XF86AudioRaiseVolume
+	amixer -D pulse sset Master 5%+
+XF86AudioLowerVolume
+	amixer -D pulse sset Master 5%-
+XF86AudioMute
+	amixer -D pulse sset Master toggle
+XF86AudioMicMute
+	amixer -D pulse sset Capture toggle
+
+### Brightness
+XF86MonBrightnessUp
+	backlight_control +5
+XF86MonBrightnessDown
+	backlight_control -5
+
+###keyboard layout
+super + 0
+	setxkbmap us
+super + 9
+	setxkbmap ro std
+super + 8
+	setxkbmap ru
+
+###
+super + a; {a,z}
+    {notify-send "a",notify-send "z"}

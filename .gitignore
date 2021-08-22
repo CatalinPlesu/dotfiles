@@ -58,3 +58,4 @@
 /qutebrowser/bookmarks/*
 /qutebrowser/modules/__pycache__/
 /qutebrowser/qsettings/*
+/zsh/.zcompdump

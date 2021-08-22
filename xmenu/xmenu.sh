@@ -2,12 +2,21 @@
 
 xmenu <<EOF | sh &
 Applications
-	IMG:./icons/web.png	Web Browser	firefox
-	IMG:./icons/gimp.png	Image editor	gimp
-Terminal (xterm)	xterm
-Terminal (urxvt)	urxvt
-Terminal (st)		st
+	Browser	$BROWSER
+	filemanager		thunar
+	calculator	galculator
+	Gimp	gimp
+	wallpaper	nitrogen
+	torrent		qbittorrent
+Development
+	VScodium	vscodium
+Office
+	office	libreoffice
+	document	libreoffice --writer
+	presentation	libreoffice --impress
+Terminal			$TERMINAL	
 
+Lock			xsecurelock -- xset dpms force off
 Shutdown		poweroff
 Reboot			reboot
 EOF

@@ -40,6 +40,7 @@ alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
+alias exmenu="nvim ~/.config/xmenu/xmenu.sh"
 alias esh="nvim ~/.config/shell/alias"
 alias erofi="nvim ~/.config/rofi/config.rasi"
 

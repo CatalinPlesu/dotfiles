@@ -6,11 +6,11 @@ super + Escape
 super + Return
 	$TERMINAL	
 super + b
-	qutebrowser
+	$BROWSER	
 super + q
 	xfce4-appfinder
 super + x
-	~/code/sources/xmenu/xmenu.sh
+	sh -c 'cd ~/.config/xmenu && ./xmenu.sh'
 super + shift + x
 	xsecurelock -- xset dpms force off
 Print

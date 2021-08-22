@@ -39,8 +39,6 @@
 !/sxiv/**
 !/tmux/
 !/tmux/**
-!/wakatime/
-!/wakatime/**
 !/wget/
 !/wget/**
 !/x11/
@@ -49,6 +47,9 @@
 !/zathura/**
 !/zsh/
 !/zsh/**
+/qtile/__pycache__/
+/qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml
 /qutebrowser/bookmarks/*
+/qutebrowser/modules/__pycache__/
 /qutebrowser/qsettings/*

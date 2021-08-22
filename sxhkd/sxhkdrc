@@ -10,6 +10,8 @@ super + b
 super + q
 	xfce4-appfinder
 super + x
+	~/code/sources/xmenu/xmenu.sh
+super + shift + x
 	xsecurelock -- xset dpms force off
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'

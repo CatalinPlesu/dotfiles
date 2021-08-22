@@ -4,6 +4,8 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/xmenu/
+!/xmenu/**
 !/dunst/
 !/dunst/**
 !/git/

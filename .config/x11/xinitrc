@@ -1,3 +1,0 @@
-#!/bin/sh
-. $XDG_CONFIG_HOME/x11/xprofile 
-exec qtile start

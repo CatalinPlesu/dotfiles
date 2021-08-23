@@ -15,7 +15,7 @@ Office
 	document	libreoffice --writer
 	presentation	libreoffice --impress
 
-IMG:./icons/kitty.png	Terminal			$TERMINAL -e tmux	
+IMG:./icons/kitty.png	Terminal			sh -c "cd ~ && $TERMINAL -e tmux"	
 
 Lock			xsecurelock -- xset dpms force off
 Shutdown		poweroff

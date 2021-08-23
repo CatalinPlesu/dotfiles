@@ -18,7 +18,7 @@ map u scroll half-up
 
 # settings
 set adjust-open width
-set font "Fira Code 18"
+set font "Fira Code 15"
 set guioptions ""
 set incremental-search true
 set recolor "false"

@@ -14,7 +14,8 @@ Office
 	office	libreoffice
 	document	libreoffice --writer
 	presentation	libreoffice --impress
-Terminal			$TERMINAL	
+
+IMG:./icons/kitty.png	Terminal			$TERMINAL -e tmux	
 
 Lock			xsecurelock -- xset dpms force off
 Shutdown		poweroff

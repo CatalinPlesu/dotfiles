@@ -9,6 +9,8 @@ bindings = {
     '"I': "hint images download",
     '"a': "yank ;; spawn --userscript muzd {url}",
     '"i': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
+    '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
+    '<Ctrl-s>': "set-cmd-text :open ;; command-history-prev ;; rl-beginning-of-line ;; rl-forward-word ;; rl-forward-word ;; rl-backward-kill-word",
 
     'sl': 'set-cmd-text :open -t localhost',
 

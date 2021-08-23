@@ -34,8 +34,8 @@ bindings = {
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
     "xx": "config-cycle content.javascript.enabled false true ;; reload",
-    "xr": "hint links right-click",
-    "xh": "hint links hover",
+    "xr": "hint all right-click",
+    "xh": "hint all hover",
 
     "ar": "yank ;; spawn --userscript links.sh",
     "al": "spawn --userscript open_links.sh",

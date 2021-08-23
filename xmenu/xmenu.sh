@@ -3,11 +3,11 @@
 xmenu <<EOF | sh &
 Applications
 	Browser	$BROWSER
-	filemanager		thunar
-	calculator	galculator
-	Gimp	gimp
-	wallpaper	nitrogen
-	torrent		qbittorrent
+	File Manager		thunar
+	Calculator	galculator
+	Image editor	gimp
+	Wallpaper	nitrogen
+	Torrent		qbittorrent
 Development
 	VScodium	vscodium
 Office

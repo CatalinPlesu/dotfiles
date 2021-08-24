@@ -1,7 +1,7 @@
 [Added Associations]
 image/png=sxiv.desktop;mupdf.desktop;
 text/x-python=vscodium.desktop;
-text/plain=vscodium.desktop;
+text/plain=VSCodium.desktop;nvim.desktop;vscodium.desktop;
 application/pdf=firefox.desktop;libreoffice-draw.desktop;mupdf.desktop;org.pwmt.zathura.desktop;
 image/jpeg=mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
 inode/directory=sxiv.desktop;xfce4-file-manager.desktop;

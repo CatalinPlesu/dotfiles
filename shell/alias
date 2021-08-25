@@ -45,6 +45,9 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
 alias now="date +%d_%m_%Y"
 alias news='newsboat'
+
+alias plasma='startx /bin/startplasma-x11'
+
 ex ()
 {
   if [ -f $1 ] ; then

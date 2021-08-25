@@ -52,6 +52,7 @@
 !/zathura/**
 !/zsh/
 !/zsh/**
+!/user-dirs.dirs 
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

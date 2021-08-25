@@ -20,7 +20,7 @@ ctrl + Print
 super + f
 	thunar
 super +s
-	emote
+	rofi -show emoji
 super + d
 	rofi -show combi 
 super + m

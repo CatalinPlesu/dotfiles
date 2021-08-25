@@ -4,7 +4,7 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 setxkbmap -option caps:super &
 xset r rate 900 1 &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &
-
+pluseaudio --daemonize &
 picom &
 sxhkd &
 lxpolkit &

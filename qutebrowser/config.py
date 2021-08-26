@@ -15,7 +15,7 @@ c.scrolling.smooth = True
 #fonts
 c.fonts.default_family = "Fira Code"
 c.fonts.default_size = "15pt"
-
+c.statusbar.show = "never"
 c.downloads.position = 'bottom'
 c.zoom.default = "100%"
 

@@ -8,10 +8,11 @@ alias grep='grep --color=auto'
 alias lls='ls | lolcat'
 
 alias s='doas pacman -S'
+alias ss='pacman -Ss'
 alias i='pacman -Si'
 alias r='doas pacman -Rsn'
 alias y='paru -S'
-alias ss='paru -Ss'
+alias ys='paru -Ss'
 alias q='pacman -Q'
 alias ar='doas pacman -Rcns $(pacman -Qdtq)'
 
@@ -46,7 +47,7 @@ alias o="xdg-open"
 alias now="date +%d_%m_%Y"
 alias news='newsboat'
 
-alias plasma='startx /bin/startplasma-x11'
+alias plasma='sx /bin/startplasma-x11'
 
 ex ()
 {

@@ -23,6 +23,8 @@ super +s
 	rofi -show emoji
 super + d
 	rofi -show combi 
+super + D
+	rofi -show calc | xclip -selection clipboard
 super + m
 	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
 

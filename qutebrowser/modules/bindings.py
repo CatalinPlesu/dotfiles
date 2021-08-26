@@ -4,7 +4,8 @@ bindings = {
     "co": "nop",
 
     '"m': "hint links spawn mpv {hint-url}",
-    '"M': 'yank ;; spawn mpv {url}',
+    '"M': 'spawn mpv {url}',
+    'yM': 'yank ;; spawn mpv {url}',
     '"d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     '"I': "hint images download",
     '"a': "yank ;; spawn --userscript muzd {url}",

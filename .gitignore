@@ -4,6 +4,8 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/mpv/
+!/mpv/**
 !/alacritty/
 !/alacritty/**
 !/xmenu/

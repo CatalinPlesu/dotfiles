@@ -19,9 +19,8 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 " Plug 'jiangmiao/auto-pairs'
-Plug 'maxboisvert/vim-simple-complete' " autocompletion for everything
+" Plug 'maxboisvert/vim-simple-complete' " autocompletion for everything
 Plug 'vimwiki/vimwiki' " great note taking experience
-Plug 'freitass/todo.txt-vim' " toto 
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 "" games XD
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number

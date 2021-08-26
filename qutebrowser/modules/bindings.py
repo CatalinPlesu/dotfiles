@@ -1,6 +1,5 @@
 bindings = {
     "ao": "download-open",
-    "M": "nop",
     "co": "nop",
 
     '"m': "hint links spawn mpv {hint-url}",

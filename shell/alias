@@ -6,6 +6,7 @@ alias lah='ls -lah --color=auto'
 alias grep='grep --color=auto'
 
 alias lls='ls | lolcat'
+alias ltop='htop | lolcat'
 
 alias s='doas pacman -S'
 alias ss='pacman -Ss'
@@ -27,6 +28,11 @@ alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 alias gra='git remote add'
 
+alias bi='bundle install'
+alias bu='bundle update'
+alias be='bundle exec'
+alias task='cd /home/catalin/code/ruby/academy/tt2'
+
 alias vim='nvim'
 alias v='nvim'
 alias z="zathura"
@@ -40,8 +46,8 @@ alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
-alias exmenu="nvim ~/.config/xmenu/xmenu.sh"
-alias esh="nvim ~/.config/shell/alias"
+alias esh="nvim ~/.config/shell/alias && source ~/.config/shell/alias"
+alias eenv="nvim ~/.config/shell/env && source ~/.config/shell/env"
 alias erofi="nvim ~/.config/rofi/config.rasi"
 
 alias myip="curl http://ipecho.net/plain; echo"

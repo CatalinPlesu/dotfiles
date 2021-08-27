@@ -9,6 +9,9 @@ unlet autoload_plug_path
 
 "" plugins
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'tpope/vim-surround' " have to test
 Plug 'wakatime/vim-wakatime' " count time using vim in each file
 Plug 'gruvbox-community/gruvbox' " sexy color scheme
@@ -83,6 +86,7 @@ nnoremap <silent> <leader>l :vertical resize +5<CR>
 nnoremap <silent> <leader>h :vertical resize -5<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>f :FZF<CR>
 "" clean white space
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
 "" for markdown previewing

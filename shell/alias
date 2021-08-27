@@ -31,11 +31,13 @@ alias gra='git remote add'
 alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'
-alias task='cd /home/catalin/code/ruby/academy/tt2'
+alias rs='rails server'
+alias task='cd /home/catalin/code/ruby/academy/devise'
 
 alias vim='nvim'
 alias v='nvim'
 alias z="zathura"
+alias vz="fzf | xargs nvim"
 
 alias note='cd ~/Documents/notes && vim index.md'
 alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'

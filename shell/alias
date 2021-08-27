@@ -55,6 +55,7 @@ alias o="xdg-open"
 alias now="date +%d_%m_%Y"
 alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
+alias code=codium
 
 alias plasma='sx /bin/startplasma-x11'
 

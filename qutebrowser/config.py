@@ -11,6 +11,7 @@ c.editor.command = ['codium', '{file}']
 c.auto_save.session = False
 c.completion.web_history.max_items = 10000
 c.scrolling.smooth = True
+c.content.pdfjs = True
 
 #fonts
 c.fonts.default_family = "Fira Code"

@@ -7,6 +7,8 @@ super + Return
 	$TERMINAL	
 super + b
 	$BROWSER	
+super + B
+	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
 super + q
 	xfce4-appfinder
 super + x

@@ -40,4 +40,5 @@ c.url.searchengines = {
     'hub': 'http://github.com/search?q={}',
     'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
     'repo': 'http://github.com/catalinhimself/{}',
+    'gem': 'https://rubygems.org/search?query={}',
 }

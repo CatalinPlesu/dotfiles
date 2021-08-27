@@ -69,3 +69,4 @@
 /qutebrowser/modules/__pycache__/
 /qutebrowser/qsettings/*
 /zsh/.zcompdump
+/Thunar/accels.scm

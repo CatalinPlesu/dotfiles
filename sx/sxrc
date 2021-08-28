@@ -1,4 +1,12 @@
 #!/bin/sh
 . $XDG_CONFIG_HOME/x11/xprofile 
 
-exec qtile start 
+case $1 in
+    kde               ) exec startplasma-x11;;
+    openbox           ) exec openbox;;
+	qtile			  ) exec qtile start;;
+    # No known session, try to run it as command
+    *                 ) exec qtile start;;
+esac
+
+# exec qtile start 

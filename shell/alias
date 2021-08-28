@@ -59,6 +59,8 @@ alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
 
+
+alias sx2='sx ~/.config/sx/sxrc'
 alias plasma='sx /bin/startplasma-x11'
 
 ex ()

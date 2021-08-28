@@ -103,11 +103,11 @@ nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 ""compile groff files
 nnoremap <leader>me :silent exec '!groff -Tpdf -me % > %.pdf'<cr>
-nnoremap Y y$
+nnoremap Y y$ 
+inoremap ZZ <esc>:x<cr> 
 ""autocmd settings
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz
 "" Remove trailing whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e
 autocmd BufEnter NERD_tree_* | execute 'normal R'
-

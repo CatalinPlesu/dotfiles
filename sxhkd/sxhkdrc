@@ -2,11 +2,12 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-
 super + Return
 	$TERMINAL	
 super + b
 	$BROWSER	
+super + z
+	zathura
 super + B
 	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
 super + q

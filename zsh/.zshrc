@@ -19,11 +19,12 @@ zstyle ':completion:*' menu select
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-
+unsetopt BEEP
 # vi mode
 bindkey -v
 
@@ -44,6 +45,12 @@ bindkey -M menuselect 'l' vi-forward-char
 # Fix backspace bug when switching modes
 bindkey "^?" backward-delete-char
 
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^e' 'nvim "$(fzf)"\n'
+
+bindkey -s '^h' 'cd ~\n'
+bindkey -s '^d' 'cd ~/Downloads\n'
+bindkey -s '^p' 'cd ~/Pictures\n'
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

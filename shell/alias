@@ -37,7 +37,7 @@ alias task='cd /home/catalin/code/ruby/academy/devise'
 alias vim='nvim'
 alias v='nvim'
 alias z="zathura"
-alias fv="fzf | xargs nvim"
+alias vf="fzf | xargs nvim"
 
 alias note='cd ~/Documents/notes && vim index.md'
 alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'
@@ -47,13 +47,15 @@ alias todo='cd ~/Documents/notes && vim todo.txt'
 alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
-alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc"
+alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
 alias esh="nvim ~/.config/shell/alias && source ~/.config/shell/alias"
 alias eenv="nvim ~/.config/shell/env && source ~/.config/shell/env"
+alias ezsh="nvim ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc"
 alias erofi="nvim ~/.config/rofi/config.rasi"
 
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
+alias b=$BROWSER
 # alias now="date +%d_%m_%Y"
 alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'

@@ -97,7 +97,6 @@ screens = [
                     this_current_screen_border=mark,
                     urgent_border=warning,
                 ),
-                widget.Prompt(),
                 widget.WindowName(),
                 widget.TextBox(
                     padding=0,

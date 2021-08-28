@@ -91,10 +91,11 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
 "" for markdown previewing
 function Preview()
-	!qutebrowser --target window http://localhost:6419/ &
-	!grip %:p
+	silent! execute '!markdown-folder-to-html ~/Documents/notes/'
+	silent! execute "!echo %:p | sed 's/notes/_notes/' | sed 's/md/html/' | xargs $BROWSER"
 endfunction
-nnoremap <leader>md :call Preview()<cr>
+nnoremap <silent> <leader>mc :silent! execute '!markdown-folder-to-html ~/Documents/notes/'<cr>
+nnoremap <silent> <leader>md :call Preview()<cr>
 nnoremap <leader>s :!syncthing<cr>
 nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 ""inserting empty lines

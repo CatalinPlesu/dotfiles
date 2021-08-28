@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml verion="1.0" encoding="UTF-8"?>
 <actions>
 <action>
 	<icon>utilities-terminal</icon>
@@ -10,17 +10,25 @@
 	<startup-notify/>
 	<directories/>
 </action>
+
 <action>
 	<icon>redshift</icon>
 	<name>Custom folder icon</name>
 	<unique-id>1629884744556410-2</unique-id>
-	<command>notify-send "haha"</command>
-	<description>Example for a custom action</description>
+	<command>sxiv -fqot ~/.local/share/icons/thunar_icons  | xargs -I{} cp {} %f/.folder.png</command>
+	<description>opens sxiv to select with m a new folder icon</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>remove</icon>
+	<name>default folder icon</name>
+	<unique-id>1629884744556410-3</unique-id>
+	<command>rm %f/.folder.png</command>
+	<description>removes the .folder file </description>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
 </action>
 </actions>
-
-
-

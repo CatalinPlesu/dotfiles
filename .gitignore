@@ -63,6 +63,8 @@
 !/gtk-4.0/**
 !/Thunar/
 !/Thunar/**
+!/lf/
+!/lf/**
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

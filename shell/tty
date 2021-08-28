@@ -1,4 +1,3 @@
-#!/bin/sh
 # gruvbox
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0282828" #black

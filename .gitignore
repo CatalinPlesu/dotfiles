@@ -65,6 +65,10 @@
 !/Thunar/**
 !/lf/
 !/lf/**
+!/polybar/
+!/polybar/**
+!/bspwm/
+!/bspwm/**
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

@@ -20,6 +20,8 @@ super + f
 	thunar
 super + s
 	rofi -show emoji
+super + shift + s
+	~/code/scripts/stickers
 super + d
 	rofi -show combi 
 super + D

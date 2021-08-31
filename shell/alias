@@ -50,7 +50,6 @@ alias erofi="nvim ~/.config/rofi/config.rasi"
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
 alias b=$BROWSER
-# alias now="date +%d_%m_%Y"
 alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium

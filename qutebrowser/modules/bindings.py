@@ -5,10 +5,11 @@ bindings = {
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',
     'yM': 'yank ;; spawn mpv {url}',
-    '"d': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
+    '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
+    '"d': 'download',
     '"I': "hint images download",
     '"a': "yank ;; spawn --userscript muzd {url}",
-    '"i': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
+    '"si': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
     '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
     '<Ctrl-s>': "set-cmd-text :open ;; command-history-prev ;; rl-beginning-of-line ;; rl-forward-word ;; rl-forward-word ;; rl-backward-kill-word",
 

@@ -11,7 +11,6 @@ unlet autoload_plug_path
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-surround' " have to test
 Plug 'wakatime/vim-wakatime' " count time using vim in each file
 Plug 'gruvbox-community/gruvbox' " sexy color scheme

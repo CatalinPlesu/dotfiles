@@ -33,7 +33,7 @@ call plug#end()
 ""plugin settings
 let g:airline_powerline_fonts=0
 let g:rainbow_active = 1
-colorscheme gruvbox
+" colorscheme gruvbox
 let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]

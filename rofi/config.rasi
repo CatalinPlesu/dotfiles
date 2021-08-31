@@ -1,5 +1,5 @@
 configuration {
-	modi: "run,combi,file-browser";
+	modi: "run,combi,filebrowser";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
@@ -96,7 +96,7 @@ configuration {
 /*	kb-accept-custom: "Control+Return";*/
 /*	kb-accept-alt: "Shift+Return";*/
 /*	kb-delete-entry: "Shift+Delete";*/
-	kb-mode-next: "Shift+Right,Control+Tab,Control+l";
+	kb-mode-next: "Shift+Right,Control+Tab";
 	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
 /*	kb-row-left: "Control+Page_Up";*/
 /*	kb-row-right: "Control+Page_Down";*/

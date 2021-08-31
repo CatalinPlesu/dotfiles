@@ -28,12 +28,6 @@ alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 alias gra='git remote add'
 
-alias bi='bundle install'
-alias bu='bundle update'
-alias be='bundle exec'
-alias rs='rails server'
-alias task='cd /home/catalin/code/ruby/academy/devise'
-
 alias vim='nvim'
 alias v='nvim'
 alias z="zathura"
@@ -61,9 +55,11 @@ alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
 
-
 alias sx2='sx ~/.config/sx/sxrc'
-alias plasma='sx /bin/startplasma-x11'
+alias kde='sx /bin/startplasma-x11'
+
+alias wifi-list='nmcli dev wifi list'
+alias wifi-connect='nmcli dev wifi connect'
 
 ex ()
 {

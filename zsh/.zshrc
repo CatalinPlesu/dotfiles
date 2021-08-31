@@ -48,7 +48,7 @@ bindkey "^?" backward-delete-char
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^e' 'nvim "$(fzf)"\n'
 
-bindkey -s '^h' 'cd ~\n'
+bindkey -s '^h' 'backward-kill-line;cd ~\n'
 bindkey -s '^d' 'cd ~/Downloads\n'
 bindkey -s '^p' 'cd ~/Pictures\n'
 

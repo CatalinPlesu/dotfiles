@@ -26,7 +26,6 @@ alias gcl='git clone `xclip -out -selection clipboard`'
 alias gco='git checkout'
 alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
-alias gra='git remote add'
 
 alias vim='nvim'
 alias v='nvim'

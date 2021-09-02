@@ -97,7 +97,9 @@ screens = [
                     this_current_screen_border=mark,
                     urgent_border=warning,
                 ),
-                widget.WindowName(),
+                widget.WindowName(
+                    foreground=background,
+                    ),
                 widget.TextBox(
                     padding=0,
                     text= '',
@@ -106,10 +108,12 @@ screens = [
                 widget.TextBox(
                     text= 'scr:',
                     background=purple,
+                    foreground=white0,
                     ),
                 widget.Backlight(
                     backlight_name="amdgpu_bl0",
                     background=purple,
+                    foreground=white0,
                 ),
                 widget.TextBox(
                     padding=0,
@@ -120,9 +124,11 @@ screens = [
                 widget.TextBox(
                     text= 'vol:',
                     background=yellow,
+                    foreground=white0,
                     ),
                 widget.Volume(
                     background=yellow,
+                    foreground=white0,
                 ),
                 widget.TextBox(
                     padding=0,
@@ -133,12 +139,14 @@ screens = [
                 widget.TextBox(
                     text= 'bat:',
                     background=green,
+                    foreground=white0,
                     ),
                 widget.Battery(
                     format='{percent:2.0%}',
                     low_percentage=0.2,
                     low_foreground=warning,
                     background=green,
+                    foreground=white0,
                 ),
                 widget.TextBox(
                     padding=0,
@@ -150,6 +158,7 @@ screens = [
                     configured_keyboards=['us','ro std','ru'],
                     display_map={'us':'US','ro std':'RO','ru':'RU'},
                     background=aqua,
+                    foreground=white0,
                     ),
                 widget.TextBox(
                     padding=0,
@@ -161,6 +170,7 @@ screens = [
                     #format='%I:%M %p',
                     format='%d.%m',
                     background=blue,
+                    foreground=white0,
                     ),
                 widget.TextBox(
                     padding=0,
@@ -172,6 +182,7 @@ screens = [
                     #format='%d.%m.%Y',
                     format='%I:%M',
                     background=purple,
+                    foreground=white0,
                     ),
                 widget.Systray(
                     background=purple,

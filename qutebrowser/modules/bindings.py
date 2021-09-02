@@ -26,14 +26,16 @@ bindings = {
     'k': 'scroll-px 0 -75',
     'l': 'run-with-count 2 scroll right',
 
-    ',gr': 'config-cycle content.user_stylesheets ./css/gruvbox-all-sites.css ""',
+    ',gl': 'config-cycle content.user_stylesheets ./css/gruvbox-light-all-sites.css ""',
+    ',gd': 'config-cycle content.user_stylesheets ./css/gruvbox-dark-all-sites.css ""',
     ',sd': 'config-cycle content.user_stylesheets ./css/solarized-dark-all-sites.css ""',
     ',sl': 'config-cycle content.user_stylesheets ./css/solarized-light-all-sites.css ""',
     ',ap': 'config-cycle content.user_stylesheets ./css/apprentice-all-sites.css ""',
     ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
+
     ',t': 'config-cycle tabs.show always never',
     ',b': 'config-cycle statusbar.show always never',
-    ',ct': 'spawn --userscript theme.sh',
+    ',c': 'spawn --userscript theme.sh',
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
     "xx": "config-cycle content.javascript.enabled false true ;; reload",

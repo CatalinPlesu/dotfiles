@@ -37,6 +37,7 @@ alias note='cd ~/Documents/notes && vim index.md'
 alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'
 alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
+alias utm='cd ~/Documents/notes/UTM && vim index.md'
 
 alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"

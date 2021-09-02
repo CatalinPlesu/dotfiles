@@ -104,6 +104,7 @@ nnoremap <leader>O O<Esc>
 nnoremap <leader>me :silent exec '!groff -Tpdf -me % > %.pdf'<cr>
 nnoremap Y y$ 
 inoremap ZZ <esc>:x<cr> 
+nnoremap <leader>t :r!day<cr>
 ""autocmd settings
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz

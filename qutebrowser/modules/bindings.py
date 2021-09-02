@@ -33,6 +33,7 @@ bindings = {
     ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
     ',t': 'config-cycle tabs.show always never',
     ',b': 'config-cycle statusbar.show always never',
+    ',ct': 'spawn --userscript theme.sh',
 
     "cc": "jseval --quiet --file ~/.config/qutebrowser/js/no-cookies.js",
     "xx": "config-cycle content.javascript.enabled false true ;; reload",

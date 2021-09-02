@@ -21,7 +21,7 @@ super + f
 super + s
 	rofi -show emoji
 super + shift + s
-	~/code/scripts/stickers
+	stickers
 super + d
 	rofi -show combi 
 super + D

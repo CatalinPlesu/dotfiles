@@ -10,7 +10,7 @@ super + z
 	zathura
 super + B
 	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
-super + shift + x
+super + x
 	xsecurelock -- xset dpms force off
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
@@ -28,10 +28,12 @@ super + D
 	rofi -show calc | xclip -selection clipboard
 super + m
 	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
-super + 7
-	dark
-super + 6
-	dark l
+super + q
+	switch
+# Change wallpaper
+super + r ; c ; b
+	nitrogen --set-zoom --random ~/Pictures/wallpapers
+
 ### audio
 XF86AudioRaiseVolume
 	amixer -D pulse sset Master 5%+

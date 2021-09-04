@@ -10,7 +10,7 @@ text/markdown=firefox.desktop;
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop;
 image/gif=sxiv.desktop;
 image/svg+xml=firefox.desktop;sxiv.desktop;gimp.desktop;
-application/x-shellscript=vscodium.desktop;
+application/x-shellscript=neovide.desktop;vscodium.desktop;
 text/html=org.qutebrowser.qutebrowser.desktop;vscodium.desktop;
 application/x-ruby=vscodium.desktop;
 

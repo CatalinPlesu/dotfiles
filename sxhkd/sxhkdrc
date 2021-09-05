@@ -1,38 +1,40 @@
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
+# open terminal
 super + Return
 	$TERMINAL	
-super + b
-	$BROWSER	
-super + z
-	zathura
-super + B
-	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
 super + x
 	xsecurelock -- xset dpms force off
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 ctrl + Print
 	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
-super + f
-	thunar
-super + s
-	rofi -show emoji
-super + shift + s
-	stickers
+
+# rofi things
 super + d
 	rofi -show combi 
-super + D
+super + r; d
 	rofi -show calc | xclip -selection clipboard
-super + m
-	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
-super + q
-	switch
+super + r; s
+	rofi -show emoji
+super + b
+	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
+
 # Change wallpaper
 super + r ; c ; b
 	nitrogen --set-zoom --random ~/Pictures/wallpapers
+# Change theme
+super + r ; c ; t
+	switch
+
+# apps 
+super + alt + {g, b, f, v, z, s, m}
+  {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
+
+# various terminal programs
+super + alt + {a, r, h, n, w, p}
+  $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
 
 ### audio
 XF86AudioRaiseVolume
@@ -51,14 +53,12 @@ XF86MonBrightnessDown
 	backlight_control -5
 
 ###keyboard layout
-super + 0
+super + r; e; n
 	setxkbmap us
-super + 9
+super + r; r; o
 	setxkbmap ro std
-super + 8
+super + r; r; u
 	setxkbmap ru
-
-
 
 # # bspwm hotkeys
 # # quit/restart bspwm

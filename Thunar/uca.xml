@@ -1,4 +1,4 @@
-<?xml verion="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
 	<icon>utilities-terminal</icon>
@@ -10,9 +10,8 @@
 	<startup-notify/>
 	<directories/>
 </action>
-
 <action>
-	<icon>redshift</icon>
+	<icon>rawtherapee</icon>
 	<name>Custom folder icon</name>
 	<unique-id>1629884744556410-2</unique-id>
 	<command>sxiv -fqot ~/.local/share/icons/thunar_icons  | xargs -I{} cp {} %f/.folder.png</command>
@@ -22,7 +21,7 @@
 	<directories/>
 </action>
 <action>
-	<icon>remove</icon>
+	<icon>user-trash-full</icon>
 	<name>default folder icon</name>
 	<unique-id>1629884744556410-3</unique-id>
 	<command>rm %f/.folder.png</command>

@@ -30,7 +30,7 @@ alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %C
 alias vim='nvim'
 alias v='nvim'
 alias z="zathura"
-alias vf="fzf | xargs nvim"
+alias sv="sudoedit"
 
 alias note='cd ~/Documents/notes && vim index.md'
 alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'

@@ -69,6 +69,7 @@
 !/polybar/**
 !/bspwm/
 !/bspwm/**
+!/wallpapers.cfg
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

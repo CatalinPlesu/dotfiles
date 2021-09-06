@@ -70,6 +70,8 @@
 !/bspwm/
 !/bspwm/**
 !/wallpapers.cfg
+!/theme/
+!/theme/**
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

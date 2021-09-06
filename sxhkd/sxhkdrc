@@ -52,7 +52,7 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	backlight_control -5
 
-###keyboard layout
+### keyboard language 
 super + r; e; n
 	setxkbmap us
 super + r; r; o

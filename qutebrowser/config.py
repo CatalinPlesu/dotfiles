@@ -1,7 +1,7 @@
 config.load_autoconfig()
 config.source("modules/bindings.py")
 config.source("modules/search_engines.py")
-config.source("themes/base16-gruvbox-light-medium.config.py")
+config.source("themes/base16-gruvbox-dark-medium.config.py")
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"
@@ -15,14 +15,12 @@ c.scrolling.smooth = True
 #fonts
 c.fonts.default_family = "Fira Code"
 c.fonts.default_size = "15pt"
-c.statusbar.show = "never"
 c.downloads.position = 'bottom'
 c.zoom.default = "100%"
 
 
 c.url.default_page = "~/code/web/start_pages/18_08_2021/index.html"
 c.url.start_pages = ["~/code/web/start_pages/18_08_2021/index.html"]
-
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False

@@ -13,6 +13,7 @@ image/svg+xml=firefox.desktop;sxiv.desktop;gimp.desktop;
 application/x-shellscript=neovide.desktop;vscodium.desktop;
 text/html=org.qutebrowser.qutebrowser.desktop;vscodium.desktop;
 application/x-ruby=vscodium.desktop;
+application/xml=jflap.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop

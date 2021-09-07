@@ -22,6 +22,7 @@ c.url.searchengines = {
     'y': 'https://www.youtube.com/results?search_query={}&search=Search',
         # entertainment
     'r': 'https://www.reddit.com/r/{}/',
+    'p': 'https://www.pinterest.com/search/pins/?q={}',
         # arch linux
     'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',
     'arch': 'https://archlinux.org/packages/?q={}',

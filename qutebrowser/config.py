@@ -1,7 +1,7 @@
 config.load_autoconfig()
 config.source("modules/bindings.py")
 config.source("modules/search_engines.py")
-config.source("themes/gruvbox.py")
+config.source("themes/base16-gruvbox-light-medium.config.py")
 
 c.downloads.location.directory = "~/Downloads"
 c.colors.webpage.preferred_color_scheme = "dark"

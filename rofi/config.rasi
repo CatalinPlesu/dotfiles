@@ -16,4 +16,4 @@ configuration {
 	kb-row-last: "End,KP_End,Control+G";
 	kb-cancel: "Escape,Control+bracketleft";
 }
-@import "/usr/share/rofi/themes/gruvbox-dark.rasi"
+@import "/usr/share/rofi/themes/gruvbox-light.rasi"

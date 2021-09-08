@@ -104,10 +104,12 @@ nnoremap <leader>O O<Esc>
 nnoremap <leader>me :silent exec '!groff -Tpdf -me % > %.pdf'<cr>
 nnoremap Y y$ 
 inoremap ZZ <esc>:x<cr> 
-nnoremap <leader>t :r!day<cr>
 inoremap jk <esc>
 inoremap kj <esc>
-
+nnoremap <leader>d :r!date +\%d_\%b_\%Y<cr>:norm I[<cr>:norm A]<cr>
+		\:r!date +\%d_\%b_\%Y<cr>:norm I(<cr>:norm A.md)<cr>:norm kJx<cr>
+nnoremap <leader>t :r!date +\%T<cr>:norm I[<cr>:norm A]<cr>
+"
 ""autocmd settings
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz

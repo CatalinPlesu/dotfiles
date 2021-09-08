@@ -7,6 +7,10 @@ from theme import *
 
 mod = "mod4"
 
+triangle = "◀"
+slash = ""
+separator = slash
+                    
 #programs are handled by sxhkd
 keys = [
     Key([mod], "h", lazy.layout.left(), ),
@@ -45,9 +49,9 @@ keys = [
 ]
 
 groups = []
-group_names ="12345"
-group_labels = "一二三四五"
-group_layouts = ["Bsp", "Max","Bsp","Bsp","Bsp",]
+group_names ="1234567890"
+group_labels = "一二三四五六七八九十"
+group_layouts = ["Bsp", "Max","Bsp","Bsp","Bsp","Bsp", "Bsp","Bsp","Bsp","Bsp",]
 for i in range(len(group_names)):
         groups.append( Group( name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i],))
 
@@ -102,7 +106,7 @@ screens = [
                     ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=purple,
                     ),
                 widget.TextBox(
@@ -117,7 +121,7 @@ screens = [
                 ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=yellow,
                     background=purple,
                     ),
@@ -132,7 +136,7 @@ screens = [
                 ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=green,
                     background=yellow,
                     ),
@@ -150,7 +154,7 @@ screens = [
                 ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=aqua,
                     background=green,
                     ),
@@ -162,7 +166,7 @@ screens = [
                     ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=blue,
                     background=aqua,
                     ),
@@ -174,7 +178,7 @@ screens = [
                     ),
                 widget.TextBox(
                     padding=0,
-                    text= '',
+                    text= separator,
                     foreground=purple,
                     background=blue,
                     ),

@@ -38,11 +38,14 @@ super + alt + {a, r, h, n, w, p}
 
 ### audio
 XF86AudioRaiseVolume
-	amixer -D pulse sset Master 5%+
+	vol.sh up	
+	# amixer -D pulse sset Master 5%+
 XF86AudioLowerVolume
-	amixer -D pulse sset Master 5%-
+	vol.sh down
+	# amixer -D pulse sset Master 5%-
 XF86AudioMute
-	amixer -D pulse sset Master toggle
+	vol.sh mute
+	# amixer -D pulse sset Master toggle
 XF86AudioMicMute
 	amixer -D pulse sset Capture toggle
 

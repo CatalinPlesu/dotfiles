@@ -2,6 +2,7 @@
 xrandr --output eDP --mode 1280x720 &
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 setxkbmap -option caps:super &
+libinput-gestures-setup start &
 xset r rate 900 1 &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &
 pluseaudio --daemonize &

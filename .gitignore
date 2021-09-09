@@ -72,6 +72,7 @@
 !/wallpapers.cfg
 !/theme/
 !/theme/**
+!/libinput-gestures.conf
 /qtile/__pycache__/
 /qtile/gruvbox/__pycache__/
 /qutebrowser/autoconfig.yml

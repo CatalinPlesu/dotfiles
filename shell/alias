@@ -38,6 +38,7 @@ alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
 alias utm='cd ~/Documents/notes/UTM && vim index.md'
 
+alias sem='cd ~/UTM/anul_ii/semestrul_iii/'
 alias apa='cd ~/UTM/anul_ii/semestrul_iii/apa/'
 alias asdn='cd ~/UTM/anul_ii/semestrul_iii/asdn/'
 alias cde='cd ~/UTM/anul_ii/semestrul_iii/cde/'

@@ -32,6 +32,12 @@ super + r ; c ; t
 super + alt + {g, b, f, v, z, s, m}
   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
 
+# file browser in directory
+super + f ; {d, p, m, u, w}
+	thunar {Downloads, Pictures, Music, UTM/anul_ii/semestrul_iii/, Pictures/wallpapers/}
+super + u
+	find -L ~/UTM/anul_ii/semestrul_iii -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
+
 # various terminal programs
 super + alt + {a, r, h, n, w, p}
   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}

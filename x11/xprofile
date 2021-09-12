@@ -11,6 +11,10 @@ sxhkd &
 lxpolkit &
 dunst &
 nm-applet &
-# nitrogen --restore &
-wallpapersd &
+nitrogen --restore &
+# wallpapersd &
 kitty &
+if  ! pgrep -x qutebrowser 
+then
+	qutebrowser --nowindow &
+fi 

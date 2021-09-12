@@ -1,8 +1,8 @@
-#dark
+#light
 from gruvbox.gruvbox import *
 ### main colors
-background=black
-foreground=white0
+background=white0
+foreground=black
 ### borders
 focus_t=green
 normal_t=blue
@@ -11,6 +11,6 @@ normal_f=white
 ### bar
 mark=green
 active=foreground
-inactive=foreground
+inactive=background
 ###
 warning=red0

@@ -11,6 +11,6 @@ normal_f=white
 ### bar
 mark=green
 active=foreground
-inactive=foreground
+inactive=background
 ###
 warning=red0

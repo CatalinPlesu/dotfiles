@@ -37,6 +37,7 @@ c.url.searchengines = {
     'dex': 'https://dexonline.ro/definitie/{}',
         #anime
     'z': 'https://zoro.to/search?keyword={}',
+    '1377': 'https://www.1377x.to/search/{}/1/',
         # tech
     'hub': 'http://github.com/search?q={}',
     'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',

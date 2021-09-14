@@ -24,6 +24,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
 ""plugin settings

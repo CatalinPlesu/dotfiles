@@ -5,8 +5,6 @@ case $1 in
 	qtile			  ) exec qtile start;;
     kde               ) exec startplasma-x11;;
     bspwm             ) exec bspwm;;
-    # openbox           ) exec openbox;;
+    openbox           ) exec openbox;;
     *                 ) exec qtile start;;
 esac
-
-# exec qtile start 

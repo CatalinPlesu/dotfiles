@@ -79,7 +79,7 @@ nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 nnoremap <leader>p :!python %<cr>
-nnoremap <leader>r :!make<cr>
+nnoremap <leader>r :w<cr>:!make<cr>
 nnoremap Y y$ 
 nnoremap <leader>d :r!date +\%d_\%b_\%Y<cr>:norm I[<cr>:norm A]<cr>:r!date +\%d_\%b_\%Y<cr>:norm I(<cr>:norm A.md)<cr>:norm kJx<cr>
 nnoremap <leader>t :r!date +\%T<cr>:norm I[<cr>:norm A]<cr>

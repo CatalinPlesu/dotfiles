@@ -7,6 +7,7 @@ alias grep='grep --color=auto'
 
 alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
+alias cls='lah | lolcrab -i'
 
 alias s='doas pacman -S'
 alias ss='pacman -Ss'

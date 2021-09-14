@@ -18,8 +18,6 @@ super + r; d
 	rofi -show calc | xclip -selection clipboard
 super + r; s
 	rofi -show emoji
-super + b
-	rofi -dmenu -l 0 -p 'Open link' | xargs | xargs -I% $BROWSER "%" 
 
 # Change wallpaper
 super + r ; c ; b

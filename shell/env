@@ -1,5 +1,6 @@
 export PATH=$PATH:/home/catalin/code/scripts
 export PATH=$PATH:/home/catalin/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:/home/catalin/.local/share/cargo/bin
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="kitty"

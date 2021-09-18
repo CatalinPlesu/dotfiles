@@ -17,7 +17,7 @@ Plug 'gruvbox-community/gruvbox' " sexy color scheme
 Plug 'vim-airline/vim-airline' " bottom line
 Plug 'mbbill/undotree' " leader u
 Plug 'preservim/nerdtree' " leader n
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 " Plug 'jiangmiao/auto-pairs'
@@ -25,6 +25,7 @@ Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 ""plugin settings
@@ -34,6 +35,12 @@ colorscheme gruvbox
 let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
 "" settings
 syntax on
@@ -63,12 +70,14 @@ highlight ColorColumn ctermbg=darkgrey
 
 ""bindings
 let mapleader = " "
-nnoremap <Leader>c :set cursorline! cursorcolumn!<cr>
+nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<cr>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <silent> <leader>l :vertical resize +5<CR>
 nnoremap <silent> <leader>h :vertical resize -5<CR>
+nnoremap <silent> <leader>c} V}k:call nerdcommenter#Comment('x', 'toggle')<CR>
+nnoremap <silent> <leader>c{ V{j:call nerdcommenter#Comment('x', 'toggle')<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>f :FZF<CR>

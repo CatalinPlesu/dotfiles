@@ -14,7 +14,3 @@ nm-applet &
 nitrogen --restore &
 # wallpapersd &
 kitty &
-if  ! pgrep -x qutebrowser 
-then
-	qutebrowser --nowindow &
-fi 

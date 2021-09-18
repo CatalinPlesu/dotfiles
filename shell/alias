@@ -39,14 +39,14 @@ alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && vim todo.txt'
 alias utm='cd ~/Documents/notes/UTM && vim index.md'
 
-alias sem='cd ~/UTM/anul_ii/semestrul_iii/'
-alias apa='cd ~/UTM/anul_ii/semestrul_iii/apa/'
-alias asdn='cd ~/UTM/anul_ii/semestrul_iii/asdn/'
-alias cde='cd ~/UTM/anul_ii/semestrul_iii/cde/'
-alias lfa='cd ~/UTM/anul_ii/semestrul_iii/lfa/'
-alias mmc1='cd ~/UTM/anul_ii/semestrul_iii/mmc1/'
-alias mmc2='cd ~/UTM/anul_ii/semestrul_iii/mmc2/'
-alias poo='cd ~/UTM/anul_ii/semestrul_iii/poo/'
+cd_last_lab() { cd ~/UTM/anul_ii/semestrul_iii/$1/ && cd $(ls -dv */ | grep lab | tail -n 1) }
+alias apa='cd_last_lab apa'
+alias asdn='cd_last_lab asdn'
+alias cde='cd_last_lab cde'
+alias lfa='cd_last_lab lfa'
+alias mmc1='cd_last_lab mmc1'
+alias mmc2='cd_last_lab mmc2'
+alias poo='cd_last_lab poo'
 
 alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"

@@ -17,7 +17,7 @@ Plug 'gruvbox-community/gruvbox' " sexy color scheme
 Plug 'vim-airline/vim-airline' " bottom line
 Plug 'mbbill/undotree' " leader u
 Plug 'preservim/nerdtree' " leader n
-" Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
 " Plug 'jiangmiao/auto-pairs'
@@ -25,7 +25,7 @@ Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'preservim/nerdcommenter'
+Plug 'hardcoreplayers/dashboard-nvim'
 call plug#end()
 
 ""plugin settings
@@ -35,12 +35,30 @@ colorscheme gruvbox
 let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
+let s:header = [
+    \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
+    \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+    \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
+    \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+    \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+    \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+    \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+    \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+    \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
+    \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+    \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+    \]
+let g:dashboard_custom_header = s:header
+
+let g:dashboard_custom_shortcut={
+  \ 'last_session'       : 'SPC s l',
+  \ 'find_history'       : 'SPC f h',
+  \ 'find_file'          : 'SPC f f',
+  \ 'new_file'           : 'SPC c n',
+  \ 'change_colorscheme' : 'SPC t c',
+  \ 'find_word'          : 'SPC f a',
+  \ 'book_marks'         : 'SPC f b',
+  \ }
 
 "" settings
 syntax on
@@ -63,12 +81,13 @@ set incsearch
 set ignorecase
 set colorcolumn=80
 set scrolloff=10
+set modifiable
 highlight ColorColumn ctermbg=darkgrey
-"" 232 blackest to 255 white
 :hi CursorLine   cterm=NONE ctermbg=238
 :hi CursorColumn cterm=NONE ctermbg=238
 
 ""bindings
+let g:mapleader="\<Space>"
 let mapleader = " "
 nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<cr>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
@@ -76,11 +95,8 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <silent> <leader>l :vertical resize +5<CR>
 nnoremap <silent> <leader>h :vertical resize -5<CR>
-nnoremap <silent> <leader>c} V}k:call nerdcommenter#Comment('x', 'toggle')<CR>
-nnoremap <silent> <leader>c{ V{j:call nerdcommenter#Comment('x', 'toggle')<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>f :FZF<CR>
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
 nnoremap <silent> <leader>mc :silent! execute '!markdown-folder-to-html ~/Documents/notes/'<cr>
 nnoremap <silent> <leader>md :call PreviewMD()<cr>
@@ -101,6 +117,12 @@ map <C-l> <C-w>l
 inoremap ZZ <esc>:x<cr> 
 inoremap jk <esc>
 inoremap kj <esc>
+nnoremap <silent> <Leader>fh :History<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>tc :Colors<CR>
+nnoremap <silent> <Leader>fa :Rg<CR>
+nnoremap <silent> <Leader>fb :Marks<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
 ""autocmd settings
 autocmd InsertEnter * norm zz

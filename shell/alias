@@ -50,6 +50,7 @@ alias poo='cd_last_lab poo'
 
 alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"
+alias ebspwm="nvim ~/.config/bspwm/bspwmrc"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias eqsearch="nvim ~/.config/qutebrowser/modules/search_engines.py"
 alias eqbindings="nvim ~/.config/qutebrowser/modules/bindings.py"

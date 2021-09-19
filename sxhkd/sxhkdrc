@@ -31,8 +31,8 @@ super + r ; c ; t
 	switch
 
 # apps 
-super + alt + {g, b, f, v, z, s, m}
-  {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
+# super + alt + {g, b, f, v, z, s, m}
+#   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
 
 # file browser in directory
 super + f ; {d, p, v, m, u, w}
@@ -40,9 +40,9 @@ super + f ; {d, p, v, m, u, w}
 super + u
 	find -L ~/UTM/anul_ii/semestrul_iii -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 
-# various terminal programs
-super + alt + {a, r, h, n, w, p}
-  $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
+# # various terminal programs
+# super + alt + {a, r, h, n, w, p}
+#   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
 
 ### audio
 XF86AudioRaiseVolume
@@ -82,45 +82,33 @@ super + {_,shift + }c
 # alternate between the tiled and monocle layout
 super + w
 	bspc desktop -l next
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
 
 # state/flags
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# super + {t,s,f}
+# 	bspc node -t {tiled,floating,fullscreen}
+super + Tab
+	bspc node -t fullscreen
+super + {_,shift +}e
+	bspc node -t {tiled,floating}
 
 # focus/swap
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
 # focus the next/previous window in the current desktop
 super + {_,shift + }space
 	bspc node -f {next,prev}.local.!hidden.window
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+super + shift + {1-9}
+    id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
 
 # preselect
 # preselect the direction
@@ -129,11 +117,8 @@ super + ctrl + {h,j,k,l}
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
+super + ctrl + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 # move/resize

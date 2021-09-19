@@ -67,7 +67,7 @@ alias news='newsboat'
 alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
 alias unimatrix='unimatrix -s 95'
-
+alias book='find -L ~/Books -maxdepth 1 -type f | shuf -n 1 | xargs -I% zathura %'
 alias sx2='sx ~/.config/sx/sxrc'
 alias kde='sx /bin/startplasma-x11'
 

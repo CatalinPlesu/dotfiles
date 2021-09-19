@@ -2,7 +2,7 @@
 image/png=gimp.desktop;sxiv.desktop;mupdf.desktop;
 text/x-python=vscodium.desktop;
 text/plain=vscodium.desktop;VSCodium.desktop;nvim.desktop;
-application/pdf=net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;libreoffice-draw.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
+application/pdf=chromium.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;libreoffice-draw.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
 inode/directory=sxiv.desktop;xfce4-file-manager.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;

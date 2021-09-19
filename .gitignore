@@ -65,8 +65,8 @@
 !/Thunar/**
 !/lf/
 !/lf/**
-/polybar/
-/polybar/**
+!/polybar/
+!/polybar/**
 !/bspwm/
 !/bspwm/**
 !/wallpapers.cfg

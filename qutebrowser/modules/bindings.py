@@ -25,6 +25,7 @@ bindings = {
     'j': 'scroll-px 0 75',
     'k': 'scroll-px 0 -75',
     'l': 'run-with-count 2 scroll right',
+    'ww': 'open -w {url:pretty};;tab-close',
 
     ',gl': 'config-cycle content.user_stylesheets ./css/gruvbox-light-all-sites.css ""',
     ',gd': 'config-cycle content.user_stylesheets ./css/gruvbox-dark-all-sites.css ""',

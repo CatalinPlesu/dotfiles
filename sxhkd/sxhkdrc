@@ -19,9 +19,9 @@ ctrl + Print
 super + d
 	rofi -show combi 
 super + r; d
-	rofi -show calc | xclip -selection clipboard
+	rofi -show calc -theme dmenu | xclip -selection clipboard
 super + r; s
-	rofi -show emoji
+	rofi -show emoji -matching normal
 
 # Change wallpaper
 super + r ; c ; b

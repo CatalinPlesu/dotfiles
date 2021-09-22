@@ -1,19 +1,7 @@
 from random import randrange
-searx = [
-        "https://searx.be/",
-        "https://searx.tunkki.xyz/searx/",
-        "https://searx.bissisoft.com/",
-        "https://searx.bar/",
-        "https://searx.info/",
-        "https://searx.tunkki.xyz/searx/",
-        "https://searx.tuxcloud.net/",
-        "https://searx.zackptg5.com/",
-        "https://searx.sp-codes.de/",
-        "https://searx.lnode.net/",
-        ]
 c.url.searchengines = {
         # search engines
-    'DEFAULT': searx[randrange(0,len(searx)-1)]+'search?q={}',
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
     'd': 'https://duckduckgo.com/?q={}',
     'g': 'https://www.google.com/search?q={}',
     'b': 'https://www.bing.com/search?q={}',

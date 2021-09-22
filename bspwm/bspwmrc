@@ -20,4 +20,4 @@ bspc rule -a Screenkey manage=off
 
 nm-applet &
 # polybar example &
- ~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh

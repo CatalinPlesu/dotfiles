@@ -1,7 +1,7 @@
 #!/bin/sh
 alias ls='ls --color=auto'
 alias la='ls -a --color=auto'
-alias l='ls -l --color=auto'
+alias l='ls -1 --color=auto'
 alias lah='ls -lah --color=auto'
 alias grep='grep --color=auto'
 
@@ -29,16 +29,16 @@ alias gco='git checkout'
 alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
-alias vim='nvim'
+alias vim='nvim -u NONE'
 alias v='nvim'
 alias z="zathura"
 alias sv="sudoedit"
 
-alias note='cd ~/Documents/notes && vim index.md'
-alias anime='cd ~/Documents/notes && vim Journal/Entertaiment/index.md'
+alias note='cd ~/Documents/notes && nvim index.md'
+alias anime='cd ~/Documents/notes && nvim Journal/Entertaiment/index.md'
 alias qnote='nvim ~/Documents/notes/QuickNote.md'
-alias todo='cd ~/Documents/notes && vim todo.txt'
-alias utm='cd ~/Documents/notes/UTM && vim index.md'
+alias todo='cd ~/Documents/notes && nvim todo.txt'
+alias utm='cd ~/Documents/notes/UTM && nvim index.md'
 
 cd_last_lab() { cd ~/UTM/anul_ii/semestrul_iii/$1/ && cd $(ls -dv */ | grep lab | tail -n 1) }
 alias apa='cd_last_lab apa'
@@ -71,6 +71,7 @@ alias code=codium
 alias unimatrix='unimatrix -s 95'
 alias book='find -L ~/Books -maxdepth 1 -type f | shuf -n 1 | xargs -I% zathura %'
 alias disc='cd /media/catalin/catalin/discord'
+alias neofetch='neofetch --ascii_distro FreeBSD'
 
 alias sx2='sx ~/.config/sx/sxrc'
 alias kde='sx /bin/startplasma-x11'

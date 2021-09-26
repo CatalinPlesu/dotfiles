@@ -1,8 +1,8 @@
-#light
+#dark
 from gruvbox.gruvbox import *
 ### main colors
-background=white0
-foreground=black
+background=black
+foreground=white0
 ### borders
 focus_t=green
 normal_t=blue

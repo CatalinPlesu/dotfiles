@@ -2,14 +2,18 @@ bindings = {
     "ao": "download-open",
     "co": "nop",
 
+    ';d': 'set downloads.location.directory ~/Downloads/ ;; download',
+    ';p': "set downloads.location.directory ~/Pictures/ ;; hint images download",
+    ';w': "set downloads.location.directory ~/Pictures/wallpapers/",
+    ';f': "set downloads.location.directory ~/Documents/",
+
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',
     'yM': 'yank ;; spawn mpv {url}',
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
-    '"d': 'download',
-    '"I': "hint images download",
     'aa': "yank ;; spawn --userscript muzd {url}",
     '"si': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
+
     '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
     '<Ctrl-s>': "set-cmd-text :open ;; command-history-prev ;; rl-beginning-of-line ;; rl-forward-word ;; rl-forward-word ;; rl-backward-kill-word",
 

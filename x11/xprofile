@@ -11,6 +11,7 @@ sxhkd &
 lxpolkit &
 dunst &
 nm-applet &
+flameshot &
 nitrogen --restore &
 # wallpapersd &
 kitty &

@@ -31,6 +31,8 @@ application/wps-office.wpso=wps-office-wps.desktop;
 application/zip=xarchiver.desktop;org.pwmt.zathura-cb.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop;
 application/wps-office.doc=freeoffice-textmaker.desktop;libreoffice-writer.desktop;
+application/wps-office.pptx=libreoffice-impress.desktop;
+application/wps-office.ppt=libreoffice-impress.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
@@ -44,7 +46,7 @@ video/mp4=mpv.desktop;
 x-scheme-handler/ftp=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
-application/wps-office.pptx=wps-office-wpp.desktop
+application/wps-office.pptx=libreoffice-impress.desktop
 application/wps-office.ppt=wps-office-wpp.desktop
 application/wps-office.pot=wps-office-wpp.desktop
 application/wps-office.potx=wps-office-wpp.desktop

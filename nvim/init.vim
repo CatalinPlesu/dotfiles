@@ -92,11 +92,8 @@ map <C-l> <C-w>l
 inoremap ZZ <esc>:x<cr> 
 inoremap jk <esc>
 inoremap kj <esc>
-nnoremap <silent> <Leader>fh :History<CR>
-nnoremap <silent> <Leader>ff :Files<CR>
-nnoremap <silent> <Leader>tc :Colors<CR>
-nnoremap <silent> <Leader>fr :Rg<CR>
-nnoremap <silent> <Leader>fm :Marks<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>rf :Rg<CR>
 
 ""autocmd settings
 autocmd InsertEnter * norm zz

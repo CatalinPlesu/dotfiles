@@ -58,9 +58,9 @@ override-redirect = true
 wm-restack = bspwm
 
 [bar/right]
-width = 15%
+width = 20%
 height = ${default.height}
-offset-x = 85%
+offset-x = 80%
 offset-y = 0%
 font-0 = ${default.font-0} 
 background = ${colors.purple}

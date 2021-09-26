@@ -8,7 +8,7 @@ bindings = {
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     '"d': 'download',
     '"I': "hint images download",
-    '"a': "yank ;; spawn --userscript muzd {url}",
+    'aa': "yank ;; spawn --userscript muzd {url}",
     '"si': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
     '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
     '<Ctrl-s>': "set-cmd-text :open ;; command-history-prev ;; rl-beginning-of-line ;; rl-forward-word ;; rl-forward-word ;; rl-backward-kill-word",

@@ -13,7 +13,8 @@ super + x
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 ctrl + Print
-	flameshot gui
+	screenshot_dir 
+	# flameshot gui
 	# scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 
 # rofi things
@@ -31,22 +32,20 @@ super + r ; c ; b
 super + r ; c ; t
 	switch
 
-# apps 
-# super + alt + {g, b, f, v, z, s, m}
-#   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
+# # apps 
+# # super + alt + {g, b, f, v, z, s, m}
+# #   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
 super + m
 	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
-![23-September-2021-09:54:12](/home/catalin/Pictures/Screenshots/2021/September/23/23-September-2021-09:54:12.png)
-![23-September-2021-09:54:12](/home/catalin/Pictures/Screenshots/2021/September/23/23-September-2021-09:54:12.png)
 # file browser in directory
 super + f ; {s, d, p, v, m, u, w}
 	thunar {Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/anul_ii/semestrul_iii/, Pictures/wallpapers/}
 super + u
 	find -L ~/UTM/anul_ii/semestrul_iii -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 
-# # various terminal programs
-# super + alt + {a, r, h, n, w, p}
-#   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
+# # # various terminal programs
+# # super + alt + {a, r, h, n, w, p}
+# #   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
 
 ### audio
 XF86AudioRaiseVolume

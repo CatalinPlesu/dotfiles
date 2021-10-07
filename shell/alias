@@ -49,6 +49,7 @@ alias mmc1='cd_last_lab mmc1'
 alias mmc2='cd_last_lab mmc2'
 alias poo='cd_last_lab poo'
 alias sem='cd ~/UTM/anul_ii/semestrul_iii'
+alias an='cd ~/UTM/anul_ii/semestrul_iii/apa/an'
 
 alias evim="nvim ~/.config/nvim/init.vim"
 alias eqtile="nvim ~/.config/qtile/config.py"

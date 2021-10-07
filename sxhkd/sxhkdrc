@@ -23,7 +23,7 @@ super + d
 super + r; d
 	rofi -show calc -theme dmenu | xclip -selection clipboard
 super + r; s
-	rofi -modi 'run,drun,emoji:/home/catalin/.config/rofi/rofiemoji/rofiemoji.sh' -show emoji  -matching normal
+	rofi -modi 'run,drun,emoji:/home/catalin/.config/rofi/rofiemoji.sh' -show emoji  -matching normal
 
 # Change wallpaper
 super + r ; c ; b

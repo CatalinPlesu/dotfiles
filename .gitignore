@@ -31,7 +31,11 @@
 !/qutebrowser/
 !/qutebrowser/**
 !/rofi/
+!/rofi/rofiemoji/
+!/rofi/rofiemoji/*
 !/rofi/**
+!/rofi/**/
+!/rofi/*/
 !/shell/
 !/shell/**
 !/starship/

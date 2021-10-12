@@ -4335,26 +4335,35 @@
  ℯ  script small e                               	
  ℴ  script small o                               	
  ⋆  star operator                                	
- ₅  subscript five                               	
- ₄  subscript four                               	
- ₋  subscript minus                              	
- ₁  subscript one                                	
- ₊  subscript plus sign                          	
- ₃  subscript three                              	
- ₂  subscript two                                	
  ₀  subscript zero                               	
+ ₁  subscript one                                	
+ ₂  subscript two                                	
+ ₃  subscript three                              	
+ ₄  subscript four                               	
+ ₅  subscript five                               	
+ ₆  subscript six                               	
+ ₇  subscript seven                               	
+ ₈  subscript eight                               	
+ ₉  subscript nine                               	
+ ₊  subscript plus sign                          	
+ ₋  subscript minus                              	
  ⊂  subset of                                    	
  ⊆  subset of or equal to                        	
- ⁴  superscript four                             	
- ⁱ  superscript latin small letter i             	
- ⁿ  superscript latin small letter n             	
- ⁽  superscript left parenthesis                 	
- ⁻  superscript minus                            	
- ¹  superscript one                              	
- ⁾  superscript right parenthesis                	
- ³  superscript three                            	
  ²  superscript two                              	
+ ³  superscript three                            	
+ ¹  superscript one                              	
  ⁰  superscript zero                             	
+ ⁱ  superscript latin small letter i             	
+ ⁴  superscript four                             	
+ ⁵  superscript five                               	
+ ⁶  superscript six                               	
+ ⁷  superscript seven                               	
+ ⁸  superscript eight                               	
+ ⁹  superscript nine                               	
+ ⁻  superscript minus                            	
+ ⁽  superscript left parenthesis                 	
+ ⁾  superscript right parenthesis                	
+ ⁿ  superscript latin small letter n             	
  ⊃  superset of                                  	
  ⊇  superset of or equal to                      	
  ∄  there does not exist                         	

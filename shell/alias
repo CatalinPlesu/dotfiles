@@ -29,13 +29,14 @@ alias gco='git checkout'
 alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
-alias vim='nvim -u NONE'
+# alias vim='nvim -u NONE'
 alias v='nvim'
 alias z="zathura"
 alias sv="sudoedit"
 
 alias note='cd ~/Documents/notes && nvim index.md'
 alias anime='cd ~/Documents/notes && nvim Journal/Entertaiment/index.md'
+alias quote='cd ~/Documents/notes && nvim Journal/citate/index.md'
 alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && nvim todo.txt'
 alias utm='cd ~/Documents/notes/UTM && nvim index.md'

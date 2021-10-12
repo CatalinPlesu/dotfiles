@@ -63,6 +63,7 @@ height = ${default.height}
 offset-x = 80%
 offset-y = 0%
 font-0 = ${default.font-0} 
+font-1 = ${default.font-2} 
 background = ${colors.purple}
 foreground = ${colors.black}
 padding-left = 2
@@ -121,5 +122,7 @@ label = %date% %time%
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
-
+full-at = 100 
+label-charging = 💹 %percentage%%
+label-discharging = 🔻 %percentage%%
+label-full = 🌕

@@ -48,9 +48,6 @@ bindkey "^?" backward-delete-char
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^e' 'nvim "$(fzf)"\n'
 
-bindkey -s '^h' '\ncd ~\n'
-bindkey -s '^d' '\ncd ~/Downloads\n'
-bindkey -s '^p' '\ncd ~/Pictures\n'
 bindkey -s '^t' '\nthunar &\n'
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml

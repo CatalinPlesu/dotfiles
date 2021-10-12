@@ -20,11 +20,10 @@ Plug 'preservim/nerdtree' " leader n
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color' " preview colors in some fies
 Plug 'frazrepo/vim-rainbow'
-" Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs' " I ussualy don't like it
 Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
 ""plugin settings
@@ -33,7 +32,7 @@ let g:rainbow_active = 1
 colorscheme gruvbox
 let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+						\'syntax': 'markdown', 'ext': '.md'}]
 
 
 "" settings
@@ -60,16 +59,13 @@ set scrolloff=10
 highlight ColorColumn ctermbg=darkgrey
 :hi CursorLine   cterm=NONE ctermbg=238
 :hi CursorColumn cterm=NONE ctermbg=238
+set noshowcmd noruler "" no lag or something
 
 ""bindings
 let g:mapleader="\<Space>"
 let mapleader = " "
 nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<cr>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-nnoremap <silent> <leader>l :vertical resize +5<CR>
-nnoremap <silent> <leader>h :vertical resize -5<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
@@ -79,21 +75,22 @@ nnoremap <leader>s :!syncthing<cr>
 nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
-nnoremap <leader>p :!python %<cr>
-nnoremap <leader>r :w<cr>:!make<cr>
 nnoremap Y y$ 
 nnoremap <leader>d :r!date +\%d_\%b_\%Y<cr>:norm I[<cr>:norm A]<cr>:r!date +\%d_\%b_\%Y<cr>:norm I(<cr>:norm A.md)<cr>:norm kJx<cr>
 nnoremap <leader>t :r!date +\%T<cr>:norm I[<cr>:norm A]<cr>
 nnoremap <leader>e :e %:h/
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 inoremap ZZ <esc>:x<cr> 
 inoremap jk <esc>
 inoremap kj <esc>
 nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>rf :Rg<CR>
+nnoremap <silent> <Leader>g :Rg<CR>
+tnoremap <Esc> <C-\><C-n>
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 ""autocmd settings
 autocmd InsertEnter * norm zz
@@ -117,3 +114,17 @@ else
 	set virtualedit=""
 endif
 endfunction
+
+function! RunFile()
+  if match(@%, '.rb$') != -1
+    exec '!ruby % '
+  elseif match(@%, '.py$') != -1
+    exec '!python % '
+  elseif match(@%, '.cpp$') != -1
+    exec '!g++ % '
+    exec '!./a.out'
+  else
+    echo '<< ERROR >> RunFile() only supports ruby and python'
+  endif
+endfunction
+

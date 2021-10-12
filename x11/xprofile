@@ -14,4 +14,4 @@ nm-applet &
 flameshot &
 nitrogen --restore &
 # wallpapersd &
-kitty &
+kitty -e tmux&

@@ -41,7 +41,8 @@ alias qnote='nvim ~/Documents/notes/QuickNote.md'
 alias todo='cd ~/Documents/notes && nvim todo.txt'
 alias utm='cd ~/Documents/notes/UTM && nvim index.md'
 
-cd_last_lab() { cd ~/UTM/anul_ii/semestrul_iii/$1/ && cd $(ls -dv */ | grep lab | tail -n 1) }
+cd_last_lab() { cd ~/UTM/ii_an/iii_sem/$1/ && cd $(ls -dv */ | grep lab | tail -n 1) }
+alias ll=cd_last_lab
 alias apa='cd_last_lab apa'
 alias asdn='cd_last_lab asdn'
 alias cde='cd_last_lab cde'
@@ -49,8 +50,8 @@ alias lfa='cd_last_lab lfa'
 alias mmc1='cd_last_lab mmc1'
 alias mmc2='cd_last_lab mmc2'
 alias poo='cd_last_lab poo'
-alias sem='cd ~/UTM/anul_ii/semestrul_iii'
-alias an='cd ~/UTM/anul_ii/semestrul_iii/apa/an'
+alias sem='cd ~/UTM/ii_an/iii_sem/'
+alias an='cd ~/UTM/ii_an/iii_sem/apa/an'
 
 alias evim="nvim ~/.config/nvim/init.vim"
 alias etmux="nvim ~/.config/tmux/tmux.conf"

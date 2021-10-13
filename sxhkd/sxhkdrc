@@ -3,7 +3,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 # open terminal
 super + Return
-	$TERMINAL -e launch-tmux
+	$TERMINAL -e tmux new-session -A -s main
 super + alt + Return
 	$TERMINAL	
 super + b

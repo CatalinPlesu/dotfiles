@@ -66,6 +66,7 @@ let g:mapleader="\<Space>"
 let mapleader = " "
 nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<cr>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
+nnoremap <leader>r :w<cr>:call RunFile()<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
@@ -123,8 +124,14 @@ function! RunFile()
   elseif match(@%, '.cpp$') != -1
     exec '!g++ % '
     exec '!./a.out'
+  elseif match(@%, '.c$') != -1
+    exec '!g++ % '
+    exec '!./a.out'
+  elseif match(@%, '.rs$') != -1
+    exec '!rustc % '
+    exec '!./%:r'
   else
-    echo '<< ERROR >> RunFile() only supports ruby and python'
+    echo '<< ERROR >> RunFile() only supports ry, py, cpp, c, rs'
   endif
 endfunction
 

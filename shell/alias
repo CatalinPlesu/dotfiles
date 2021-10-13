@@ -53,6 +53,7 @@ alias sem='cd ~/UTM/anul_ii/semestrul_iii'
 alias an='cd ~/UTM/anul_ii/semestrul_iii/apa/an'
 
 alias evim="nvim ~/.config/nvim/init.vim"
+alias etmux="nvim ~/.config/tmux/tmux.conf"
 alias eqtile="nvim ~/.config/qtile/config.py"
 alias ebspwm="nvim ~/.config/bspwm/bspwmrc"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"

@@ -3,9 +3,9 @@ super + Escape
 	pkill -USR1 -x sxhkd
 # open terminal
 super + Return
-	$TERMINAL	
+	$TERMINAL -e launch-tmux
 super + alt + Return
-	$TERMINAL -e tmux	
+	$TERMINAL	
 super + b
 	$BROWSER
 super + B

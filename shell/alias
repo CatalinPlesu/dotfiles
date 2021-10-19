@@ -29,6 +29,9 @@ alias gco='git checkout'
 alias glt='git log --oneline --decorate --graph --all'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
+# DEV
+alias cargo-t='cargo test -- --nocapture'
+
 # alias vim='nvim -u NONE'
 alias v='nvim'
 alias z="zathura"
@@ -83,6 +86,7 @@ alias kde='sx /bin/startplasma-x11'
 
 alias wifi-list='nmcli dev wifi list'
 alias wifi-connect='nmcli dev wifi connect'
+
 
 ex ()
 {

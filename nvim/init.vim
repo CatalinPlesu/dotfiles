@@ -128,8 +128,14 @@ function! RunFile()
     exec '!g++ % '
     exec '!./a.out'
   elseif match(@%, '.rs$') != -1
-    exec '!rustc % '
-    exec '!./%:r'
+	    if !empty(glob('../Cargo.lock')) && !isdirectory('../Cargo.lock')
+			exec '!cargo run'
+		elseif !empty(glob('Cargo.lock')) && !isdirectory('Cargo.lock')
+			exec '!cargo run'
+		else
+			exec '!rustc % '
+			exec '!./%:r'
+	  endif
   else
     echo '<< ERROR >> RunFile() only supports ry, py, cpp, c, rs'
   endif

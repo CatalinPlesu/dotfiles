@@ -3510,6 +3510,8 @@
  🏴󠁧󠁢󠁥󠁮󠁧󠁿 flag: England
  🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag: Scotland
  🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag: Wales
+
+#math
  ≈  almost equal to                              	
  ∠  angle                                        	
  ∗  asterisk operator                            	
@@ -4385,3 +4387,19 @@
  ¼    vulgar fraction one quarter                  	
  ⅓  vulgar fraction one third                    	
  □  white square                                 	
+
+#kaomoji
+ (>_<)  kaomoji cry
+ (T_T)  kaomoji sad
+ (^_<)  kaomoji wink
+ (o_O)! kaomoji shock
+ (¬‿¬)  kaomoji doubt
+ (¯▿¯)  kaomoji relaxed
+ (×_×)  kaomoji pain
+ (ᵔ◡ᵔ)  kaomoji happy
+ (⇀‸↼‶) kaomoji sorry
+ (◕‿◕✿) kaomoji cute face
+ -__-   kaomoji sad
+ ^-^    kaomoji happy
+ (－_－)zzZ kaomoji sleeping
+ (ﾒ￣▽￣)︻┳═一 kaomoji weapon

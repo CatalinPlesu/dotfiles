@@ -87,6 +87,8 @@ alias kde='sx /bin/startplasma-x11'
 alias wifi-list='nmcli dev wifi list'
 alias wifi-connect='nmcli dev wifi connect'
 
+alias ppt_to_pdf='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
+
 
 ex ()
 {

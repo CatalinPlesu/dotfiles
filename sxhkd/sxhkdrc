@@ -31,7 +31,7 @@ super + r; s
 
 # Change wallpaper
 super + r ; c ; b
-	nitrogen --set-zoom --random ~/Pictures/wallpapers
+	nitrogen --set-zoom-fill --random ~/Pictures/wallpapers
 # Change theme
 super + r ; c ; t
 	switch
@@ -109,13 +109,13 @@ super + {_,shift + }space
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
-# focus or send to the given desktop
-# super + {_,shift + }{1-9,0}
-# 	bspc {desktop -f,node -d} '^{1-9,10}'
-super + {1-9,0}
-	bspc desktop -f '^{1-9,10}'
-super + shift + {1-9}
-    id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
+#focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {1-9,0}
+# 	bspc desktop -f '^{1-9,10}'
+# super + shift + {1-9}
+#     id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
 
 # preselect
 # preselect the direction
@@ -140,7 +140,9 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 # kill polybar super ctrl r will restore it
-super + t
-	killall -q polybar; bspc config top_padding 0
-super + shift + t
-	~/.config/polybar/launch.sh; bspc config top_padding 20
+# super + t
+# 	killall -q polybar; bspc config top_padding 0
+# super + shift + t
+# 	~/.config/polybar/launch.sh; bspc config top_padding 20
+super {_,shift + }t
+	{~/.config/polybar/launch.sh; bspc config top_padding 20, killall -q polybar; bspc config top_padding 0}

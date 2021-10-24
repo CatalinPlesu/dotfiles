@@ -6,6 +6,7 @@ case $1 in
     kde               ) exec startplasma-x11;;
     bspwm             ) exec bspwm;;
     openbox           ) exec openbox;;
+    dwm				  ) exec dwm;;
     *                 ) exec bspwm;;
 
 esac

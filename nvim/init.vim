@@ -11,7 +11,7 @@ unlet autoload_plug_path
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-surround' " have to test
+Plug 'tpope/vim-surround' " usseful sometimes, but hard to remember ysw' to add surounding
 Plug 'wakatime/vim-wakatime' " count time using vim in each file
 Plug 'gruvbox-community/gruvbox' " sexy color scheme
 Plug 'vim-airline/vim-airline' " bottom line
@@ -24,6 +24,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
+Plug 'wfxr/minimap.vim'
 call plug#end()
 
 ""plugin settings
@@ -33,7 +34,9 @@ colorscheme gruvbox
 let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
 						\'syntax': 'markdown', 'ext': '.md'}]
-
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 
 "" settings
 syntax on
@@ -60,11 +63,21 @@ highlight ColorColumn ctermbg=darkgrey
 :hi CursorLine   cterm=NONE ctermbg=238
 :hi CursorColumn cterm=NONE ctermbg=238
 set noshowcmd noruler "" no lag or something
+" whitespace character vizualization
+" ○
+set listchars=eol:¶,tab:<->,space:.,trail:.,extends:>,precedes:<
+
+:hi GroupSpace ctermfg=50
+:hi GroupTab ctermfg=197
+:hi GroupN ctermfg=63
+:match GroupSpace / /
+:2match GroupTab /\t/
+:3match GroupN /\n/
 
 ""bindings
 let g:mapleader="\<Space>"
 let mapleader = " "
-nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<cr>
+nnoremap <silent> <Leader>x :set cursorline! cursorcolumn! list!<CR>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
 nnoremap <leader>r :w<cr>:call RunFile()<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>

@@ -1,10 +1,10 @@
 [Added Associations]
-image/png=gimp.desktop;sxiv.desktop;mupdf.desktop;
+image/png=fotoxx.desktop;gimp.desktop;mypaint.desktop;sxiv.desktop;mupdf.desktop;
 text/x-python=vscodium.desktop;
-text/plain=vscodium.desktop;VSCodium.desktop;nvim.desktop;
+text/plain=vim.desktop;neovide.desktop;
 application/pdf=libreoffice-draw.desktop;chromium.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
-inode/directory=sxiv.desktop;xfce4-file-manager.desktop;
+inode/directory=sxiv.desktop;xfce4-file-manager.desktop;thunar.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
 text/markdown=firefox.desktop;
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop;
@@ -41,7 +41,7 @@ image/gif=sxiv.desktop
 image/jpeg=sxiv.desktop;
 image/png=sxiv.desktop;
 image/svg+xml=gimp.desktop
-inode/directory=file.desktop
+inode/directory=thunar.desktop
 video/mp4=mpv.desktop;
 x-scheme-handler/ftp=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
@@ -72,3 +72,4 @@ application/wps-office.wpso=wps-office-wps.desktop
 application/wps-office.wpt=wps-office-wps.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop
 x-scheme-handler/msteams=teams.desktop
+text/plain=neovide.desktop

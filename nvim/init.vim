@@ -1,7 +1,7 @@
 " Bootstrap Plug
 let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if !filereadable(autoload_plug_path)
-  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs 
+  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs
       \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -35,7 +35,7 @@ let maplocalleader=";"
 let g:vimwiki_list = [{'path': '~/Documents/notes/',
 						\'syntax': 'markdown', 'ext': '.md'}]
 let g:minimap_width = 10
-let g:minimap_auto_start = 1
+" let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 
 "" settings
@@ -50,6 +50,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
 set nowrap
+set linebreak
 set nobackup
 set nowritebackup
 set noswapfile
@@ -64,36 +65,39 @@ highlight ColorColumn ctermbg=darkgrey
 :hi CursorColumn cterm=NONE ctermbg=238
 set noshowcmd noruler "" no lag or something
 " whitespace character vizualization
-" ○
-set listchars=eol:¶,tab:<->,space:.,trail:.,extends:>,precedes:<
+" ○°
+set listchars=eol:¶,tab:<->,space:°,trail:°,extends:>,precedes:<
 
 :hi GroupSpace ctermfg=50
 :hi GroupTab ctermfg=197
 :hi GroupN ctermfg=63
-:match GroupSpace / /
-:2match GroupTab /\t/
-:3match GroupN /\n/
+:call matchadd("GroupN", '\n')
+:call matchadd("GroupSpace", ' ')
+:call matchadd("GroupTab", '\t')
 
 ""bindings
 let g:mapleader="\<Space>"
 let mapleader = " "
-nnoremap <silent> <Leader>x :set cursorline! cursorcolumn! list!<CR>
+nnoremap <silent> <Leader>x :set cursorline! cursorcolumn!<CR>
+nnoremap <silent> <Leader>p :set list!<CR>
 nnoremap <leader>v :<C-u>call ToggleVirtualedit()<cr>
 nnoremap <leader>r :w<cr>:call RunFile()<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>z :MinimapToggle<CR>
+nnoremap <leader>a :set wrap!<CR>
 nnoremap <leader>cl BufWritePre * %s/\s\+$//e<cr>
 nnoremap <silent> <leader>mc :silent! execute '!markdown-folder-to-html ~/Documents/notes/'<cr>
 nnoremap <silent> <leader>md :call PreviewMD()<cr>
-nnoremap <leader>s :!syncthing<cr>
+nnoremap <leader>s :w <cr>:!xelatex main.tex<cr>
 nnoremap <leader>br :silent exec '!"$BROWSER" % &'<cr>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
-nnoremap Y y$ 
+nnoremap Y y$
 nnoremap <leader>d :r!date +\%d_\%b_\%Y<cr>:norm I[<cr>:norm A]<cr>:r!date +\%d_\%b_\%Y<cr>:norm I(<cr>:norm A.md)<cr>:norm kJx<cr>
 nnoremap <leader>t :r!date +\%T<cr>:norm I[<cr>:norm A]<cr>
 nnoremap <leader>e :e %:h/
-inoremap ZZ <esc>:x<cr> 
+inoremap ZZ <esc>:x<cr>
 inoremap jk <esc>
 inoremap kj <esc>
 nnoremap <silent> <Leader>f :Files<CR>
@@ -114,13 +118,18 @@ augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+" transparent bg
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
 
 ""functions
+"" Will compile my markdown notes folder and open the curent page which is html
 function PreviewMD()
 	silent! execute '!markdown-folder-to-html ~/Documents/notes/'
 	silent! execute "!echo %:p | sed 's/notes/_notes/' | sed 's/md/html/' | xargs $BROWSER"
 endfunction
 
+"" virtualedit does not support ! toggle
 function ToggleVirtualedit()
 if &virtualedit ==# ""
 	set virtualedit=all
@@ -129,6 +138,7 @@ else
 endif
 endfunction
 
+"" To automatically compile and or run source code
 function! RunFile()
   if match(@%, '.rb$') != -1
     exec '!ruby % '
@@ -150,7 +160,7 @@ function! RunFile()
 			exec '!./%:r'
 	  endif
   else
-    echo '<< ERROR >> RunFile() only supports ry, py, cpp, c, rs'
+    echo '<< ERROR >> RunFile() only supports rb, py, cpp, c, rs'
   endif
 endfunction
 

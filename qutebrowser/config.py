@@ -4,7 +4,7 @@ config.source("modules/search_engines.py")
 config.source("themes/gruvbox.py")
 
 c.downloads.location.directory = "~/Downloads"
-c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.preferred_color_scheme = "light"
 
 c.keyhint.delay = 100
 c.editor.command = ['codium', '{file}']

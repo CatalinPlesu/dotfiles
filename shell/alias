@@ -5,6 +5,10 @@ alias l='ls -1 --color=auto'
 alias lah='ls -lah --color=auto'
 alias grep='grep --color=auto'
 
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+
 alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'

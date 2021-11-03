@@ -25,6 +25,7 @@ font-1 = siji:pixelsize=10;1
 font-2 = "twemoji:style=Regular:scale=6;5"
 font-3 = "Noto Color Emoji:style=Regular:scale=8;4"
 
+
 [bar/left]
 width = 24%
 height = ${default.height}
@@ -79,11 +80,11 @@ wm-restack = bspwm
 [module/xkeyboard]
 type = internal/xkeyboard
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.aqua0}
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.yellow}
-label-indicator-underline = ${colors.secondary}
+label-indicator-underline = ${colors.aqua0}
 
 
 [module/xwindow]
@@ -107,6 +108,7 @@ label-urgent-padding = 2
 label-empty = %index%
 label-empty-foreground = ${colors.white}
 label-empty-padding = 2
+pin-workspaces = true
 
 
 [module/date]

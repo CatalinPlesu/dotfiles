@@ -143,4 +143,4 @@ super + {Left,Down,Up,Right}
 # super + shift + t
 # 	~/.config/polybar/launch.sh; bspc config top_padding 20
 super {_,shift + }t
-	{~/.config/polybar/launch.sh; bspc config top_padding 20, killall -q polybar; bspc config top_padding 0}
+	{~/.config/polybar/launch.sh; bspc config -m eDP top_padding 20, killall -q polybar; bspc config top_padding 0}

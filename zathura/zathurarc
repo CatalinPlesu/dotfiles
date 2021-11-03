@@ -14,6 +14,7 @@ map d scroll half-down
 map p toggle_page_mode
 map r recolor
 map u scroll half-up
+map w rotate
 
 
 # settings

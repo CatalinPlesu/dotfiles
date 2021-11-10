@@ -1,6 +1,6 @@
 [Added Associations]
 image/png=fotoxx.desktop;gimp.desktop;mypaint.desktop;sxiv.desktop;mupdf.desktop;
-text/x-python=vscodium.desktop;
+text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=vim.desktop;neovide.desktop;
 application/pdf=net.sourceforge.gscan2pdf.desktop;libreoffice-draw.desktop;chromium.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
@@ -73,3 +73,4 @@ application/wps-office.wpt=wps-office-wps.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop
 x-scheme-handler/msteams=teams.desktop
 text/plain=neovide.desktop
+text/x-python=neovide.desktop

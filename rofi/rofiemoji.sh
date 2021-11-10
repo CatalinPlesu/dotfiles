@@ -1,8 +1,10 @@
 #!/bin/sh
 
 DIR="$HOME/.config/rofi"
-FILE="$DIR/emojis.txt"
-
+EMOJI="$DIR/emojis.txt"
+JP="$DIR/jp.txt"
+KAOMOJI="$DIR/kaomoji.txt"
+MATH="$DIR/math.txt"
 
 if [ "$@" ]
 then
@@ -11,4 +13,4 @@ then
   exit 0
 fi
 
-cat $FILE
+cat $EMOJI $JP $KAOMOJI $MATH

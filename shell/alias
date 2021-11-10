@@ -35,6 +35,7 @@ alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %C
 
 # DEV
 alias cargo-t='cargo test -- --nocapture'
+alias pypy='pypy3'
 
 # alias vim='nvim -u NONE'
 alias v='nvim'

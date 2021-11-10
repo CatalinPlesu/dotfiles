@@ -2,9 +2,11 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0 
+# bspc monitor HDMI-A-0 -d 1 2 3 4 5
+# bspc monitor eDP -d 6 7 8 9 0
 
 # second monitor
-bspc config -m HDMI-A-0 top_padding 0
+# bspc config -m HDMI-A-0 top_padding 0
 bspc config pointer_follows_monitor true
 bspc config pointer_follows_focus true
 

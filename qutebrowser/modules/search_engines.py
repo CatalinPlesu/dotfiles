@@ -32,5 +32,5 @@ c.url.searchengines = {
     'repo': 'http://github.com/catalinplesu/{}',
     'gem': 'https://rubygems.org/search?query={}',
         # md buy
-    '999': 'https://999.md/ro/search?query={}'
+    '9': 'https://999.md/ro/search?query={}'
 }

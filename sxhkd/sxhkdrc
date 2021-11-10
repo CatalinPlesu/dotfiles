@@ -18,6 +18,8 @@ Print + alt ; {1-9}
 	scrot -z -d {1-9}'%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 ctrl + Print
 	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+shift + Print
+	flameshot gui
 
 # rofi things
 super + d
@@ -143,4 +145,4 @@ super + {Left,Down,Up,Right}
 # super + shift + t
 # 	~/.config/polybar/launch.sh; bspc config top_padding 20
 super {_,shift + }t
-	{~/.config/polybar/launch.sh; bspc config -m eDP top_padding 20, killall -q polybar; bspc config top_padding 0}
+	{~/.config/polybar/launch.sh; bspc config top_padding 20, killall -q polybar; bspc config top_padding 0}

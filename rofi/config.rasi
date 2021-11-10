@@ -4,7 +4,8 @@ configuration {
 	show-icons: true;
 	disable-history: false;
 	combi-modi: "window,drun";
-	matching: "fuzzy";
+	/* matching: "fuzzy"; */
+	/* normal, regex, glob, fuzzy */
 	kb-mode-complete: "";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";

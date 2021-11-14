@@ -71,11 +71,11 @@
  ゆ	Hiragana letter YU
  ょ	Hiragana letter small YO
  よ	Hiragana letter YO
- ら	Hiragana letter RA
- り	Hiragana letter RI
- る	Hiragana letter RU
- れ	Hiragana letter RE
- ろ	Hiragana letter RO
+ ら	Hiragana letter RA rhard
+ り	Hiragana letter RI rhard
+ る	Hiragana letter RU rhard
+ れ	Hiragana letter RE rhard
+ ろ	Hiragana letter RO rhard
  ゎ	Hiragana letter small WA
  わ	Hiragana letter WA
  ゐ	Hiragana letter WI

@@ -16,6 +16,8 @@
 !/git/**
 !/htop/
 !/htop/**
+!/fontconfig/
+!/fontconfig/**
 !/kitty/
 !/kitty/**
 !/newsboat/

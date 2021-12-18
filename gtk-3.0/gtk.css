@@ -1,1 +1,9 @@
 @import 'colors.css';
+.thunar .standard-view .view {
+	background-image:-gtk-scaled(url("bg2.jpg"));
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+}
+.thunar .standard-view .view * { background-image: none; }
+.thunar .standard-view .view * { background: transparent; color: white; }

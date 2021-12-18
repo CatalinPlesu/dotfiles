@@ -2,10 +2,9 @@ bindings = {
     "ao": "download-open",
     "co": "nop",
 
-    ';d': 'set downloads.location.directory ~/Downloads/ ;; download',
-    ';p': "set downloads.location.directory ~/Pictures/ ;; hint images download",
-    ';w': "set downloads.location.directory ~/Pictures/wallpapers/",
-    ';f': "set downloads.location.directory ~/Documents/",
+    ';d': 'set downloads.location.directory ~/Downloads/ ;; hint all download',
+    ';p': "hint images download",
+    ';P': "set downloads.location.directory ~/Pictures/ ;; hint images download",
 
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',

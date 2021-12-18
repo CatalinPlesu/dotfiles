@@ -9,8 +9,11 @@ unlet autoload_plug_path
 
 "" plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'tpope/vim-surround' " usseful sometimes, but hard to remember ysw' to add surounding
 Plug 'wakatime/vim-wakatime' " count time using vim in each file
 Plug 'gruvbox-community/gruvbox' " sexy color scheme
@@ -25,6 +28,8 @@ Plug 'vimwiki/vimwiki' " great note taking experience
 Plug 'dhruvasagar/vim-table-mode' " good looking tables
 Plug 'ThePrimeagen/vim-be-good' " game that encourage to use relative number
 Plug 'wfxr/minimap.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 ""plugin settings
@@ -37,6 +42,35 @@ let g:vimwiki_list = [{'path': '~/Documents/notes/',
 let g:minimap_width = 10
 " let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
+let g:NERDTreeWinSize=15
+
+lua << EOF
+local previewers = require("telescope.previewers")
+require('telescope').setup{
+ defaults = {
+        file_sorter = require("telescope.sorters").get_fzy_sorter,
+        prompt_prefix = " ❯",
+        color_devicons = true,
+
+        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+		layout_config = {
+				preview_cutoff = 10,
+			},
+        },
+extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
+}
+require('telescope').load_extension('fzf')
+EOF
 
 "" settings
 syntax on
@@ -99,9 +133,13 @@ nnoremap <leader>t :r!date +\%T<cr>:norm I[<cr>:norm A]<cr>
 nnoremap <leader>e :e %:h/
 inoremap ZZ <esc>:x<cr>
 inoremap jk <esc>
-inoremap kj <esc>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>g :Rg<CR>
+inoremap :w <esc>:w<cr>
+" nnoremap <silent> <Leader>f :Files<CR>
+" nnoremap <silent> <Leader>g :Rg<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 tnoremap <Esc> <C-\><C-n>
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -109,6 +147,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+vnoremap < <gv
+vnoremap > >gv
+
 
 ""autocmd settings
 autocmd InsertEnter * norm zz
@@ -150,6 +191,9 @@ function! RunFile()
   elseif match(@%, '.c$') != -1
     exec '!g++ % '
     exec '!./a.out'
+  elseif match(@%, '.cs$') != -1
+	exec '!mcs % '
+	exec '!mono %:r '
   elseif match(@%, '.rs$') != -1
 	    if !empty(glob('../Cargo.lock')) && !isdirectory('../Cargo.lock')
 			exec '!cargo run'

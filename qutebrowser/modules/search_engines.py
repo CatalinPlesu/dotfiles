@@ -31,6 +31,7 @@ c.url.searchengines = {
     'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
     'repo': 'http://github.com/catalinplesu/{}',
     'gem': 'https://rubygems.org/search?query={}',
+    'w': 'http://www.wolframalpha.com/input/?i={}',
         # md buy
     '9': 'https://999.md/ro/search?query={}'
 }

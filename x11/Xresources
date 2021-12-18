@@ -9,6 +9,7 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+Xcursor.size: 36
 
 *.font: Fira Code:size=16:style=regular
 Sxiv.font: Fira Code:size=16:style=regular

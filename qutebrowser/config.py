@@ -19,8 +19,8 @@ c.downloads.position = 'bottom'
 c.zoom.default = "100%"
 
 
-c.url.default_page = "~/code/web/start_pages/kennethcheo/index.html"
-c.url.start_pages = ["~/code/web/start_pages/kennethcheo/index.html"]
+c.url.default_page = "~/code/web/start_pages/18_08_2021/index.html"
+c.url.start_pages = ["~/code/web/start_pages/18_08_2021/index.html"]
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False

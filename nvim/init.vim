@@ -11,6 +11,7 @@ set linebreak
 set listchars=eol:¶,tab:<->,space:°,trail:°,extends:>,precedes:<
 set mouse=a
 set nobackup
+set nowritebackup
 set noerrorbells
 set noswapfile
 set nowrap
@@ -35,8 +36,7 @@ nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
 "nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 nmap <leader>vpi :PlugInstall<cr>
-nmap <leader>vpc :PlugCleanInstall<cr>
-nmap <leader>vy :YRShow<cr>
+nmap <leader>vpc :PlugClean<cr>
 
 nmap <leader>k :nohlsearch<CR>
 
@@ -59,6 +59,9 @@ vnoremap Y myY`y
 " When text is wrapped, move by terminal rows, not lines, unless a count is provided
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+"escape terminal
+tnoremap <Esc> <C-\><C-n>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -109,7 +112,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/goyo.vim
     source ~/.config/nvim/plugins/which-key.vim
-    source ~/.config/nvim/plugins/YankRing.vim
+    source ~/.config/nvim/plugins/coc.vim
 
 call plug#end()
 doautocmd User When_PlugLoaded

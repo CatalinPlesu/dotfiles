@@ -3,5 +3,9 @@ Y=`date +%Y`
 B=`date +%B`
 mkdir -p ~/Music/$Y/$B
 cd ~/Music/$Y/$B
+notify-send "download started in ~/Music/$Y/$B" --urgency=low
+
 youtube-dl --ignore-errors --extract-audio --audio-format mp3 --audio-quality 0\
 	--add-metadata --no-playlist --embed-thumbnail -o "%(title)s.%(ext)s" $1 
+
+notify-send "download finished"

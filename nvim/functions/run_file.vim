@@ -1,3 +1,4 @@
+" Compile code
 nnoremap <leader>cc :w<cr>:call RunFile()<cr>
 
 "" To automatically compile and or run source code

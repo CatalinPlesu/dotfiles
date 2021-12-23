@@ -1,28 +1,4 @@
 "--------------------------------------------------------------------------
-" Plugins
-"--------------------------------------------------------------------------
-
-source ~/.config/nvim/functions/vim_plug_install.vim
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-    source ~/.config/nvim/plugins/gruvbox.vim
-    source ~/.config/nvim/plugins/vim-surround.vim
-    source ~/.config/nvim/plugins/vim-commentary.vim
-    source ~/.config/nvim/plugins/basic_editor.vim
-    source ~/.config/nvim/plugins/vim-wakatime.vim
-    source ~/.config/nvim/plugins/undotree.vim
-    source ~/.config/nvim/plugins/nerdtree.vim
-    source ~/.config/nvim/plugins/vim-maximize.vim
-    source ~/.config/nvim/plugins/vim-airline.vim
-    source ~/.config/nvim/plugins/vimwiki.vim
-    source ~/.config/nvim/plugins/fzf.vim
-    source ~/.config/nvim/plugins/goyo.vim
-
-call plug#end()
-doautocmd User Whet_PlugLoaded
-
-"--------------------------------------------------------------------------
 " General settings
 "--------------------------------------------------------------------------
 
@@ -43,10 +19,7 @@ set redrawtime=10000 " Allow more time for loading syntax on large files
 set scrolloff=8
 set sidescrolloff=8
 set smartcase
-" set spell
 set expandtab tabstop=4 shiftwidth=4
-set termguicolors
-set title
 set undodir=~/.local/share/nvim/undodir
 set undofile
 set updatetime=300 " Reduce time for highlighting other references
@@ -61,9 +34,11 @@ let mapleader = "\<space>"
 nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
 "nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
+nmap <leader>vpi :PlugInstall<cr>
+nmap <leader>vpc :PlugCleanInstall<cr>
+nmap <leader>vy :YRShow<cr>
 
 nmap <leader>k :nohlsearch<CR>
-nmap <leader>Q :bufdo bdelete<cr>
 
 " Allow gf to open non-existent files
 nnoremap gf :edit <cfile><cr>
@@ -71,7 +46,6 @@ nnoremap gf :edit <cfile><cr>
 nnoremap ge :e %:h/
 nnoremap <silent> <Leader>gx :set cursorline! cursorcolumn!<CR>
 nnoremap <silent> <Leader>gp :set list!<CR>
-nnoremap <leader>gv :<C-u>call ToggleVirtualedit()<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -114,10 +88,40 @@ imap ,, <Esc>A,<Esc>
 
 nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
 
+"--------------------------------------------------------------------------
+" Plugins
+"--------------------------------------------------------------------------
+
+source ~/.config/nvim/functions/vim_plug_install.vim
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+    source ~/.config/nvim/plugins/gruvbox.vim
+    source ~/.config/nvim/plugins/vim-surround.vim
+    source ~/.config/nvim/plugins/vim-commentary.vim
+    source ~/.config/nvim/plugins/basic_editor.vim
+    source ~/.config/nvim/plugins/vim-wakatime.vim
+    source ~/.config/nvim/plugins/undotree.vim
+    source ~/.config/nvim/plugins/nerdtree.vim
+    source ~/.config/nvim/plugins/vim-maximize.vim
+    source ~/.config/nvim/plugins/vim-airline.vim
+    source ~/.config/nvim/plugins/vimwiki.vim
+    source ~/.config/nvim/plugins/fzf.vim
+    source ~/.config/nvim/plugins/goyo.vim
+    source ~/.config/nvim/plugins/which-key.vim
+    source ~/.config/nvim/plugins/YankRing.vim
+
+call plug#end()
+doautocmd User When_PlugLoaded
+
 
 "--------------------------------------------------------------------------
 " Miscellaneous
 "--------------------------------------------------------------------------
+
+source ~/.config/nvim/functions/virtual_edit.vim
+source ~/.config/nvim/functions/run_file.vim
+source ~/.config/nvim/functions/compile_markdown.vim
 
 autocmd InsertEnter * norm zz
 
@@ -126,12 +130,13 @@ augroup Mkdir
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
 
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+highlight ColorColumn ctermbg=darkgrey
+hi CursorLine   cterm=NONE ctermbg=238
+hi CursorColumn cterm=NONE ctermbg=238
 
-source ~/.config/nvim/functions/virtual_edit.vim
-source ~/.config/nvim/functions/run_file.vim
-source ~/.config/nvim/functions/compile_markdown.vim
+call matchadd("GroupN", '\n')
+call matchadd("GroupSpace", ' ')
+call matchadd("GroupTab", '\t')
+hi GroupSpace ctermfg=50
+hi GroupTab ctermfg=197
+hi GroupN ctermfg=63

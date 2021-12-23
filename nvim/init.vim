@@ -33,7 +33,7 @@ set wildmode=longest,list,full
 let mapleader = "\<space>"
 
 nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-"nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
+nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 nmap <leader>vpi :PlugInstall<cr>
 nmap <leader>vpc :PlugClean<cr>

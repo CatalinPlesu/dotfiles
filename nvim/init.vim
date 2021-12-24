@@ -39,6 +39,7 @@ nmap <leader>vpi :PlugInstall<cr>
 nmap <leader>vpc :PlugClean<cr>
 
 nmap <leader>k :nohlsearch<CR>
+nmap <leader>Q :bufdo bdelete<cr>
 
 " Allow gf to open non-existent files
 nnoremap gf :edit <cfile><cr>
@@ -46,6 +47,7 @@ nnoremap gf :edit <cfile><cr>
 nnoremap ge :e %:h/
 nnoremap <silent> <Leader>gx :set cursorline! cursorcolumn!<CR>
 nnoremap <silent> <Leader>gp :set list!<CR>
+nnoremap <silent> <leader>gw :set wrap!<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -113,6 +115,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/goyo.vim
     source ~/.config/nvim/plugins/which-key.vim
     source ~/.config/nvim/plugins/coc.vim
+    source ~/.config/nvim/plugins/nvim-treesitter.vim
+    source ~/.config/nvim/plugins/vimspector.vim
+    source ~/.config/nvim/plugins/autoformat.vim
 
 call plug#end()
 doautocmd User When_PlugLoaded

@@ -11,6 +11,7 @@ nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' 
 
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+autocmd BufEnter NERD_tree_* | execute 'normal R'
 
 " avoid crashes when calling vim-plug functions while the cursor is on the NERDTree window
 let g:plug_window = 'noautocmd vertical topleft new'

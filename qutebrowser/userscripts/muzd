@@ -2,10 +2,15 @@
 Y=`date +%Y`
 B=`date +%B`
 mkdir -p ~/Music/$Y/$B
+
 cd ~/Music/$Y/$B
 notify-send "download started in ~/Music/$Y/$B" --urgency=low
 
 youtube-dl --ignore-errors --extract-audio --audio-format mp3 --audio-quality 0\
 	--add-metadata --no-playlist --embed-thumbnail -o "%(title)s.%(ext)s" $1 
+
+# this folder is sync by syncthing
+mkdir -p ~/Music/xiaomi/$B
+cp -rn ~/Music/$Y/$B/* ~/Music/xiaomi/$B/
 
 notify-send "download finished"

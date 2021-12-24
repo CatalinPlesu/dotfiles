@@ -16,3 +16,4 @@ nitrogen --restore &
 # wallpapersd &
 kitty -e tmux&
 XCURSOR_THEME=oreo_spark_pink_cursors&
+dwmbar.sh&

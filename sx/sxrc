@@ -7,6 +7,6 @@ case $1 in
     bspwm             ) exec bspwm;;
     openbox           ) exec openbox;;
     dwm				  ) exec dwm;;
-    *                 ) exec bspwm;;
+    *                 ) exec dwm;;
 
 esac

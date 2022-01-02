@@ -14,6 +14,7 @@ nm-applet &
 flameshot &
 nitrogen --restore &
 # wallpapersd &
-kitty -e tmux&
+$TERMINAL -e tmux new-session -A -s main&
 XCURSOR_THEME=oreo_spark_pink_cursors&
 dwmbar.sh&
+asus_monitor&

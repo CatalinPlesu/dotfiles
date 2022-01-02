@@ -1,7 +1,7 @@
 [Added Associations]
 image/png=gimp.desktop;fotoxx.desktop;mypaint.desktop;sxiv.desktop;mupdf.desktop;
 text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
-text/plain=vim.desktop;neovide.desktop;
+text/plain=libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
 application/pdf=chromium.desktop;net.sourceforge.gscan2pdf.desktop;libreoffice-draw.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
 inode/directory=sxiv.desktop;xfce4-file-manager.desktop;thunar.desktop;
@@ -13,7 +13,7 @@ image/svg+xml=firefox.desktop;sxiv.desktop;gimp.desktop;
 application/x-shellscript=neovide.desktop;vscodium.desktop;
 text/html=org.qutebrowser.qutebrowser.desktop;vscodium.desktop;
 application/x-ruby=vscodium.desktop;
-application/xml=jflap.desktop;
+application/xml=jflap.desktop;neovide.desktop;
 application/x-ms-dos-executable=wine.desktop;
 application/msword=freeoffice-textmaker.desktop;libreoffice-writer.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;libreoffice-writer.desktop;freeoffice-textmaker.desktop;
@@ -33,6 +33,9 @@ x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop;
 application/wps-office.doc=freeoffice-textmaker.desktop;libreoffice-writer.desktop;
 application/wps-office.pptx=libreoffice-impress.desktop;
 application/wps-office.ppt=libreoffice-impress.desktop;
+text/calendar=neovide.desktop;
+application/json=neovide.desktop;
+text/vcard=neovide.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
@@ -72,5 +75,6 @@ application/wps-office.wpso=wps-office-wps.desktop
 application/wps-office.wpt=wps-office-wps.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop
 x-scheme-handler/msteams=teams.desktop
-text/plain=neovide.desktop
+text/plain=org.qutebrowser.qutebrowser.desktop
 text/x-python=neovide.desktop
+application/xml=neovide.desktop

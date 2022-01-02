@@ -37,6 +37,7 @@ bindings = {
     ',ap': 'config-cycle content.user_stylesheets ./css/apprentice-all-sites.css ""',
     ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
 
+    ',f': "jseval --quiet --file ~/.config/qutebrowser/js/read-font.js",
     ',t': 'config-cycle tabs.show always never',
     ',b': 'config-cycle statusbar.show always never',
     ',c': 'spawn --userscript theme.sh',

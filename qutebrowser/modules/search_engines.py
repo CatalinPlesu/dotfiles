@@ -47,5 +47,8 @@ c.url.searchengines = {
         # md buy
     '9': 'https://999.md/ro/search?query={}',
     'pandashop': 'https://www.pandashop.md/ro/search/?text={}',
-    'smadshop': 'https://smadshop.md/ro/search/?search={}'
+    'smadshop': 'https://smadshop.md/ro/search/?search={}',
+        # buy china
+    'joom': 'https://www.joom.com/en/search/q.{}',
+    'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
 }

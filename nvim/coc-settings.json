@@ -9,7 +9,7 @@
     "diagnostic.infoSign": "•",
     "diagnostic.hintSign": "•",
     "diagnostic-languageserver.mergeConfig": true,
-    "git.enableGutters": true,
+    "git.enableGutters": false,
     "git.addedSign.text": "┃",
     "git.changedSign.text": "┃",
     "git.removedSign.text": "▁",

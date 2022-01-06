@@ -11,6 +11,7 @@ bindings = {
     'yM': 'yank ;; spawn mpv {url}',
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     'aa': "yank ;; spawn --userscript muzd {url}",
+    'aA': "yank ;; spawn --userscript muzd_playlist {url}",
     '"si': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
 
     '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",

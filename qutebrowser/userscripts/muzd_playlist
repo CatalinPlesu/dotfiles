@@ -1,0 +1,10 @@
+#!/bin/sh
+
+save_to="$(rofi -dmenu -p "Save to" -l -0)"
+
+notify-send "download started in ~/Music/$save_to" --urgency=low
+
+muzd $1 $save_to 'y' > /dev/null
+
+notify-send "download finished"
+

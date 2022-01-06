@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
     \ 'coc-diagnostic',
     \ 'coc-emmet',
     \ 'coc-eslint',
-    \ 'coc-git',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-pairs',

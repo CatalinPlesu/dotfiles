@@ -43,7 +43,7 @@ c.url.searchengines = {
     'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
     'repo': 'http://github.com/catalinplesu/{}',
     'rubygem': 'https://rubygems.org/search?query={}',
-    'crates': 'https://crates.io/search?q={}',
+    'crate': 'https://crates.io/search?q={}',
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
         # md buy
     '9': 'https://999.md/ro/search?query={}',
@@ -52,4 +52,5 @@ c.url.searchengines = {
         # buy china
     'joom': 'https://www.joom.com/en/search/q.{}',
     'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
+    'amazon': 'https://www.amazon.com/s?k={}',
 }

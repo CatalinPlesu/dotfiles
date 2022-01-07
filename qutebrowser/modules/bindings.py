@@ -2,9 +2,15 @@ bindings = {
     "ao": "download-open",
     "co": "nop",
 
-    ';d': 'set downloads.location.directory ~/Downloads/ ;; hint all download',
+    ';d': 'hint all download',
     ';p': "hint images download",
-    ';P': "set downloads.location.directory ~/Pictures/ ;; hint images download",
+
+    '<d': "set downloads.location.directory ~/Downloads/",
+    '<D': "set downloads.location.directory ~/Documents/",
+    '<p': "set downloads.location.directory ~/Pictures/",
+    '<w': "set downloads.location.directory ~/Pictures/wallpapers",
+    '<a': "set downloads.location.directory ~/Pictures/art",
+    '<b': "set downloads.location.directory ~/Books/",
 
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',
@@ -12,10 +18,8 @@ bindings = {
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     'aa': "yank ;; spawn --userscript muzd {url}",
     'aA': "yank ;; spawn --userscript muzd_playlist {url}",
-    '"si': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
-
-    '<Ctrl-i>': "hint images spawn --userscript tab.sh https://www.google.com/imghp?q={hint-url}",
-    '<Ctrl-s>': "set-cmd-text :open ;; command-history-prev ;; rl-beginning-of-line ;; rl-forward-word ;; rl-forward-word ;; rl-backward-kill-word",
+    'aba': "yank ;; spawn --userscript read_later.sh",
+    'abo': "spawn --userscript read_later_open.sh",
 
     'sl': 'set-cmd-text :open -t localhost',
 

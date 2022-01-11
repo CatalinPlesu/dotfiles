@@ -7,6 +7,11 @@ function! RunFile()
     exec '!ruby % '
   elseif match(@%, '.py$') != -1
     exec '!python % '
+  elseif match(@%, '.js$') != -1
+    exec '!node % '
+  elseif match(@%, '.ts$') != -1
+    exec '!tsc %'
+    exec '!node %:r.js'
   elseif match(@%, '.cpp$') != -1
     exec '!g++ % '
     exec '!./a.out'
@@ -28,7 +33,6 @@ function! RunFile()
 			exec '!./%:r'
 	  endif
   else
-    echo '<< ERROR >> RunFile() only supports rb, py, cpp, c, rs'
+    echo '<< ERROR >> RunFile() only supports rb, py, cpp, c, rs, js, ts'
   endif
 endfunction
-

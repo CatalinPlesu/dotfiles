@@ -32,14 +32,14 @@ set wildmode=longest,list,full
 
 let mapleader = "\<space>"
 
-nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
+nnoremap <leader>ve :edit ~/.config/nvim/init.vim<cr>
+nnoremap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :w<cr>:source ~/.config/nvim/init.vim<cr>
-nmap <leader>vpi <leader>vr:PlugInstall<cr>
-nmap <leader>vpc <leader>vr:PlugClean<cr>
+nnoremap <leader>vpi <leader>vr:PlugInstall<cr>
+nnoremap <leader>vpc <leader>vr:PlugClean<cr>
 
-nmap <leader>k :nohlsearch<CR>
-nmap <leader>Q :bufdo bdelete<cr>
+nnoremap <leader>k :nohlsearch<CR>
+nnoremap <leader>Q :bufdo bdelete<cr>
 
 " Allow gf to open non-existent files
 nnoremap gf :edit <cfile><cr>

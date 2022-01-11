@@ -3,16 +3,9 @@ Plug 'antoinemadec/coc-fzf'
 
 let g:coc_global_extensions = [
     \ 'coc-css',
-    \ 'coc-diagnostic',
-    \ 'coc-emmet',
     \ 'coc-eslint',
     \ 'coc-html',
     \ 'coc-json',
-    \ 'coc-pairs',
-    \ 'coc-sh',
-    \ 'coc-snippets',
-    \ 'coc-sql',
-    \ 'coc-svg',
     \ 'coc-pyright',
     \ 'coc-clangd',
     \ 'coc-rust-analyzer',

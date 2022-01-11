@@ -11,6 +11,7 @@ bindings = {
     '<w': "set downloads.location.directory ~/Pictures/wallpapers",
     '<a': "set downloads.location.directory ~/Pictures/art",
     '<b': "set downloads.location.directory ~/Books/",
+    '<x': "set downloads.location.directory ~/sync/",
 
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',
@@ -21,7 +22,7 @@ bindings = {
     'aba': "yank ;; spawn --userscript read_later.sh",
     'abo': "spawn --userscript read_later_open.sh",
 
-    'sl': 'set-cmd-text :open -t localhost',
+    'sl': 'set-cmd-text :open -t localhost:3000/',
 
     "<Ctrl-Shift-J>": "tab-move -",
     "<Ctrl-Shift-K>": "tab-move +",

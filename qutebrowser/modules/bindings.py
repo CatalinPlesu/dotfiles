@@ -1,6 +1,8 @@
 bindings = {
-    "ao": "download-open",
+    "co": "download-open",
     "co": "nop",
+    "ad": "nop",
+    "cD": "download-cancel",
 
     ';d': 'hint all download',
     ';p': "hint images download",
@@ -19,10 +21,9 @@ bindings = {
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
     'aa': "yank ;; spawn --userscript muzd {url}",
     'aA': "yank ;; spawn --userscript muzd_playlist {url}",
-    'aba': "yank ;; spawn --userscript read_later.sh",
-    'abo': "spawn --userscript read_later_open.sh",
 
-    'sl': 'set-cmd-text :open -t localhost:3000/',
+    'sl': 'set-cmd-text :open localhost:3000/',
+    'sL': 'set-cmd-text :open -t localhost:3000/',
 
     "<Ctrl-Shift-J>": "tab-move -",
     "<Ctrl-Shift-K>": "tab-move +",
@@ -54,8 +55,10 @@ bindings = {
     "xr": "hint all right-click",
     "xh": "hint all hover",
 
-    "ar": "yank ;; spawn --userscript links.sh",
-    "al": "spawn --userscript open_links.sh",
+    "as": "yank ;; spawn --userscript save_link.sh",
+    "ar": "yank ;; spawn --userscript remove_link.sh",
+    "ao": "spawn --userscript open_link.sh",
+    "aO": "spawn --userscript open_link.sh -t",
     "<Ctrl-t>": "spawn --userscript random_page.sh" 
 
 }

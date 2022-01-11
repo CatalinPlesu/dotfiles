@@ -25,6 +25,7 @@ set undodir=~/.local/share/nvim/undodir
 set undofile
 set updatetime=300 " Reduce time for highlighting other references
 set wildmode=longest,list,full
+set background=dark
 
 "--------------------------------------------------------------------------
 " Key maps
@@ -35,8 +36,8 @@ let mapleader = "\<space>"
 nnoremap <leader>ve :edit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :w<cr>:source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>vpi <leader>vr:PlugInstall<cr>
-nnoremap <leader>vpc <leader>vr:PlugClean<cr>
+nnoremap <leader>vpi :PlugInstall<cr>
+nnoremap <leader>vpc :PlugClean<cr>
 
 nnoremap <leader>k :nohlsearch<CR>
 nnoremap <leader>Q :bufdo bdelete<cr>
@@ -85,7 +86,7 @@ nmap <leader>x :!xdg-open %<cr><cr>
 " Quicky escape to normal mode
 inoremap jj <esc>
 inoremap ZZ <esc>:x<cr>
-inoremap :w <esc>:w<cr>
+" inoremap :w <esc>:w<cr>
 
 " Easy insertion of a trailing ; or , from insert mode
 imap ;; <Esc>A;<Esc>
@@ -118,6 +119,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/nvim-treesitter.vim
     source ~/.config/nvim/plugins/vimspector.vim
     source ~/.config/nvim/plugins/autoformat.vim
+    source ~/.config/nvim/plugins/python-syntax.vim
 
 call plug#end()
 doautocmd User When_PlugLoaded

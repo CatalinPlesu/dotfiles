@@ -4,12 +4,14 @@ super + Escape
 # open terminal
 super + Return
 	$TERMINAL -e tmux new-session -A -s main
+ctrl + alt + t
+	$TERMINAL -e tmux new-session -A -s main
 super + alt + Return
 	$TERMINAL	
 super + b
 	$BROWSER
-super + B
-	chromium
+# super + B
+# 	chromium
 super + x
 	xsecurelock -- xset dpms force off
 Print

@@ -10,5 +10,10 @@ fi
 
 file=$(ls $path | rofi -dmenu -p "open link from")
 
-url=`cat $path$file | rofi -dmenu -p $file`
-echo "open $tab $url" >> "$QUTE_FIFO"
+if ! [ -f $file ]; then
+    url=`cat $path$file | rofi -dmenu -p $file`
+fi
+
+if ! [ -f $url ]; then
+    echo "open $tab $url" >> "$QUTE_FIFO"
+fi

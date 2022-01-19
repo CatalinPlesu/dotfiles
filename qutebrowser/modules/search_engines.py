@@ -33,6 +33,8 @@ c.url.searchengines = {
     'dict_2': 'https://thefreedictionary.com/{}',
     'pron': 'https://www.thesaurus.com/browse/{}',
     'dex': 'https://dexonline.ro/definitie/{}',
+        # books
+    'libgen': 'https://libgen.li/index.php?req={}',
         #anime
     'z': 'https://zoro.to/search?keyword={}',
     'torrent': 'https://www.1377x.to/search/{}/1/',
@@ -43,7 +45,7 @@ c.url.searchengines = {
     'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
     'repo': 'http://github.com/catalinplesu/{}',
     'rubygem': 'https://rubygems.org/search?query={}',
-    'crate': 'https://crates.io/search?q={}',
+    'crates': 'https://crates.io/search?q={}',
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
         # md buy
     '9': 'https://999.md/ro/search?query={}',

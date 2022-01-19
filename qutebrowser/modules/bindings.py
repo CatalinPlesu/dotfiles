@@ -1,6 +1,5 @@
 bindings = {
     "co": "download-open",
-    "co": "nop",
     "ad": "nop",
     "cD": "download-cancel",
 
@@ -13,7 +12,7 @@ bindings = {
     '<w': "set downloads.location.directory ~/Pictures/wallpapers",
     '<a': "set downloads.location.directory ~/Pictures/art",
     '<b': "set downloads.location.directory ~/Books/",
-    '<x': "set downloads.location.directory ~/sync/",
+    '<s': "set downloads.location.directory ~/sync/",
 
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',

@@ -50,6 +50,8 @@ nnoremap <silent> <Leader>gx :set cursorline! cursorcolumn!<CR>
 nnoremap <silent> <Leader>gp :set list!<CR>
 nnoremap <silent> <leader>gw :set wrap!<cr>
 
+nnoremap <silent> <leader>gt :put =strftime('%d.%m.%y %H:%M:%S')<cr>
+
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -114,12 +116,12 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/vimwiki.vim
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/goyo.vim
-    source ~/.config/nvim/plugins/which-key.vim
     source ~/.config/nvim/plugins/coc.vim
     source ~/.config/nvim/plugins/nvim-treesitter.vim
     source ~/.config/nvim/plugins/vimspector.vim
     source ~/.config/nvim/plugins/autoformat.vim
     source ~/.config/nvim/plugins/python-syntax.vim
+    source ~/.config/nvim/plugins/which-key.vim
 
 call plug#end()
 doautocmd User When_PlugLoaded

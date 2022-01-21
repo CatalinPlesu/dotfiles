@@ -1,0 +1,53 @@
+::selection {
+  color: #fabd2f;
+  background: #d3869b;
+}
+body{
+	background-color: #282828;
+	color: #b8bb26;
+	font-size: 30px;
+}
+a:link {
+  color: #b8bb26;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #b8bb26;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #b8bb26;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #b8bb26;
+  background-color: transparent;
+  text-decoration: underline;
+}
+div{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+td, table{
+    border-collapse: collapse;
+	text-align: center;
+}
+table{
+    border: 3px solid #b8bb26;
+}
+th, td {
+  padding: 15px;
+}
+th{
+  text-decoration: underline;
+  text-decoration-color: #d79921;
+}

@@ -14,13 +14,13 @@ alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'
 
-alias s='doas pacman -S'
-alias syu='doas pacman -Syu'
+alias s='sudo pacman -S'
+alias syu='sudo pacman -Syu'
 alias ss='paru -Ss'
 alias i='pacman -Si'
-alias r='doas pacman -Rsn'
+alias r='sudo pacman -Rsn'
 alias y='paru -S'
-alias ar='doas pacman -Rcns $(pacman -Qdtq)'
+alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 
 alias gad='git add'
 alias gst='git status'
@@ -81,7 +81,7 @@ alias erofi="nvim ~/.config/rofi/config.rasi"
 alias myip="curl http://ipecho.net/plain; echo"
 alias o="xdg-open"
 alias b=$BROWSER
-alias reflector='doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
+alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
 alias unimatrix='unimatrix -s 95'
 alias disc='python ~/code/python/discord_shell.py'

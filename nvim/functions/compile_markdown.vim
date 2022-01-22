@@ -1,4 +1,4 @@
-nnoremap <silent> <leader>cm :call PreviewMD()<cr>
+nnoremap <silent> <leader>cM :call PreviewMD()<cr>
 
 function PreviewMD()
 	silent! execute '!markdown-folder-to-html ~/Documents/notes/'

@@ -91,8 +91,8 @@ inoremap ZZ <esc>:x<cr>
 " inoremap :w <esc>:w<cr>
 
 " Easy insertion of a trailing ; or , from insert mode
-imap ;; <Esc>A;<Esc>
-imap ,, <Esc>A,<Esc>
+inoremap ;; <Esc>A;<Esc>
+inoremap ,, <Esc>A,<Esc>
 
 nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
 
@@ -118,9 +118,11 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/goyo.vim
     source ~/.config/nvim/plugins/coc.vim
     source ~/.config/nvim/plugins/nvim-treesitter.vim
-    source ~/.config/nvim/plugins/vimspector.vim
+    " source ~/.config/nvim/plugins/vimspector.vim
     source ~/.config/nvim/plugins/autoformat.vim
     source ~/.config/nvim/plugins/python-syntax.vim
+    source ~/.config/nvim/plugins/markdown-preview.vim
+
     source ~/.config/nvim/plugins/which-key.vim
 
 call plug#end()

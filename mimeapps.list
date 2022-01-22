@@ -1,9 +1,9 @@
 [Added Associations]
-image/png=gimp.desktop;fotoxx.desktop;mypaint.desktop;sxiv.desktop;mupdf.desktop;
+image/png=gimp.desktop;fotoxx.desktop;mypaint.desktop;sxiv.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;
 text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
 application/pdf=chromium.desktop;net.sourceforge.gscan2pdf.desktop;libreoffice-draw.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
-image/jpeg=fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;
+image/jpeg=fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;userapp-sxiv-QL1BG1.desktop;
 inode/directory=sxiv.desktop;xfce4-file-manager.desktop;thunar.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
 text/markdown=firefox.desktop;
@@ -41,8 +41,8 @@ text/vcard=neovide.desktop;
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/gif=sxiv.desktop
-image/jpeg=sxiv.desktop;
-image/png=sxiv.desktop;
+image/jpeg=userapp-sxiv-QL1BG1.desktop
+image/png=userapp-sxiv-WQEHG1.desktop
 image/svg+xml=gimp.desktop
 inode/directory=thunar.desktop
 video/mp4=mpv.desktop;

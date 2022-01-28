@@ -26,6 +26,7 @@ set undofile
 set updatetime=300 " Reduce time for highlighting other references
 set wildmode=longest,list,full
 set background=dark
+set cursorline cursorcolumn
 
 "--------------------------------------------------------------------------
 " Key maps
@@ -116,7 +117,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/vimwiki.vim
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/goyo.vim
-    source ~/.config/nvim/plugins/coc.vim
+    " source ~/.config/nvim/plugins/coc.vim
     source ~/.config/nvim/plugins/nvim-treesitter.vim
     " source ~/.config/nvim/plugins/vimspector.vim
     source ~/.config/nvim/plugins/autoformat.vim

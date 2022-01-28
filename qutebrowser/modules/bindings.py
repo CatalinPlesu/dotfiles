@@ -13,6 +13,7 @@ bindings = {
     '<a': "set downloads.location.directory ~/Pictures/art",
     '<b': "set downloads.location.directory ~/Books/",
     '<s': "set downloads.location.directory ~/sync/",
+    '<u': "set downloads.location.directory ~/UTM/",
 
     '"m': "hint links spawn mpv {hint-url}",
     '"M': 'spawn mpv {url}',

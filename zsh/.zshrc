@@ -9,7 +9,9 @@ setopt AUTO_CD
 [[ $- != *i* ]] && return
 
 # Source configs
-for f in ~/.config/shell/*; do source "$f"; done
+source ~/.config/shell/alias
+source ~/.config/shell/env
+sh ~/.config/shell/tty # zsh if is different ;(
 
 # Source plugins
 for f in ~/.config/zsh/plugins/*; do source "$f"; done
@@ -18,7 +20,6 @@ autoload -U compinit && compinit -u
 zstyle ':completion:*' menu select
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
 
 zmodload zsh/complist
 compinit
@@ -52,6 +53,18 @@ bindkey -s '^t' '\nthunar &\n'
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(starship init zsh)"
+
+autoload -U promptinit; promptinit
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+# change the path color
+zstyle :prompt:pure:path color white
+# change the color for both `prompt:success` and `prompt:error`
+zstyle ':prompt:pure:prompt:*' color cyan
+zstyle ':prompt:pure:prompt:error' color red
+# turn on git stash status
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure
 
 pfetch 

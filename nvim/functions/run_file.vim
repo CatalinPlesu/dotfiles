@@ -3,7 +3,9 @@ nnoremap <leader>cc :w<cr>:call RunFile()<cr>
 
 "" To automatically compile and or run source code
 function! RunFile()
-  if match(@%, '.rb$') != -1
+  if !empty(glob('makefile')) && !isdirectory('makefile')
+    exec '!make'
+  elseif match(@%, '.rb$') != -1
     exec '!ruby % '
   elseif match(@%, '.py$') != -1
     exec '!python % '
@@ -33,6 +35,6 @@ function! RunFile()
 			exec '!./%:r'
 	  endif
   else
-    echo '<< ERROR >> RunFile() only supports rb, py, cpp, c, rs, js, ts'
+    echo '<< ERROR >> RunFile() only supports rb, py, cpp, c, rs, js, ts, makefile'
   endif
 endfunction

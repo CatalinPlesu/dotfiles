@@ -46,24 +46,30 @@ alias rtop="radeontop -c"
 
 # notebook
 alias note='cd ~/Documents/notes && nvim index.md'
-alias anime='cd ~/Documents/notes && nvim Journal/Entertaiment/index.md'
-alias quote='cd ~/Documents/notes && nvim Journal/citate/index.md'
-alias qnote='nvim ~/Documents/notes/QuickNote.md'
-alias todo='cd ~/Documents/notes && nvim todo.txt'
 alias utm='cd ~/Documents/notes/UTM && nvim index.md'
+alias anime='nvim ~/Documents/notes/Journal/Entertaiment/index.md'
+alias quote='nvim ~/Documents/notes/Journal/citate/index.md'
+alias qnote='nvim ~/Documents/notes/QuickNote.md'
+alias todo='nvim ~/Documents/notes/todo.txt'
+alias idea='nvim ~/Documents/notes/ideas.md'
 
 # labs
-cd_last_lab() { cd ~/UTM/ii_an/iii_sem/$1/ && cd $(ls -dv */ | grep lab | tail -n 1) }
-alias ll=cd_last_lab
-alias apa='cd_last_lab apa'
-alias asdn='cd_last_lab asdn'
-alias cde='cd_last_lab cde'
-alias lfa='cd_last_lab lfa'
-alias mmc1='cd_last_lab mmc1'
-alias mmc2='cd_last_lab mmc2'
-alias poo='cd_last_lab poo'
-alias sem='cd ~/UTM/ii_an/iii_sem/'
+cd_last_lab() { cd $1 && cd $(ls -dv */ | grep lab | tail -n 1) }
+
+# generates alias for all objects; wont cd in latest lab
+
+for an in ~/UTM/*an; do
+     for sem in $an/*sem; do
+         for D in $sem/*/; do
+             obiect=$(basename ${D})
+             alias $obiect="cd $D" 
+             alias "${obiect}_"="cd_last_lab $D" 
+         done
+         alias $(basename ${sem})="cd $sem"
+     done
+done
 alias an='cd ~/UTM/ii_an/iii_sem/apa/an'
+
 
 # edit config
 alias evim="nvim ~/.config/nvim/init.vim"
@@ -100,25 +106,3 @@ alias wifi-connect='nmcli dev wifi connect'
 alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
 alias pdfjoin='pdfjam --fitpaper true --suffix joined'
 
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.tar.xz)    tar xJf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}

@@ -36,6 +36,7 @@ application/wps-office.ppt=libreoffice-impress.desktop;
 text/calendar=neovide.desktop;
 application/json=neovide.desktop;
 text/vcard=neovide.desktop;
+application/xhtml+xml=org.qutebrowser.qutebrowser.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop

@@ -84,7 +84,7 @@ nnoremap <leader>O O<Esc>
 nnoremap Y y$
 
 " Open the current file in the default program
-nmap <leader>x :!xdg-open %<cr><cr>
+nmap <leader>x :!xdg-open '%:p'<cr><cr>
 
 " Quicky escape to normal mode
 inoremap jj <esc>

@@ -94,6 +94,8 @@ alias disc='python ~/code/python/discord_shell.py'
 alias neofetch='neofetch --ascii_distro FreeBSD'
 alias mtux='tmux new-session -A -s main'
 
+alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '
+
 # window manager
 alias sx2='sx ~/.config/sx/sxrc'
 alias kde='sx /bin/startplasma-x11'

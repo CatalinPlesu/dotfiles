@@ -35,7 +35,6 @@ set cursorline cursorcolumn
 let mapleader = "\<space>"
 
 nnoremap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-nnoremap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :w<cr>:source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>vpi :PlugInstall<cr>
 nnoremap <leader>vpc :PlugClean<cr>
@@ -117,7 +116,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/vimwiki.vim
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/goyo.vim
-    " source ~/.config/nvim/plugins/coc.vim
     source ~/.config/nvim/plugins/nvim-treesitter.vim
     " source ~/.config/nvim/plugins/vimspector.vim
     source ~/.config/nvim/plugins/autoformat.vim

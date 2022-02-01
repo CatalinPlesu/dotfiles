@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
-	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
-	<unique-id>1629884744556410-1</unique-id>
-	<command>kitty -c cd --working-directory %f</command>
-	<description>Example for a custom action</description>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<directories/>
-</action>
-<action>
 	<icon>rawtherapee</icon>
 	<name>Custom folder icon</name>
 	<unique-id>1629884744556410-2</unique-id>

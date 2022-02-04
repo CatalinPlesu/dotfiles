@@ -119,8 +119,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/markdown-preview.vim
     source ~/.config/nvim/plugins/lsp.vim
     source ~/.config/nvim/plugins/emmet.vim
-    Plug 'jbyuki/instant.nvim'
-    let g:instant_username = "catalin"
 
     source ~/.config/nvim/plugins/which-key.vim
 

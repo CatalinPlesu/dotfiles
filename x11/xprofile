@@ -16,6 +16,6 @@ flameshot &
 nitrogen --restore &
 # wallpapersd &
 $TERMINAL -e tmux new-session -A -s main&
-XCURSOR_THEME=oreo_spark_pink_cursors&
 dwmbar.sh&
 asus_monitor&
+/opt/activitywatch/start.sh&

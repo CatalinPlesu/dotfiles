@@ -41,8 +41,8 @@ alias pypy='pypy3'
 
 # alias vim='nvim -u NONE'
 alias v='nvim'
+alias V="sudoedit"
 alias z="zathura"
-alias sv="sudoedit"
 alias rtop="radeontop -c"
 
 # notebook
@@ -51,8 +51,9 @@ alias utm='cd ~/Documents/notes/UTM && nvim index.md'
 alias anime='nvim ~/Documents/notes/Journal/Entertaiment/index.md'
 alias quote='nvim ~/Documents/notes/Journal/citate/index.md'
 alias qnote='nvim ~/Documents/notes/QuickNote.md'
+alias books='nvim ~/Documents/notes/Journal/books/books.md'
 alias todo='nvim ~/Documents/notes/todo.txt'
-alias idea='nvim ~/Documents/notes/ideas.md'
+alias ideas='nvim ~/Documents/notes/ideas.md'
 
 # labs
 cd_last_lab() { cd $1 && cd $(ls -dv */ | grep lab | tail -n 1) }

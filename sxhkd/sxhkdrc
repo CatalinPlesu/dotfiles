@@ -48,7 +48,8 @@ super + f ; {t, b, s, d, p, v, m, u, w}
 	thunar {Documents/latex, Books, Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/ii_an/iii_sem/, Pictures/wallpapers/}
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
-
+super + n
+    book=$(find ~/Books -type f | rofi -dmenu -i) && zathura $book
 # # # various terminal programs
 # # super + alt + {a, r, h, n, w, p}
 # #   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}

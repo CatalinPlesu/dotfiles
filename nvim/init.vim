@@ -90,10 +90,6 @@ inoremap jj <esc>
 inoremap ZZ <esc>:x<cr>
 " inoremap :w <esc>:w<cr>
 
-" Easy insertion of a trailing ; or , from insert mode
-inoremap ;; <Esc>A;<Esc>
-inoremap ,, <Esc>A,<Esc>
-
 nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
 
 "--------------------------------------------------------------------------
@@ -108,7 +104,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/vim-surround.vim
     source ~/.config/nvim/plugins/vim-commentary.vim
     source ~/.config/nvim/plugins/basic_editor.vim
-    source ~/.config/nvim/plugins/vim-wakatime.vim
+    source ~/.config/nvim/plugins/trackers.vim
     source ~/.config/nvim/plugins/undotree.vim
     source ~/.config/nvim/plugins/nerdtree.vim
     source ~/.config/nvim/plugins/vim-maximize.vim
@@ -121,6 +117,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/autoformat.vim
     source ~/.config/nvim/plugins/python-syntax.vim
     source ~/.config/nvim/plugins/markdown-preview.vim
+    source ~/.config/nvim/plugins/lsp.vim
+    source ~/.config/nvim/plugins/emmet.vim
+    Plug 'jbyuki/instant.nvim'
+    let g:instant_username = "catalin"
 
     source ~/.config/nvim/plugins/which-key.vim
 

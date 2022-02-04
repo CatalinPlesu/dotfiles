@@ -119,6 +119,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/markdown-preview.vim
     source ~/.config/nvim/plugins/lsp.vim
     source ~/.config/nvim/plugins/emmet.vim
+    source ~/.config/nvim/plugins/collaboration.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 

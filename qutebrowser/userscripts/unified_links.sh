@@ -51,9 +51,14 @@ fi
 # remove
 if [ ! -z "$r_flag" ]; then
     # this require rg
-    file_path=$(rg -l "$QUTE_URL" "$bookmarks_dir")
-    if [ ! -z "$file_path" ]; then
-        sed -i "s|$QUTE_URL||g" $file_path
-        sed -i "/^$/d" $file_path
+    file_paths=$(rg -l "$QUTE_URL" "$bookmarks_dir")
+
+    if [ ! -z "$file_paths" ]; then
+        for file_path in $file_paths; do
+            if [ ! -z "$file_path" ]; then
+                sed -i "s|$QUTE_URL||g" $file_path
+                sed -i "/^$/d" $file_path
+            fi
+        done
     fi
 fi

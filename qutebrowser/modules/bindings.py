@@ -55,10 +55,13 @@ bindings = {
     "xr": "hint all right-click",
     "xh": "hint all hover",
 
-    "as": "yank ;; spawn --userscript save_link.sh",
-    "ar": "yank ;; spawn --userscript remove_link.sh",
-    "ao": "spawn --userscript open_link.sh",
-    "aO": "spawn --userscript open_link.sh -t",
+    "aS": "spawn --userscript unified_links.sh -s",
+    "asa": "spawn --userscript unified_links.sh -s -f artists",
+    "asr": "spawn --userscript unified_links.sh -s -f read_list",
+    "asg": "spawn --userscript unified_links.sh -s -f gamedev",
+    "ar": "spawn --userscript unified_links.sh -r",
+    "ao": "spawn --userscript unified_links.sh -o",
+    "aO": "spawn --userscript unified_links.sh -O",
     "<Ctrl-t>": "spawn --userscript random_page.sh" 
 
 }

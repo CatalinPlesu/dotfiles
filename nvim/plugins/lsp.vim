@@ -1,14 +1,16 @@
 Plug 'neovim/nvim-lspconfig'
 
 nnoremap <leader>gl :LspStart<cr>
+nnoremap <silent><leader>gf    <cmd>lua vim.lsp.buf.formatting()<CR>
+vnoremap <silent>ff :lua vim.lsp.buf.range_formatting()<CR>
 
 function LspSetup()
 lua << END
-    require('lspconfig').pyright.setup {autostart = false}
-    require('lspconfig').rust_analyzer.setup {autostart = false}
-    require('lspconfig').clangd.setup {autostart = false}
-    require('lspconfig').csharp_ls.setup {autostart = false}
-    require('lspconfig').tsserver.setup {autostart = false}
+    require('lspconfig').pyright.setup {}
+    require('lspconfig').rust_analyzer.setup {}
+    require('lspconfig').clangd.setup {}
+    require('lspconfig').csharp_ls.setup {}
+    require('lspconfig').tsserver.setup {}
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions

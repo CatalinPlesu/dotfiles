@@ -26,7 +26,7 @@ alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 alias gad='git add'
 alias gst='git status'
 alias gcm='git commit'
-alias ecm='git commit --allow-empty-message'
+alias ECM='git commit --allow-empty-message'
 alias gph='git push'
 alias gpa='git push --all'
 alias gcl='git clone `xclip -out -selection clipboard`'
@@ -36,10 +36,12 @@ alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %C
 
 # DEV
 alias cargo-t='cargo test -- --nocapture'
+alias cr='cargo run'
+alias cre='cargo run --example'
 alias crr='cargo run --release'
 alias pypy='pypy3'
 
-# alias vim='nvim -u NONE'
+alias vi='nvim -u NONE'
 alias v='nvim'
 alias V="sudoedit"
 alias z="zathura"
@@ -49,10 +51,8 @@ alias rtop="radeontop -c"
 alias note='cd ~/Documents/notes && nvim index.md'
 alias utm='cd ~/Documents/notes/UTM && nvim index.md'
 alias anime='nvim ~/Documents/notes/Journal/Entertaiment/index.md'
-alias quote='nvim ~/Documents/notes/Journal/citate/index.md'
-alias qnote='nvim ~/Documents/notes/QuickNote.md'
+alias quote='nvim ~/Documents/notes/Journal/quotes/index.md'
 alias books='nvim ~/Documents/notes/Journal/books/books.md'
-alias todo='nvim ~/Documents/notes/todo.txt'
 alias ideas='nvim ~/Documents/notes/ideas.md'
 
 # labs

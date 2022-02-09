@@ -3,7 +3,7 @@ data = {
 		["206","https://discord.com/channels/742508750258176152/747139629634945054"],
 		["telegram","https://web.telegram.org/k/"],
 		["discord", "https://discord.com/app/"],
-		["twitter", "https://twitter.com/CatalinPlesu"],
+		["twitter", "https://twitter.com/catalin_plesu"],
 	],
 
 	"Lrn":[

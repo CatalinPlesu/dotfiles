@@ -67,5 +67,5 @@ zstyle :prompt:pure:git:stash show yes
 
 prompt pure
 
-# pfetch 
-toilet -f wideterm This Device Is Owned By CATALIN
+pfetch 
+toilet -f smbraille  "Catalin's ThinkPad"

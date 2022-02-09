@@ -35,13 +35,11 @@ set cursorline cursorcolumn
 let mapleader = "\<space>"
 
 nnoremap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-nmap <leader>vr :w<cr>:source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>vr :w<cr>:source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>vpi :PlugInstall<cr>
 nnoremap <leader>vpc :PlugClean<cr>
-
 nnoremap <leader>k :nohlsearch<CR>
 nnoremap <leader>Q :bufdo bdelete<cr>
-
 " Allow gf to open non-existent files
 nnoremap gf :edit <cfile><cr>
 " create new file in directory which doesn't exist
@@ -49,48 +47,44 @@ nnoremap ge :e %:h/
 nnoremap <silent> <Leader>gx :set cursorline! cursorcolumn!<CR>
 nnoremap <silent> <Leader>gp :set list!<CR>
 nnoremap <silent> <leader>gw :set wrap!<cr>
-
 nnoremap <silent> <leader>gt :put =strftime('%d.%m.%y %H:%M:%S')<cr>
+" When text is wrapped, move by terminal rows, not lines, unless a count is provided
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <leader>o o<Esc>
+nnoremap <leader>O O<Esc>
+" Make Y behave like the other capitals
+nnoremap Y y$
+" Open the current file in the default program
+nnoremap <leader>x :!xdg-open '%:p'<cr><cr>
+nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
-
+vnoremap <leader>_ :s/\%V \%V/_/g<cr>
+vnoremap <leader>- :s/\%V \%V/-/g<cr>
 " Maintain the cursor position when yanking a visual selection
 " http://ddrscott.github.io/blog/2016/yank-without-jank/
 vnoremap y myy`y
 vnoremap Y myY`y
-
-" When text is wrapped, move by terminal rows, not lines, unless a count is provided
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" Paste replace visual selection without copying it
+vnoremap p "_dP
 
 "escape terminal
 tnoremap <Esc> <C-\><C-n>
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Paste replace visual selection without copying it
-vnoremap p "_dP
-
-nnoremap <leader>o o<Esc>
-nnoremap <leader>O O<Esc>
-
-" Make Y behave like the other capitals
-nnoremap Y y$
-
-" Open the current file in the default program
-nmap <leader>x :!xdg-open '%:p'<cr><cr>
+xnoremap $ g_
 
 " Quicky escape to normal mode
 inoremap jj <esc>
 inoremap ZZ <esc>:x<cr>
 " inoremap :w <esc>:w<cr>
 
-nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
 
 "--------------------------------------------------------------------------
 " Plugins
@@ -114,12 +108,12 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/goyo.vim
     source ~/.config/nvim/plugins/nvim-treesitter.vim
     " source ~/.config/nvim/plugins/vimspector.vim
-    source ~/.config/nvim/plugins/autoformat.vim
-    source ~/.config/nvim/plugins/python-syntax.vim
     source ~/.config/nvim/plugins/markdown-preview.vim
     source ~/.config/nvim/plugins/lsp.vim
     source ~/.config/nvim/plugins/emmet.vim
     source ~/.config/nvim/plugins/collaboration.vim
+    source ~/.config/nvim/plugins/csv.vim
+    source ~/.config/nvim/plugins/matchit.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 
@@ -141,6 +135,9 @@ augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.html syntax on
 
 highlight ColorColumn ctermbg=darkgrey
 hi CursorLine   cterm=NONE ctermbg=238

@@ -1,4 +1,10 @@
 #!/bin/sh
 path="/home/$(whoami)/.config/qutebrowser/bookmarks/"
-file=$(ls $path | rofi -dmenu -p "save link in")
+if [ -z "$1" ]
+then
+    file=$(ls $path | rofi -dmenu -p "save link in")
+else
+    file="$1"
+fi
+echo "$file"
 echo `xclip -out -selection clipboard ` >> $path$file

@@ -1,16 +1,11 @@
 #!/bin/sh
-Y=`date +%Y`
-B=`date +%B`
-mkdir -p ~/Music/$Y/$B
 
-cd ~/Music/$Y/$B
-notify-send "download started in ~/Music/$Y/$B" -t 3000
+if [ -z "$1" ]; then
+    muzd -u "$QUTE_URL" -n -s
+else
+    playlist="$(rofi -dmenu -p "Playlist name" -l -0)"
+    muzd -u "$QUTE_URL" -p "$playlist" -n
+fi
 
-youtube-dl --ignore-errors --extract-audio --audio-format mp3 --audio-quality 0\
-	--add-metadata --no-playlist --embed-thumbnail -o "%(title)s.%(ext)s" $1 
 
-# this folder is sync by syncthing
-mkdir -p ~/Music/xiaomi/$B
-cp -rn ~/Music/$Y/$B/* ~/Music/xiaomi/$B/
 
-notify-send "download finished" --urgency=low

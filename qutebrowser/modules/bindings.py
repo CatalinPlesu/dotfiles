@@ -19,8 +19,8 @@ bindings = {
     '"M': 'spawn mpv {url}',
     'yM': 'yank ;; spawn mpv {url}',
     '"v': 'spawn youtube-dl -o ~/Videos/%(title)s.%(ext)s {url}',
-    'aa': "yank ;; spawn --userscript muzd {url}",
-    'aA': "yank ;; spawn --userscript muzd_playlist {url}",
+    'aa': "spawn --userscript muzd",
+    'aA': "spawn --userscript muzd 2",
 
     'sl': 'set-cmd-text :open localhost:3000/',
     'sL': 'set-cmd-text :open -t localhost:3000/',

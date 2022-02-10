@@ -34,7 +34,9 @@ c.url.searchengines = {
     'pron': 'https://www.thesaurus.com/browse/{}',
     'dex': 'https://dexonline.ro/definitie/{}',
         # books
-    'libgen': 'https://libgen.rs/search.php?req={}',
+    'libgen': 'https://libgen.li/index.php?req={}',
+    'libgen2': 'https://libgen.rs/search.php?req={}',
+
         #anime
     'z': 'https://zoro.to/search?keyword={}',
     'torrent': 'https://www.1377x.to/search/{}/1/',

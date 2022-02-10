@@ -114,6 +114,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/collaboration.vim
     source ~/.config/nvim/plugins/csv.vim
     source ~/.config/nvim/plugins/matchit.vim
+    source ~/.config/nvim/plugins/autoformat.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 
@@ -137,7 +138,6 @@ augroup Mkdir
 augroup END
 
 au BufNewFile,BufRead *.ejs set filetype=html
-au BufNewFile,BufRead *.html syntax on
 
 highlight ColorColumn ctermbg=darkgrey
 hi CursorLine   cterm=NONE ctermbg=238

@@ -1,8 +1,7 @@
 Plug 'neovim/nvim-lspconfig'
 
-nnoremap <leader>gl :LspStart<cr>
-nnoremap <silent><leader>gf    <cmd>lua vim.lsp.buf.formatting()<CR>
-vnoremap <silent>ff :lua vim.lsp.buf.range_formatting()<CR>
+" nnoremap <silent><leader>gf    <cmd>lua vim.lsp.buf.formatting()<CR>
+" vnoremap <silent>gf :lua vim.lsp.buf.range_formatting()<CR>
 
 function LspSetup()
 lua << END

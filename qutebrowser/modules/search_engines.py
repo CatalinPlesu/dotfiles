@@ -2,7 +2,7 @@ c.url.searchengines = {
         # search engines
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://www.google.com/search?q={}',
+    'G': 'https://www.google.com/search?q={}',
     'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
     'gn': 'https://news.google.com/search?q={}',
     'b': 'https://www.bing.com/search?q={}',

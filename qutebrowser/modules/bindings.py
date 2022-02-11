@@ -2,6 +2,7 @@ bindings = {
     "co": "download-open",
     "ad": "nop",
     "cD": "download-cancel",
+    "cp": "screenshot -f ~/Downloads/screenshot.png",
 
     ';d': 'hint all download',
     ';p': "hint images download",

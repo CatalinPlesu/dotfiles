@@ -17,8 +17,8 @@ set noswapfile
 set nowrap
 set number relativenumber
 set redrawtime=10000 " Allow more time for loading syntax on large files
-set scrolloff=8
-set sidescrolloff=8
+set scrolloff=999
+set sidescrolloff=999
 set smartcase
 set expandtab tabstop=4 shiftwidth=4
 set undodir=~/.local/share/nvim/undodir
@@ -125,7 +125,8 @@ doautocmd User When_PlugLoaded
 "--------------------------------------------------------------------------
 " Miscellaneous
 "--------------------------------------------------------------------------
-
+"%! perl -pne 's/XYZ/int(rand 1000)/ge'
+"replace regex with random number
 source ~/.config/nvim/functions/virtual_edit.vim
 source ~/.config/nvim/functions/run_file.vim
 source ~/.config/nvim/functions/compile_markdown.vim
@@ -133,8 +134,8 @@ source ~/.config/nvim/functions/compile_markdown.vim
 autocmd InsertEnter * norm zz
 
 augroup Mkdir
-  autocmd!
-  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+    autocmd!
+    autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
 
 au BufNewFile,BufRead *.ejs set filetype=html

@@ -71,6 +71,7 @@ for an in ~/UTM/*an; do
      done
 done
 alias an='cd ~/UTM/ii_an/iii_sem/apa/an'
+alias bm='cd ~/UTM/ii_an/iv_sem/tw/book-mall'
 
 
 # edit config

@@ -16,3 +16,8 @@ nmap <silent> <Leader>tw <Plug>TranslateW
 nmap <silent> <Leader>tr <Plug>TranslateR
 " Translate the text in clipboard
 nmap <silent> <Leader>tx <Plug>TranslateX
+
+
+Plug 'vim-scripts/Typer'
+" :Typer filename
+" just smash the keyboard

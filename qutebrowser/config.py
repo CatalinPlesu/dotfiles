@@ -20,7 +20,7 @@ c.zoom.default = "100%"
 
 
 c.url.default_page = "~/.config/qutebrowser/startpage/index.html"
-c.url.start_pages = ["https://en.wikipedia.org/wiki/Special:Random"]
+c.url.start_pages = ["~/.config/qutebrowser/startpage/index.html"]
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False

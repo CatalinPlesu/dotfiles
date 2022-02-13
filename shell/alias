@@ -110,4 +110,3 @@ alias wifi-connect='nmcli dev wifi connect'
 
 alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
 alias pdfjoin='pdfjam --fitpaper true --suffix joined'
-

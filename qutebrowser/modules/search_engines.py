@@ -28,6 +28,7 @@ c.url.searchengines = {
     'te': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
     'tr': 'https://translate.google.com/?sl=auto&tl=ru&text={}&op=translate',
     'tj': 'https://translate.google.com/?sl=auto&tl=ja&text={}&op=translate',
+    'T': 'https://translate.yandex.com/?lang=en-ro&text={}',
         # language
     'dict_1': 'https://www.urbandictionary.com/define.php?term={}',
     'dict_2': 'https://thefreedictionary.com/{}',

@@ -1,8 +1,10 @@
 #!/bin/sh
-alias ls='ls --color=auto'
-alias la='ls -a --color=auto'
-alias l='ls -1 --color=auto'
-alias lah='ls -lah --color=auto'
+alias ls='exa'
+alias l='ls -l'
+alias la='ls -a'
+alias lx='ls -lbhHigUmuSa@'
+alias lah='ls -lah'
+alias tree='exa --tree'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 
@@ -53,10 +55,13 @@ alias utm='cd ~/Documents/notes/UTM && nvim index.md'
 alias anime='nvim ~/Documents/notes/Journal/Entertaiment/index.md'
 alias quote='nvim ~/Documents/notes/Journal/quotes/index.md'
 alias books='nvim ~/Documents/notes/Journal/books/books.md'
+alias fit='nvim ~/Documents/notes/Journal/Goals/fitness/2022.csv'
 alias ideas='nvim ~/Documents/notes/ideas.md'
+alias game='nvim ~/Documents/notes/IT_stuff/Games/dream_game/index.md'
+alias prac='cd ~/code/rust/gamedev_practice_university/'
 
 # labs
-cd_last_lab() { cd $1 && cd $(ls -dv */ | grep lab | tail -n 1) }
+cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
 
 # generates alias for all objects; wont cd in latest lab
 
@@ -72,7 +77,7 @@ for an in ~/UTM/*an; do
 done
 alias an='cd ~/UTM/ii_an/iii_sem/apa/an'
 alias bm='cd ~/UTM/ii_an/iv_sem/tw/book-mall'
-
+alias wine_masm="WINEARCH=win32 WINEPREFIX=~/.local/share/wineprefixes/masm/ wine"
 
 # edit config
 alias evim="nvim ~/.config/nvim/init.vim"
@@ -94,7 +99,7 @@ alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirr
 alias code=codium
 alias unimatrix='unimatrix -s 95'
 alias disc='python ~/code/python/discord_shell.py'
-alias neofetch='neofetch --ascii_distro FreeBSD'
+# alias neofetch='neofetch --ascii_distro FreeBSD'
 alias mtux='tmux new-session -A -s main'
 
 alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '

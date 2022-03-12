@@ -4,6 +4,7 @@
 case $1 in
 	qtile			  ) exec qtile start;;
     kde               ) exec startplasma-x11;;
+    gnome             ) exec gnome-shell;;
     bspwm             ) exec bspwm;;
     openbox           ) exec openbox;;
     dwm				  ) exec dwm;;

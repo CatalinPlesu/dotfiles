@@ -17,8 +17,8 @@ set noswapfile
 set nowrap
 set number relativenumber
 set redrawtime=10000 " Allow more time for loading syntax on large files
-set scrolloff=999
-set sidescrolloff=999
+set scrolloff=10 "999
+set sidescrolloff=10 "999
 set smartcase
 set expandtab tabstop=4 shiftwidth=4
 set undodir=~/.local/share/nvim/undodir
@@ -27,6 +27,9 @@ set updatetime=300 " Reduce time for highlighting other references
 set wildmode=longest,list,full
 set background=dark
 set cursorline cursorcolumn
+
+" set foldmethod=syntax
+
 
 "--------------------------------------------------------------------------
 " Key maps
@@ -47,7 +50,9 @@ nnoremap ge :e %:h/
 nnoremap <silent> <Leader>gx :set cursorline! cursorcolumn!<CR>
 nnoremap <silent> <Leader>gp :set list!<CR>
 nnoremap <silent> <leader>gw :set wrap!<cr>
-nnoremap <silent> <leader>gt :put =strftime('%d.%m.%y %H:%M:%S')<cr>
+nnoremap <silent> <leader>gt. :put =strftime('%d.%m.%Y')<cr>
+nnoremap <silent> <leader>gt/ :put =strftime('%d/%m/%Y')<cr>
+nnoremap <silent> <leader>gt :put =strftime('- %d_%m_%Y %H:%M:%S')<cr>
 " When text is wrapped, move by terminal rows, not lines, unless a count is provided
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -112,9 +117,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/lsp.vim
     source ~/.config/nvim/plugins/emmet.vim
     source ~/.config/nvim/plugins/collaboration.vim
-    source ~/.config/nvim/plugins/csv.vim
     source ~/.config/nvim/plugins/matchit.vim
     source ~/.config/nvim/plugins/autoformat.vim
+    source ~/.config/nvim/plugins/firenvim.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 
@@ -130,7 +135,6 @@ doautocmd User When_PlugLoaded
 source ~/.config/nvim/functions/virtual_edit.vim
 source ~/.config/nvim/functions/run_file.vim
 source ~/.config/nvim/functions/compile_markdown.vim
-
 autocmd InsertEnter * norm zz
 
 augroup Mkdir
@@ -139,10 +143,20 @@ augroup Mkdir
 augroup END
 
 au BufNewFile,BufRead *.ejs set filetype=html
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+au BufNewFile,BufRead *.asm :syntax on
 
-highlight ColorColumn ctermbg=darkgrey
-hi CursorLine   cterm=NONE ctermbg=238
-hi CursorColumn cterm=NONE ctermbg=238
+" highlight ColorColumn ctermbg=darkgreen
+if &background ==# 'light'
+    hi CursorLine   cterm=NONE ctermbg=223
+    hi CursorColumn cterm=NONE ctermbg=223
+    hi ColorColumn ctermbg=125
+endif
+if &background ==# 'dark'
+    hi CursorLine   cterm=NONE ctermbg=238
+    hi CursorColumn cterm=NONE ctermbg=238
+    hi ColorColumn ctermbg=darkgreen
+endif
 
 call matchadd("GroupN", '\n')
 call matchadd("GroupSpace", ' ')

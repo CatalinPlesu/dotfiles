@@ -18,7 +18,6 @@ chat https://discord.com/channels/742508750258176152/746059543213113406
 fake https://mail.google.com/mail/u/0/#inbox
 self https://mail.google.com/mail/u/1/#inbox
 outlook https://outlook.office.com/mail/inbox
-rails http://localhost:3000/
 notes file:///home/catalin/Documents/_notes/index.html
 friverr https://www.fiverr.com/catalin_p?up_rollout=true
 type https://monkeytype.com/
@@ -51,10 +50,11 @@ scribd https://docdownloader.com/
 rc https://lms.netacad.com/course/view.php?id=1079084
 uml markdown https://plantuml.com/sitemap
 plantUML https://crashedmind.github.io/PlantUMLHitchhikersGuide/layout/layout.html
-hackernews https://news.ycombinator.com/
-activitywatch http://localhost:5600/#/activity/anarchy/view/
+hackernews https://news.ycombinator.com/news
 hub https://github.com/
-colegi https://discord.com/channels/798861887215108146/920798672873205781
 bootstrap creator https://www.layoutit.com/build
 bootstrap themes https://bootswatch.com/
 wallpaper2 https://www.wallpaperflare.com/
+teams https://teams.microsoft.com/_?culture=en-us&country=WW&lm=deeplink&lmsrc=homePageWeb&cmpid=WebSignIn#/school/conversations/Comunitatea%20TI?threadId=19:90d27a023bb946789869210cebb6f86c@thread.tacv2&ctx=channel
+keyhero https://www.keyhero.com/free-typing-test/
+read test http://www.freereadingtest.com/

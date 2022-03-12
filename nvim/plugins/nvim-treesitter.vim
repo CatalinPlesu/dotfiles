@@ -1,4 +1,6 @@
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'DingDean/wgsl.vim'
+Plug 'gcollura/vim-masm'
 
 function TreeSitterSetup()
 

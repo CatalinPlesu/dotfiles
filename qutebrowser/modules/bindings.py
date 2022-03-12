@@ -32,10 +32,10 @@ bindings = {
     '<Ctrl-h>': 'history',
     '<Shift-j>': 'tab-prev',
     '<Shift-k>': 'tab-next',
-    'h': 'run-with-count 2 scroll left',
+    'h': 'run-with-count 1 scroll left',
     'j': 'scroll-px 0 75',
     'k': 'scroll-px 0 -75',
-    'l': 'run-with-count 2 scroll right',
+    'l': 'run-with-count 1 scroll right',
     'ww': 'open -w {url:pretty};;tab-close',
 
     ',gl': 'config-cycle content.user_stylesheets ./css/gruvbox-light-all-sites.css ""',
@@ -45,7 +45,7 @@ bindings = {
     ',ap': 'config-cycle content.user_stylesheets ./css/apprentice-all-sites.css ""',
     ',dr': 'config-cycle content.user_stylesheets ./css/darculized-all-sites.css ""',
 
-    ',d': "jseval --quiet --file ~/.config/qutebrowser/js/discord_colapse.js",
+    ',D': "jseval --quiet --file ~/.config/qutebrowser/js/discord_colapse.js",
     ',f': "jseval --quiet --file ~/.config/qutebrowser/js/read-font.js",
     ',t': 'config-cycle tabs.show always never',
     ',b': 'config-cycle statusbar.show always never',
@@ -57,13 +57,16 @@ bindings = {
     "xh": "hint all hover",
 
     "aS": "spawn --userscript unified_links.sh -s",
+    "as3": "spawn --userscript unified_links.sh -s -f 3d_assets",
     "asa": "spawn --userscript unified_links.sh -s -f artists",
     "asr": "spawn --userscript unified_links.sh -s -f read_list",
     "asg": "spawn --userscript unified_links.sh -s -f gamedev",
     "ar": "spawn --userscript unified_links.sh -r",
     "ao": "spawn --userscript unified_links.sh -o",
     "aO": "spawn --userscript unified_links.sh -O",
-    "<Ctrl-t>": "spawn --userscript random_page.sh" 
+    "a*": "spawn --userscript unified_links.sh -A",
+    "<Ctrl-t>": "spawn --userscript random_page.sh artists",
+    "<Ctrl-r>": "spawn --userscript random_page.sh" 
 
 }
 for key, bind in bindings.items():

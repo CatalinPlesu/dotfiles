@@ -1,5 +1,5 @@
 #!/bin/sh
-xrandr --output eDP --mode 1280x720 &
+xrandr --output eDP --mode 1280x720 --set TearFree on &
 # xrandr --output DisplayPort-0 --set TearFree on
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 setxkbmap -option caps:super &
@@ -17,5 +17,4 @@ nitrogen --restore &
 # wallpapersd &
 $TERMINAL -e tmux new-session -A -s main&
 dwmbar.sh&
-asus_monitor&
-/opt/activitywatch/start.sh&
+# asus_monitor&

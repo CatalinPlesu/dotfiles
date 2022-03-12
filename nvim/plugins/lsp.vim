@@ -8,8 +8,6 @@ lua << END
     require('lspconfig').pyright.setup {}
     require('lspconfig').rust_analyzer.setup {}
     require('lspconfig').clangd.setup {}
-    require('lspconfig').csharp_ls.setup {}
-    require('lspconfig').tsserver.setup {}
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -44,7 +42,7 @@ lua << END
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+    local servers = { 'pyright', 'rust_analyzer', 'clangd' }
     for _, lsp in pairs(servers) do
       require('lspconfig')[lsp].setup {
         on_attach = on_attach,

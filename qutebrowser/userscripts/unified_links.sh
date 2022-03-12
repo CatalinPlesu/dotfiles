@@ -2,13 +2,14 @@
 bookmarks_dir="/home/$(whoami)/.config/qutebrowser/bookmarks/"
 alias ls='ls --ignore={"urls",""}' # blacklist files
 
-while getopts soOrf:u: name
+while getopts soOrAf:u: name
 do
     case $name in
     s)    s_flag=1;;
     o)    o_flag=1;;
     O)    O_flag=1;;
     r)    r_flag=1;;
+    A)    A_flag=1;;
     f)    file_flag=1
           file_val="$OPTARG";;
     ?)   printf "Usage: %s: [-s] [-o] [-O] [-r] [-f file]\n" $0
@@ -24,6 +25,17 @@ if [ ! -z "$s_flag" ]; then
 
     if ! [ -f $file_val ]; then
         echo "$QUTE_URL" >> "$bookmarks_dir$file_val"
+    fi
+fi
+
+# open all
+if [ ! -z "$A_flag" ]; then
+    tab_val="-t"
+    cd $bookmarks_dir
+    url_val=$(cat $(ls) | rofi -dmenu -i -p all)
+
+    if ! [ -f $url_val ]; then
+        echo "open $tab_val $url_val" >> "$QUTE_FIFO"
     fi
 fi
 

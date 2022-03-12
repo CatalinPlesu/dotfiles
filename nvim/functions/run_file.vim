@@ -25,6 +25,8 @@ function! RunFile()
 	exec '!mono %:r '
   elseif match(@%, '.sh$') != -1
 	exec '!sh % '
+  elseif match(@%, '.csv$') != -1
+	exec '!~/Documents/notes/Journal/Goals/fitness/plot.py %'
   elseif match(@%, '.rs$') != -1
 	    if !empty(glob('../Cargo.lock')) && !isdirectory('../Cargo.lock')
 			exec '!cargo run'

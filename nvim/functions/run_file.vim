@@ -31,7 +31,7 @@ function! RunFile()
 	    if !empty(glob('../Cargo.lock')) && !isdirectory('../Cargo.lock')
 			exec '!cargo run'
 		elseif !empty(glob('Cargo.lock')) && !isdirectory('Cargo.lock')
-			exec '!cargo run'
+			exec '!cargo run --release'
 		else
 			exec '!rustc % '
 			exec '!./%:r'

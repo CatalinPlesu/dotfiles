@@ -18,3 +18,4 @@ nitrogen --restore &
 $TERMINAL -e tmux new-session -A -s main&
 dwmbar.sh&
 # asus_monitor&
+export _JAVA_AWT_WM_NONREPARENTING=1&

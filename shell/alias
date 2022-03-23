@@ -86,10 +86,12 @@ alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
 alias eqsearch="nvim ~/.config/qutebrowser/modules/search_engines.py"
 alias eqbindings="nvim ~/.config/qutebrowser/modules/bindings.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
+alias edxhd="nvim ~/.config/dxhd/dxhd.sh && pkill -USR1 -x dxhd"
 alias esh="nvim ~/.config/shell/alias && source ~/.config/shell/alias"
 alias eenv="nvim ~/.config/shell/env && source ~/.config/shell/env"
 alias ezsh="nvim ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc"
 alias erofi="nvim ~/.config/rofi/config.rasi"
+alias comands="nvim ~/code/scripts/comands"
 
 # MISC
 alias myip="curl http://ipecho.net/plain; echo"
@@ -107,8 +109,8 @@ alias wget_website='wget --recursive --no-clobber --page-requisites  --html-exte
 # window manager
 alias sx2='sx ~/.config/sx/sxrc'
 alias kde='sx /bin/startplasma-x11'
-alias sxd='sx2 dwm'
-alias tray='trayer --edge top --align right --width 25'
+alias gnome='sx gnome-shell'
+alias tray='trayer --edge top --align right --width 30'
 
 alias wifi-list='nmcli dev wifi list'
 alias wifi-connect='nmcli dev wifi connect'

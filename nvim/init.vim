@@ -93,7 +93,7 @@ xnoremap $ g_
 inoremap jj <esc>
 inoremap ZZ <esc>:x<cr>
 " inoremap :w <esc>:w<cr>
-
+nnoremap Q <nop>
 
 "--------------------------------------------------------------------------
 " Plugins
@@ -124,6 +124,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/matchit.vim
     source ~/.config/nvim/plugins/autoformat.vim
     source ~/.config/nvim/plugins/firenvim.vim
+    source ~/.config/nvim/plugins/fugitive.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 

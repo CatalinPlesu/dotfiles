@@ -12,7 +12,7 @@ c.auto_save.session = False
 c.completion.web_history.max_items = 10000
 c.scrolling.smooth = True
 
-#fonts
+# fonts
 c.fonts.default_family = "Fira Code"
 c.fonts.default_size = "15pt"
 c.downloads.position = 'bottom'
@@ -20,17 +20,18 @@ c.zoom.default = "100%"
 
 
 c.url.default_page = "~/.config/qutebrowser/startpage/index.html"
-c.url.start_pages = ["~/.config/qutebrowser/startpage/index.html"]
+c.url.start_pages = ["https://news.ycombinator.com/news",
+                     "~/.config/qutebrowser/startpage/index.html"]
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False
 c.content.cookies.accept = "all"
-c.content.cookies.store = True #False
+c.content.cookies.store = True  # False
 c.content.default_encoding = "utf-8"
 
 c.content.pdfjs = True
 
-c.content.javascript.enabled = True #False
+c.content.javascript.enabled = True  # False
 js_whitelist = [
     "*://localhost/*",
     "*://127.0.0.1/*",
@@ -41,4 +42,3 @@ js_whitelist = [
 for website in js_whitelist:
     with config.pattern(website) as p:
         p.content.javascript.enabled = True
-

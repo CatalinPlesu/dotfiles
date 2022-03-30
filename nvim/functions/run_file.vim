@@ -29,7 +29,7 @@ function! RunFile()
 	exec '!~/Documents/notes/Journal/Goals/fitness/plot.py %'
   elseif match(@%, '.rs$') != -1
 	    if !empty(glob('../Cargo.lock')) && !isdirectory('../Cargo.lock')
-			exec '!cargo run'
+			exec '!cargo run --release'
 		elseif !empty(glob('Cargo.lock')) && !isdirectory('Cargo.lock')
 			exec '!cargo run --release'
 		else

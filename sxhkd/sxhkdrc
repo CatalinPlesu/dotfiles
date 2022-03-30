@@ -80,4 +80,6 @@ super + r; 2
 	setxkbmap ro std
 super + r; 3
 	setxkbmap ru
+super + s
+    xdotool key Caps_Lock
 

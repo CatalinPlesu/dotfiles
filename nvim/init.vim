@@ -70,7 +70,7 @@ nnoremap <leader>O O<Esc>
 nnoremap Y y$
 " Open the current file in the default program
 nnoremap <leader>x :!xdg-open '%:p'<cr><cr>
-nnoremap <leader>cl :w<cr>:!xelatex main.tex<cr>
+nnoremap <leader>cl :w<cr>:AsyncRun xelatex main.tex<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -125,6 +125,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/autoformat.vim
     source ~/.config/nvim/plugins/firenvim.vim
     source ~/.config/nvim/plugins/fugitive.vim
+    source ~/.config/nvim/plugins/asyncrun.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 

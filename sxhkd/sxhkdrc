@@ -10,10 +10,13 @@ super + alt + Return
 	$TERMINAL	
 super + b
 	$BROWSER
-# super + B
-# 	chromium
 super + x
 	xsecurelock -- xset dpms force off
+
+super + p
+	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+super + P
+	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 Print + alt ; {1-9}
@@ -45,7 +48,7 @@ super + m
 	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
 # file browser in directory
 super + f ; {t, b, s, d, p, v, m, u, w}
-	thunar {Documents/latex, Books, Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/ii_an/iv_sem/, Pictures/wallpapers/}
+	thunar {Documents, Books, Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/ii_an/iv_sem/, Pictures/wallpapers/}
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 super + n
@@ -57,15 +60,24 @@ super + n
 ### audio
 XF86AudioRaiseVolume
 	vol.sh up	
-	# amixer -D pulse sset Master 5%+
 XF86AudioLowerVolume
 	vol.sh down
-	# amixer -D pulse sset Master 5%-
 XF86AudioMute
 	vol.sh mute
-	# amixer -D pulse sset Master toggle
 XF86AudioMicMute
 	amixer -D pulse sset Capture toggle
+super + v: j
+	vol.sh down 
+super + v: k
+	vol.sh up 
+super + v: m
+	vol.sh mute
+super + v: l
+	backlight_control +15
+super + v: h
+	backlight_control -15
+super + v: q
+	pkill -USR1 -x sxhkd
 
 ### Brightness
 XF86MonBrightnessUp

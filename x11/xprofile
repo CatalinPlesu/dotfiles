@@ -7,6 +7,8 @@ libinput-gestures-setup start &
 # xset r rate 900 1 &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &
 pulseaudio --daemonize &
+killall pulseaudio &
+pulseaudio --daemonize &
 picom &
 sxhkd &
 warpd &

@@ -2,7 +2,7 @@
 image/png=gimp.desktop;sxiv.desktop;fotoxx.desktop;mypaint.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;
 text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=nvim.desktop;libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
-application/pdf=org.qutebrowser.qutebrowser.desktop;chromium.desktop;net.sourceforge.gscan2pdf.desktop;libreoffice-draw.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
+application/pdf=org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;chromium.desktop;libreoffice-draw.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=gimp.desktop;fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;userapp-sxiv-QL1BG1.desktop;
 inode/directory=audacious.desktop;sxiv.desktop;xfce4-file-manager.desktop;thunar.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
@@ -16,7 +16,7 @@ application/x-ruby=vscodium.desktop;
 application/xml=jflap.desktop;neovide.desktop;
 application/x-ms-dos-executable=wine.desktop;
 application/msword=freeoffice-textmaker.desktop;libreoffice-writer.desktop;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;libreoffice-writer.desktop;freeoffice-textmaker.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=onlyoffice-desktopeditors.desktop;wps-office-wps.desktop;libreoffice-writer.desktop;freeoffice-textmaker.desktop;
 application/wps-office.docx=freeoffice-textmaker.desktop;wps-office-wps.desktop;libreoffice-writer.desktop;
 application/wps-office.potx=wps-office-wpp.desktop;
 application/wps-office.dpss=wps-office-wpp.desktop;
@@ -45,6 +45,7 @@ text/x-csrc=nvim.desktop;
 application/octet-stream=userapp-blender-NTRYH1.desktop;
 model/gltf+json=userapp-blender-NTRYH1.desktop;
 text/csv=libreoffice-calc.desktop;
+application/x-java-archive=java-java-openjdk.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
@@ -92,3 +93,6 @@ text/html=org.qutebrowser.qutebrowser.desktop
 application/vnd.rar=xarchiver.desktop
 x-scheme-handler/imdone=imdone.desktop
 text/csv=libreoffice-calc.desktop
+application/x-compressed-tar=org.gnome.FileRoller.desktop
+application/x-tar=org.gnome.FileRoller.desktop
+application/zip=xarchiver.desktop

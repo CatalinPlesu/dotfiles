@@ -42,6 +42,7 @@ alias cr='cargo run'
 alias cre='cargo run --example'
 alias crr='cargo run --release'
 alias pypy='pypy3'
+alias pt='ptpython --vi'
 
 alias vi='nvim -u NONE'
 alias v='nvim'

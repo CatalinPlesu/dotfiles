@@ -21,7 +21,7 @@ c.zoom.default = "100%"
 
 c.url.default_page = "~/.config/qutebrowser/startpage/index.html"
 c.url.start_pages = ["https://news.ycombinator.com/news",
-                     "~/.config/qutebrowser/startpage/index.html"]
+                     "https://www.reddup.co/"]
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False

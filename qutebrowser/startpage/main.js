@@ -14,6 +14,7 @@ data = {
 	],
 
 	"Ent":[
+        ["odysee", "https://odysee.com/"],
 		["devian", "https://www.deviantart.com/"],
 		["pix", "https://www.pixiv.net/en/"],
 		["art", "https://www.artstation.com/?sort_by=community"],

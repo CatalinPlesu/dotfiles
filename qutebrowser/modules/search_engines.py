@@ -1,6 +1,7 @@
 c.url.searchengines = {
         # search engines
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
+
+    'DEFAULT': 'https://searx.tiekoetter.com/search?q={}',
     'd': 'https://duckduckgo.com/?q={}',
     'G': 'https://www.google.com/search?q={}',
     'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
@@ -9,6 +10,7 @@ c.url.searchengines = {
     'i': 'https://yandex.com/search/?text={}',
     's': 'https://swisscows.com/web?culture=en&query={}',
     'y': 'https://www.youtube.com/results?search_query={}&search=Search',
+    'o': 'https://odysee.com/$/search?q={}',
     'wikipedia':       'https://en.wikipedia.org/wiki/{}',
         # maps
     'm':       'https://www.google.com/maps/search/{}',
@@ -35,8 +37,8 @@ c.url.searchengines = {
     'pron': 'https://www.thesaurus.com/browse/{}',
     'dex': 'https://dexonline.ro/definitie/{}',
         # books
-    'libgen': 'https://libgen.li/index.php?req={}',
-    'libgen2': 'https://libgen.rs/search.php?req={}',
+    'lg': 'https://libgen.li/index.php?req={}',
+    'lg2': 'https://libgen.rs/search.php?req={}',
 
         #anime
     'z': 'https://zoro.to/search?keyword={}',
@@ -54,6 +56,7 @@ c.url.searchengines = {
     '9': 'https://999.md/ro/search?query={}',
     'pandashop': 'https://www.pandashop.md/ro/search/?text={}',
     'smadshop': 'https://smadshop.md/ro/search/?search={}',
+    'gsm': 'https://www.gsmshop.md/product/search.html?search={}&x=0&y=0',
         # buy china
     'joom': 'https://www.joom.com/en/search/q.{}',
     'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',

@@ -1,3 +1,4 @@
+lua require 'init'
 "--------------------------------------------------------------------------
 " General settings
 "--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ source ~/.config/nvim/functions/vim_plug_install.vim
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-    source ~/.config/nvim/plugins/gruvbox.vim
+    " source ~/.config/nvim/plugins/gruvbox.vim
     source ~/.config/nvim/plugins/vim-surround.vim
     source ~/.config/nvim/plugins/vim-commentary.vim
     source ~/.config/nvim/plugins/basic_editor.vim

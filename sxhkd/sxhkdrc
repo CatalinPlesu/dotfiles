@@ -17,6 +17,8 @@ super + p
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 super + P
 	scrot -zs '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
+super + ctrl + p
+	flameshot gui
 Print
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 Print + alt ; {1-9}
@@ -51,6 +53,8 @@ super + f ; {t, b, s, d, p, v, m, u, w}
 	thunar {Documents, Books, Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/ii_an/iv_sem/, Pictures/wallpapers/}
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
+super + U
+    book=$(find ~/UTM -type f -name '*.pdf' | rofi -dmenu -i) && zathura $book
 super + n
     book=$(find ~/Books -type f | rofi -dmenu -i) && zathura $book
 # # # various terminal programs

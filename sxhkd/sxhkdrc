@@ -3,7 +3,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 # open terminal
 super + Return
-	$TERMINAL -e tmux new-session -A -s main
+	$TERMINAL start -- tmux new-session -A -s main
 ctrl + alt + t
 	$TERMINAL -e tmux new-session -A -s main
 super + alt + Return
@@ -99,3 +99,19 @@ super + r; 3
 super + s
     xdotool key Caps_Lock
 
+### insert romanian diacritics
+## [ă
+alt + bracketleft; bracketleft 
+    xdotool keyup bracketleft key --clearmodifiers abreve
+## ]î
+alt + bracketright; bracketright 
+    xdotool keyup bracketright key --clearmodifiers icircumflex 
+## \â
+alt + backslash; backslash  
+    xdotool keyup backslash key --clearmodifiers acircumflex 
+## + ,;ș
+alt + apostrophe; apostrophe 
+    xdotool keyup apostrophe key --clearmodifiers U021B
+## 'ț
+alt + semicolon; semicolon 
+    xdotool keyup semicolon key --clearmodifiers U0219

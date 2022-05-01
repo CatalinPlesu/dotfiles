@@ -6,7 +6,7 @@ g = vim.g
 
 local modules = {
   -- 'options',
-  -- 'mappings',
+  'mappings',
   'plugins',
 }
 

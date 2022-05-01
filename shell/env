@@ -8,7 +8,7 @@ export PATH=$PATH:/home/catalin/.local/bin
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="wezterm"
 export BROWSER="qutebrowser"
 export PAGER="bat"
 

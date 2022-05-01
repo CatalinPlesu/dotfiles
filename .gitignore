@@ -8,6 +8,8 @@
 !/mpv/**
 !/alacritty/
 !/alacritty/**
+!/wezterm/
+!/wezterm/**
 !/xmenu/
 !/xmenu/**
 !/dunst/

@@ -18,7 +18,8 @@ nm-applet &
 flameshot &
 nitrogen --restore &
 # wallpapersd &
-$TERMINAL -e tmux new-session -A -s main&
+# $TERMINAL -e tmux new-session -A -s main&
+$TERMINAL start -- tmux new-session -A -s main
 dwmbar.sh&
 # asus_monitor&
 export _JAVA_AWT_WM_NONREPARENTING=1&

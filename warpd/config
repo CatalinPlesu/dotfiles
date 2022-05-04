@@ -1,0 +1,4 @@
+exit: esc
+exit: `
+cursor_color: #35FF45
+cursor_size: 8

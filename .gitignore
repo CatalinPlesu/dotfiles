@@ -10,6 +10,8 @@
 !/alacritty/**
 !/wezterm/
 !/wezterm/**
+!/warpd/
+!/warpd/**
 !/xmenu/
 !/xmenu/**
 !/dunst/

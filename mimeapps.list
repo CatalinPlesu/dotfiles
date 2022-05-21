@@ -4,7 +4,7 @@ text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=nvim.desktop;libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
 application/pdf=chromium.desktop;libreoffice-draw.desktop;org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=gimp.desktop;fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;userapp-sxiv-QL1BG1.desktop;
-inode/directory=audacious.desktop;sxiv.desktop;xfce4-file-manager.desktop;thunar.desktop;
+inode/directory=sxiv.desktop;audacious.desktop;xfce4-file-manager.desktop;thunar.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
 text/markdown=firefox.desktop;
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop;
@@ -46,6 +46,8 @@ application/octet-stream=userapp-blender-NTRYH1.desktop;
 model/gltf+json=userapp-blender-NTRYH1.desktop;
 text/csv=libreoffice-calc.desktop;
 application/x-java-archive=java-java-openjdk.desktop;
+application/vnd.ms-powerpoint=libreoffice-impress.desktop;onlyoffice-desktopeditors.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;onlyoffice-desktopeditors.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
@@ -95,4 +97,4 @@ x-scheme-handler/imdone=imdone.desktop
 text/csv=libreoffice-calc.desktop
 application/x-compressed-tar=org.gnome.FileRoller.desktop
 application/x-tar=org.gnome.FileRoller.desktop
-application/zip=xarchiver.desktop
+application/zip=org.gnome.FileRoller.desktop

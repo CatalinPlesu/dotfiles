@@ -2,6 +2,7 @@
 xrandr --output eDP --mode 1280x720 --set TearFree on &
 # xrandr --output DisplayPort-0 --set TearFree on
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
+# xinput --disable "SynPS/2 Synaptics TouchPad" &
 setxkbmap -option caps:super &
 libinput-gestures-setup start &
 # xset r rate 900 1 &
@@ -19,7 +20,7 @@ flameshot &
 nitrogen --restore &
 # wallpapersd &
 # $TERMINAL -e tmux new-session -A -s main&
-$TERMINAL start -- tmux new-session -A -s main
+$TERMINAL start -- tmux new-session -A -s main&
 dwmbar.sh&
 # asus_monitor&
 export _JAVA_AWT_WM_NONREPARENTING=1&

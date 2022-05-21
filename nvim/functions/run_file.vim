@@ -3,7 +3,9 @@ nnoremap <leader>cc :w<cr>:call RunFile()<cr>
 
 "" To automatically compile and or run source code
 function! RunFile()
-  if !empty(glob('makefile')) && !isdirectory('makefile')
+  if match(readfile(expand("%:p")),"startuml")!=-1 
+    exec '!plantuml %:p'
+  elseif !empty(glob('makefile')) && !isdirectory('makefile')
     exec '!make'
   elseif match(@%, '.rb$') != -1
     exec '!ruby % '

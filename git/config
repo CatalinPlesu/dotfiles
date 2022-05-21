@@ -5,3 +5,5 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[alias]
+	conflicts = !git ls-files -u | cut -f 2 | sort -u

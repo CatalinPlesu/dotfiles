@@ -127,6 +127,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/firenvim.vim
     source ~/.config/nvim/plugins/fugitive.vim
     source ~/.config/nvim/plugins/asyncrun.vim
+    source ~/.config/nvim/plugins/plantuml-syntax.vim
 
     source ~/.config/nvim/plugins/which-key.vim
 

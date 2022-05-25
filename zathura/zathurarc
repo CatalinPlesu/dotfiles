@@ -17,6 +17,16 @@ map u scroll half-up
 map w rotate
 
 
+map <A-F1> set 'recolor-darkcolor "#ebdbb2"'
+map <A-F2> set 'recolor-lightcolor "#282828"'
+map <A-F3> set 'recolor-darkcolor "#282828"'
+map <A-F4> set 'recolor-lightcolor "#ebdbb2"'
+map <A-F5> set 'recolor true'
+map <A-F6> set 'recolor false'
+
+map [ feedkeys "<A-F6><A-F1><A-F2><A-F5>"
+map ] feedkeys "<A-F6><A-F3><A-F4><A-F5>"
+
 # settings
 set adjust-open width
 set font "Fira Code 15"
@@ -39,7 +49,7 @@ set completion-fg               "#839496"
 set completion-group-bg         "#eee8d5"
 set completion-group-fg         "#586e75"
 set completion-highlight-bg     "#93a1a1"
-set completion-highlight-fg		"#073642"
+set completion-highlight-fg     "#073642"
 set default-bg                  "#D2D8D9"
 set default-fg                  "#002B36"
 set inputbar-bg                 "#D2D8D9"
@@ -47,7 +57,7 @@ set inputbar-fg                 "#002B36"
 set notification-bg             "#eee8d5"
 set notification-error-bg       "#eee8d5"
 set notification-error-fg       "#dc322f"
-set notification-fg				"#368bd2"
+set notification-fg             "#368bd2"
 set notification-warning-bg     "#eee8d5"
 set notification-warning-fg     "#dc322f"
 # set recolor-darkcolor           "#b16286" # pink

@@ -97,4 +97,4 @@ x-scheme-handler/imdone=imdone.desktop
 text/csv=libreoffice-calc.desktop
 application/x-compressed-tar=org.gnome.FileRoller.desktop
 application/x-tar=org.gnome.FileRoller.desktop
-application/zip=org.gnome.FileRoller.desktop
+application/zip=xarchiver.desktop

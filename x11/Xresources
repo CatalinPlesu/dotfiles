@@ -15,6 +15,7 @@ Xcursor.size: 36
 Sxiv.font: Fira Code:size=16:style=regular
 Sxiv.foreground: #ebdbb2
 Sxiv.background: #282828
+st.font: Fira Code:size=14:style=regular
 
 *background: #282828
 *foreground: #ebdbb2

@@ -12,6 +12,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 
+#lolthings
 alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'

@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ -z $1 ]
+then
+	cd ~/Music/
+	mpg123 -Z **/*.mp3
+else
+	cd $1
+	mpg123 -Z *.mp3
+fi

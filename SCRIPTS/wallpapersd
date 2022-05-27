@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Script to enable different wallpapers on each workspace and monitor.
+# Written by damo <damo@bunsenlabs.org> November 2015
+#
+###############################################################################
+
+WALLS_FILE="$HOME/.config/wallpapers.cfg"
+WALL_CMD="nitrogen --set-zoom" # edit this, or wallpapers.cfg, to use a different command
+
+TXT=$(echo -e "# Add filepaths to the images to be set as backgrounds on each workspace."
+    echo -e "# You can have an image set for each monitor."
+    echo -e "#\n# Commands should be in the form:\n#"
+    echo -e "#  $WALL_CMD 'path/to/image1(monitor 1)' 'path/to/image2(monitor 2)' etc\n#"
+    echo -e "############################################################################"
+    )
+
+if [[ ! -f $WALLS_FILE ]];then
+    echo -e "$TXT\n" > "$WALLS_FILE"
+    NUM_DESKTOPS=$(xprop -root _NET_NUMBER_OF_DESKTOPS | tail -c -2)
+    for (( i=0; i < $NUM_DESKTOPS; i++ ));do
+        echo "[DESKTOP_$i] $WALL_CMD " >> "$WALLS_FILE"
+    done
+    xdg-open "$WALLS_FILE"  # open cfg file for editing. Script must be restarted afterwards.
+    exit
+else
+    xprop -root -spy _NET_CURRENT_DESKTOP | (   # <-- this is the watching process
+    while read -r;do
+        CURR_DESKTOP=${REPLY:${#REPLY}-1:1}
+        while read DTOP CMD;do
+            VAL="[DESKTOP_$CURR_DESKTOP]"
+            if [[ "$DTOP" = "$VAL" ]];then
+                eval $CMD
+            fi
+        done < "$WALLS_FILE"
+    done
+    )
+fi

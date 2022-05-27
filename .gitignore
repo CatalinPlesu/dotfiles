@@ -6,6 +6,8 @@
 !/bash/**
 !/mpv/
 !/mpv/**
+!/SCRIPTS/
+!/SCRIPTS/**
 !/alacritty/
 !/alacritty/**
 !/wezterm/

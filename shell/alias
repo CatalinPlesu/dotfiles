@@ -65,20 +65,22 @@ alias prac='cd ~/code/rust/gamedev_practice_university/'
 alias cxy='cd ~/code/web/catalinplesu.xyz/ && export FLASK_APP=main.py && export FLASK_ENV=development'
 
 # labs
-# cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
-# 
-# # generates alias for all objects; wont cd in latest lab
-# 
-# for an in ~/UTM/*an; do
-#      for sem in $an/*sem; do
-#          for D in $sem/*/; do
-#              obiect=$(basename ${D})
-#              alias $obiect="cd $D" 
-#              alias "${obiect}_"="cd_last_lab $D" 
-#          done
-#          alias $(basename ${sem})="cd $sem"
-#      done
-# done
+ cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
+ 
+ # generates alias for all objects; wont cd in latest lab
+if [ -d ~/UTM ]; then
+ for an in ~/UTM/*an; do
+      for sem in $an/*sem; do
+          for D in $sem/*/; do
+              obiect=$(basename ${D})
+              alias $obiect="cd $D" 
+              alias "${obiect}_"="cd_last_lab $D" 
+          done
+          alias $(basename ${sem})="cd $sem"
+      done
+ done
+fi
+
 
 alias an='cd ~/UTM/ii_an/iii_sem/apa/an'
 alias bm='cd ~/UTM/ii_an/iv_sem/tw/book-mall'

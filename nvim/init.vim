@@ -72,6 +72,7 @@ nnoremap Y y$
 " Open the current file in the default program
 nnoremap <leader>x :!xdg-open '%:p'<cr><cr>
 nnoremap <leader>cl :w<cr>:AsyncRun xelatex main.tex<cr>
+nnoremap <leader>rs :%s/\s\+$//e<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -129,6 +130,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     source ~/.config/nvim/plugins/asyncrun.vim
     source ~/.config/nvim/plugins/plantuml-syntax.vim
     Plug 'elkowar/yuck.vim'
+    Plug 'vim-python/python-syntax'
+    let g:python_highlight_all=1
 
     source ~/.config/nvim/plugins/which-key.vim
 

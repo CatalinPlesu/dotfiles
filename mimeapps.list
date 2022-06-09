@@ -1,6 +1,6 @@
 [Added Associations]
 image/png=gimp.desktop;sxiv.desktop;fotoxx.desktop;mypaint.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;
-text/x-python=kitty.desktop;vscodium.desktop;neovide.desktop;
+text/x-python=userapp-env python -SMD0M1.desktop;kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=nvim.desktop;libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
 application/pdf=chromium.desktop;libreoffice-draw.desktop;org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=gimp.desktop;fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;userapp-sxiv-QL1BG1.desktop;
@@ -28,7 +28,7 @@ application/wps-office.eto=wps-office-et.desktop;
 application/wps-office.dotx=wps-office-wps.desktop;
 application/wps-office.wpss=wps-office-wps.desktop;
 application/wps-office.wpso=wps-office-wps.desktop;
-application/zip=xarchiver.desktop;org.pwmt.zathura-cb.desktop;
+application/zip=org.kde.ark.desktop;org.pwmt.zathura-cb.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-4LF090.desktop;
 application/wps-office.doc=freeoffice-textmaker.desktop;libreoffice-writer.desktop;
 application/wps-office.pptx=libreoffice-impress.desktop;

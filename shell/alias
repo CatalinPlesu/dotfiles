@@ -20,7 +20,7 @@ alias cls='lah | lolcrab -i'
 alias s='sudo pacman -S'
 alias syu='sudo pacman -Syu'
 alias ss='paru -Ss'
-alias i='pacman -Si'
+alias i='paru -Si'
 alias q='pacman -Q'
 alias r='sudo pacman -Rsn'
 alias y='paru -S'
@@ -44,6 +44,7 @@ alias cre='cargo run --example'
 alias crr='cargo run --release'
 alias pypy='pypy3'
 alias pt='ptpython --vi'
+alias act='source venv/bin/activate'
 
 alias vi='nvim -u NONE'
 alias v='nvim'
@@ -60,9 +61,7 @@ alias books='nvim ~/Documents/notes/Journal/books/books.md'
 alias fit='nvim ~/Documents/notes/Journal/Goals/fitness/2022.csv'
 alias ideas='nvim ~/Documents/notes/ideas.md'
 alias game='nvim ~/Documents/notes/IT_stuff/Games/dream_game/index.md'
-
-alias prac='cd ~/code/rust/gamedev_practice_university/'
-alias cxy='cd ~/code/web/catalinplesu.xyz/ && export FLASK_APP=main.py && export FLASK_ENV=development'
+alias intern='nvim ~/Documents/notes/IT_stuff/internship/index.md'
 
 # labs
  cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
@@ -100,7 +99,7 @@ alias ezsh="nvim ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc"
 alias erofi="nvim ~/.config/rofi/config.rasi"
 alias ewez="nvim ~/.config/wezterm/wezterm.lua"
 alias ex11="nvim ~/.config/x11/xprofile"
-alias comands="nvim ~/code/scripts/comands"
+alias comands="nvim ~/.config/SCRIPTS/comands"
 
 # MISC
 alias myip="curl http://ipecho.net/plain; echo"

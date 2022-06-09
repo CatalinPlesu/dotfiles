@@ -9,10 +9,10 @@ libinput-gestures-setup start &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &
 
 # pulseaudio --daemonize &
-# killall pulseaudio &
-# pulseaudio --daemonize &
 pipewire&
 pipewire-pulse&
+pipewire-media-session&
+
 picom &
 sxhkd &
 warpd &
@@ -21,9 +21,6 @@ dunst &
 nm-applet &
 flameshot &
 nitrogen --restore &
-# wallpapersd &
 # $TERMINAL -e tmux new-session -A -s main&
-$TERMINAL start -- tmux new-session -A -s main&
 dwmbar.sh&
 # asus_monitor&
-export _JAVA_AWT_WM_NONREPARENTING=1&

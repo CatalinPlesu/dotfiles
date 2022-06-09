@@ -18,7 +18,7 @@ shift $(($OPTIND - 1))
 command=$1
 
 if [ "$command" = "" ]; then
-    echo "usage: $0 {up|down|mute} [increment]"
+    echo "usage: $0 {up|down|mute|max|min} [increment]"
     exit 0;
 fi
 
@@ -30,6 +30,16 @@ fi
 
 if [ "$command" = "down" ]; then
     display_volume=$(amixer set $mixer $increment- unmute | grep -m 1 "%]" | cut -d "[" -f2|cut -d "%" -f1)
+fi
+
+if [ "$command" = "max" ]; then
+    display_volume=100
+    pactl -- set-sink-volume 0 150% 
+fi
+
+if [ "$command" = "min" ]; then
+    display_volume=40
+    pactl -- set-sink-volume 0 40% 
 fi
 
 icon_name=""

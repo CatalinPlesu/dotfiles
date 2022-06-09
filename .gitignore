@@ -6,6 +6,8 @@
 !/bash/**
 !/mpv/
 !/mpv/**
+!/bat/
+!/bat/**
 !/SCRIPTS/
 !/SCRIPTS/**
 !/alacritty/

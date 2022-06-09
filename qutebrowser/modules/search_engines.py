@@ -5,6 +5,7 @@ c.url.searchengines = {
     'd': 'https://duckduckgo.com/?q={}',
     'G': 'https://www.google.com/search?q={}',
     'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    'ig': 'https://searx.tiekoetter.com/search?q={}&category_images=on',
     'gn': 'https://news.google.com/search?q={}',
     'b': 'https://www.bing.com/search?q={}',
     'i': 'https://yandex.com/search/?text={}',
@@ -16,10 +17,6 @@ c.url.searchengines = {
     'm':       'https://www.google.com/maps/search/{}',
         # entertainment
     'r': 'https://www.reddit.com/r/{}/',
-    'p': 'https://www.pinterest.com/search/pins/?q={}',
-    'fb':      'https://www.facebook.com/s.php?q={}',
-    'ig':      'https://www.instagram.com/explore/tags/{}',
-    'tw':      'https://twitter.com/search?q={}',
     'rr':       'https://www.reddit.com/search?q={}',
         # arch linux
     'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',

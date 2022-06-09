@@ -26,10 +26,12 @@ bindings = {
     'sl': 'set-cmd-text :open localhost:3000/',
     'sL': 'set-cmd-text :open -t localhost:3000/',
 
+    '<Ctrl-o>': 'spawn brave {url}',
+    '<Ctrl-Shift-O>': 'hint links spawn brave {hint-url}',
     "<Ctrl-Shift-J>": "tab-move -",
     "<Ctrl-Shift-K>": "tab-move +",
     "<Shift-Escape>": "fake-key <Escape>",
-    '<Ctrl-h>': 'history',
+    '<Ctrl-h>': 'history -t',
     '<Shift-j>': 'tab-prev',
     '<Shift-k>': 'tab-next',
     'h': 'run-with-count 1 scroll left',

@@ -20,7 +20,7 @@ function! RunFile()
     exec '!g++ % '
     exec '!./a.out'
   elseif match(@%, '.c$') != -1
-    exec '!g++ % '
+    exec '!gcc % '
     exec '!./a.out'
   elseif match(@%, '.cs$') != -1
 	exec '!mcs % '

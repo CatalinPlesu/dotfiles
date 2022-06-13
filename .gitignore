@@ -4,6 +4,8 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/ranger/
+!/ranger/**
 !/mpv/
 !/mpv/**
 !/bat/

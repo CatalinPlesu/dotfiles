@@ -71,6 +71,7 @@ nnoremap <leader>O O<Esc>
 nnoremap Y y$
 " Open the current file in the default program
 nnoremap <leader>x :!xdg-open '%:p'<cr><cr>
+nnoremap <leader>cc :w<cr>:!~/.config/SCRIPTS/compile.sh %<cr>
 nnoremap <leader>cl :w<cr>:AsyncRun xelatex main.tex<cr>
 nnoremap <leader>rs :%s/\s\+$//e<cr>
 
@@ -132,6 +133,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'elkowar/yuck.vim'
     Plug 'vim-python/python-syntax'
     let g:python_highlight_all=1
+    Plug 'OmniSharp/omnisharp-vim'
+    let g:OmniSharp_server_path = '/usr/bin/omnisharp'
 
     source ~/.config/nvim/plugins/which-key.vim
 

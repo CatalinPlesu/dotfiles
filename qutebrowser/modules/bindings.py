@@ -50,8 +50,8 @@ bindings = {
     ',D': "jseval --quiet --file ~/.config/qutebrowser/js/discord_colapse.js",
     ',f': "jseval --quiet --file ~/.config/qutebrowser/js/read-font.js",
     ',M': "jseval --quiet --file ~/.config/qutebrowser/js/simu_mark.js",
-    ',t': 'config-cycle tabs.show always never',
-    ',b': 'config-cycle statusbar.show always never',
+    ',t': 'config-cycle tabs.show never always ',
+    ',b': 'config-cycle statusbar.show never always ',
     ',c': 'spawn --userscript theme.sh',
     ',if': "jseval --quiet --file ~/.config/qutebrowser/js/insta_follow.js",
 

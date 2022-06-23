@@ -1,14 +1,11 @@
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " nnoremap <silent><leader>gf    <cmd>lua vim.lsp.buf.formatting()<CR>
 " vnoremap <silent>gf :lua vim.lsp.buf.range_formatting()<CR>
 
 function LspSetup()
 lua << END
-    require('lspconfig').pyright.setup {}
-    require('lspconfig').rust_analyzer.setup {}
-    require('lspconfig').clangd.setup {}
-    require('lspconfig').texlab.setup {}
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -47,12 +44,10 @@ lua << END
     for _, lsp in pairs(servers) do
       require('lspconfig')[lsp].setup {
         on_attach = on_attach,
-        flags = {
-          -- This will be the default in neovim 0.7+
-          debounce_text_changes = 150,
-        }
       }
     end
+
+
 END
 endfunction
 

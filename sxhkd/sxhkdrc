@@ -61,6 +61,8 @@ super + f ; s
 	thunar Sync
 super + f ; d
 	thunar Downloads
+super + f ; c
+	thunar code
 super + f ; D
 	thunar Documents
 super + f ; p

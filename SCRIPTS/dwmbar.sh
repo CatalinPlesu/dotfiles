@@ -14,7 +14,7 @@ status () {
 
 while :; do
 	
-	xsetroot -name "$(status)"
+	xsetroot -name "$(status);left status;right status"
     # echo "$(status)"
 	sleep 1m
 

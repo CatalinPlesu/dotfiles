@@ -16,6 +16,8 @@
 !/alacritty/**
 !/dwmblocks/
 !/dwmblocks/**
+!/dwm/
+!/dwm/**
 !/wezterm/
 !/wezterm/**
 !/warpd/

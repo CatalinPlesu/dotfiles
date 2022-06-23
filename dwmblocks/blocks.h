@@ -8,10 +8,14 @@ static const Block blocks[] = {
 
 	{"", "sh ~/.config/dwmblocks/scripts/separator",					360,		0},
     //left extra bar
+	{"", "sh ~/.config/dwmblocks/scripts/progress",	1,		0},
 
 	{"", "sh ~/.config/dwmblocks/scripts/separator",					360,		0},
     //right extra bar
 
+
+	{"", "sh ~/.config/dwmblocks/scripts/nettraf download",	1,		0},
+	{"", "sh ~/.config/dwmblocks/scripts/nettraf upload",	1,		0},
 
 	{"", "sh ~/.config/dwmblocks/scripts/mem",	15,		0},
 	{"", "sh ~/.config/dwmblocks/scripts/cpu",	15,		0},

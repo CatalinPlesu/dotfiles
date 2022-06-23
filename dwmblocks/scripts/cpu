@@ -2,4 +2,4 @@
 cpu=$(grep 'cpu ' /proc/stat | awk '{printf("%.2f"), ($2+$4)*100/($2+$4+$5)}')
 
 mem=$(free -t | awk 'FNR == 2 {printf("%.2f%"), $3/$2*100}')
-echo -n "[CPU $cpu]"
+echo -n "[CPU $cpu%]"

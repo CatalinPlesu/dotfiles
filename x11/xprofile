@@ -22,5 +22,5 @@ nm-applet &
 flameshot &
 nitrogen --restore &
 # $TERMINAL -e tmux new-session -A -s main&
-dwmbar.sh&
+~/.config/dwmblocks/dwmblocks&
 # asus_monitor&

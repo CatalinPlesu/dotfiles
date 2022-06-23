@@ -6,7 +6,8 @@ file_name=${1%.*}
 executed="false"
 
 present_keywords=(
-    "startuml plantuml $file_ext"
+    # "startuml plantuml $file_ext"
+    "/bin/sh sh $file_ext"
 )
 suported_keywords=""
 
@@ -32,7 +33,7 @@ if [[ "$executed" == "false" ]]; then
         keyword=$(echo $line | awk '{print $1}')
         suported_keywords="$suported_keywords$keyword; "
         comand=$(echo $line| sed "s/^[^ ]* //")
-        if rg "$keyword" ; then
+        if grep "$keyword" $file_ext ; then
             executed="true"
             echo "Keyword detected: $keyword"
             echo $comand

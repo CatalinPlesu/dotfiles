@@ -8,6 +8,10 @@
 !/ranger/**
 !/mpv/
 !/mpv/**
+!/mpd/
+!/mpd/**
+!/ncmpcpp/
+!/ncmpcpp/**
 !/bat/
 !/bat/**
 !/SCRIPTS/

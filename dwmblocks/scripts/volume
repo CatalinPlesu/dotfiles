@@ -23,4 +23,5 @@ bg(){
     echo "^b$1^"
 }
 vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"  
-echo -n "$(fg $black)$(bg $purple)[$vol 🔊]"
+# echo -n "$(fg $black)$(bg $purple)[$vol 🔊]"
+echo -n "$(fg $purple)[$vol 🔊]"

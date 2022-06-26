@@ -1,7 +1,8 @@
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-# open terminal
+
+### open terminal
 super + Return
 	$TERMINAL -e tmux new-session -A -s main
 ctrl + alt + t
@@ -13,6 +14,7 @@ super + b
 super + x
 	xsecurelock -- xset dpms force off
 
+### screenshot
 super + p
 	scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t "image/png" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'
 super + P
@@ -46,8 +48,6 @@ super + r ; t
 # # apps 
 # # super + alt + {g, b, f, v, z, s, m}
 # #   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
-super + m
-	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
 
 # file browser in directory
 # super + f ; {t, b, s, d, p, v, m, u, w}
@@ -76,9 +76,8 @@ super + f ; m
 super + f ; u
 	thunar UTM/ii_an/iv_sem/
 
-
-
-
+super + f ; m
+	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
 
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
@@ -116,6 +115,28 @@ super + v: h
 super + v: q
 	pkill -USR1 -x sxhkd
 
+### mpd
+super + m: space
+    mpc toggle
+super + m: p
+    mpc pause
+super + m: P
+    mpc play
+super + m: n
+    mpc next
+super + m: N
+    mpc prev
+super + m: j
+    mpc volume -5
+super + m: J
+    mpc volume 30
+super + m: k
+    mpc volume +5
+super + m: K
+    mpc volume 100
+super + m: q
+	pkill -USR1 -x sxhkd
+
 ### Brightness
 XF86MonBrightnessUp
 	backlight_control +5
@@ -131,6 +152,12 @@ super + r; 3
 	setxkbmap ru
 super + s
     xdotool key Caps_Lock
+
+## #screenkey
+super + r; s
+    killall screenkey
+super + r; S
+    screenkey --scr 1
 
 ### insert romanian diacritics
 ## [ă

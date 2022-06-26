@@ -44,9 +44,11 @@ upload=$(printf "%4sB\\n" $(numfmt --to=iec $tx))
 
 
 if [[ "$1" == "download" ]]; then
-    echo -n "$(fg $white)$(bg $black)[$download ⬇]"
+    # echo -n "$(fg $white0)$(bg $black)[$download ⬇]"
+    echo -n "$(fg $white)[$download ⬇]"
 fi
 
 if [[ "$1" == "upload" ]]; then
-    echo -n "$(fg $black)$(bg $white)[$upload ⬆]"
+    # echo -n "$(fg $black)$(bg $white0)[$upload ⬆]"
+    echo -n "$(fg $white)[$upload ⬆]"
 fi

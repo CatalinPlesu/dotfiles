@@ -24,4 +24,5 @@ bg(){
 }
 
 mem=$(free -t | awk 'FNR == 2 {printf("%.2f"), $3/$2*100}')
-echo -n "$(fg $black)$(bg $blue)[MEM: $mem]"
+# echo -n "$(fg $black)$(bg $blue)[MEM: $mem]"
+echo -n "$(fg $blue)[MEM: $mem]"

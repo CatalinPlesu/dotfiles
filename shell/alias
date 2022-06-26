@@ -50,6 +50,7 @@ alias vi='nvim -u NONE'
 alias v='nvim'
 alias V="sudoedit"
 alias z="zathura"
+alias mp="ncmpcpp"
 alias rtop="radeontop -c"
 
 # notebook

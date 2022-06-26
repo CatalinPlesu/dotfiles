@@ -6,6 +6,8 @@ sleep 1
 export DISPLAY=:80
 sxhkd&
 # nitrogen --restore&
+xrdb $XDG_CONFIG_HOME/x11/Xresources &
+~/.config/dwmblocks/dwmblocks&
 ./dwm
 killall Xephyr
 export DISPLAY=:1

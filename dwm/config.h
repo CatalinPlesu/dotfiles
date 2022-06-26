@@ -9,11 +9,8 @@ static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corne
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no standard bar */
-static const int topbar             = 1;        /* 0 means standard bar at bottom */
-static const int extrabar           = 1;        /* 0 means no extra bar */
-static const char statussep         = ';';      /* separator between statuses */
-
+static const int showbar            = 1;     /* 0 means no bar */
+static const int topbar             = 1;     /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode:size=13",
                                         /* "Noto Color Emoji:pixelsize=13:antialias=true:autohint=true", */ 
                                         "Twemoji:style=Regular:size=13"
@@ -46,7 +43,7 @@ static const char col_white0[]="#fbf1c7";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
                 	{ col_white, col_black, col_black},           /* SchemeNorm dark */
-                	{ col_black, col_yellow,  col_yellow  },      /* SchemeSel dark */
+                	{ col_yellow, col_black,  col_yellow  },      /* SchemeSel dark */
 
                 	{ col_black, col_white0, col_white0},              /* SchemeNorm light */
                 	{ col_black, col_yellow0,  col_yellow0  },               /* SchemeSel light */
@@ -71,7 +68,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -105,9 +102,6 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
-	{ MODKEY|ControlMask,           XK_b,      toggleextrabar, {0} },
-
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 
@@ -167,11 +161,6 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-
-	{ ClkExBarLeftStatus,   0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkExBarMiddle,       0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkExBarRightStatus,  0,              Button2,        spawn,          {.v = termcmd } },
-
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

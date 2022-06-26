@@ -22,6 +22,5 @@ fg(){
 bg(){
     echo "^b$1^"
 }
-
-time=$(date '+%T')
-echo -n "$(fg $black)$(bg $aqua)[$time 🕛]"
+vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"  
+echo -n "$(fg $black)$(bg $purple)[$vol 🔊]"

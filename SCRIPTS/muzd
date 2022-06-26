@@ -80,6 +80,7 @@ if [ ! -z "$s_flag" ]; then
                 | xargs -I '{}' -P 5 \
                 sh -c 'youtube-dl --ignore-errors --extract-audio --audio-format mp3 --audio-quality 0 \
                 --add-metadata --embed-thumbnail -o "%(title)s.%(ext)s" "https://youtube.com/watch?v={}"; (true)'
+
 fi
 
 notify-send "download finished" --urgency=low

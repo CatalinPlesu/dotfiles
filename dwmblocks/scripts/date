@@ -1,3 +1,4 @@
 #!/bin/sh
+
 day=$(date '+%d-%m-%Y')
-echo -n "[$day 📅]"
+echo -n "[$day📅]"

@@ -116,26 +116,24 @@ super + v: q
 	pkill -USR1 -x sxhkd
 
 ### mpd
-super + m: space
+super + m; space
     mpc toggle
-super + m: p
+super + m; p
     mpc pause
-super + m: P
+super + m; P
     mpc play
-super + m: n
+super + m; n
     mpc next
-super + m: N
+super + m; N
     mpc prev
-super + m: j
+super + m; j
     mpc volume -5
-super + m: J
+super + m; J
     mpc volume 30
-super + m: k
+super + m; k
     mpc volume +5
-super + m: K
+super + m; K
     mpc volume 100
-super + m: q
-	pkill -USR1 -x sxhkd
 
 ### Brightness
 XF86MonBrightnessUp

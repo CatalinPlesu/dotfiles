@@ -2,17 +2,42 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-### open terminal
-super + Return
-	$TERMINAL -e tmux new-session -A -s main
-ctrl + alt + t
-	$TERMINAL -e tmux new-session -A -s main
-super + alt + Return
-	$TERMINAL	
-super + b
-	$BROWSER
+## security
 super + x
 	xsecurelock -- xset dpms force off
+
+## open terminal
+super + Return
+	$TERMINAL -e tmux new-session -A -s main
+super + t; Return
+	$TERMINAL	
+super + t; t
+	$TERMINAL -e tmux new-session -A -s main
+
+## open terminal apps
+super + t; e
+    $TERMINAL -e nvim
+super + t; n
+    $TERMINAL -e note
+super + t; N
+    $TERMINAL -e now
+super + t; m
+    $TERMINAL -e ncmpcpp
+super + t; r
+    $TERMINAL -e ranger
+super + t; h
+    $TERMINAL -e htop
+
+## apps 
+super + b
+	$BROWSER
+super + o; f
+    thunar
+super + o; z
+    zathura
+super + o ; m
+	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
+
 
 ### screenshot
 super + p
@@ -45,13 +70,6 @@ super + r ; w
 super + r ; t
 	switch
 
-# # apps 
-# # super + alt + {g, b, f, v, z, s, m}
-# #   {gimp, $BROWSER, thunar, virtualbox, zathura, stickers, mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip}
-
-# file browser in directory
-# super + f ; {t, b, s, d, p, v, m, u, w}
-# 	thunar {Documents, Books, Pictures/xiaomi/pics/stickers/,Downloads, Pictures, Videos, Music, UTM/ii_an/iv_sem/, Pictures/wallpapers/}
 
 super + f ; h
 	thunar 
@@ -76,18 +94,12 @@ super + f ; m
 super + f ; u
 	thunar UTM/ii_an/iv_sem/
 
-super + f ; m
-	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip
-
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 super + U
     book=$(find ~/UTM -type f -name '*.pdf' | rofi -dmenu -i) && zathura $book
 super + n
     book=$(find ~/Books -type f | rofi -dmenu -i) && zathura $book
-# # # various terminal programs
-# # super + alt + {a, r, h, n, w, p}
-# #   $TERMINAL -e {alsamixer, lf, htop, nvim, nvim ~/Documents/notes/index.md, pulsemixer}
 
 ### audio
 XF86AudioRaiseVolume

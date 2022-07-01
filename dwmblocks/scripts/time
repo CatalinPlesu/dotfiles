@@ -23,6 +23,7 @@ bg(){
     echo "^b$1^"
 }
 
-time=$(date '+%T')
+# time=$(date '+%T')
+time=$(date '+%H:%M')
 # echo -n "$(fg $black)$(bg $aqua)[$time 🕛]"
 echo -n "$(fg $aqua)[$time]"

@@ -28,6 +28,9 @@ present_ext=(
 )
 suported_extensions=""
 
+comand_to_be_executed=""
+message_to_be_shown=""
+
 if [[ "$executed" == "false" ]]; then
     for line in "${present_keywords[@]}"; do
         keyword=$(echo $line | awk '{print $1}')
@@ -35,9 +38,8 @@ if [[ "$executed" == "false" ]]; then
         comand=$(echo $line| sed "s/^[^ ]* //")
         if grep "$keyword" $file_ext ; then
             executed="true"
-            echo "Keyword detected: $keyword"
-            echo $comand
-            eval " $comand"
+            message_to_be_shown="Keyword detected: $keyword"
+            comand_to_be_executed=$comand
             break
         fi
     done
@@ -50,9 +52,8 @@ if [[ "$executed" == "false" ]]; then
         comand=$(echo $line| sed "s/^[^ ]* //")
         if [[ $(find -iname "$filename" | wc -c) -ne 0 ]]; then
             executed="true"
-            echo "File detected: $filename"
-            echo $comand
-            eval " $comand"
+            message_to_be_shown="File detected: $filename"
+            comand_to_be_executed=$comand
             break
         fi
     done
@@ -65,10 +66,9 @@ if [[ "$executed" == "false" ]]; then
         comand=$(echo $line| sed "s/^[^ ]* //")
         if [ "$ext" = "$extension" ]; then
             executed="true"
-            echo "Extension detected: $ext"
-            echo $comand
-            eval " $comand"
-              break
+            message_to_be_shown="Extension detected: $ext"
+            comand_to_be_executed=$comand
+            break
         fi
     done
 fi
@@ -79,3 +79,21 @@ if [[ "$executed" == "false" ]]; then
     echo "Supported files: ${suported_files}"
     echo "Supported extensions: ${suported_extensions}"
 fi
+
+
+if [[ "$2" == "true" ]]; then
+    session=main
+    window=${session}:0
+    new_pane=$(tmux list-panes | wc -l)
+    pane=${window}.$new_pane
+else
+    echo $message_to_be_shown
+    echo $comand_to_be_executed
+    eval $comand_to_be_executed
+    exit 0
+fi
+
+tmux neww bash -c "$comand_to_be_executed && while [ : ]; do sleep 1; done" 
+
+# tmux split-window 
+# tmux send-keys -t "$pane" "$comand_to_be_executed" Enter

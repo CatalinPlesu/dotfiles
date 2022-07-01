@@ -71,7 +71,8 @@ nnoremap <leader>O O<Esc>
 nnoremap Y y$
 " Open the current file in the default program
 nnoremap <leader>x :!xdg-open '%:p'<cr><cr>
-nnoremap <leader>cc :w<cr>:!~/.config/SCRIPTS/compile.sh %<cr>
+nnoremap <leader>cc :w<cr>:!~/.config/SCRIPTS/tmux-compile.sh %<cr>
+nnoremap <leader>cC :w<cr>:silent !~/.config/SCRIPTS/tmux-compile.sh % true<cr>
 nnoremap <leader>cl :w<cr>:AsyncRun xelatex main.tex<cr>
 nnoremap <leader>rs :%s/\s\+$//e<cr>
 

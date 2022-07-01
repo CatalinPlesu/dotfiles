@@ -46,6 +46,8 @@
 !/nvim/**
 !/picom/
 !/picom/**
+!/python/
+!/python/**
 !/qtile/
 !/qtile/**
 !/qutebrowser/

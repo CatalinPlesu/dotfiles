@@ -26,4 +26,4 @@ bg(){
 brightness=$(cat /sys/class/backlight/amdgpu_bl0/brightness)
 brightness=$(( $brightness * 100 / 255 ))
 # printf "$(fg $black)$(bg $yellow)[%.f 🔆]\n" $brightness
-printf "$(fg $yellow)[%.f 🔆]\n" $brightness
+printf "$(fg $yellow)[%.f🔆]\n" $brightness

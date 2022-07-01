@@ -24,4 +24,4 @@ bg(){
 }
 
 bat=$(cat /sys/class/power_supply/BAT0/capacity)
-echo -n "$(fg $green)[BAT:$bat 🔋]"
+echo -n "$(fg $green)[BAT:$bat]"

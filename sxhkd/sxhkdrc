@@ -121,9 +121,9 @@ super + v: g
 super + v: G
 	vol.sh min
 super + v: l
-	backlight_control +15
+	brightness.sh +15
 super + v: h
-	backlight_control -15
+	brightness.sh -15
 super + v: q
 	pkill -USR1 -x sxhkd
 
@@ -149,9 +149,9 @@ super + m; K
 
 ### Brightness
 XF86MonBrightnessUp
-	backlight_control +5
+	brightness.sh +5
 XF86MonBrightnessDown
-	backlight_control -5
+	brightness.sh -5
 
 ### keyboard language 
 super + r; 1

@@ -23,7 +23,7 @@ bg(){
     echo "^b$1^"
 }
 
-cpu=$(grep 'cpu ' /proc/stat | awk '{printf("%.2f"), ($2+$4)*100/($2+$4+$5)}')
+cpu=$(grep 'cpu ' /proc/stat | awk '{printf("%.1f"), ($2+$4)*100/($2+$4+$5)}')
 # echo -n "[CPU $cpu%]"
 # echo -n "$(fg $black)$(bg $red)[CPU: $cpu]"
-echo -n "$(fg $red)[CPU: $cpu]"
+echo -n "$(fg $red)[CPU:$cpu]"

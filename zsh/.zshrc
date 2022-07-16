@@ -49,7 +49,24 @@ bindkey "^?" backward-delete-char
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^e' 'nvim "$(fzf)"\n'
 
-bindkey -s '^t' '\nthunar &\n'
+bindkey -s '^t' '\npcmanfm &\n'
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+   zle vi-yank
+   echo "$CUTBUFFER" | xclip -sel clip
+}
+zle -N vi-yank-xclip
+
+# Paste from the system clipboard
+function vi-put-xclip {
+   RBUFFER=$(xclip -sel clip -o)
+   zle vi-put-before
+}
+zle -N vi-put-xclip
+
+bindkey -M vicmd 'p' vi-put-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
 
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

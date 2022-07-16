@@ -72,27 +72,27 @@ super + r ; t
 
 
 super + f ; h
-	thunar 
+	pcmanfm 
 super + f ; b
-	thunar Books
+	pcmanfm Books
 super + f ; s
-	thunar Sync
+	pcmanfm Sync
 super + f ; d
-	thunar Downloads
+	pcmanfm Downloads
 super + f ; c
-	thunar code
+	pcmanfm code
 super + f ; D
-	thunar Documents
+	pcmanfm Documents
 super + f ; p
-	thunar Pictures
+	pcmanfm Pictures
 super + f ; w
-	thunar Pictures/wallpapers/
+	pcmanfm Pictures/wallpapers/
 super + f ; v
-	thunar Videos
+	pcmanfm Videos
 super + f ; m
-	thunar Music
+	pcmanfm Music
 super + f ; u
-	thunar UTM/ii_an/iv_sem/
+	pcmanfm UTM/ii_an/iv_sem/
 
 super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 

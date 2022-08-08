@@ -71,7 +71,7 @@ super + r ; t
 	switch
 
 # change bar
-super + q
+super + control + b
     ~/.config/dwmblocks/switch_bar.sh
 
 super + f ; h
@@ -182,7 +182,7 @@ alt + bracketright; bracketright
 ## \â
 alt + backslash; backslash  
     xdotool keyup backslash key --clearmodifiers acircumflex 
-## + ,;ș
+## ;ș
 alt + apostrophe; apostrophe 
     xdotool keyup apostrophe key --clearmodifiers U021B
 ## 'ț

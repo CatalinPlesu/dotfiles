@@ -10,7 +10,7 @@ xrdb $XDG_CONFIG_HOME/x11/Xresources &
 
 pulseaudio --daemonized &
 
-picom &
+# picom &
 sxhkd &
 warpd &
 lxpolkit &

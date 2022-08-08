@@ -13,7 +13,7 @@ suported_keywords=""
 
 present_file=(
     "Cargo.toml cargo run --release"
-    "makefile make"
+    # "makefile make"
 )
 suported_files=""
 

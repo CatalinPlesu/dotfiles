@@ -12,7 +12,7 @@ static const Block blocks[] = {
 	/* {"", "sh ~/.config/dwmblocks/scripts/volume",             0,		1}, */
 	/* {"", "sh ~/.config/dwmblocks/scripts/brightness",		  0,		2}, */
 	{"", "sh ~/.config/dwmblocks/scripts/date",               360,		0},
-	{"", "sh ~/.config/dwmblocks/scripts/time",               60,		0},
+	{"", "sh ~/.config/dwmblocks/scripts/time",               1,		0},
 
 
 

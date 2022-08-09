@@ -137,6 +137,9 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,	        XK_k, changeopacity,       {.f = +0.1}},
 	{ MODKEY|ControlMask,	        XK_j, changeopacity,       {.f = -0.1}},
 
+    { MODKEY,                  XK_bracketright, view_adjacent, { .i = +1 } },
+	{ MODKEY,                  XK_bracketleft,  view_adjacent, { .i = -1 } },
+
  	{ MODKEY|ShiftMask,             XK_t,      schemeToggle,   {0} },
  	{ MODKEY|ShiftMask,             XK_z,      schemeCycle,    {0} },
 

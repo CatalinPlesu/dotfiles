@@ -59,7 +59,7 @@ shift + Print
 super + d
 	rofi -show combi 
 super + r; c
-	rofi -show calc | xclip -selection clipboard
+	rofi -show calc -theme dmenu | xclip -selection clipboard
 super + r; e
 	rofi -modi 'run,drun,emoji:/home/catalin/.config/rofi/rofiemoji.sh' -show emoji  -matching glob
 

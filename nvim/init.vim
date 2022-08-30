@@ -21,7 +21,7 @@ set redrawtime=10000 " Allow more time for loading syntax on large files
 set scrolloff=10 "999
 set sidescrolloff=10 "999
 set smartcase
-set expandtab tabstop=4 shiftwidth=4
+set expandtab tabstop=4 shiftwidth=0
 set undodir=~/.local/share/nvim/undodir
 set undofile
 set updatetime=300 " Reduce time for highlighting other references

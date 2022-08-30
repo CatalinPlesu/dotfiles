@@ -33,7 +33,7 @@ c.content.cookies.accept = "all"
 c.content.cookies.store = True  # False
 c.content.default_encoding = "utf-8"
 
-c.content.pdfjs = True
+c.content.pdfjs = False
 
 c.content.javascript.enabled = True  # False
 js_whitelist = [

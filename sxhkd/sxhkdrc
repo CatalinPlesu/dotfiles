@@ -101,8 +101,10 @@ super + u
 	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 super + U
     book=$(find ~/UTM -type f -name '*.pdf' | rofi -dmenu -i) && zathura $book
-super + n
+super + N
     book=$(find ~/Books -type f | rofi -dmenu -i) && zathura $book
+super + n
+    book=$(find $HOME -path '*/.*' -prune -o -name '*.pdf' -print | rofi -dmenu -i) && zathura $book
 
 ### audio
 XF86AudioRaiseVolume

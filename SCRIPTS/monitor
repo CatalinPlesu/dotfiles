@@ -1,0 +1,14 @@
+#!/bin/sh
+xrandr --output eDP --mode 1280x720
+if [ "$1" -gt "-1" ]
+then
+    echo "dual monitor mode"
+	xrandr --output HDMI-A-0 --auto --left-of eDP --primary --mode 1920x1080
+	nitrogen --head=0 --set-zoom-fill /home/catalin/Pictures/wallpapers/anime/wallhaven-l3rper.jpg
+	nitrogen --head=1 --set-zoom-fill /home/catalin/Pictures/wallpapers/gruvbox/nvim.jpg
+else
+    echo "single monitor mode"
+	xrandr --output HDMI-A-0 --auto --right-of eDP --primary --mode 1280x720
+	xrandr --output HDMI-A-0 --same-as eDP
+	nitrogen --restore
+fi

@@ -68,13 +68,12 @@ zle -N vi-put-xclip
 bindkey -M vicmd 'p' vi-put-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
-export STARSHIP_CONFIG=~/.config/starship/config.toml
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#autoload -U promptinit && promptinit
-#prompt elite2 green
-
-pfetch 
+neofetch 
 toilet -f smbraille  "Catalin's ThinkPad"
 
-eval "$(starship init zsh)"
+autoload -U colors && colors
+
+PROMPT="%n%~ -> "
+RPROMPT="%t"

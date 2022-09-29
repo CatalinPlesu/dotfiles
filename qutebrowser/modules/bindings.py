@@ -9,6 +9,7 @@ bindings = {
 
     '<d': "set downloads.location.directory ~/Downloads/",
     '<D': "set downloads.location.directory ~/Documents/",
+    '<xd': "set downloads.location.directory ~/Documents/datasheets/",
     '<p': "set downloads.location.directory ~/Pictures/",
     '<w': "set downloads.location.directory ~/Pictures/wallpapers",
     '<a': "set downloads.location.directory ~/Pictures/art",
@@ -70,6 +71,7 @@ bindings = {
     "ao": "spawn --userscript unified_links.sh -o",
     "aO": "spawn --userscript unified_links.sh -O",
     "a*": "spawn --userscript unified_links.sh -A",
+    "ab": "spawn --userscript random_page.sh blogs",
     "<Ctrl-t>": "spawn --userscript random_page.sh artists",
     "<Ctrl-r>": "spawn --userscript random_page.sh" 
 

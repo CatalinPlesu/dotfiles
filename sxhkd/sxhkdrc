@@ -64,7 +64,7 @@ super + r; e
 	rofi -modi 'run,drun,emoji:/home/catalin/.config/rofi/rofiemoji.sh' -show emoji  -matching glob
 
 # Change wallpaper
-super + r ; w
+super + R : w
 	nitrogen --set-zoom-fill --random ~/Pictures/wallpapers
 # Change theme
 super + r ; t
@@ -75,30 +75,30 @@ super + control + b
     ~/.config/dwmblocks/switch_bar.sh
 
 super + f ; h
-	pcmanfm 
+	thunar 
 super + f ; b
-	pcmanfm Books
+	thunar Books
 super + f ; s
-	pcmanfm Sync
+	thunar Sync
 super + f ; d
-	pcmanfm Downloads
+	thunar Downloads
 super + f ; c
-	pcmanfm code
+	thunar code
 super + f ; D
-	pcmanfm Documents
+	thunar Documents
 super + f ; p
-	pcmanfm Pictures
+	thunar Pictures
 super + f ; w
-	pcmanfm Pictures/wallpapers/
+	thunar Pictures/wallpapers/
 super + f ; v
-	pcmanfm Videos
+	thunar Videos
 super + f ; m
-	pcmanfm Music
+	thunar Music
 super + f ; u
-	pcmanfm UTM/ii_an/iv_sem/
+	thunar UTM/iii_an/v_sem/
 
 super + u
-	find -L ~/UTM/ii_an/iv_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
+	find -L ~/UTM/iii_an/v_sem/ -type d | rofi -dmenu | xargs --no-run-if-empty thunar 
 super + U
     book=$(find ~/UTM -type f -name '*.pdf' | rofi -dmenu -i) && zathura $book
 super + N

@@ -49,7 +49,7 @@ bindkey "^?" backward-delete-char
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^e' 'nvim "$(fzf)"\n'
 
-bindkey -s '^t' '\npcmanfm &\n'
+bindkey -s '^t' '\nthunar &\n'
 
 # Yank to the system clipboard
 function vi-yank-xclip {
@@ -68,13 +68,12 @@ zle -N vi-put-xclip
 bindkey -M vicmd 'p' vi-put-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
-export STARSHIP_CONFIG=~/.config/starship/config.toml
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#autoload -U promptinit && promptinit
-#prompt elite2 green
-
 pfetch 
 toilet -f smbraille  "Catalin's ThinkPad"
 
-eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=~/.config/starship/config.toml
+# eval "$(starship init zsh)"
+
+autoload -U promptinit; promptinit
+prompt pure

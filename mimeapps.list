@@ -1,5 +1,5 @@
 [Added Associations]
-image/png=gimp.desktop;sxiv.desktop;fotoxx.desktop;mypaint.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;
+image/png=gimp.desktop;sxiv.desktop;fotoxx.desktop;mypaint.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;userapp-sxiv -b-B1OKT1.desktop;
 text/x-python=userapp-env python -SMD0M1.desktop;kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=nvim.desktop;libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
 application/pdf=chromium.desktop;libreoffice-draw.desktop;org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
@@ -48,19 +48,21 @@ text/csv=libreoffice-calc.desktop;
 application/x-java-archive=java-java-openjdk.desktop;
 application/vnd.ms-powerpoint=libreoffice-impress.desktop;onlyoffice-desktopeditors.desktop;
 application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;onlyoffice-desktopeditors.desktop;
+x-scheme-handler/http=xfce4-web-browser.desktop;
+x-scheme-handler/https=xfce4-web-browser.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/gif=sxiv.desktop
 image/jpeg=sxiv.desktop
-image/png=userapp-sxiv-WQEHG1.desktop
+image/png=sxiv.desktop
 image/svg+xml=sxiv.desktop
 inode/directory=thunar.desktop
 video/mp4=mpv.desktop;
 x-scheme-handler/ftp=org.qutebrowser.qutebrowser.desktop;
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
-x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/http=xfce4-web-browser.desktop
+x-scheme-handler/https=xfce4-web-browser.desktop
 application/wps-office.pptx=libreoffice-impress.desktop
 application/wps-office.ppt=wps-office-wpp.desktop
 application/wps-office.pot=wps-office-wpp.desktop
@@ -98,3 +100,4 @@ text/csv=libreoffice-calc.desktop
 application/x-compressed-tar=org.gnome.FileRoller.desktop
 application/x-tar=org.gnome.FileRoller.desktop
 application/zip=org.kde.ark.desktop
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_stm32cubeide_.desktop

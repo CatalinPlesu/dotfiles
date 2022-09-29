@@ -15,8 +15,8 @@ syncthing http://localhost:8384/
 wakatime https://wakatime.com/dashboard
 cat https://github.com/CatalinPlesu
 chat https://discord.com/channels/742508750258176152/746059543213113406
-fake https://mail.google.com/mail/u/0/#inbox
-self https://mail.google.com/mail/u/1/#inbox
+fake https://mail.google.com/mail/u/1/#inbox
+self https://mail.google.com/mail/u/0/#inbox
 outlook https://outlook.office.com/mail/inbox
 notes file:///home/catalin/Documents/_notes/index.html
 friverr https://www.fiverr.com/catalin_p?up_rollout=true
@@ -50,3 +50,4 @@ teams https://teams.microsoft.com/_?culture=en-us&country=WW&lm=deeplink&lmsrc=h
 read test http://www.freereadingtest.com/
 weather https://wttr.in/
 nutritiontable http://www.nutritiontable.com/
+group https://discord.com/channels/@me/964184012430114876

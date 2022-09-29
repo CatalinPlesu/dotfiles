@@ -4,7 +4,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lx='ls -lbhHigUmuSa@'
 alias lah='ls -lah'
-alias tree='exa -l --tree'
+alias tree='exa -l --tree --level=2'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 
@@ -17,8 +17,11 @@ alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'
 
+alias cat=bat
+
 alias s='sudo pacman -S'
 alias syu='sudo pacman -Syu'
+alias F='paru -F'
 alias ss='paru -Ss'
 alias i='paru -Si'
 alias q='pacman -Q'
@@ -34,7 +37,7 @@ alias gph='git push'
 alias gpa='git push --all'
 alias gcl='git clone `xclip -out -selection clipboard`'
 alias gco='git checkout'
-alias glt='git log --oneline --decorate --graph --all'
+alias glt='git log --oneline --decorate --graph'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
 
 # DEV
@@ -103,7 +106,7 @@ alias esx="nvim ~/.config/sx/sxrc"
 alias comands="nvim ~/.config/SCRIPTS/comands"
 
 # MISC
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip="ip addr | grep inet"
 alias o="xdg-open"
 alias b=$BROWSER
 alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'

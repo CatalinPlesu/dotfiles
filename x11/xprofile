@@ -8,11 +8,11 @@ setxkbmap -option caps:super &
 # xset r rate 900 1 &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &
 
-pulseaudio --daemonized &
+# pulseaudio --daemonized &
 
 # picom &
 sxhkd &
-warpd &
+# warpd &
 lxpolkit &
 dunst &
 nm-applet &

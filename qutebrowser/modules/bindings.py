@@ -73,8 +73,9 @@ bindings = {
     "a*": "spawn --userscript unified_links.sh -A",
     "ab": "spawn --userscript random_page.sh blogs",
     "<Ctrl-t>": "spawn --userscript random_page.sh artists",
-    "<Ctrl-r>": "spawn --userscript random_page.sh" 
+    "<Ctrl-r>": "spawn --userscript random_page.sh", 
 
+    ",vs": "spawn --userscript github_open_vscode.sh",
 }
 for key, bind in bindings.items():
     config.bind(key, bind)

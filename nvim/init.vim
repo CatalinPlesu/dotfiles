@@ -4,7 +4,7 @@
 "--------------------------------------------------------------------------
 
 set clipboard+=unnamedplus
-set colorcolumn=80
+set colorcolumn=80,120,160
 set encoding=utf-8
 set hidden
 set ignorecase

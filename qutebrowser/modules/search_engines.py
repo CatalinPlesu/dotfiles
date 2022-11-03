@@ -56,6 +56,5 @@ c.url.searchengines = {
     'gsm': 'https://www.gsmshop.md/product/search.html?search={}&x=0&y=0',
         # buy china
     'joom': 'https://www.joom.com/en/search/q.{}',
-    'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
     'amazon': 'https://www.amazon.com/s?k={}',
 }

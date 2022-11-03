@@ -104,7 +104,7 @@ super + U
 super + N
     book=$(find ~/Books -type f | rofi -dmenu -i) && zathura $book
 super + n
-    book=$(find $HOME -path '*/.*' -prune -o -name '*.pdf' -print | rofi -dmenu -i) && zathura $book
+    book=$(find $HOME -path '*/.*' -prune -o -name '*.pdf' -print | rofi -dmenu ) && zathura $book 
 
 ### audio
 XF86AudioRaiseVolume

@@ -5,6 +5,9 @@ export PATH=$PATH:/home/catalin/.local/share/go/bin
 export PATH=$PATH:/home/catalin/.cargo/bin
 export PATH=$PATH:/home/catalin/.local/share/npm/bin
 export PATH=$PATH:/home/catalin/.local/bin
+export PATH=$PATH:/home/catalin/flutter/bin
+
+export PATH=$PATH:/home/catalin/UTM/iii_an/v_sem/somipp/lab_3
 
 # Default programs:
 export EDITOR="nvim"
@@ -66,5 +69,6 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 export NDK_HOME=/opt/android-ndk
-export ANDROID_HOME=/opt/android-sdk 
-export CHROME_EXECUTABLE=$BROWSER
+export ANDROID_HOME=/home/catalin/Android/Sdk
+export CHROME_EXECUTABLE=/bin/brave
+. "/home/catalin/.local/share/cargo/env"

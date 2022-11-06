@@ -13,7 +13,7 @@ pulseaudio -D &
 
 # picom &
 sxhkd &
-warpd &
+# warpd &
 lxpolkit &
 dunst &
 nm-applet &

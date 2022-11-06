@@ -102,3 +102,4 @@ application/x-tar=org.gnome.FileRoller.desktop
 application/zip=org.kde.ark.desktop
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_stm32cubeide_.desktop
 application/xhtml+xml=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop

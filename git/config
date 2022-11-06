@@ -3,6 +3,8 @@
 	name = Cătălin Pleșu
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	quotePath = false
+	commitGraph = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [alias]
@@ -15,3 +17,13 @@
 	helper = !/usr/bin/gh auth git-credential
 [safe]
 	directory = /opt/flutter
+	directory = *
+[receive]
+	advertisePushOptions = true
+	procReceiveRefs = refs/for
+[gc]
+	writeCommitGraph = true
+[fetch]
+	writeCommitGraph = true
+[test]
+	key-a = val-a-changed

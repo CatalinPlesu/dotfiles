@@ -30,12 +30,14 @@ alias y='paru -S'
 alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 
 alias sc='sudo systemctl'
-alias sct='sudo systemctl status'
+alias sct='systemctl status'
 alias scs='sudo systemctl start'
 alias sce='sudo systemctl enable'
 alias scE='sudo systemctl enable --now'
 alias scr='sudo systemctl restart'
-alias scS='sudo systemctl disable --now'
+alias scD='sudo systemctl disable --now'
+alias scd='sudo systemctl disable'
+alias scS='sudo systemctl stop'
 
 alias gad='git add'
 alias gst='git status'
@@ -91,10 +93,6 @@ if [ -d ~/UTM ]; then
       done
  done
 fi
-
-
-# cd aliases
-alias arobs="cd ~/code/c/Arobs/embedded/"
 
 # edit config
 alias evim="nvim ~/.config/nvim/init.vim"

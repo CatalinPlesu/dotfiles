@@ -2,7 +2,7 @@
 image/png=gimp.desktop;sxiv.desktop;fotoxx.desktop;mypaint.desktop;mupdf.desktop;userapp-sxiv-KDTXF1.desktop;userapp-sxiv-WQEHG1.desktop;userapp-sxiv -b-B1OKT1.desktop;
 text/x-python=userapp-env python -SMD0M1.desktop;kitty.desktop;vscodium.desktop;neovide.desktop;
 text/plain=nvim.desktop;libreoffice-calc.desktop;neovide.desktop;chromium.desktop;vim.desktop;org.qutebrowser.qutebrowser.desktop;
-application/pdf=brave-browser.desktop;chromium.desktop;libreoffice-draw.desktop;org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
+application/pdf=brave-browser.desktop;okularApplication_pdf.desktop;wine-extension-pdf.desktop;chromium.desktop;libreoffice-draw.desktop;org.qutebrowser.qutebrowser.desktop;net.sourceforge.gscan2pdf.desktop;org.pwmt.zathura-djvu.desktop;mupdf.desktop;firefox.desktop;org.pwmt.zathura.desktop;
 image/jpeg=userapp-sxiv -b-CT3NO1.desktop;gimp.desktop;fotoxx.desktop;mupdf.desktop;org.kde.showfoto.desktop;sxiv.desktop;userapp-sxiv-QL1BG1.desktop;
 inode/directory=sxiv.desktop;audacious.desktop;xfce4-file-manager.desktop;thunar.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
@@ -50,6 +50,7 @@ application/vnd.ms-powerpoint=libreoffice-impress.desktop;onlyoffice-desktopedit
 application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;onlyoffice-desktopeditors.desktop;
 x-scheme-handler/http=xfce4-web-browser.desktop;org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/https=xfce4-web-browser.desktop;org.qutebrowser.qutebrowser.desktop;
+application/sql=xed.desktop;org.qutebrowser.qutebrowser.desktop;nvim.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop

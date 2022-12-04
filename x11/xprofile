@@ -11,7 +11,7 @@ xrdb $XDG_CONFIG_HOME/x11/Xresources &
 
 pulseaudio -D &
 
-# picom &
+picom --config ~/.config/picom/picom.conf &
 sxhkd &
 # warpd &
 lxpolkit &
@@ -22,3 +22,7 @@ nitrogen --restore &
 # $TERMINAL -e tmux new-session -A -s main&
 ~/.config/dwmblocks/dwmblocks&
 # asus_monitor&
+
+
+# to launch gkt apps without delay
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY

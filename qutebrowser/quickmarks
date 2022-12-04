@@ -51,3 +51,7 @@ read test http://www.freereadingtest.com/
 weather https://wttr.in/
 nutritiontable http://www.nutritiontable.com/
 group https://discord.com/channels/@me/964184012430114876
+jenkins http://localhost:8090/
+gitea http://localhost:3000/admin
+scribd2 https://scfull.com/
+scribd3 https://scribd.downloader.is/

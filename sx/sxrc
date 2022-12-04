@@ -2,10 +2,10 @@
 . $XDG_CONFIG_HOME/x11/xprofile 
 
 case $1 in
-	qtile			  ) exec qtile start;;
     bspwm             ) exec bspwm;;
     openbox           ) exec openbox;;
     dwm				  ) exec dwm;;
+	qtile			  ) exec qtile start;;
     *                 ) exec dwm;;
 
 esac

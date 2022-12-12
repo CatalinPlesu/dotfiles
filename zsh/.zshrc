@@ -2,6 +2,7 @@
 HISTFILE=~/.local/share/history
 HISTSIZE=10000
 SAVEHIST=10000
+setopt appendhistory
 # End of lines configured by zsh-newuser-install
 
 setopt AUTO_CD

@@ -11,9 +11,9 @@ xrdb $XDG_CONFIG_HOME/x11/Xresources &
 
 pulseaudio -D &
 
-picom --config ~/.config/picom/picom.conf &
+# picom --config ~/.config/picom/picom.conf &
 sxhkd &
-# warpd &
+warpd &
 lxpolkit &
 dunst &
 nm-applet &

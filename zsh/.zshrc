@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.local/share/history
+HISTFILE=~/.local/share/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory

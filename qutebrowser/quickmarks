@@ -56,3 +56,4 @@ gitea http://localhost:3000/admin
 scribd2 https://scfull.com/
 scribd3 https://scribd.downloader.is/
 chess https://lichess.org/
+openai https://chat.openai.com/chat

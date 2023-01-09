@@ -70,8 +70,7 @@ bindkey -M vicmd 'p' vi-put-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-pfetch 
-toilet -f smbraille  "Catalin's ThinkPad"
+nitch
 
 # export STARSHIP_CONFIG=~/.config/starship/config.toml
 # eval "$(starship init zsh)"

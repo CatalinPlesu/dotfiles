@@ -1,0 +1,21 @@
+modmap:                                                                                                                                                                                                       
+  - name: Gloabl
+    remap: 
+      KEY_CAPSLOCK:
+        held: KEY_LEFTMETA # Required
+        alone: KEY_CAPSLOCK # Required
+        alone_timeout_millis: 1000 # Optional
+
+keymap:
+  - name: vim-bindings
+    remap:
+      C-h: left
+      C-j: down
+      C-k: up
+      C-l: right
+      C-4: end
+      C-0: home
+      C-shift-4: shift-end
+      C-shift-0: shift-home
+      C-shift-a: home-shift-end
+      shift-backspace: delete

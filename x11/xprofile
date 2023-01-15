@@ -4,7 +4,7 @@ xrandr --output eDP --mode 1920x1080 --set TearFree on &
 # xrandr --output DisplayPort-0 --set TearFree on
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 # xinput --disable "SynPS/2 Synaptics TouchPad" &
-setxkbmap -option caps:super &
+# sudo /home/catalin/.config/xremap/xremap.sh
 # libinput-gestures-setup start &
 # xset r rate 900 1 &
 xrdb $XDG_CONFIG_HOME/x11/Xresources &

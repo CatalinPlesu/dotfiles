@@ -1,5 +1,9 @@
 *
 */
+!/hypr/
+!/hypr/**
+!/xremap/
+!/xremap/**
 !/mimeapps.list
 !/.gitignore
 !/bash/

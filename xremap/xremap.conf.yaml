@@ -9,13 +9,10 @@ modmap:
 keymap:
   - name: vim-bindings
     remap:
-      C-h: left
-      C-j: down
-      C-k: up
-      C-l: right
-      C-4: end
-      C-0: home
-      C-shift-4: shift-end
-      C-shift-0: shift-home
-      C-shift-a: home-shift-end
+      M-h: left
+      M-j: down
+      M-k: up
+      M-l: right
+      M-4: end
+      M-0: home
       shift-backspace: delete

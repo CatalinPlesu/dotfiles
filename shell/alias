@@ -98,6 +98,7 @@ fi
 alias evim="nvim ~/.config/nvim/init.vim"
 alias etmux="nvim ~/.config/tmux/tmux.conf"
 alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
+alias eqblock="nvim ~/.config/qutebrowser/blocked-hosts"
 alias eqsearch="nvim ~/.config/qutebrowser/modules/search_engines.py"
 alias eqbindings="nvim ~/.config/qutebrowser/modules/bindings.py"
 alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
@@ -136,3 +137,5 @@ alias wifi-connect='nmcli dev wifi connect'
 
 alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
 alias pdfjoin='pdfjam --fitpaper true --suffix joined'
+
+alias asm='cd /home/catalin/code/c/assembler_8bit_custom_cpu/assembler'

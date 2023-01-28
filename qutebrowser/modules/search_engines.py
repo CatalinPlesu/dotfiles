@@ -1,18 +1,18 @@
 c.url.searchengines = {
         # search engines
 
-    'DEFAULT': 'https://searx.tiekoetter.com/search?q={}',
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
     'd': 'https://duckduckgo.com/?q={}',
-    'G': 'https://www.google.com/search?q={}',
-    'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
-    'ig': 'https://searx.tiekoetter.com/search?q={}&category_images=on',
-    'gn': 'https://news.google.com/search?q={}',
+    'ggg': 'https://www.google.com/search?q={}',
+    'ggi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    'img': 'https://searx.tiekoetter.com/search?q={}&category_images=on',
     'b': 'https://www.bing.com/search?q={}',
     'i': 'https://yandex.com/search/?text={}',
     's': 'https://swisscows.com/web?culture=en&query={}',
     'y': 'https://www.youtube.com/results?search_query={}&search=Search',
+    'yy': 'https://invidious.drivet.xyz/search?q={}',
     'o': 'https://odysee.com/$/search?q={}',
-    'wikipedia':       'https://en.wikipedia.org/wiki/{}',
+    'w':       'https://en.wikipedia.org/wiki/{}',
         # maps
     'm':       'https://www.google.com/maps/search/{}',
         # entertainment

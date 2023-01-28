@@ -1,4 +1,8 @@
 #!/bin/sh
-
-sudo xremap --device 'dakai' --watch /home/catalin/.config/xremap/xremap.dakai.conf.yaml &
-sudo xremap --device 'AT Translated Set 2 keyboard' --watch /home/catalni/.config/xremap/xremap.conf.yaml &
+cd /home/catalin/.config/xremap
+if [ -z $1 ]; then 
+    sudo nohup xremap --watch xremap.conf.yaml &
+else
+    sudo nohup xremap --device 'dakai' --watch xremap.dakai.conf.yaml &
+    sudo nohup xremap --device 'AT Translated Set 2 keyboard' --watch xremap.conf.yaml &
+fi

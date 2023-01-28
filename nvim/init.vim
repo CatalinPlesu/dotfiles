@@ -98,6 +98,9 @@ inoremap jj <esc>
 inoremap ZZ <esc>:x<cr>
 " inoremap :w <esc>:w<cr>
 nnoremap Q <nop>
+" move among buffers with CTRL
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-H> :bprev<CR>
 
 "--------------------------------------------------------------------------
 " Plugins
@@ -136,7 +139,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     let g:python_highlight_all=1
     Plug 'OmniSharp/omnisharp-vim'
     let g:OmniSharp_server_path = '/usr/bin/omnisharp'
-
     source ~/.config/nvim/plugins/which-key.vim
 
 call plug#end()

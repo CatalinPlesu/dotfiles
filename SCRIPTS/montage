@@ -1,1 +1,0 @@
-montage -density 300 -tile 2x0 -geometry +0+0 * out.png

@@ -1,5 +1,5 @@
 #!/bin/sh
-alias ls='exa'
+alias ls='eza'
 alias l='ls -l'
 alias la='ls -a'
 alias lx='ls -lbhHigUmuSa@'
@@ -8,25 +8,27 @@ alias tree='exa -l --tree --level=2'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 
+alias cd='cdenv_func() { cd "$@" && if [ -f .env ]; then source .env; fi; }; cdenv_func'
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
+
+# useful programs
+alias gpt='tgpt -i'
+alias cht='cht.sh --shell'
 
 #lolthings
 alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'
 
-alias cat=bat
-
-alias s='sudo pacman -S'
-alias syu='sudo pacman -Syu'
-alias F='paru -F'
 alias ss='paru -Ss'
+alias s='paru -S'
+alias syu='paru -Syu'
+alias u='paru -F'
 alias i='paru -Si'
 alias q='pacman -Q'
 alias r='sudo pacman -Rsn'
-alias y='paru -S'
 alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
 
 alias sc='sudo systemctl'
@@ -67,75 +69,41 @@ alias mp="ncmpcpp"
 alias rtop="radeontop -c"
 
 # notebook
-alias note='cd ~/Documents/notes && nvim index.md'
-alias utm='cd ~/Documents/notes/UTM && nvim index.md'
-alias anime='nvim ~/Documents/notes/Journal/Entertaiment/index.md'
-alias quote='nvim ~/Documents/notes/Journal/quotes/index.md'
-alias books='nvim ~/Documents/notes/Journal/books/books.md'
-alias fit='nvim ~/Documents/notes/Journal/Goals/fitness/2022.csv'
-alias ideas='nvim ~/Documents/notes/ideas.md'
-alias game='nvim ~/Documents/notes/IT_stuff/Games/dream_game/index.md'
-alias intern='nvim ~/Documents/notes/IT_stuff/internship/index.md'
+alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'
+alias note='cd ~/mnt/catalin/NOTES/Notes/ && nvim index.norg'
+alias thesis="cd ~/Workspace/thesis/"
 
-# labs
- cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
- 
- # generates alias for all objects; wont cd in latest lab
-if [ -d ~/UTM ]; then
- for an in ~/UTM/*an; do
-      for sem in $an/*sem; do
-          for D in $sem/*/; do
-              obiect=$(basename ${D})
-              alias $obiect="cd $D" 
-              alias "${obiect}_"="cd_last_lab $D" 
-          done
-          alias $(basename ${sem})="cd $sem"
-      done
- done
-fi
+# # labs
+# cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
+#  
+#  # generates alias for all objects; wont cd in latest lab
+# if [ -d ~/mnt/utm ]; then
+#  for an in ~/mnt/utm/*an; do
+#       for sem in $an/*sem; do
+#           for D in $sem/*/; do
+#               obiect=$(basename ${D})
+#               alias $obiect="cd $D" 
+#               alias "${obiect}_"="cd_last_lab $D" 
+#           done
+#           alias $(basename ${sem})="cd $sem"
+#       done
+#  done
+# fi
 
 # edit config
-alias evim="nvim ~/.config/nvim/init.vim"
-alias etmux="nvim ~/.config/tmux/tmux.conf"
-alias equtebrowser="nvim ~/.config/qutebrowser/config.py"
-alias eqblock="nvim ~/.config/qutebrowser/blocked-hosts"
-alias eqsearch="nvim ~/.config/qutebrowser/modules/search_engines.py"
-alias eqbindings="nvim ~/.config/qutebrowser/modules/bindings.py"
-alias esxhkd="nvim ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
-alias edxhd="nvim ~/.config/dxhd/dxhd.sh && pkill -USR1 -x dxhd"
-alias esh="nvim ~/.config/shell/alias && source ~/.config/shell/alias"
-alias ehist="nvim ~/.local/share/zsh_history"
-alias eenv="nvim ~/.config/shell/env && source ~/.config/shell/env"
-alias ezsh="nvim ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc"
-alias erofi="nvim ~/.config/rofi/config.rasi"
-alias ewez="nvim ~/.config/wezterm/wezterm.lua"
-alias ehp="nvim ~/.config/hypr/hyprland.conf"
-alias ex11="nvim ~/.config/x11/xprofile"
-alias esx="nvim ~/.config/sx/sxrc"
-alias comands="nvim ~/.config/SCRIPTS/comands"
+alias e="sh ~/scripts/edit_config.sh"
+alias h="sh ~/scripts/window_menu.sh"
 
 # MISC
 alias myip="ip addr | grep inet"
-alias o="xdg-open"
-alias b=$BROWSER
 alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
-alias unimatrix='unimatrix -s 95'
-alias mtux='tmux new-session -A -s main'
+alias tmux-main='tmux new-session -A -s main'
 
 alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '
 
-# window manager
-alias sx2='sx ~/.config/sx/sxrc'
-alias kde='sx /bin/startplasma-x11'
-alias gnome='sx gnome-shell'
-alias tray='trayer --edge top --align right --width 30'
-alias xrm='sudo ~/.config/xremap/xremap.sh'
+# alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
+# alias pdfjoin='pdfjam --fitpaper true --suffix joined'
 
-alias wifi-list='nmcli dev wifi list'
-alias wifi-connect='nmcli dev wifi connect'
-
-alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
-alias pdfjoin='pdfjam --fitpaper true --suffix joined'
-
-alias asm='cd /home/catalin/code/c/assembler_8bit_custom_cpu/assembler'
+alias cli="xsel -ib"
+alias clo="xsel -ob"

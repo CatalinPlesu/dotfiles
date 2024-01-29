@@ -1,4 +1,0 @@
-#!/bin/sh
-cd ~/Documents/notes 
-nvim index.md
-

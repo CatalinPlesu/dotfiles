@@ -1,7 +1,0 @@
-#!/bin/sh
-# filename=`date +%F_%H-%M-%S`
-folder=`date +%Y/%B/%d`
-flameshot gui 
-sleep 5
-mkdir -p ~/Pictures/Screenshots/$folder
-find ~/Pictures/Screenshots -maxdepth 1 -not -type d | xargs -I{} mv {} ~/Pictures/Screenshots/$(date +%Y/%B/%d)

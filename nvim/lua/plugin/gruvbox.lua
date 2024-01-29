@@ -1,1 +1,0 @@
-cmd('colorscheme gruvbox')

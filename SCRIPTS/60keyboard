@@ -1,7 +1,0 @@
-#!/bin/sh
-setxkbmap -option caps:super
-xmodmap -e "keycode 49 = Escape"
-xmodmap -e "keycode 9 = grave asciitilde"
-xmodmap -e "keycode 135 = NoSymbol"
-xmodmap -e "keycode 22 = BackSpace Delete"
-xinput --disable "SynPS/2 Synaptics TouchPad"

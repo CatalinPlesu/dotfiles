@@ -66,3 +66,4 @@ set recolor-lightcolor          "#282828"
 set statusbar-bg                "#C5C8C6"
 set statusbar-fg                "#282A2E"
 
+include zathura-gruvbox-dark

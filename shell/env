@@ -1,17 +1,15 @@
-export PATH=/home/catalin/.config/SCRIPTS:$PATH
-export PATH=$PATH:/home/catalin/.local/share/gem/ruby/3.0.0/bin
+export PATH=/home/catalin/scripts:$PATH
+# export PATH=$PATH:/home/catalin/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/catalin/.local/share/cargo/bin
-export PATH=$PATH:/home/catalin/.local/share/go/bin
-export PATH=$PATH:/home/catalin/.cargo/bin
-export PATH=$PATH:/home/catalin/.local/share/npm/bin
-export PATH=$PATH:/home/catalin/.local/bin
-export PATH=$PATH:/home/catalin/flutter/bin
-
-export PATH=$PATH:/home/catalin/UTM/iii_an/v_sem/somipp/lab_3
+# export PATH=$PATH:/home/catalin/.local/share/go/bin
+# export PATH=$PATH:/home/catalin/.cargo/bin
+# export PATH=$PATH:/home/catalin/.local/share/npm/bin
+# export PATH=$PATH:/home/catalin/.local/bin
+# export PATH=$PATH:/home/catalin/flutter/bin
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="kitty"
 export BROWSER="qutebrowser"
 export PAGER="nvimpager"
 
@@ -28,7 +26,6 @@ export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export LESSHISTFILE="-"
-export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 # export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
@@ -69,6 +66,20 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 export NDK_HOME=/opt/android-ndk
-export ANDROID_HOME=/home/catalin/Android/Sdk
+
+# for andoid 
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
+export PATH=$JAVA_HOME/bin:$PATH 
 export CHROME_EXECUTABLE=/bin/brave
-. "/home/catalin/.local/share/cargo/env"
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+export OPENSSL_DIR=/etc/ssl
+export OPENSSLDIR=/etc/ssl
+ 

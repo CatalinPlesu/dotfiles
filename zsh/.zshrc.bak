@@ -74,6 +74,3 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
 
-if [ -z "$TMUX" ]; then
-   tmux new-session -As main
-fi

@@ -71,7 +71,11 @@ alias rtop="radeontop -c"
 # notebook
 alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'
 alias note='cd ~/mnt/catalin/NOTES/Notes/ && nvim index.norg'
+alias graph='cd ~/mnt/catalin/NOTES/Graph/'
 alias thesis="cd ~/Workspace/thesis/"
+
+alias doc="cd ~/Documents/"
+alias dow="cd ~/Downloads/"
 
 # # labs
 # cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }

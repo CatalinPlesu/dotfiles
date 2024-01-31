@@ -208,40 +208,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- For note taking
-	{
-		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers",
-		-- tag = "*",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {}, -- Loads default behaviour
-					["core.ui.calendar"] = {}, --
-					["core.concealer"] = {}, -- Adds pretty icons to your documents
-					["core.dirman"] = { -- Manages Neorg workspaces
-						config = {
-							workspaces = {
-								notes = "~/mnt/catalin/NOTES/Notes",
-							},
-							default_workspace = "notes",
-						},
-					},
-					["core.journal"] = { -- Manages Neorg workspaces
-						config = {
-							journal_folder = "journal",
-							strategy = "flat",
-							workspaces = "notes",
-						},
-					},
-					["core.summary"] = {},
-				},
-			})
-			vim.keymap.set({ "n" }, "<leader>ww", ":Neorg<cr>")
-		end,
-	},
-
 	-- Will use wakapi as alternative, selfhosted
 	{
 		"wakatime/vim-wakatime",
@@ -512,17 +478,6 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 	},
-})
-
-vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-	pattern = { "*.norg" },
-	desc = "save view (folds), when closing file",
-	command = "mkview",
-})
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	pattern = { "*.norg" },
-	desc = "load view (folds), when opening file",
-	command = "silent! loadview",
 })
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

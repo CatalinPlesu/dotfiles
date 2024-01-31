@@ -19,8 +19,6 @@
 !/starship/**
 !/tmux/
 !/tmux/**
-!/zathura/
-!/zathura/**
 !/zsh/
 !/zsh/**
 /zsh/.zcompdump

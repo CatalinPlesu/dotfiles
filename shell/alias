@@ -72,6 +72,7 @@ alias rtop="radeontop -c"
 alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'
 alias note='cd ~/mnt/catalin/NOTES/Notes/ && nvim index.norg'
 alias graph='cd ~/mnt/catalin/NOTES/Graph/'
+alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
 alias thesis="cd ~/Workspace/thesis/"
 
 alias doc="cd ~/Documents/"
@@ -102,7 +103,7 @@ alias h="sh ~/scripts/window_menu.sh"
 alias myip="ip addr | grep inet"
 alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias code=codium
-alias tmux-main='tmux new-session -A -s main'
+alias t='tmux new-session -A -s main'
 
 alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '
 

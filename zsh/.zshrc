@@ -74,3 +74,5 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
 
+
+eval "$(atuin init zsh)"

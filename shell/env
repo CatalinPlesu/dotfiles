@@ -3,15 +3,19 @@ export PATH=/home/catalin/scripts:$PATH
 export PATH=$PATH:/home/catalin/.local/share/cargo/bin
 # export PATH=$PATH:/home/catalin/.local/share/go/bin
 # export PATH=$PATH:/home/catalin/.cargo/bin
-# export PATH=$PATH:/home/catalin/.local/share/npm/bin
+export PATH=$PATH:/home/catalin/.local/share/npm/bin
 # export PATH=$PATH:/home/catalin/.local/bin
-# export PATH=$PATH:/home/catalin/flutter/bin
+export PATH=$PATH:/home/catalin/flutter/bin
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+export PATH="$GOROOT/bin:$PATH"
+export GOPATH="$HOME/&lt;workspaces_path&gt;/go"
 
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="qutebrowser"
-export PAGER="nvimpager"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -70,8 +74,10 @@ export NDK_HOME=/opt/android-ndk
 # for andoid 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
 export PATH=$JAVA_HOME/bin:$PATH 
-export CHROME_EXECUTABLE=/bin/brave
-export ANDROID_HOME=/opt/android-sdk
+export CHROME_EXECUTABLE=/bin/brave-browser
+# export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:~/Android/Sdk/cmdline-tools/latest/bin
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/

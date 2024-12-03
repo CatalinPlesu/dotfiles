@@ -64,6 +64,7 @@ vim.keymap.set("n", "tj", ":tabprev<CR>")
 vim.keymap.set("n", "tk", ":tabnext<CR>")
 vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "to", ":tabo<CR>")
+vim.keymap.set("n", "td", ":diffthis<CR>")
 vim.keymap.set("n", "vs", ":vs<CR>")
 vim.keymap.set("n", "<leader>j", ":cnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>k", ":cprevious<CR>", { silent = true })
@@ -197,17 +198,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Flutter
-	{
-		"akinsho/flutter-tools.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-		config = true,
-	},
-
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
@@ -225,10 +215,10 @@ require("lazy").setup({
 		event = "VeryLazy",
 		keys = {
 			{ "<leader>w", "<cmd>Telescope grep_string<cr>", desc = "Grep string" },
-			{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-			{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-			{ "<leader>s", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-			{ "<leader>r", "<cmd>Telescope resume<cr>", desc = "Resume search" },
+			{ "<leader>b", "<cmd>Telescope buffers<cr>",     desc = "Buffers" },
+			{ "<leader>f", "<cmd>Telescope find_files<cr>",  desc = "Find files" },
+			{ "<leader>s", "<cmd>Telescope live_grep<cr>",   desc = "Live grep" },
+			{ "<leader>r", "<cmd>Telescope resume<cr>",      desc = "Resume search" },
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -245,9 +235,12 @@ require("lazy").setup({
 			configs.setup({
 				ensure_installed = "all",
 				highlight = { enable = true },
-				indent = { enable = true, disable = {
-					"dart",
-				} },
+				indent = {
+					enable = true,
+					disable = {
+						"dart",
+					}
+				},
 				autotag = { enable = true, enable_close_on_slash = false },
 			})
 		end,
@@ -453,8 +446,27 @@ require("lazy").setup({
 			})
 		end,
 	},
-})
 
+	-- Acerial outline
+	{
+		'stevearc/aerial.nvim',
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons"
+		},
+		init = function()
+			require("aerial").setup({
+				on_attach = function(bufnr)
+					vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+					vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+				end,
+			})
+			vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+		end,
+	}
+})
 -- Set up Comment.nvim
 require("Comment").setup()
 
@@ -462,10 +474,6 @@ require("Comment").setup()
 require("lualine").setup({
 	options = { theme = "gruvbox" },
 })
-
--- Set up Flutter tools
-require("flutter-tools").setup({}) -- use defaults
-vim.keymap.set("n", "<space>F", require("telescope").extensions.flutter.commands)
 
 -- Open Telescope on start
 vim.api.nvim_create_autocmd("VimEnter", {

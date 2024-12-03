@@ -4,7 +4,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lx='ls -lbhHigUmuSa@'
 alias lah='ls -lah'
-alias tree='exa -l --tree --level=2'
+alias tree='eza -l --tree --level=2'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 
@@ -22,14 +22,9 @@ alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'
 
-alias ss='paru -Ss'
-alias s='paru -S'
-alias syu='paru -Syu'
-alias u='paru -F'
-alias i='paru -Si'
-alias q='pacman -Q'
-alias r='sudo pacman -Rsn'
-alias ar='sudo pacman -Rcns $(pacman -Qdtq)'
+alias ss='apt search'
+alias s='sudo apt install'
+alias r='sudo apt remove'
 
 alias sc='sudo systemctl'
 alias sct='systemctl status'
@@ -73,7 +68,6 @@ alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'
 alias note='cd ~/mnt/catalin/NOTES/Notes/ && nvim index.norg'
 alias graph='cd ~/mnt/catalin/NOTES/Graph/'
 alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
-alias thesis="cd ~/Workspace/thesis/"
 
 alias doc="cd ~/Documents/"
 alias dow="cd ~/Downloads/"
@@ -96,8 +90,8 @@ alias dow="cd ~/Downloads/"
 # fi
 
 # edit config
-alias e="sh ~/scripts/edit_config.sh"
-alias h="sh ~/scripts/window_menu.sh"
+alias e="bash ~/scripts/edit_config.sh"
+alias h="bash ~/scripts/window_menu.sh"
 
 # MISC
 alias myip="ip addr | grep inet"

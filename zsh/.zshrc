@@ -1,14 +1,10 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.local/share/histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
-# End of lines configured by zsh-newuser-install
 
 setopt AUTO_CD
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+[ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Source plugins
 for f in ~/.config/zsh/plugins/*; do source "$f"; done
@@ -74,5 +70,7 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
 
+. "$HOME/.cargo/env"
 
+eval "$(goenv init -)"
 eval "$(atuin init zsh)"

@@ -97,8 +97,6 @@ require("lazy").setup({
 	-- Create directories if they are missing when saving files
 	"jghauser/mkdir.nvim",
 
-	"eandrju/cellular-automaton.nvim",
-
 	-- Zen mode, distraction free
 	{
 		"folke/zen-mode.nvim",
@@ -180,12 +178,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Better quickfix lists
-	"kevinhwang91/nvim-bqf",
-
-	-- Autoclose HTML-style tags
-	"windwp/nvim-ts-autotag",
-
 	-- Easy commenting in normal & visual mode
 	{ "numToStr/Comment.nvim", lazy = false },
 
@@ -246,9 +238,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Rascal MPL syntax
-	"olistrik/vim-rascal-syntax",
-
 	-- Colorscheme Gruvbox
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -275,11 +264,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Will use wakapi as alternative, selfhosted
-	{
-		"wakatime/vim-wakatime",
-	},
-
 	-- Quick navigate through files
 	{
 		"ggandor/leap.nvim",
@@ -302,47 +286,6 @@ require("lazy").setup({
 				update_focused_file = { enable = true },
 				vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>"),
 			})
-		end,
-	},
-
-	-- Align text
-	{
-		"Vonr/align.nvim",
-		branch = "v2",
-		lazy = true,
-		init = function()
-			local NS = { noremap = true, silent = true }
-
-			-- Aligns to 1 character
-			vim.keymap.set("x", "aa", function()
-				require("align").align_to_char({
-					length = 1,
-				})
-			end, NS)
-
-			-- Aligns to 2 characters with previews
-			vim.keymap.set("x", "ad", function()
-				require("align").align_to_char({
-					preview = true,
-					length = 2,
-				})
-			end, NS)
-
-			-- Aligns to a string with previews
-			vim.keymap.set("x", "aw", function()
-				require("align").align_to_string({
-					preview = true,
-					regex = false,
-				})
-			end, NS)
-
-			-- Aligns to a Vim regex with previews
-			vim.keymap.set("x", "ar", function()
-				require("align").align_to_string({
-					preview = true,
-					regex = true,
-				})
-			end, NS)
 		end,
 	},
 
@@ -375,98 +318,23 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Pair matching characters
+	-- kiwi.nvim
 	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
+		-- 'serenevoid/kiwi.nvim',
+		'grape.nvim',
+		dir = "~/Workspace/grape.nvim",
 		opts = {
-			disable_filetype = { "TelescopePrompt", "vim" },
+			{
+				name = "personal",
+				path = "/home/mnt/catalin/NOTES/kiwi_test"
+			}
 		},
-	},
-
-	-- Gitsigns
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup({
-				on_attach = function(bufnr)
-					local gs = package.loaded.gitsigns
-
-					local function map(mode, l, r, opts)
-						opts = opts or {}
-						opts.buffer = bufnr
-						vim.keymap.set(mode, l, r, opts)
-					end
-
-					-- Navigation
-					map("n", "]c", function()
-						if vim.wo.diff then
-							return "]c"
-						end
-						vim.schedule(function()
-							gs.next_hunk()
-						end)
-						return "<Ignore>"
-					end, { expr = true })
-
-					map("n", "[c", function()
-						if vim.wo.diff then
-							return "[c"
-						end
-						vim.schedule(function()
-							gs.prev_hunk()
-						end)
-						return "<Ignore>"
-					end, { expr = true })
-
-					-- Actions
-					map("n", "<leader>hs", gs.stage_hunk)
-					map("n", "<leader>hr", gs.reset_hunk)
-					map("v", "<leader>hs", function()
-						gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-					end)
-					map("v", "<leader>hr", function()
-						gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-					end)
-					map("n", "<leader>hS", gs.stage_buffer)
-					map("n", "<leader>hu", gs.undo_stage_hunk)
-					map("n", "<leader>hR", gs.reset_buffer)
-					map("n", "<leader>hp", gs.preview_hunk)
-					map("n", "<leader>hb", function()
-						gs.blame_line({ full = true })
-					end)
-					map("n", "<leader>tb", gs.toggle_current_line_blame)
-					map("n", "<leader>hd", gs.diffthis)
-					map("n", "<leader>hD", function()
-						gs.diffthis("~")
-					end)
-					map("n", "<leader>td", gs.toggle_deleted)
-
-					-- Text object
-					map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
-				end,
-			})
-		end,
-	},
-
-	-- Acerial outline
-	{
-		'stevearc/aerial.nvim',
-		opts = {},
-		-- Optional dependencies
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons"
+		keys = {
+			{ "<leader>ww", ":lua require(\"grape\").open_wiki_index()<cr>",             desc = "Open Wiki index" },
+			{ "<leader>wp", ":lua require(\"grape\").open_wiki_index(\"personal\")<cr>", desc = "Open index of personal wiki" },
+			{ "T",          ":lua require(\"grape\").todo.toggle()<cr>",                 desc = "Toggle Markdown Task" }
 		},
-		init = function()
-			require("aerial").setup({
-				on_attach = function(bufnr)
-					vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-					vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-				end,
-			})
-			vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
-		end,
+		lazy = true
 	}
 })
 -- Set up Comment.nvim
@@ -522,7 +390,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Set up nvim-cmp
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
@@ -564,28 +431,11 @@ cmp.setup({
 	},
 })
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
--- cellular-automaton custom animation
-local slide = {
-	fps = 40,
-	name = "slide",
-}
-
--- init function is invoked only once at the start
--- config.init = function (grid)
---
--- end
-
--- update function
-slide.update = function(grid)
-	for i = 1, #grid do
-		local prev = grid[i][#grid[i]]
-		for j = 1, #grid[i] do
-			grid[i][j], prev = prev, grid[i][j]
-		end
-	end
-	return true
-end
-
-require("cellular-automaton").register_animation(slide)
+-- Set langmap option for keyboard layout remapping
+-- ASSET --> QWERTY
+-- qwjfgypul;asetdhniorzxcvbkm,./
+-- qwertyuiopasdfghjkl;zxcvbnm,./
+-- local langmap_parts = {
+-- 	'je', 'fr', 'gt', 'pu', 'ui', 'lo', '\\;p', 'ed', 'tf', 'dg', 'nj', 'ik', 'ol', 'R\\:', '\\:R','kn'
+-- }
+-- vim.opt.langmap = table.concat(langmap_parts, ',')

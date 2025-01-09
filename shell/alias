@@ -46,6 +46,7 @@ alias gcl='git clone `xclip -out -selection clipboard`'
 alias gco='git checkout'
 alias glt='git log --oneline --decorate --graph'
 alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+alias gdc='git log --since="1 year ago" --date=short --pretty=format:"%ad" | sort -r | awk "{ split(\$0, a, \"-\"); printf \"%02d %s %d\\n\", a[3], strftime(\"%b\", mktime(a[1]\" \"a[2]\" 01 00 00 00\")), a[1] }" | uniq -c'
 
 # DEV
 alias cargo-t='cargo test -- --nocapture'
@@ -62,6 +63,12 @@ alias V="sudoedit"
 alias z="zathura"
 alias mp="ncmpcpp"
 alias rtop="radeontop -c"
+
+#Projects
+alias p0='cd ~/Workspace/Cs/StoryMap/StoryMap.Presentation/'
+alias p1='cd ~/Workspace/grape.nvim/'
+alias p2='cd ~/Workspace/LifeSaga/'
+alias p3='cd ~/Workspace/Dream Game/'
 
 # notebook
 alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'

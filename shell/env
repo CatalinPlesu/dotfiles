@@ -6,6 +6,7 @@ export PATH=$PATH:/home/catalin/.local/share/cargo/bin
 export PATH=$PATH:/home/catalin/.local/share/npm/bin
 # export PATH=$PATH:/home/catalin/.local/bin
 export PATH=$PATH:/home/catalin/flutter/bin
+export PATH=$PATH:/home/catalin/.local/bin
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"

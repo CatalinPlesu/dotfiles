@@ -296,28 +296,6 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- For formatting code
-	{
-		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
-		cmd = { "ConformInfo" },
-		opts = {
-			formatters_by_ft = {
-				javascript = { "prettierd" },
-				json = { "prettierd" },
-				css = { "prettierd" },
-				lua = { "stylua" },
-				cs = { "omnisharp" },
-				css = { "prettier" },
-				dart = { "dart_format" }, -- this is a script, which passes arguments to dart format
-			},
-			format_on_save = {},
-		},
-		init = function()
-			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		end,
-	},
-
 	-- kiwi.nvim
 	{
 		-- 'serenevoid/kiwi.nvim',

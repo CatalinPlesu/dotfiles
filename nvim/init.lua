@@ -2,6 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.wo.wrap = false
+vim.wo.linebreak = true
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
@@ -305,7 +306,8 @@ require("lazy").setup({
 			{
 				name = "personal",
 				path = "/home/mnt/catalin/NOTES/kiwi_test"
-			}
+			},
+			cd_wiki = true
 		},
 		keys = {
 			{ "<leader>ww", ":lua require(\"grape\").open_wiki_index()<cr>",             desc = "Open Wiki index" },

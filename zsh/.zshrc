@@ -74,3 +74,5 @@ eval "$(starship init zsh)"
 
 eval "$(goenv init -)"
 eval "$(atuin init zsh)"
+
+[ -f "/home/catalin/.ghcup/env" ] && . "/home/catalin/.ghcup/env" # ghcup-env

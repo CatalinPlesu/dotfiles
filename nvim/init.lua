@@ -67,6 +67,8 @@ vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "to", ":tabo<CR>")
 vim.keymap.set("n", "td", ":diffthis<CR>")
 vim.keymap.set("n", "vs", ":vs<CR>")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<leader>j", ":cnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>k", ":cprevious<CR>", { silent = true })
 -- Remap '<' in visual mode to reselect the last visual selection

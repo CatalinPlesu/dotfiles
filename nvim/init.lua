@@ -327,15 +327,6 @@ require("lualine").setup({
 	options = { theme = "gruvbox" },
 })
 
--- Open Telescope on start
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.fn.argv(0) == "" then
-			require("telescope.builtin").find_files()
-		end
-	end,
-})
-
 -- Set up Mason and install set up language servers
 require("mason").setup()
 require("mason-lspconfig").setup()

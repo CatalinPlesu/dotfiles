@@ -68,11 +68,10 @@ source ~/.config/shell/env
 
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+PROMPT='%F{cyan}%3~%f > '
 
 . "$HOME/.cargo/env"
 
 eval "$(goenv init -)"
 eval "$(atuin init zsh)"
-
-[ -f "/home/catalin/.ghcup/env" ] && . "/home/catalin/.ghcup/env" # ghcup-env

@@ -19,6 +19,8 @@
 !/starship/**
 !/tmux/
 !/tmux/**
+!/warpd/
+!/warpd/**
 !/zsh/
 !/zsh/**
 /zsh/.zcompdump

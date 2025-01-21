@@ -67,6 +67,7 @@ vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "to", ":tabo<CR>")
 vim.keymap.set("n", "td", ":diffthis<CR>")
 vim.keymap.set("n", "vs", ":vs<CR>")
+vim.keymap.set("n", "CC", ":ClipboardCompare<CR>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<leader>j", ":cnext<CR>", { silent = true })
@@ -306,18 +307,55 @@ require("lazy").setup({
 		dir = "~/Workspace/grape.nvim",
 		opts = {
 			{
-				name = "personal",
+				name = "test",
 				path = "/home/mnt/catalin/NOTES/kiwi_test"
+			},
+			{
+				name = "personal",
+				path = "/home/mnt/catalin/NOTES/MdWiki"
+			},
+			{
+				name = "Test",
+				path = "/home/mnt/catalin/NOTES/WikiTest"
 			},
 			cd_wiki = true
 		},
 		keys = {
 			{ "<leader>ww", ":lua require(\"grape\").open_wiki_index()<cr>",             desc = "Open Wiki index" },
+			{ "<leader>wt", ":lua require(\"grape\").open_wiki_index(\"test\")<cr>",     desc = "Open index of personal wiki" },
+			{ "<leader>wT", ":lua require(\"grape\").open_wiki_index(\"Test\")<cr>",     desc = "Open index of personal wiki" },
 			{ "<leader>wp", ":lua require(\"grape\").open_wiki_index(\"personal\")<cr>", desc = "Open index of personal wiki" },
+			{ "<leader>wg", ":lua require(\"grape\").show_graph()<cr>",                  desc = "Open index of personal wiki" },
+			{ "<leader>wS", ":lua require(\"grape\").stop_server()<cr>",                 desc = "Open index of personal wiki" },
 			{ "T",          ":lua require(\"grape\").todo.toggle()<cr>",                 desc = "Toggle Markdown Task" }
 		},
 		lazy = true
 	}
+
+	-- {
+	-- 	'serenevoid/kiwi.nvim',
+	-- 	commit = "aaf4c1fd3900fc193fb6d648b055fce65ec48ac5",
+	-- 	opts = {
+	-- 		{
+	-- 			name = "test",
+	-- 			path = "/home/mnt/catalin/NOTES/kiwi_test"
+	-- 		},
+	-- 		{
+	-- 			name = "personal",
+	-- 			path = "/home/mnt/catalin/NOTES/MdWiki"
+	-- 		},
+	-- 	},
+	-- 	keys = {
+	-- 		{ "<leader>ww", ":lua require(\"kiwi\").open_wiki_index()<cr>",             desc = "Open Wiki index" },
+	-- 		{ "<leader>wt", ":lua require(\"kiwi\").open_wiki_index(\"test\")<cr>", desc = "Open index of personal wiki" },
+	-- 		{ "<leader>wp", ":lua require(\"kiwi\").open_wiki_index(\"personal\")<cr>", desc = "Open index of personal wiki" },
+	-- 		{ "T",          ":lua require(\"kiwi\").todo.toggle()<cr>",                 desc = "Toggle Markdown Task" }
+	-- 	},
+	-- 	config = function()
+	-- 		require("kiwi").set_dir_change(true)
+	-- 	end,
+	-- 	lazy = true
+	-- }
 })
 -- Set up Comment.nvim
 require("Comment").setup()
@@ -403,6 +441,15 @@ cmp.setup({
 		{ name = "buffer" },
 	},
 })
+
+-- Define a custom command in your `init.lua` or a plugin
+vim.api.nvim_create_user_command('ClipboardCompare', function()
+  vim.cmd('diffthis')
+  vim.cmd('vsplit')
+  vim.cmd('e clipboard')  -- Open the clipboard as a file
+  vim.cmd('normal! P')  -- Paste clipboard contents
+  vim.cmd('diffthis')
+end, { desc = 'Compare clipboard contents in a vertical split with the current buffer' })
 
 -- Set langmap option for keyboard layout remapping
 -- ASSET --> QWERTY

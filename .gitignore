@@ -23,5 +23,7 @@
 !/warpd/**
 !/zsh/
 !/zsh/**
+!/calibre/
+!/calibre/**
 !/default.conf
 /zsh/.zcompdump

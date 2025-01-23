@@ -1,0 +1,76 @@
+{
+  "Select binary dialog": "/home/mnt/catalin",
+  "about_get_books_msg_again": false,
+  "add a plugin dialog": "/home/catalin/Downloads",
+  "catalogs_to_be_synced": {
+    "__class__": "set",
+    "__value__": []
+  },
+  "choose_library_icon": "/home/catalin/Downloads",
+  "copy_to_clipboard_file": "/home/catalin/Downloads/test",
+  "database location dialog": "/home/mnt/catalin/Calibre Library",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "7.12",
+      "7.7",
+      "7.10",
+      "7.11",
+      "7.14",
+      "7.15",
+      "7.8",
+      "7.13",
+      "7.9"
+    ]
+  },
+  "s_r_search_mode": 0,
+  "save to disk dialog": "/home/catalin/Downloads",
+  "sort_history": [
+    [
+      "#priority",
+      false
+    ],
+    [
+      "#read",
+      true
+    ],
+    [
+      "#read",
+      false
+    ],
+    [
+      "#read",
+      true
+    ],
+    [
+      "#read",
+      false
+    ],
+    [
+      "#read",
+      true
+    ],
+    [
+      "#read",
+      false
+    ],
+    [
+      "#genre",
+      false
+    ],
+    [
+      "#priority",
+      false
+    ],
+    [
+      "title",
+      true
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "kobo",
+  "welcome_wizard_was_run": true
+}

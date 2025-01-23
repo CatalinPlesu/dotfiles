@@ -1,0 +1,100 @@
+{
+  "ActionsChainMenus": {
+    "Menus": [
+      {
+        "active": true,
+        "chain_settings": {
+          "chain_links": [
+            {
+              "action_name": "Copy To Clipboard",
+              "action_settings": {
+                "allow_multiple": true,
+                "append_to_file": true,
+                "filename": "/home/catalin/Downloads/test",
+                "template": "{author} - {title}"
+              },
+              "comment": "",
+              "scope_settings": {
+                "icon": "",
+                "scope_manager_name": "Basic Scopes",
+                "scope_manager_settings": {
+                  "opt": "selected_books",
+                  "vl": false
+                },
+                "tooltip": ""
+              }
+            }
+          ],
+          "refresh_gui": true,
+          "show_progress": true
+        },
+        "image": "",
+        "menuText": "copy",
+        "subMenu": ""
+      }
+    ]
+  },
+  "chainsTableState": null,
+  "eventVariants": [],
+  "events": {
+    "eventEntries": []
+  },
+  "eventsTableState": {
+    "column_positions": {
+      "active": 0,
+      "errors": 3,
+      "event_name": 1,
+      "event_settings": 2
+    },
+    "column_sizes": {
+      "active": 47,
+      "errors": 50,
+      "event_name": 300,
+      "event_settings": 66
+    },
+    "hidden_columns": []
+  },
+  "gprefs": {
+    "actionsTableState": {
+      "column_positions": {
+        "action_name": 2,
+        "action_settings": 3,
+        "comment": 4,
+        "conditions": 0,
+        "errors": 5,
+        "scope": 1
+      },
+      "column_sizes": {
+        "action_name": 300,
+        "action_settings": 66,
+        "comment": 200,
+        "conditions": 85,
+        "errors": 250,
+        "scope": 48
+      },
+      "hidden_columns": []
+    },
+    "chainsTableState": {
+      "column_positions": {
+        "active": 0,
+        "conditions": 1,
+        "menuText": 2,
+        "settings": 4,
+        "subMenu": 3
+      },
+      "column_sizes": {
+        "active": 47,
+        "conditions": 85,
+        "menuText": 200,
+        "settings": 66,
+        "subMenu": 75
+      },
+      "hidden_columns": []
+    },
+    "eventMembersTableState": null,
+    "eventVariantsTableState": null,
+    "eventsTableState": null,
+    "varsTableState": null
+  },
+  "schemaVersion": 1.9
+}

@@ -1,0 +1,320 @@
+{
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 751,
+      "width": 908,
+      "x": 542,
+      "y": 164
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 720,
+      "width": 908,
+      "x": 542,
+      "y": 195
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 720,
+      "width": 908,
+      "x": 542,
+      "y": 195
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAIeAAAApAAABakAAAOSAAACHgAAAMMAAAWpAAADkgAAAAAAAAAAB4AAAAIeAAAAwwAABakAAAOS"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Samsung Electric Company",
+      "model": "S24C31x",
+      "name": "DisplayPort-1",
+      "serial": "H9DW104355",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAG0AAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAC0AAAAI8A////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAQAAAAAAAALQAAAAogD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACOAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAQMA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFgD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAOIA////AAAB0gAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "saved-search-settings": {
+    "mind on fire": {
+      "case_sensitive": false,
+      "mode": "normal"
+    },
+    "relationship": {
+      "case_sensitive": false,
+      "mode": "normal"
+    },
+    "step": {
+      "case_sensitive": false,
+      "mode": "normal"
+    },
+    "think": {
+      "case_sensitive": false,
+      "mode": "normal"
+    }
+  },
+  "session_data": {
+    "base_font_size": 22,
+    "controls_help_shown_count": 2,
+    "read_mode": "paged",
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_last_read": true,
+      "remember_window_geometry": false,
+      "save_annotations_in_ebook": true,
+      "singleinstance": false
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "Schell, Jesse;"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Jesse Schell/The Art of Game Design_ A Book of Lenses (631)/The Art of Game Design_ A Book of Lenses - Jesse Schell.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Jesse Schell/The Art of Game Design_ A Book of Lenses (631)/The Art of Game Design_ A Book of Lenses - Jesse Schell.epub",
+        "timestamp": "2025-01-06T10:34:08.899Z",
+        "title": "The Art of Game Design"
+      },
+      {
+        "authors": [
+          "Schell, Jesse;"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Schell, Jesse;/The Art of Game Design (631)/The Art of Game Design - Schell, Jesse;.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Schell, Jesse;/The Art of Game Design (631)/The Art of Game Design - Schell, Jesse;.epub",
+        "timestamp": "2025-01-06T10:32:14.032Z",
+        "title": "The Art of Game Design"
+      },
+      {
+        "authors": [
+          "Jesse Schell"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Jesse Schell/The Art of Game Design, 3rd Edition (630)/The Art of Game Design, 3rd Edition - Jesse Schell.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Jesse Schell/The Art of Game Design, 3rd Edition (630)/The Art of Game Design, 3rd Edition - Jesse Schell.epub",
+        "timestamp": "2025-01-06T10:06:28.479Z",
+        "title": "The Art of Game Design, 3rd Edition"
+      },
+      {
+        "authors": [
+          "Alex Hormozi"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Alex Hormozi/$100M Offers_ How To Make Offers So Good People Feel Stupid Saying No (482)/$100M Offers_ How To Make Offers So Good P - Alex Hormozi.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Alex Hormozi/$100M Offers_ How To Make Offers So Good People Feel Stupid Saying No (482)/$100M Offers_ How To Make Offers So Good P - Alex Hormozi.epub",
+        "timestamp": "2024-12-30T12:38:54.913Z",
+        "title": "$100M Offers: How To Make Offers So Good People Feel Stupid Saying No"
+      },
+      {
+        "key": "/run/user/1000/doc/9c1280dd/Dream Game___World___Religions.md",
+        "pathtoebook": "/run/user/1000/doc/9c1280dd/Dream Game___World___Religions.md",
+        "timestamp": "2024-12-21T11:16:49.647Z",
+        "title": "Dream Game   World   Religions"
+      },
+      {
+        "authors": [
+          "Yu-kai Chou"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Yu-kai Chou/Actionable Gamification_ Beyond Points, Badges and Leaderboards (626)/Actionable Gamification_ Beyond Points, Ba - Yu-kai Chou.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Yu-kai Chou/Actionable Gamification_ Beyond Points, Badges and Leaderboards (626)/Actionable Gamification_ Beyond Points, Ba - Yu-kai Chou.epub",
+        "timestamp": "2024-12-06T08:21:08.476Z",
+        "title": "Actionable Gamification: Beyond Points, Badges, and Leaderboards"
+      },
+      {
+        "authors": [
+          "Henry S. Warren"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Henry S. Warren/Hacker's Delight (627)/Hacker's Delight - Henry S. Warren.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Henry S. Warren/Hacker's Delight (627)/Hacker's Delight - Henry S. Warren.epub",
+        "timestamp": "2024-12-04T09:16:16.579Z",
+        "title": "Hacker’s Delight, Second Edition"
+      },
+      {
+        "authors": [
+          "Luca Pacioli"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Luca Pacioli/Summa De Arithmetica, Geometria, Proportioni Et Proportionalita (610)/Summa De Arithmetica, Geometria, Proportio - Luca Pacioli.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Luca Pacioli/Summa De Arithmetica, Geometria, Proportioni Et Proportionalita (610)/Summa De Arithmetica, Geometria, Proportio - Luca Pacioli.epub",
+        "timestamp": "2024-10-30T08:20:18.306Z",
+        "title": "Summa De Arithmetica, Geometria, Proportio"
+      },
+      {
+        "authors": [
+          "Михаил Юрьевич Лермонтов"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Mikhail Iur'ievich Liermontov/Gieroi nashiegho vriemieni (619)/Gieroi nashiegho vriemieni - Mikhail Iur'ievich Liermontov.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Mikhail Iur'ievich Liermontov/Gieroi nashiegho vriemieni (619)/Gieroi nashiegho vriemieni - Mikhail Iur'ievich Liermontov.epub",
+        "timestamp": "2024-10-30T08:19:41.483Z",
+        "title": "Герой нашего времени"
+      },
+      {
+        "authors": [
+          "Mikhail Lermontov",
+          "Михаил  Лермонтов"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Mikhail Lermontov/A Hero of Our Time [ru] (618)/A Hero of Our Time [ru] - Mikhail Lermontov.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Mikhail Lermontov/A Hero of Our Time [ru] (618)/A Hero of Our Time [ru] - Mikhail Lermontov.epub",
+        "timestamp": "2024-10-30T08:09:55.266Z",
+        "title": "A Hero of Our Time"
+      },
+      {
+        "authors": [
+          "Mikhail Lermontov"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Mikhail Lermontov/A Hero of Our Time (617)/A Hero of Our Time - Mikhail Lermontov.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Mikhail Lermontov/A Hero of Our Time (617)/A Hero of Our Time - Mikhail Lermontov.epub",
+        "timestamp": "2024-10-30T08:08:32.825Z",
+        "title": "A Hero of Our Time"
+      },
+      {
+        "authors": [
+          "2005"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/2005/Colloquia Personarum (612)/Colloquia Personarum - 2005.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/2005/Colloquia Personarum (612)/Colloquia Personarum - 2005.epub",
+        "timestamp": "2024-08-23T09:50:47.969Z",
+        "title": "Colloquia Personarum"
+      },
+      {
+        "authors": [
+          "J. D. Vance"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/J D Vance/Hillbilly Elegy (363)/Hillbilly Elegy - J D Vance.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/J D Vance/Hillbilly Elegy (363)/Hillbilly Elegy - J D Vance.epub",
+        "timestamp": "2024-08-22T06:13:55.102Z",
+        "title": "Hillbilly Elegy"
+      },
+      {
+        "authors": [
+          "in One Book!-Arcturus Publishing (2021)"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/in One Book!-Arcturus Publishing (2021)/525427410 (609)/525427410 - in One Book!-Arcturus Publishing (2021).epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/in One Book!-Arcturus Publishing (2021)/525427410 (609)/525427410 - in One Book!-Arcturus Publishing (2021).epub",
+        "timestamp": "2024-08-22T06:04:13.673Z",
+        "title": "525427410"
+      },
+      {
+        "authors": [
+          "Samantha Dion Baker"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Samantha Dion Baker/Draw Your World_ How to Sketch and Paint Your Remarkable Life (596)/Draw Your World_ How to Sketch and Paint Y - Samantha Dion Baker.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Samantha Dion Baker/Draw Your World_ How to Sketch and Paint Your Remarkable Life (596)/Draw Your World_ How to Sketch and Paint Y - Samantha Dion Baker.epub",
+        "timestamp": "2024-08-15T12:23:32.020Z",
+        "title": "Draw Your World: How to Sketch and Paint Your Remarkable Life"
+      },
+      {
+        "authors": [
+          "Henry David Thoreau"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Henry David Thoreau/Walden (317)/Walden - Henry David Thoreau.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Henry David Thoreau/Walden (317)/Walden - Henry David Thoreau.epub",
+        "timestamp": "2024-08-09T07:28:40.106Z",
+        "title": "Walden"
+      },
+      {
+        "authors": [
+          "Roy Peter Clark"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Roy Peter Clark/Writing Tools_ 55 Essential Strategies for Every Writer (578)/Writing Tools_ 55 Essential Strategies for - Roy Peter Clark.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Roy Peter Clark/Writing Tools_ 55 Essential Strategies for Every Writer (578)/Writing Tools_ 55 Essential Strategies for - Roy Peter Clark.epub",
+        "timestamp": "2024-08-09T04:15:44.568Z",
+        "title": "Writing Tools"
+      },
+      {
+        "authors": [
+          "William Strunk",
+          "E. B. White",
+          "Roger Angell"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/William Strunk/The Elements of Style (579)/The Elements of Style - William Strunk.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Strunk/The Elements of Style (579)/The Elements of Style - William Strunk.epub",
+        "timestamp": "2024-08-09T04:15:40.653Z",
+        "title": "The Elements of Style"
+      },
+      {
+        "authors": [
+          "William Zinsser"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/William Zinsser/On Writing Well, 30th Anniversary Edition_ An Informal Guide to Writing Nonfiction (397)/On Writing Well, 30th Anniversary Edition_ - William Zinsser.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Zinsser/On Writing Well, 30th Anniversary Edition_ An Informal Guide to Writing Nonfiction (397)/On Writing Well, 30th Anniversary Edition_ - William Zinsser.epub",
+        "timestamp": "2024-08-08T05:05:43.977Z",
+        "title": "On Writing Well, 30th Anniversary Edition: An Informal Guide to Writing Nonfiction"
+      },
+      {
+        "authors": [
+          "Jordan Peterson"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Jordan Peterson/Essay Writing Guide (265)/Essay Writing Guide - Jordan Peterson.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Jordan Peterson/Essay Writing Guide (265)/Essay Writing Guide - Jordan Peterson.epub",
+        "timestamp": "2024-08-05T12:20:15.493Z",
+        "title": "Essay Writing Guide"
+      },
+      {
+        "authors": [
+          "Philip Kotler",
+          "Gary Armstrong",
+          "Lloyd Harris",
+          "Nigel F. Piercy"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Philip Kotler/Principles of Marketing European Edition (545)/Principles of Marketing European Edition - Philip Kotler.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Philip Kotler/Principles of Marketing European Edition (545)/Principles of Marketing European Edition - Philip Kotler.epub",
+        "timestamp": "2024-07-27T17:53:51.244Z",
+        "title": "Principles of Marketing European Edition"
+      },
+      {
+        "authors": [
+          "the dark mountain"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/the dark mountain manifesto/UNCIVILISATION (282)/UNCIVILISATION - the dark mountain manifesto.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/the dark mountain manifesto/UNCIVILISATION (282)/UNCIVILISATION - the dark mountain manifesto.epub",
+        "timestamp": "2024-07-23T06:07:20.659Z",
+        "title": "Uncivilization"
+      },
+      {
+        "authors": [
+          "Alain Badiou"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Alain Badiou/Wittgenstein's Antiphilosophy (519)/Wittgenstein's Antiphilosophy - Alain Badiou.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Alain Badiou/Wittgenstein's Antiphilosophy (519)/Wittgenstein's Antiphilosophy - Alain Badiou.epub",
+        "timestamp": "2024-07-01T11:28:39.653Z",
+        "title": "Wittgenstein's Antiphilosophy"
+      },
+      {
+        "authors": [
+          "Ogi Ogas"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Ogi Ogas/A Billion Wicked Thoughts_ What the (105)/A Billion Wicked Thoughts_ What - Ogi Ogas.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Ogi Ogas/A Billion Wicked Thoughts_ What the (105)/A Billion Wicked Thoughts_ What - Ogi Ogas.epub",
+        "timestamp": "2024-06-30T10:40:55.659Z",
+        "title": "A Billion Wicked Thoughts"
+      },
+      {
+        "authors": [
+          "William Zinsser"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/William Zinsser/Writing to Learn_ How to Write - and Think - Clearly About Any Subject at All (396)/Writing to Learn_ How to Write - and Think - William Zinsser.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Zinsser/Writing to Learn_ How to Write - and Think - Clearly About Any Subject at All (396)/Writing to Learn_ How to Write - and Think - William Zinsser.epub",
+        "timestamp": "2024-06-29T08:02:48.684Z",
+        "title": "Writing to Learn"
+      }
+    ]
+  },
+  "viewer-search-case-sensitive": false,
+  "viewer-search-mode": "normal"
+}

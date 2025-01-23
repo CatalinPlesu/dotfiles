@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>lineedit_history_choose_library_dialog</key>
+	<array>
+		<string>/home/mnt/catalin/Calibre Archive Library</string>
+	</array>
+	<key>lineedit_history_store_search_search_author</key>
+	<array>
+		<string>Byung-Chul Han</string>
+	</array>
+	<key>lineedit_history_store_search_search_title</key>
+	<array>
+		<string>11 Rules For Life</string>
+	</array>
+	<key>lineedit_history_viewer-search-panel-expression</key>
+	<array>
+		<string>relationship</string>
+		<string>step</string>
+		<string>think</string>
+		<string>mind on fire</string>
+	</array>
+</dict>
+</plist>

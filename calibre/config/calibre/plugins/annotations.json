@@ -1,0 +1,41 @@
+{
+  "COMMENTS_DIVIDER": "&middot;  &middot;  &bull;  &middot;  &#x2726;  &middot;  &bull;  &middot; &middot;",
+  "HORIZONTAL_RULE": "<hr width='80%' />",
+  "additional_readers": [
+    "path/to/your/reader_class.py"
+  ],
+  "appearance_css": [
+    {
+      "css": "font-size:80%;\nfont-weight:bold;\nmargin:0;",
+      "name": "Timestamp",
+      "ordinal": 0
+    },
+    {
+      "css": "margin:0;\ntext-indent:0.5em;",
+      "name": "Text",
+      "ordinal": 1
+    },
+    {
+      "css": "font-size:90%;\nfont-style:italic;\nmargin:0;",
+      "name": "Note",
+      "ordinal": 2
+    }
+  ],
+  "appearance_hr_checkbox": false,
+  "appearance_timestamp_format": "%c",
+  "cc_mappings": {
+    "Calibre Library": {
+      "annotations": {
+        "combobox": "Annotations",
+        "field": "#mm_annotations"
+      }
+    }
+  },
+  "cfg_disable_caching_checkbox": false,
+  "cfg_libimobiledevice_debug_log_checkbox": false,
+  "cfg_news_clippings_checkbox": false,
+  "cfg_news_clippings_lineEdit": "My News Clippings",
+  "cfg_plugin_debug_log_checkbox": false,
+  "developer_mode": false,
+  "plugin_version": "1.17.13"
+}

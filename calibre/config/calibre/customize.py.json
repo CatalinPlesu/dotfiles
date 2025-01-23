@@ -1,0 +1,49 @@
+{
+  "disabled_plugins": {
+    "__class__": "set",
+    "__value__": [
+      "Ebookpoint",
+      "Amazon DE Kindle",
+      "Mills and Boon UK",
+      "LitRes",
+      "Bubok Spain",
+      "MobileRead",
+      "Google Books",
+      "Amazon IT Kindle",
+      "Amazon CA Kindle",
+      "Amazon IN Kindle",
+      "Baen Ebooks",
+      "Feedbooks",
+      "Barnes and Noble",
+      "EbooksGratuits.com",
+      "ManyBooks",
+      "eBooks.com",
+      "Amazon AU Kindle",
+      "Kobo",
+      "eBook.nl",
+      "Beam EBooks DE",
+      "Nexto",
+      "Empik",
+      "Archive.org",
+      "Bubok Portugal",
+      "Amazon ES Kindle",
+      "Legimi",
+      "Amazon UK Kindle",
+      "Amazon Kindle",
+      "Amazon FR Kindle",
+      "ebook.de"
+    ]
+  },
+  "enabled_plugins": {
+    "__class__": "set",
+    "__value__": []
+  },
+  "filetype_mapping": {},
+  "plugin_customization": {},
+  "plugins": {
+    "Action Chains": "/home/catalin/.var/app/com.calibre_ebook.calibre/config/calibre/plugins/Action Chains.zip",
+    "Anna's Archive": "/home/catalin/.var/app/com.calibre_ebook.calibre/config/calibre/plugins/Anna's Archive.zip",
+    "Annotations": "/home/catalin/.var/app/com.calibre_ebook.calibre/config/calibre/plugins/Annotations.zip",
+    "K2pdfopt Plugin": "/home/catalin/.var/app/com.calibre_ebook.calibre/config/calibre/plugins/K2pdfopt Plugin.zip"
+  }
+}

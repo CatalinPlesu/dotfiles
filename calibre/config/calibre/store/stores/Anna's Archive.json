@@ -1,0 +1,38 @@
+{
+  "link": {
+    "content_type": false,
+    "sub_site": false,
+    "url_extension": true
+  },
+  "mirrors": [
+    "https://annas-archive.org",
+    "https://annas-archive.gs",
+    "https://annas-archive.se"
+  ],
+  "open_external": false,
+  "search": {
+    "access": [],
+    "content": [
+      "book_nonfiction",
+      "book_fiction",
+      "book_unknown",
+      "journal_article",
+      "book_comic",
+      "magazine",
+      "standards_document"
+    ],
+    "filetype": [
+      "epub"
+    ],
+    "language": [
+      "en"
+    ],
+    "order": "",
+    "source": [
+      "lgli",
+      "lgrs",
+      "zlib",
+      "ia"
+    ]
+  }
+}

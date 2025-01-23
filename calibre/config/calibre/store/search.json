@@ -1,0 +1,144 @@
+{
+  "cache_thread_count": 2,
+  "config_dialog_tab_index": 0,
+  "cover_thread_count": 2,
+  "details_thread_count": 4,
+  "first_run": false,
+  "geometry-of-config_dialog_geometry": {
+    "frame_geometry": {
+      "height": 631,
+      "width": 800,
+      "x": 550,
+      "y": 169
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 600,
+      "width": 800,
+      "x": 550,
+      "y": 200
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 600,
+      "width": 800,
+      "x": 550,
+      "y": 200
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAImAAAAqQAABUUAAAMfAAACJgAAAMgAAAVFAAADHwAAAAAAAAAAB4AAAAImAAAAyAAABUUAAAMf"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Samsung Electric Company",
+      "model": "S24C31x",
+      "name": "DisplayPort-1",
+      "serial": "H9DW104355",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-geometry": {
+    "frame_geometry": {
+      "height": 1019,
+      "width": 1920,
+      "x": 0,
+      "y": 31
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1019,
+      "width": 1920,
+      "x": 0,
+      "y": 31
+    },
+    "maximized": true,
+    "normal_geometry": {
+      "height": 1019,
+      "width": 1920,
+      "x": 0,
+      "y": 31
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAAAAAAHwAAB38AAAQZAAAAAAAAAB8AAAd/AAAEGQAAAAACAAAAB4AAAAAAAAAAHwAAB38AAAQZ"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Samsung Electric Company",
+      "model": "S24C31x",
+      "name": "DisplayPort-1",
+      "serial": "H9DW104355",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "hang_time": 75,
+  "max_results": 10,
+  "open_external": true,
+  "results_view_column_width": [
+    85,
+    206,
+    61,
+    77,
+    128,
+    47,
+    47
+  ],
+  "search_thread_count": 4,
+  "sort_col": 2,
+  "sort_order": 0,
+  "store_checked": {
+    "Anna's Archive": true,
+    "Pragmatic Bookshelf": false,
+    "Project Gutenberg": false,
+    "Publio": false,
+    "RW2010": false,
+    "Smashwords": false,
+    "Virtualo": false,
+    "Weightless Books": false,
+    "Woblink": false,
+    "Wolne Lektury": false,
+    "Świat Ebooków": false,
+    "Библио.бг": false,
+    "Моята библиотека": false
+  },
+  "store_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAACAAAAyAAAAj4B/////wEAAAABAA=="
+  },
+  "timeout": 75
+}

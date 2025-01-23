@@ -1,0 +1,190 @@
+{
+  "check-book-splitter-state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAACAAAARgAAAEYA/////wEAAAABAA=="
+  },
+  "custom_colors_for_color_dialog": [
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      255,
+      255,
+      255
+    ]
+  ],
+  "find-widget-state": {
+    "case_sensitive": false,
+    "direction": "down",
+    "dot_all": false,
+    "mode": "normal",
+    "where": "current",
+    "wrap": true
+  },
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 336,
+      "width": 928,
+      "x": 496,
+      "y": 356
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 305,
+      "width": 928,
+      "x": 496,
+      "y": 387
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 305,
+      "width": 928,
+      "x": 496,
+      "y": 387
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAHwAAABZAAABY8AAAKzAAAB8AAAAYMAAAWPAAACswAAAAAAAAAAB4AAAAHwAAABgwAABY8AAAKz"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Samsung Electric Company",
+      "model": "S24C31x",
+      "name": "DisplayPort-1",
+      "serial": "H9DW104355",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAD9AAAABAAAAAAAAAEAAAAA1vwCAAAABfsAAAAkAGYAaQBsAGUAcwAtAGIAcgBvAHcAcwBlAHIALQBkAG8AYwBrAQAAAEEAAADWAAAAXAD////7AAAAHgB0AG8AYwAtAHYAaQBlAHcAZQByAC0AZABvAGMAawAAAAAA/////wAAAFwA////+wAAACAAdABlAHgAdAAtAHMAZQBhAHIAYwBoAC0AZABvAGMAawAAAAAA/////wAAAIsA////+wAAACAAYwBoAGUAYwBrAHAAbwBpAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAJEA////+wAAACYAcwBhAHYAZQBkAC0AcwBlAGEAcgBjAGgAZQBzAC0AZABvAGMAawAAAAAA/////wAAAkAA////AAAAAQAAAgAAAADW/AIAAAAC+wAAABgAcAByAGUAdgBpAGUAdwAtAGQAbwBjAGsBAAAAQQAAANYAAABYAP////sAAAAaAGwAaQB2AGUALQBjAHMAcwAtAGQAbwBjAGsAAAAAAP////8AAABcAP///wAAAAIAAAAAAAAAAPwBAAAAAfsAAAAeAGMAaABlAGMAawAtAGIAbwBvAGsALQBkAG8AYwBrAAAAAAD/////AAAAkAD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAHABpAG4AcwBwAGUAYwB0AG8AcgAtAGQAbwBjAGsAAAAAAP////8AAAA9AP///wAAAJQAAADWAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAUAGcAbABvAGIAYQBsAC0AYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABIAdABvAG8AbABzAC0AYgBhAHIBAAABJv////8AAAAAAAAAAAAAABYAcABsAHUAZwBpAG4AcwAtAGIAYQByAAAAAAD/////AAAAAAAAAAA="
+  },
+  "recent-books": [
+    "/home/catalin/Downloads/Donis Marshall - Programming with Rust (2024, Pearson Education (US)) - libgen.li.epub",
+    "/home/catalin/Downloads/pg3296-images-3.epub",
+    "/home/catalin/Downloads/The Outlaw Bible of American Poetry -- Kaufman, Alan, Griffin, S A -- 1999;2012 -- Thunder's Mouth Press -- c113511a249843041e25cf8b030b2541 -- Anna’s Archive.epub",
+    "/home/catalin/Downloads/Shop Class as Soulcraft_ An Inquiry Into the Value of Work -- Matthew B_ Crawford -- 2010 -- Penguin Books -- 9781594202230 -- 9f6c056ac46e4b97462da8f9c1e51144 -- Anna’s Archive.epub",
+    "/home/mnt/catalin/Calibre Library/Hector Garcia/Ikigai_ The Japanese Secret to a Long and Happy Life (484)/Ikigai_ The Japanese Secret to a Long and - Hector Garcia.epub",
+    "/home/mnt/catalin/Calibre Library/Cal Newport/Digital Minimalism_ Choosing a Focu (227)/Digital Minimalism_ Choosing a - Cal Newport.epub",
+    "/home/mnt/catalin/Calibre Library/Jordan Peterson/Essay Writing Guide (265)/Essay Writing Guide - Jordan Peterson.epub",
+    "/home/mnt/catalin/Calibre Library/Oscar Fernandez/Everyday Calculus_ Discovering the H (99)/Everyday Calculus_ Discovering - Oscar Fernandez.epub"
+  ],
+  "reports-ui-state": {},
+  "saved_seaches_state": {
+    "direction": "down",
+    "where": "current",
+    "wrap": true
+  },
+  "search-panel-visible": false,
+  "text_search_widget_state": {
+    "case_sensitive": false,
+    "dot_all": true,
+    "mode": "normal",
+    "where": "current"
+  }
+}

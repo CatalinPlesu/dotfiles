@@ -67,7 +67,7 @@ alias rtop="radeontop -c"
 #Projects
 alias p0='cd ~/Workspace/Master/PF/'
 alias ghci='p0 && ghci .'
-alias p1='cd ~/Workspace/grape.nvim/'
+alias p1='cd ~/Workspace/Master/CS/'
 alias p2='cd ~/Workspace/LifeSaga/'
 alias p3='cd ~/Workspace/Dream Game/'
 

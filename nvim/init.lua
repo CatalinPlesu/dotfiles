@@ -169,6 +169,7 @@ require("lazy").setup({
 		version = "*",
 		init = function()
 			-- Move lines
+			require("mini.ai").setup()
 			require("mini.move").setup()
 		end,
 	},

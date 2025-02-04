@@ -25,5 +25,6 @@
 !/zsh/**
 !/calibre/
 !/calibre/**
-!/default.conf
+!/keyd/
+!/keyd/**
 /zsh/.zcompdump

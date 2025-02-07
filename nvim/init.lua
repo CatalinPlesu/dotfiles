@@ -299,64 +299,7 @@ require("lazy").setup({
 		"kylechui/nvim-surround",
 		event = "VeryLazy",
 		opts = {},
-	},
-
-	-- kiwi.nvim
-	{
-		-- 'serenevoid/kiwi.nvim',
-		'grape.nvim',
-		dir = "~/Workspace/grape.nvim",
-		opts = {
-			{
-				name = "test",
-				path = "/home/mnt/catalin/NOTES/kiwi_test"
-			},
-			{
-				name = "personal",
-				path = "/home/mnt/catalin/NOTES/MdWiki"
-			},
-			{
-				name = "Test",
-				path = "/home/mnt/catalin/NOTES/WikiTest"
-			},
-			cd_wiki = true
-		},
-		keys = {
-			{ "<leader>ww", ":lua require(\"grape\").open_wiki_index()<cr>",             desc = "Open Wiki index" },
-			{ "<leader>wt", ":lua require(\"grape\").open_wiki_index(\"test\")<cr>",     desc = "Open index of personal wiki" },
-			{ "<leader>wT", ":lua require(\"grape\").open_wiki_index(\"Test\")<cr>",     desc = "Open index of personal wiki" },
-			{ "<leader>wp", ":lua require(\"grape\").open_wiki_index(\"personal\")<cr>", desc = "Open index of personal wiki" },
-			{ "<leader>wg", ":lua require(\"grape\").show_graph()<cr>",                  desc = "Open index of personal wiki" },
-			{ "<leader>wS", ":lua require(\"grape\").stop_server()<cr>",                 desc = "Open index of personal wiki" },
-			{ "T",          ":lua require(\"grape\").todo.toggle()<cr>",                 desc = "Toggle Markdown Task" }
-		},
-		lazy = true
 	}
-
-	-- {
-	-- 	'serenevoid/kiwi.nvim',
-	-- 	commit = "aaf4c1fd3900fc193fb6d648b055fce65ec48ac5",
-	-- 	opts = {
-	-- 		{
-	-- 			name = "test",
-	-- 			path = "/home/mnt/catalin/NOTES/kiwi_test"
-	-- 		},
-	-- 		{
-	-- 			name = "personal",
-	-- 			path = "/home/mnt/catalin/NOTES/MdWiki"
-	-- 		},
-	-- 	},
-	-- 	keys = {
-	-- 		{ "<leader>ww", ":lua require(\"kiwi\").open_wiki_index()<cr>",             desc = "Open Wiki index" },
-	-- 		{ "<leader>wt", ":lua require(\"kiwi\").open_wiki_index(\"test\")<cr>", desc = "Open index of personal wiki" },
-	-- 		{ "<leader>wp", ":lua require(\"kiwi\").open_wiki_index(\"personal\")<cr>", desc = "Open index of personal wiki" },
-	-- 		{ "T",          ":lua require(\"kiwi\").todo.toggle()<cr>",                 desc = "Toggle Markdown Task" }
-	-- 	},
-	-- 	config = function()
-	-- 		require("kiwi").set_dir_change(true)
-	-- 	end,
-	-- 	lazy = true
-	-- }
 })
 -- Set up Comment.nvim
 require("Comment").setup()
@@ -451,6 +394,15 @@ vim.api.nvim_create_user_command('ClipboardCompare', function()
   vim.cmd('normal! P')  -- Paste clipboard contents
   vim.cmd('diffthis')
 end, { desc = 'Compare clipboard contents in a vertical split with the current buffer' })
+
+-- Open Telescope on start
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argv(0) == "" then
+			require("telescope.builtin").find_files()
+		end
+	end,
+})
 
 -- Set langmap option for keyboard layout remapping
 -- ASSET --> QWERTY

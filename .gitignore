@@ -27,4 +27,6 @@
 !/calibre/**
 !/keyd/
 !/keyd/**
+!/QuodLibet/
+!/QuodLibet/**
 /zsh/.zcompdump

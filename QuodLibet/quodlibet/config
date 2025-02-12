@@ -1,0 +1,108 @@
+[settings]
+columns = ~rating,~title~version,~#playcount,~#length
+	
+default_rating = 0.4
+ratings = 5
+scan = /home/mnt/catalin/Music
+
+[memory]
+browser = SearchBar
+chooser_dir = /home/catalin
+column_expands = ~title~version,1
+	
+column_widths = ~title~version,-1
+	
+open_browsers = 
+plugin_prefs_maximized = 0
+plugin_prefs_position = 559 288
+plugin_prefs_size_ = 750 689
+plugin_selection = karaoke
+prefs_page = tagging
+queue = True
+queue_disable = False
+queue_expanded = True
+queue_position = 0.44418331374853115
+quodlibet_information_maximized = 0
+quodlibet_information_position = 282 355
+quodlibet_information_size_ = 942 400
+quodlibet_last_active_version = 4.6.0
+quodlibet_maximized = 4
+quodlibet_position = 998 152
+quodlibet_properties_maximized = 0
+quodlibet_properties_pos = 0.40032679738562094
+quodlibet_properties_position = 618 352
+quodlibet_properties_size_single = 612 406
+quodlibet_size_ = 453 719
+repeat = False
+repeat_mode = repeat_all
+seek = 0
+shuffle = False
+shuffle_mode = random
+shufflequeue = true
+sidebar_pos = 0.24944812362030905
+song = /home/mnt/catalin/Music/2024/playlists/mix3/Billy Joel - We Didn't Start the Fire (Official HD Video).mp3
+sortby = 0~title~version
+	
+volume = 1.0
+
+[player]
+gst_buffer = 3.0
+is_playing = True
+replaygain_mode = auto
+
+[browsers]
+collectionbrowser_pos = 0.3998917748917749
+covergrid_pos = 0.6482300884955752
+filesystem = /home/mnt/catalin/Music/2024/playlists/mix3
+filesystem_pos = 0.275974025974026
+panedbrowser_pane_widths = 0.4988962472406181
+panedbrowser_pos = 0.4063745019920319
+playlistsbrowser_pos = 0.3998917748917749
+query_text = 
+rating_click = false
+
+[display]
+duration_format = text-full
+
+[albumart]
+prefer_embedded = true
+
+[__config__]
+version = 0
+
+[plugins]
+active_plugins = SeekBar
+	AcoustidSearch
+	Tray Icon
+	Animated On-Screen Display
+animosd_corners = 0
+animosd_coversize = 200
+animosd_monitor = 0
+animosd_outline = 0.1 0.1 0.1 0.625
+animosd_pos_x = 0.5
+animosd_pos_y = 0.0
+animosd_shadow = 0.0 0.0 0.0 0.5
+cover_engine_discogs = True
+fingerprint_group_by_dir = false
+fingerprint_write_mb_tags = false
+icon_modifier_swap = True
+icon_tooltip = <album|<album~discnumber~part~tracknumber~title~version>|<artist~title~version>>
+karaoke_band = 220.0
+karaoke_level = 1.0
+karaoke_width = 100.0
+notify_show_notifications = all
+quodlibet.fake.plugins.gajim_status_accounts = 
+quodlibet.fake.plugins.gajim_status_pattern = <artist> - <title>
+quodlibet.fake.plugins.gajim_status_paused = True
+quodlibet.fake.plugins.gajim_status_statuses = online chat
+quodlibet.fake.plugins.visualisations_executable = projectM-pulseaudio
+randomalbum_use_weights = 0
+scrobbler_service = Last.fm
+shufflebygrouping_grouping = ~grouping~album~albumartist
+shufflebygrouping_grouping_filter = grouping
+titlecase_allow_all_caps = True
+titlecase_human_title_case = True
+
+[rename]
+windows = true
+

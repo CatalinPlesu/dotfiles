@@ -34,10 +34,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Samsung Electric Company",
-      "model": "S24C31x",
-      "name": "DisplayPort-1",
-      "serial": "H9DW104355",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -52,7 +52,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAG0AAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAC0AAAAI8A////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAQAAAAAAAALQAAAAogD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACOAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAQMA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFgD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAOIA////AAAB0gAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAG0AAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAC0AAAAI8A////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAogD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACOAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAQMA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFgD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAOIA////AAADjAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "saved-search-settings": {
@@ -85,6 +85,42 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "Will Durant"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Will Durant/The Lessons of History (667)/The Lessons of History - Will Durant.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Will Durant/The Lessons of History (667)/The Lessons of History - Will Durant.epub",
+        "timestamp": "2025-02-14T13:45:38.714Z",
+        "title": "The Lessons of History"
+      },
+      {
+        "authors": [
+          "Thomas Paine"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Thomas Paine/Complete Works of Thomas Paine (651)/Complete Works of Thomas Paine - Thomas Paine.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Thomas Paine/Complete Works of Thomas Paine (651)/Complete Works of Thomas Paine - Thomas Paine.epub",
+        "timestamp": "2025-02-10T13:41:31.968Z",
+        "title": "Complete Works of Thomas Paine"
+      },
+      {
+        "authors": [
+          "Thomas Paine"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Thomas Paine/Common Sense (648)/Common Sense - Thomas Paine.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Thomas Paine/Common Sense (648)/Common Sense - Thomas Paine.epub",
+        "timestamp": "2025-02-10T12:47:56.653Z",
+        "title": "Common Sense"
+      },
+      {
+        "authors": [
+          "Aristotle"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Aristotle/Nicomachean Ethics (360)/Nicomachean Ethics - Aristotle.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Aristotle/Nicomachean Ethics (360)/Nicomachean Ethics - Aristotle.epub",
+        "timestamp": "2025-01-24T08:58:47.235Z",
+        "title": "Nicomachean Ethics"
+      },
       {
         "authors": [
           "Schell, Jesse;"
@@ -276,42 +312,6 @@
         "pathtoebook": "/home/mnt/catalin/Calibre Library/Philip Kotler/Principles of Marketing European Edition (545)/Principles of Marketing European Edition - Philip Kotler.epub",
         "timestamp": "2024-07-27T17:53:51.244Z",
         "title": "Principles of Marketing European Edition"
-      },
-      {
-        "authors": [
-          "the dark mountain"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/the dark mountain manifesto/UNCIVILISATION (282)/UNCIVILISATION - the dark mountain manifesto.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/the dark mountain manifesto/UNCIVILISATION (282)/UNCIVILISATION - the dark mountain manifesto.epub",
-        "timestamp": "2024-07-23T06:07:20.659Z",
-        "title": "Uncivilization"
-      },
-      {
-        "authors": [
-          "Alain Badiou"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Alain Badiou/Wittgenstein's Antiphilosophy (519)/Wittgenstein's Antiphilosophy - Alain Badiou.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Alain Badiou/Wittgenstein's Antiphilosophy (519)/Wittgenstein's Antiphilosophy - Alain Badiou.epub",
-        "timestamp": "2024-07-01T11:28:39.653Z",
-        "title": "Wittgenstein's Antiphilosophy"
-      },
-      {
-        "authors": [
-          "Ogi Ogas"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Ogi Ogas/A Billion Wicked Thoughts_ What the (105)/A Billion Wicked Thoughts_ What - Ogi Ogas.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Ogi Ogas/A Billion Wicked Thoughts_ What the (105)/A Billion Wicked Thoughts_ What - Ogi Ogas.epub",
-        "timestamp": "2024-06-30T10:40:55.659Z",
-        "title": "A Billion Wicked Thoughts"
-      },
-      {
-        "authors": [
-          "William Zinsser"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/William Zinsser/Writing to Learn_ How to Write - and Think - Clearly About Any Subject at All (396)/Writing to Learn_ How to Write - and Think - William Zinsser.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Zinsser/Writing to Learn_ How to Write - and Think - Clearly About Any Subject at All (396)/Writing to Learn_ How to Write - and Think - William Zinsser.epub",
-        "timestamp": "2024-06-29T08:02:48.684Z",
-        "title": "Writing to Learn"
       }
     ]
   },

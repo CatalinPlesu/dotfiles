@@ -7,8 +7,6 @@ export PATH=$PATH:/home/catalin/.local/share/npm/bin
 # export PATH=$PATH:/home/catalin/.local/bin
 export PATH=$PATH:/home/catalin/flutter/bin
 export PATH=$PATH:/home/catalin/.local/bin
-export PATH=$PATH:$HOME/.ghcup/bin
-export PATH=$PATH:$HOME/UsedProjects/zig-linux-x86_64-0.14.0-dev.3028+cdc9d65b0/
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"

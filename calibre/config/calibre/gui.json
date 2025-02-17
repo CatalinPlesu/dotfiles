@@ -760,17 +760,17 @@
   },
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
-      "height": 1080,
-      "width": 1848,
-      "x": 72,
+      "height": 1040,
+      "width": 1920,
+      "x": 0,
       "y": 0
     },
     "full_screened": false,
     "geometry": {
-      "height": 1049,
-      "width": 1848,
-      "x": 72,
-      "y": 31
+      "height": 1008,
+      "width": 1920,
+      "x": 0,
+      "y": 32
     },
     "maximized": true,
     "normal_geometry": {
@@ -781,7 +781,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAABIAAAAAAAAB38AAAQ3AAAASAAAAB8AAAd/AAAENwAAAAACAAAAB4AAAABIAAAAHwAAB38AAAQ3"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQPAAAASAAAAB8AAAd/AAAENwAAAAACAAAAB4AAAAAAAAAAIAAAB38AAAQP"
     },
     "screen": {
       "depth": 24,
@@ -1052,6 +1052,57 @@
       "model": "S24C31x",
       "name": "DisplayPort-1",
       "serial": "H9DW104355",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-customize-palette-geometry": {
+    "frame_geometry": {
+      "height": 555,
+      "width": 826,
+      "x": 301,
+      "y": 127
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 555,
+      "width": 826,
+      "x": 301,
+      "y": 127
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 555,
+      "width": 826,
+      "x": 301,
+      "y": 127
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAEtAAAAfwAABGYAAAKpAAABLQAAAH8AAARmAAACqQAAAAAAAAAAB4AAAAEtAAAAfwAABGYAAAKp"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1678,10 +1729,10 @@
   },
   "geometry-of-plugin config dialog:User interface action:K2pdfopt Plugin": {
     "frame_geometry": {
-      "height": 254,
+      "height": 255,
       "width": 559,
       "x": 671,
-      "y": 358
+      "y": 357
     },
     "full_screened": false,
     "geometry": {
@@ -1699,7 +1750,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAKfAAABZgAABM0AAAJjAAACnwAAAYUAAATNAAACYwAAAAAAAAAAB4AAAAKfAAABhQAABM0AAAJj"
+      "__value__": "AdnQywADAAAAAAKfAAABZQAABM0AAAJjAAACnwAAAYUAAATNAAACYwAAAAAAAAAAB4AAAAKfAAABhQAABM0AAAJj"
     },
     "screen": {
       "depth": 24,
@@ -1711,10 +1762,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Samsung Electric Company",
-      "model": "S24C31x",
-      "name": "DisplayPort-1",
-      "serial": "H9DW104355",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1729,28 +1780,28 @@
   },
   "geometry-of-preferences dialog geometry": {
     "frame_geometry": {
-      "height": 824,
+      "height": 856,
       "width": 1304,
       "x": 72,
-      "y": 31
+      "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 824,
       "width": 1304,
       "x": 72,
-      "y": 31
+      "y": 32
     },
     "maximized": false,
     "normal_geometry": {
       "height": 824,
       "width": 1304,
       "x": 72,
-      "y": 31
+      "y": 32
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAABIAAAAHwAABV8AAANWAAAASAAAAB8AAAVfAAADVgAAAAAAAAAAB4AAAABIAAAAHwAABV8AAANW"
+      "__value__": "AdnQywADAAAAAABIAAAAAAAABV8AAANXAAAASAAAACAAAAVfAAADVwAAAAAAAAAAB4AAAABIAAAAIAAABV8AAANX"
     },
     "screen": {
       "depth": 24,
@@ -1762,10 +1813,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Samsung Electric Company",
-      "model": "S24C31x",
-      "name": "DisplayPort-1",
-      "serial": "H9DW104355",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1940,7 +1991,7 @@
   },
   "library_usage_stats": {
     "/home/mnt/catalin/Calibre Archive Library": 9,
-    "/home/mnt/catalin/Calibre Library": 342
+    "/home/mnt/catalin/Calibre Library": 344
   },
   "main_window_central_widget_state": {
     "layout": "wide",
@@ -2033,7 +2084,7 @@
     "#genre": false,
     "#mm_annotations": false,
     "#priority": false,
-    "#read": true,
+    "#read": false,
     "authors": false,
     "ondevice": true,
     "rating": false,

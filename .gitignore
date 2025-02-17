@@ -29,4 +29,6 @@
 !/keyd/**
 !/QuodLibet/
 !/QuodLibet/**
+!/flameshot/
+!/flameshot/**
 /zsh/.zcompdump

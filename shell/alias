@@ -24,7 +24,8 @@ alias cls='lah | lolcrab -i'
 
 alias ss='apt search'
 alias s='sudo apt install'
-alias r='sudo apt remove'
+
+alias r='ranger'
 
 alias sc='sudo systemctl'
 alias sct='systemctl status'

@@ -71,7 +71,10 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # eval "$(starship init zsh)"
 PROMPT='%F{cyan}%3~%f > '
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
-eval "$(goenv init -)"
+# eval "$(goenv init -)"
+
+. "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+

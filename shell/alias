@@ -109,3 +109,7 @@ alias wget_website='wget --recursive --no-clobber --page-requisites  --html-exte
 
 alias cli="xsel -ib"
 alias clo="xsel -ob"
+
+
+# Distrobox
+alias arch='cd /home/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'

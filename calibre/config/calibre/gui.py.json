@@ -47,6 +47,7 @@
   "jobs_search_history": [],
   "lrf_viewer_search_history": [],
   "main_search_history": [
+    "not #genre:\"=Body-of-knowledge\" and not #genre:\"=Embedded-Engineering\"",
     "Gary",
     "ondevice:=\"false\"",
     "Lessons in History by William James Durant",
@@ -70,8 +71,7 @@
     "Aris",
     "Aristotel",
     "burnout",
-    "Deceit, Desire, and the Novel",
-    "Nicomachean"
+    "Deceit, Desire, and the Novel"
   ],
   "main_window_geometry": null,
   "match_tags_type": "any",

@@ -1,28 +1,28 @@
 {
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 751,
-      "width": 908,
-      "x": 542,
-      "y": 164
+      "height": 752,
+      "width": 640,
+      "x": 50,
+      "y": 50
     },
     "full_screened": false,
     "geometry": {
       "height": 720,
-      "width": 908,
-      "x": 542,
-      "y": 195
+      "width": 640,
+      "x": 50,
+      "y": 82
     },
     "maximized": false,
     "normal_geometry": {
       "height": 720,
-      "width": 908,
-      "x": 542,
-      "y": 195
+      "width": 640,
+      "x": 50,
+      "y": 82
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAIeAAAApAAABakAAAOSAAACHgAAAMMAAAWpAAADkgAAAAAAAAAAB4AAAAIeAAAAwwAABakAAAOS"
+      "__value__": "AdnQywADAAAAAAAyAAAAMgAAArEAAAMhAAAAMgAAAFIAAAKxAAADIQAAAAAAAAAAB4AAAAAyAAAAUgAAArEAAAMh"
     },
     "screen": {
       "depth": 24,
@@ -52,7 +52,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAG0AAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAC0AAAAI8A////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAogD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACOAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAQMA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFgD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAOIA////AAADjAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAG0AAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAC0AAAAIUA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAAAAALQAAAAkwD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAB6AP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAOUA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAEQD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAAM4A////AAACgAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "saved-search-settings": {
@@ -85,6 +85,24 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "Robert C. Martin"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Robert C. Martin/We, Programmers_ A Chronicle of Coders from Ada to AI (for True Epub) (670)/We, Programmers_ A Chronicle of Coders fro - Robert C. Martin.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Robert C. Martin/We, Programmers_ A Chronicle of Coders from Ada to AI (for True Epub) (670)/We, Programmers_ A Chronicle of Coders fro - Robert C. Martin.epub",
+        "timestamp": "2025-02-18T15:23:44.972Z",
+        "title": "We, Programmers: A Chronicle of Coders from Ada to AI (for True Epub)"
+      },
+      {
+        "authors": [
+          "Stephen King"
+        ],
+        "key": "/run/user/1000/doc/20e4495e/On Writing_ A Memoir Of The Craft -- King, Stephen -- 2000 -- Scribner Publications -- 9780641597435 -- 44687eb76225f88156ec387c84961941 -- Anna’s Archive.epub",
+        "pathtoebook": "/run/user/1000/doc/20e4495e/On Writing_ A Memoir Of The Craft -- King, Stephen -- 2000 -- Scribner Publications -- 9780641597435 -- 44687eb76225f88156ec387c84961941 -- Anna’s Archive.epub",
+        "timestamp": "2025-02-18T14:24:55.915Z",
+        "title": "On Writing: A Memoir of the Craft"
+      },
       {
         "authors": [
           "Will Durant"
@@ -291,27 +309,6 @@
         "pathtoebook": "/home/mnt/catalin/Calibre Library/William Zinsser/On Writing Well, 30th Anniversary Edition_ An Informal Guide to Writing Nonfiction (397)/On Writing Well, 30th Anniversary Edition_ - William Zinsser.epub",
         "timestamp": "2024-08-08T05:05:43.977Z",
         "title": "On Writing Well, 30th Anniversary Edition: An Informal Guide to Writing Nonfiction"
-      },
-      {
-        "authors": [
-          "Jordan Peterson"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Jordan Peterson/Essay Writing Guide (265)/Essay Writing Guide - Jordan Peterson.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Jordan Peterson/Essay Writing Guide (265)/Essay Writing Guide - Jordan Peterson.epub",
-        "timestamp": "2024-08-05T12:20:15.493Z",
-        "title": "Essay Writing Guide"
-      },
-      {
-        "authors": [
-          "Philip Kotler",
-          "Gary Armstrong",
-          "Lloyd Harris",
-          "Nigel F. Piercy"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Philip Kotler/Principles of Marketing European Edition (545)/Principles of Marketing European Edition - Philip Kotler.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Philip Kotler/Principles of Marketing European Edition (545)/Principles of Marketing European Edition - Philip Kotler.epub",
-        "timestamp": "2024-07-27T17:53:51.244Z",
-        "title": "Principles of Marketing European Edition"
       }
     ]
   },

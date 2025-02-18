@@ -61,11 +61,8 @@ alias act='source venv/bin/activate'
 alias vi='nvim -u NONE'
 alias v='nvim'
 alias V="sudoedit"
-alias z="zathura"
-alias mp="ncmpcpp"
 alias rtop="radeontop -c"
 
-#Projects
 # alias p2='cd ~/Workspace/LifeSaga/'
 # alias p3='cd ~/Workspace/Dream Game/'
 

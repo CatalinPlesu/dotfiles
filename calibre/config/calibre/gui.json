@@ -658,28 +658,28 @@
   },
   "geometry-of-book_info_dialog_geometry": {
     "frame_geometry": {
-      "height": 950,
+      "height": 982,
       "width": 910,
       "x": 495,
-      "y": 31
+      "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 950,
       "width": 910,
       "x": 495,
-      "y": 31
+      "y": 32
     },
     "maximized": false,
     "normal_geometry": {
       "height": 950,
       "width": 910,
       "x": 495,
-      "y": 31
+      "y": 32
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAHvAAAAHwAABXwAAAPUAAAB7wAAAB8AAAV8AAAD1AAAAAAAAAAAB4AAAAHvAAAAHwAABXwAAAPU"
+      "__value__": "AdnQywADAAAAAAHvAAAAAAAABXwAAAPVAAAB7wAAACAAAAV8AAAD1QAAAAAAAAAAB4AAAAHvAAAAIAAABXwAAAPV"
     },
     "screen": {
       "depth": 24,
@@ -691,10 +691,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "",
-      "name": "eDP",
-      "serial": "",
+      "manufacturer": "HJW",
+      "model": "MACROSILICON",
+      "name": "DisplayPort-1",
+      "serial": "190530",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -793,10 +793,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "",
-      "name": "eDP",
-      "serial": "",
+      "manufacturer": "HJW",
+      "model": "MACROSILICON",
+      "name": "DisplayPort-1",
+      "serial": "190530",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1015,10 +1015,10 @@
   },
   "geometry-of-convert_single_dialog_geom": {
     "frame_geometry": {
-      "height": 977,
+      "height": 978,
       "width": 1848,
       "x": 72,
-      "y": 34
+      "y": 33
     },
     "full_screened": false,
     "geometry": {
@@ -1036,7 +1036,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAABIAAAAIgAAB38AAAPyAAAASAAAAEEAAAd/AAAD8gAAAAAAAAAAB4AAAABIAAAAQQAAB38AAAPy"
+      "__value__": "AdnQywADAAAAAABIAAAAIQAAB38AAAPyAAAASAAAAEEAAAd/AAAD8gAAAAAAAAAAB4AAAABIAAAAQQAAB38AAAPy"
     },
     "screen": {
       "depth": 24,
@@ -1048,10 +1048,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Samsung Electric Company",
-      "model": "S24C31x",
+      "manufacturer": "HJW",
+      "model": "MACROSILICON",
       "name": "DisplayPort-1",
-      "serial": "H9DW104355",
+      "serial": "190530",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1132,13 +1132,13 @@
     "maximized": true,
     "normal_geometry": {
       "height": 1008,
-      "width": 1848,
-      "x": 72,
+      "width": 1920,
+      "x": 0,
       "y": 32
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQPAAAASAAAACAAAAd/AAAEDwAAAAACAAAAB4AAAAAAAAAAIAAAB38AAAQP"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQPAAAAAAAAACAAAAd/AAAEDwAAAAACAAAAB4AAAAAAAAAAIAAAB38AAAQP"
     },
     "screen": {
       "depth": 24,
@@ -1150,10 +1150,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "",
-      "name": "eDP",
-      "serial": "",
+      "manufacturer": "HJW",
+      "model": "MACROSILICON",
+      "name": "DisplayPort-1",
+      "serial": "190530",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1991,7 +1991,7 @@
   },
   "library_usage_stats": {
     "/home/mnt/catalin/Calibre Archive Library": 11,
-    "/home/mnt/catalin/Calibre Library": 350
+    "/home/mnt/catalin/Calibre Library": 370
   },
   "main_window_central_widget_state": {
     "layout": "wide",

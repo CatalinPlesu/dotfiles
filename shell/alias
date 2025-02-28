@@ -8,7 +8,7 @@ alias tree='eza -l --tree --level=2'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 
-alias cd='cdenv_func() { cd "$@" && if [ -f .env ]; then source .env; fi; }; cdenv_func'
+# alias cd='cdenv_func() { cd "$@" && if [ -f .env ]; then source .env; fi; }; cdenv_func'
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
@@ -99,7 +99,7 @@ alias h="bash ~/scripts/window_menu.sh"
 # MISC
 alias myip="ip addr | grep inet"
 alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
-alias code=codium
+# alias code=codium
 alias t='tmux new-session -A -s main'
 
 alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '

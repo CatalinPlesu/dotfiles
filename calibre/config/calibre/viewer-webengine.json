@@ -34,10 +34,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "",
-      "name": "eDP",
-      "serial": "",
+      "manufacturer": "HJW",
+      "model": "MACROSILICON",
+      "name": "DisplayPort-1",
+      "serial": "190530",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -85,6 +85,33 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "eBook"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/eBook/The C# Player's Guide - 3rd Edition (681)/The C# Player's Guide - 3rd Edition - eBook.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/eBook/The C# Player's Guide - 3rd Edition (681)/The C# Player's Guide - 3rd Edition - eBook.epub",
+        "timestamp": "2025-02-26T16:21:40.183Z",
+        "title": "The C# Player's Guide - 3rd Edition"
+      },
+      {
+        "authors": [
+          "Constantin Chirita"
+        ],
+        "key": "/home/mnt/catalin/CartiRo - ScurtaIstorieATimpuluiStephenHawking/Ciresarii 5 - Drum bun, ciresari - Constantin Chirita.mobi",
+        "pathtoebook": "/home/mnt/catalin/CartiRo - ScurtaIstorieATimpuluiStephenHawking/Ciresarii 5 - Drum bun, ciresari - Constantin Chirita.mobi",
+        "timestamp": "2025-02-24T18:43:41.294Z",
+        "title": "Ciresarii 5 - Drum bun, ciresari"
+      },
+      {
+        "authors": [
+          "George Orwell"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/George Orwell/1984 (674)/1984 - George Orwell.mobi",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/George Orwell/1984 (674)/1984 - George Orwell.mobi",
+        "timestamp": "2025-02-24T18:39:05.238Z",
+        "title": "1984"
+      },
       {
         "authors": [
           "Robert C. Martin"
@@ -280,35 +307,6 @@
         "pathtoebook": "/home/mnt/catalin/Calibre Library/Henry David Thoreau/Walden (317)/Walden - Henry David Thoreau.epub",
         "timestamp": "2024-08-09T07:28:40.106Z",
         "title": "Walden"
-      },
-      {
-        "authors": [
-          "Roy Peter Clark"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Roy Peter Clark/Writing Tools_ 55 Essential Strategies for Every Writer (578)/Writing Tools_ 55 Essential Strategies for - Roy Peter Clark.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Roy Peter Clark/Writing Tools_ 55 Essential Strategies for Every Writer (578)/Writing Tools_ 55 Essential Strategies for - Roy Peter Clark.epub",
-        "timestamp": "2024-08-09T04:15:44.568Z",
-        "title": "Writing Tools"
-      },
-      {
-        "authors": [
-          "William Strunk",
-          "E. B. White",
-          "Roger Angell"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/William Strunk/The Elements of Style (579)/The Elements of Style - William Strunk.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Strunk/The Elements of Style (579)/The Elements of Style - William Strunk.epub",
-        "timestamp": "2024-08-09T04:15:40.653Z",
-        "title": "The Elements of Style"
-      },
-      {
-        "authors": [
-          "William Zinsser"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/William Zinsser/On Writing Well, 30th Anniversary Edition_ An Informal Guide to Writing Nonfiction (397)/On Writing Well, 30th Anniversary Edition_ - William Zinsser.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/William Zinsser/On Writing Well, 30th Anniversary Edition_ An Informal Guide to Writing Nonfiction (397)/On Writing Well, 30th Anniversary Edition_ - William Zinsser.epub",
-        "timestamp": "2024-08-08T05:05:43.977Z",
-        "title": "On Writing Well, 30th Anniversary Edition: An Informal Guide to Writing Nonfiction"
       }
     ]
   },

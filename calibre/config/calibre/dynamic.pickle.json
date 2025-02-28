@@ -12,25 +12,21 @@
   "notified-version-updates": {
     "__class__": "set",
     "__value__": [
+      "7.14",
+      "7.9",
+      "7.8",
+      "7.11",
       "7.13",
       "7.12",
-      "7.11",
-      "7.9",
-      "7.7",
-      "7.8",
-      "7.10",
       "7.15",
-      "7.14"
+      "7.7",
+      "7.10"
     ]
   },
   "s_r_search_mode": 0,
   "save to disk dialog": "/home/catalin/Downloads",
   "sort_history": [
     [
-      "#read",
-      false
-    ],
-    [
       "#priority",
       false
     ],
@@ -40,34 +36,6 @@
     ],
     [
       "#priority",
-      false
-    ],
-    [
-      "#priority",
-      true
-    ],
-    [
-      "#priority",
-      false
-    ],
-    [
-      "ondevice",
-      true
-    ],
-    [
-      "#priority",
-      false
-    ],
-    [
-      "#read",
-      false
-    ],
-    [
-      "#priority",
-      false
-    ],
-    [
-      "#read",
       false
     ],
     [

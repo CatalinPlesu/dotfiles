@@ -1,0 +1,59 @@
+{
+  "database location dialog": "/home/mnt/catalin/Calibre Library",
+  "sort_history": [
+    [
+      "#priority",
+      false
+    ],
+    [
+      "#priority",
+      true
+    ],
+    [
+      "#read",
+      true
+    ],
+    [
+      "#mm_annotations",
+      false
+    ],
+    [
+      "#mm_annotations",
+      true
+    ],
+    [
+      "#mm_annotations",
+      false
+    ],
+    [
+      "#mm_annotations",
+      true
+    ],
+    [
+      "#mm_annotations",
+      false
+    ],
+    [
+      "#mm_annotations",
+      true
+    ],
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "#priority",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "default",
+  "welcome_wizard_was_run": true
+}

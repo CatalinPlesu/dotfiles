@@ -34,10 +34,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "HJW",
-      "model": "MACROSILICON",
-      "name": "DisplayPort-1",
-      "serial": "190530",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -85,6 +85,18 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "key": "/home/mnt/catalin/Calibre Library/Unknown/Revised, 2003 -- Manning Publications Co LLC -- 9781930110977 -- 66b5ff166a0817911be937d1e92991 (687)/Revised, 2003 -- Manning Publications Co L - Unknown.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Unknown/Revised, 2003 -- Manning Publications Co LLC -- 9781930110977 -- 66b5ff166a0817911be937d1e92991 (687)/Revised, 2003 -- Manning Publications Co L - Unknown.epub",
+        "timestamp": "2025-03-05T18:39:14.487Z",
+        "title": "Revised, 2003 -- Manning Publications Co LLC -- 9781930110977 -- 66b5ff166a0817911be937d1e92991d2 -- Anna’s Archive"
+      },
+      {
+        "key": "/home/mnt/catalin/Calibre Library/Unknown/Firewalls and Internet security repelling the wily hacker -- William R Cheswick, Steven M Bello (689)/Firewalls and Internet security repelling - Unknown.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Unknown/Firewalls and Internet security repelling the wily hacker -- William R Cheswick, Steven M Bello (689)/Firewalls and Internet security repelling - Unknown.epub",
+        "timestamp": "2025-03-05T18:38:39.851Z",
+        "title": "Firewalls and Internet security repelling the wily hacker -- William R Cheswick, Steven M Bellovin and Aviel D Rubin -- Addison-Wesley -- 9780201634662 -- 81e4eed06053a8036d599ec72a2d9c8a -- Anna’s Archive"
+      },
       {
         "authors": [
           "eBook"
@@ -289,24 +301,6 @@
         "pathtoebook": "/home/mnt/catalin/Calibre Library/in One Book!-Arcturus Publishing (2021)/525427410 (609)/525427410 - in One Book!-Arcturus Publishing (2021).epub",
         "timestamp": "2024-08-22T06:04:13.673Z",
         "title": "525427410"
-      },
-      {
-        "authors": [
-          "Samantha Dion Baker"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Samantha Dion Baker/Draw Your World_ How to Sketch and Paint Your Remarkable Life (596)/Draw Your World_ How to Sketch and Paint Y - Samantha Dion Baker.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Samantha Dion Baker/Draw Your World_ How to Sketch and Paint Your Remarkable Life (596)/Draw Your World_ How to Sketch and Paint Y - Samantha Dion Baker.epub",
-        "timestamp": "2024-08-15T12:23:32.020Z",
-        "title": "Draw Your World: How to Sketch and Paint Your Remarkable Life"
-      },
-      {
-        "authors": [
-          "Henry David Thoreau"
-        ],
-        "key": "/home/mnt/catalin/Calibre Library/Henry David Thoreau/Walden (317)/Walden - Henry David Thoreau.epub",
-        "pathtoebook": "/home/mnt/catalin/Calibre Library/Henry David Thoreau/Walden (317)/Walden - Henry David Thoreau.epub",
-        "timestamp": "2024-08-09T07:28:40.106Z",
-        "title": "Walden"
       }
     ]
   },

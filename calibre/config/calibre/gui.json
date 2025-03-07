@@ -709,28 +709,28 @@
   },
   "geometry-of-bulk_metadata_window_geometry": {
     "frame_geometry": {
-      "height": 1000,
+      "height": 1032,
       "width": 1848,
       "x": 72,
-      "y": 31
+      "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 1000,
       "width": 1848,
       "x": 72,
-      "y": 31
+      "y": 32
     },
     "maximized": false,
     "normal_geometry": {
       "height": 1000,
       "width": 1848,
       "x": 72,
-      "y": 31
+      "y": 32
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAABIAAAAHwAAB38AAAQGAAAASAAAAB8AAAd/AAAEBgAAAAAAAAAAB4AAAABIAAAAHwAAB38AAAQG"
+      "__value__": "AdnQywADAAAAAABIAAAAAAAAB38AAAQHAAAASAAAACAAAAd/AAAEBwAAAAAAAAAAB4AAAABIAAAAIAAAB38AAAQH"
     },
     "screen": {
       "depth": 24,
@@ -793,10 +793,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "HJW",
-      "model": "MACROSILICON",
-      "name": "DisplayPort-1",
-      "serial": "190530",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -964,28 +964,28 @@
   },
   "geometry-of-convert_bulk_dialog_geom": {
     "frame_geometry": {
-      "height": 950,
+      "height": 982,
       "width": 1850,
       "x": 25,
-      "y": 31
+      "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 950,
       "width": 1850,
       "x": 25,
-      "y": 31
+      "y": 32
     },
     "maximized": false,
     "normal_geometry": {
       "height": 950,
       "width": 1850,
       "x": 25,
-      "y": 31
+      "y": 32
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAZAAAAHwAAB1IAAAPUAAAAGQAAAB8AAAdSAAAD1AAAAAAAAAAAB4AAAAAZAAAAHwAAB1IAAAPU"
+      "__value__": "AdnQywADAAAAAAAZAAAAAAAAB1IAAAPVAAAAGQAAACAAAAdSAAAD1QAAAAAAAAAAB4AAAAAZAAAAIAAAB1IAAAPV"
     },
     "screen": {
       "depth": 24,
@@ -997,10 +997,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Samsung Electric Company",
-      "model": "S24C31x",
-      "name": "DisplayPort-1",
-      "serial": "H9DW104355",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1150,10 +1150,10 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "HJW",
-      "model": "MACROSILICON",
-      "name": "DisplayPort-1",
-      "serial": "190530",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
+      "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
@@ -1219,10 +1219,10 @@
   },
   "geometry-of-jobs_dialog_geometry": {
     "frame_geometry": {
-      "height": 550,
+      "height": 582,
       "width": 922,
       "x": 499,
-      "y": 265
+      "y": 233
     },
     "full_screened": false,
     "geometry": {
@@ -1240,7 +1240,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAHzAAABCQAABYwAAAMuAAAB8wAAAQkAAAWMAAADLgAAAAAAAAAAB4AAAAHzAAABCQAABYwAAAMu"
+      "__value__": "AdnQywADAAAAAAHzAAAA6QAABYwAAAMuAAAB8wAAAQkAAAWMAAADLgAAAAAAAAAAB4AAAAHzAAABCQAABYwAAAMu"
     },
     "screen": {
       "depth": 24,
@@ -1270,10 +1270,10 @@
   },
   "geometry-of-k2pdf-main-dialog-geometry": {
     "frame_geometry": {
-      "height": 918,
+      "height": 950,
       "width": 1108,
       "x": 395,
-      "y": 115
+      "y": 83
     },
     "full_screened": false,
     "geometry": {
@@ -1291,7 +1291,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAGLAAAAcwAABd4AAAQIAAABiwAAAHMAAAXeAAAECAAAAAAAAAAAB4AAAAGLAAAAcwAABd4AAAQI"
+      "__value__": "AdnQywADAAAAAAGLAAAAUwAABd4AAAQIAAABiwAAAHMAAAXeAAAECAAAAAAAAAAAB4AAAAGLAAAAcwAABd4AAAQI"
     },
     "screen": {
       "depth": 24,
@@ -1990,8 +1990,8 @@
     "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4gAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAB+AAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
   },
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Archive Library": 11,
-    "/home/mnt/catalin/Calibre Library": 370
+    "/home/mnt/catalin/Calibre Archive Library": 13,
+    "/home/mnt/catalin/Calibre Library": 380
   },
   "main_window_central_widget_state": {
     "layout": "wide",

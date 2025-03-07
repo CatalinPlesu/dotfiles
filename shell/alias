@@ -75,23 +75,6 @@ alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
 alias doc="cd ~/Documents/"
 alias dow="cd ~/Downloads/"
 
-# # labs
-# cd_last_lab() { cd $1 && cd $(\ls -dv */ | grep lab | tail -n 1) }
-#  
-#  # generates alias for all objects; wont cd in latest lab
-# if [ -d ~/mnt/utm ]; then
-#  for an in ~/mnt/utm/*an; do
-#       for sem in $an/*sem; do
-#           for D in $sem/*/; do
-#               obiect=$(basename ${D})
-#               alias $obiect="cd $D" 
-#               alias "${obiect}_"="cd_last_lab $D" 
-#           done
-#           alias $(basename ${sem})="cd $sem"
-#       done
-#  done
-# fi
-
 # edit config
 alias e="bash ~/scripts/edit_config.sh"
 alias h="bash ~/scripts/window_menu.sh"

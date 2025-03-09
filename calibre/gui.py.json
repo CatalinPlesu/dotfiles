@@ -46,7 +46,13 @@
   ],
   "jobs_search_history": [],
   "lrf_viewer_search_history": [],
-  "main_search_history": [],
+  "main_search_history": [
+    "seasons",
+    "ondevice:false",
+    "on-device=false",
+    "on-device=False",
+    "ondevice=False"
+  ],
   "main_window_geometry": null,
   "match_tags_type": "any",
   "new_version_notification": true,

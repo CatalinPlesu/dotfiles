@@ -75,6 +75,6 @@ PROMPT='%F{cyan}%3~%f > '
 
 # eval "$(goenv init -)"
 
-. "$HOME/.atuin/bin/env"
+# . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 

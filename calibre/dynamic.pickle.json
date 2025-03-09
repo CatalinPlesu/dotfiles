@@ -1,4 +1,8 @@
 {
+  "catalogs_to_be_synced": {
+    "__class__": "set",
+    "__value__": []
+  },
   "database location dialog": "/home/mnt/catalin/Calibre Library",
   "sort_history": [
     [
@@ -10,43 +14,35 @@
       true
     ],
     [
-      "#read",
-      true
-    ],
-    [
-      "#mm_annotations",
+      "#priority",
       false
     ],
     [
-      "#mm_annotations",
-      true
-    ],
-    [
-      "#mm_annotations",
+      "ondevice",
       false
     ],
     [
-      "#mm_annotations",
+      "ondevice",
       true
     ],
     [
-      "#mm_annotations",
+      "ondevice",
       false
     ],
     [
-      "#mm_annotations",
+      "ondevice",
       true
-    ],
-    [
-      "timestamp",
-      false
     ],
     [
       "#priority",
       false
     ],
     [
-      "timestamp",
+      "#read",
+      true
+    ],
+    [
+      "#mm_annotations",
       false
     ],
     [

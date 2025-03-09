@@ -3,6 +3,106 @@
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
   },
+  "card_a_view books view state": {
+    "column_alignment": {
+      "size": "center",
+      "timestamp": "center"
+    },
+    "column_positions": {
+      "authors": 2,
+      "collections": 5,
+      "inlibrary": 0,
+      "size": 4,
+      "timestamp": 3,
+      "title": 1
+    },
+    "column_sizes": {
+      "authors": 86,
+      "collections": 96,
+      "inlibrary": 89,
+      "size": 53,
+      "timestamp": 70,
+      "title": 56
+    },
+    "formats_injected": true,
+    "hidden_columns": [],
+    "id_injected": true,
+    "languages_injected": true,
+    "last_modified_injected": true,
+    "path_injected": true,
+    "sort_history": [
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ]
+    ]
+  },
+  "card_b_view books view state": {
+    "column_alignment": {
+      "size": "center",
+      "timestamp": "center"
+    },
+    "column_positions": {
+      "authors": 2,
+      "collections": 5,
+      "inlibrary": 0,
+      "size": 4,
+      "timestamp": 3,
+      "title": 1
+    },
+    "column_sizes": {
+      "authors": 86,
+      "collections": 96,
+      "inlibrary": 89,
+      "size": 53,
+      "timestamp": 70,
+      "title": 56
+    },
+    "formats_injected": true,
+    "hidden_columns": [],
+    "id_injected": true,
+    "languages_injected": true,
+    "last_modified_injected": true,
+    "path_injected": true,
+    "sort_history": [
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ]
+    ]
+  },
   "custom_colors_for_color_dialog": [
     [
       255,
@@ -117,14 +217,14 @@
     },
     "maximized": true,
     "normal_geometry": {
-      "height": 745,
-      "width": 1322,
-      "x": 299,
-      "y": 168
+      "height": 1026,
+      "width": 1920,
+      "x": 0,
+      "y": 28
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQdAAABKwAAAKgAAAZUAAADkAAAAAACAAAAB4AAAAAAAAAAHAAAB38AAAQd"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQdAAAAAAAAABwAAAd/AAAEHQAAAAACAAAAB4AAAAAAAAAAHAAAB38AAAQd"
     },
     "screen": {
       "depth": 24,
@@ -154,7 +254,7 @@
   },
   "grid view visible": false,
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Library": 4
+    "/home/mnt/catalin/Calibre Library": 6
   },
   "main_window_central_widget_state": {
     "layout": "wide",
@@ -185,10 +285,61 @@
       "tag_browser": true
     }
   },
+  "memory_view books view state": {
+    "column_alignment": {
+      "size": "center",
+      "timestamp": "center"
+    },
+    "column_positions": {
+      "authors": 2,
+      "collections": 5,
+      "inlibrary": 0,
+      "size": 4,
+      "timestamp": 3,
+      "title": 1
+    },
+    "column_sizes": {
+      "authors": 350,
+      "collections": 291,
+      "inlibrary": 89,
+      "size": 67,
+      "timestamp": 96,
+      "title": 350
+    },
+    "formats_injected": true,
+    "hidden_columns": [],
+    "id_injected": true,
+    "languages_injected": true,
+    "last_modified_injected": true,
+    "path_injected": true,
+    "sort_history": [
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
+      ]
+    ]
+  },
   "previous_sort_order_BooksView": {
     "#mm_annotations": false,
     "#priority": false,
-    "#read": true
+    "#read": true,
+    "ondevice": false
   },
   "quick_start_guide_added": true,
   "qv_open_at_shutdown": false,

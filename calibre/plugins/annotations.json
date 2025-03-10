@@ -1,0 +1,11 @@
+{
+  "COMMENTS_DIVIDER": "&middot;  &middot;  &bull;  &middot;  &#x2726;  &middot;  &bull;  &middot; &middot;",
+  "HORIZONTAL_RULE": "<hr width='80%' />",
+  "additional_readers": [
+    "path/to/your/reader_class.py"
+  ],
+  "annotated_books_dialog_show_confidence_as_bg_color": false,
+  "cfg_news_clippings_lineEdit": "My News Clippings",
+  "developer_mode": false,
+  "plugin_version": "1.17.13"
+}

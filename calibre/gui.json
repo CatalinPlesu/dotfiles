@@ -1,4 +1,65 @@
 {
+  "Annotations plugin:import annotations dialog": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAAAAAABXgAAB38AAAJwAAAAAAAAAXoAAAd/AAACbwAAAAAAAAAAB4AAAAAAAAABegAAB38AAAJv"
+  },
+  "action-layout-toolbar": [
+    "Add Books",
+    "Edit Metadata",
+    null,
+    "Convert Books",
+    "View",
+    null,
+    "Store",
+    "Donate",
+    "Fetch News",
+    "Help",
+    null,
+    "Preferences",
+    "Remove Books",
+    "Choose Library",
+    "Save To Disk",
+    "Connect Share",
+    "Tweak ePub",
+    "K2pdfopt Plugin",
+    "Annotations"
+  ],
+  "action-layout-toolbar-device": [
+    "Add Books",
+    "Edit Metadata",
+    null,
+    "Convert Books",
+    "View",
+    "Send To Device",
+    null,
+    null,
+    "Location Manager",
+    null,
+    null,
+    "Fetch News",
+    "Save To Disk",
+    "Store",
+    "Connect Share",
+    null,
+    "Remove Books",
+    null,
+    "Help",
+    "Preferences",
+    "K2pdfopt Plugin",
+    "Annotations"
+  ],
+  "annotations plugin:custom column wizard": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAMmAAABkgAABEMAAAIfAAADJgAAAZIAAARDAAACHwAAAAAAAAAAB4AAAAMmAAABkgAABEMAAAIf"
+  },
+  "annotations_preview_dialog": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAALxAAABbgAABHoAAAJ7AAAC8QAAAW4AAAR6AAACewAAAAAAAAAAB4AAAALxAAABbgAABHoAAAJ7"
+  },
+  "appearance_dialog": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAKIAAAArQAABOEAAALqAAACiQAAAMkAAATgAAAC6QAAAAAAAAAAB4AAAAKJAAAAyQAABOAAAALp"
+  },
   "book_list_pin_splitter_state": {
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
@@ -50,6 +111,14 @@
       [
         "timestamp",
         false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
+      [
+        "timestamp",
+        false
       ]
     ]
   },
@@ -81,6 +150,14 @@
     "last_modified_injected": true,
     "path_injected": true,
     "sort_history": [
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
       [
         "timestamp",
         false
@@ -201,6 +278,57 @@
       255
     ]
   ],
+  "geometry-of-Plugin Updater plugin:plugin updater dialog": {
+    "frame_geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 501,
+      "y": 270
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 501,
+      "y": 270
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 501,
+      "y": 270
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAH1AAABDgAABYgAAALzAAAB9QAAAQ4AAAWIAAAC8wAAAAAAAAAAB4AAAAH1AAABDgAABYgAAALz"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
       "height": 1054,
@@ -252,9 +380,213 @@
       }
     }
   },
+  "geometry-of-k2pdf-main-dialog-geometry": {
+    "frame_geometry": {
+      "height": 747,
+      "width": 1066,
+      "x": 417,
+      "y": 100
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 718,
+      "width": 1064,
+      "x": 418,
+      "y": 128
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 718,
+      "width": 1064,
+      "x": 418,
+      "y": 128
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAGhAAAAZAAABcoAAANOAAABogAAAIAAAAXJAAADTQAAAAAAAAAAB4AAAAGiAAAAgAAABckAAANN"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-plugin config dialog:User interface action:Annotations": {
+    "frame_geometry": {
+      "height": 488,
+      "width": 381,
+      "x": 760,
+      "y": 244
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 459,
+      "width": 379,
+      "x": 761,
+      "y": 272
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 459,
+      "width": 379,
+      "x": 761,
+      "y": 272
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAL4AAAA9AAABHQAAALbAAAC+QAAARAAAARzAAAC2gAAAAAAAAAAB4AAAAL5AAABEAAABHMAAALa"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-plugin config dialog:User interface action:K2pdfopt Plugin": {
+    "frame_geometry": {
+      "height": 238,
+      "width": 499,
+      "x": 701,
+      "y": 369
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 209,
+      "width": 497,
+      "x": 702,
+      "y": 397
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 209,
+      "width": 497,
+      "x": 702,
+      "y": 397
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAK9AAABcQAABK8AAAJeAAACvgAAAY0AAASuAAACXQAAAAAAAAAAB4AAAAK+AAABjQAABK4AAAJd"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-preferences dialog geometry": {
+    "frame_geometry": {
+      "height": 749,
+      "width": 932,
+      "x": 484,
+      "y": 113
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 720,
+      "width": 930,
+      "x": 485,
+      "y": 141
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 720,
+      "width": 930,
+      "x": 485,
+      "y": 141
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAHkAAAAcQAABYcAAANdAAAB5QAAAI0AAAWGAAADXAAAAAAAAAAAB4AAAAHlAAAAjQAABYYAAANc"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "grid view visible": false,
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Library": 6
+    "/home/mnt/catalin/Calibre Library": 10
   },
   "main_window_central_widget_state": {
     "layout": "wide",
@@ -313,6 +645,14 @@
     "last_modified_injected": true,
     "path_injected": true,
     "sort_history": [
+      [
+        "timestamp",
+        false
+      ],
+      [
+        "inlibrary",
+        false
+      ],
       [
         "timestamp",
         false

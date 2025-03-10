@@ -1,4 +1,5 @@
 {
+  "Select binary dialog": "/home/mnt/catalin",
   "catalogs_to_be_synced": {
     "__class__": "set",
     "__value__": []
@@ -6,43 +7,31 @@
   "database location dialog": "/home/mnt/catalin/Calibre Library",
   "sort_history": [
     [
-      "#priority",
-      false
-    ],
-    [
-      "#priority",
-      true
-    ],
-    [
-      "#priority",
-      false
-    ],
-    [
-      "ondevice",
-      false
-    ],
-    [
-      "ondevice",
-      true
-    ],
-    [
-      "ondevice",
-      false
-    ],
-    [
-      "ondevice",
-      true
-    ],
-    [
-      "#priority",
-      false
-    ],
-    [
       "#read",
       true
     ],
     [
       "#mm_annotations",
+      false
+    ],
+    [
+      "#mm_annotations",
+      true
+    ],
+    [
+      "#mm_annotations",
+      false
+    ],
+    [
+      "#priority",
+      false
+    ],
+    [
+      "ondevice",
+      false
+    ],
+    [
+      "#priority",
       false
     ],
     [

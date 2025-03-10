@@ -1,0 +1,16 @@
+{
+  "disabled_plugins": {
+    "__class__": "set",
+    "__value__": []
+  },
+  "enabled_plugins": {
+    "__class__": "set",
+    "__value__": []
+  },
+  "filetype_mapping": {},
+  "plugin_customization": {},
+  "plugins": {
+    "Annotations": "/home/catalin/.config/calibre/plugins/Annotations.zip",
+    "K2pdfopt Plugin": "/home/catalin/.config/calibre/plugins/K2pdfopt Plugin.zip"
+  }
+}

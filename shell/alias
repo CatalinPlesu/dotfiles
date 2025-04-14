@@ -95,4 +95,4 @@ alias clo="xsel -ob"
 
 
 # Distrobox
-alias arch='cd /home/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
+alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'

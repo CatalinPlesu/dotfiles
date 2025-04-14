@@ -27,6 +27,8 @@
 !/calibre/**
 !/keyd/
 !/keyd/**
+!/qutebrowser/
+!/qutebrowser/**
 !/QuodLibet/
 !/QuodLibet/**
 !/flameshot/

@@ -1,31 +1,31 @@
 {
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 749,
-      "width": 642,
-      "x": 639,
-      "y": 152
+      "height": 720,
+      "width": 902,
+      "x": 0,
+      "y": 0
     },
     "full_screened": false,
     "geometry": {
       "height": 720,
-      "width": 640,
-      "x": 640,
-      "y": 180
+      "width": 902,
+      "x": 0,
+      "y": 0
     },
     "maximized": false,
     "normal_geometry": {
       "height": 720,
-      "width": 640,
-      "x": 640,
-      "y": 180
+      "width": 902,
+      "x": 0,
+      "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAJ/AAAAmAAABQAAAAOEAAACgAAAALQAAAT/AAADgwAAAAAAAAAAB4AAAAKAAAAAtAAABP8AAAOD"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAA4UAAALPAAAAAAAAAAAAAAOFAAACzwAAAAAAAAAAB4AAAAAAAAAAAAAAA4UAAALP"
     },
     "screen": {
-      "depth": 24,
+      "depth": 32,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
         "height": 1080,
@@ -35,7 +35,7 @@
       },
       "index_in_screens_list": 0,
       "manufacturer": "Lenovo Group Limited",
-      "model": "",
+      "model": "eDP-1-0x40BA",
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
@@ -52,16 +52,66 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAACgAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAAC0AAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAACgAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "session_data": {
+    "base_font_size": 22,
+    "controls_help_shown_count": 2,
+    "read_mode": "paged",
     "standalone_font_settings": {},
     "standalone_misc_settings": {
       "remember_last_read": true,
       "remember_window_geometry": false,
       "save_annotations_in_ebook": true,
       "singleinstance": false
-    }
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "Andrew Aziz"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Andrew Aziz/How to Day Trade for a Living_ Tools, Tactics, Money Management, Discipline and Trading Psychol (696)/How to Day Trade for a Living_ Tools, Tact - Andrew Aziz.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Andrew Aziz/How to Day Trade for a Living_ Tools, Tactics, Money Management, Discipline and Trading Psychol (696)/How to Day Trade for a Living_ Tools, Tact - Andrew Aziz.epub",
+        "timestamp": "2025-04-11T17:14:59.830Z",
+        "title": "How to Day Trade for a Living: Tools, Tactics, Money Management, Discipline and Trading Psychology"
+      },
+      {
+        "key": "/run/media/catalin/utm/UTM/i_an/i_sem/ecd/d/decalog/echivalarea decalogului.odt",
+        "pathtoebook": "/run/media/catalin/utm/UTM/i_an/i_sem/ecd/d/decalog/echivalarea decalogului.odt",
+        "timestamp": "2025-04-08T18:11:45.606Z",
+        "title": "echivalarea decalogului"
+      },
+      {
+        "authors": [
+          "Catalin Plesu"
+        ],
+        "key": "/home/mnt/catalin/UTM/Master/ASS/Plesu Catalin TI-241M - Referat Microservicii.odt",
+        "pathtoebook": "/home/mnt/catalin/UTM/Master/ASS/Plesu Catalin TI-241M - Referat Microservicii.odt",
+        "timestamp": "2025-03-19T15:18:41.931Z",
+        "title": "Plesu Catalin TI-241M"
+      },
+      {
+        "key": "/home/mnt/catalin/UTM/Master/TOR/plesu_catalin_tor.odt",
+        "pathtoebook": "/home/mnt/catalin/UTM/Master/TOR/plesu_catalin_tor.odt",
+        "timestamp": "2025-03-18T15:17:07.263Z",
+        "title": "plesu catalin tor"
+      },
+      {
+        "authors": [
+          "Richard N. Bolles"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Richard Nelson Bolles/What Color Is Your Parachute_ 1992_ A Practical Manual for Job-Hunters and Career-Changers (691)/What Color Is Your Parachute_ 1992_ A Prac - Richard Nelson Bolles.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Richard Nelson Bolles/What Color Is Your Parachute_ 1992_ A Practical Manual for Job-Hunters and Career-Changers (691)/What Color Is Your Parachute_ 1992_ A Prac - Richard Nelson Bolles.epub",
+        "timestamp": "2025-03-12T07:59:05.825Z",
+        "title": "What Color Is Your Parachute?: Your Guide to a Lifetime of Meaningful Work and Career Success"
+      },
+      {
+        "key": "/run/media/catalin/utm/UTM/teza_de_licenta/thesis/documentation/ti206_PlesuCatalin.docx",
+        "pathtoebook": "/run/media/catalin/utm/UTM/teza_de_licenta/thesis/documentation/ti206_PlesuCatalin.docx",
+        "timestamp": "2025-03-11T17:29:47.043Z",
+        "title": "ti206 PlesuCatalin"
+      }
+    ]
   }
 }

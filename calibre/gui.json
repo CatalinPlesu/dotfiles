@@ -60,6 +60,10 @@
     "__class__": "bytearray",
     "__value__": "AdnQywADAAAAAAKIAAAArQAABOEAAALqAAACiQAAAMkAAATgAAAC6QAAAAAAAAAAB4AAAAKJAAAAyQAABOAAAALp"
   },
+  "basic_metadata_widget_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAADAAAA6QAAAWMAAAEKAf////8BAAAAAQA="
+  },
   "book_list_pin_splitter_state": {
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
@@ -331,7 +335,7 @@
   },
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
-      "height": 1054,
+      "height": 1026,
       "width": 1920,
       "x": 0,
       "y": 0
@@ -341,21 +345,21 @@
       "height": 1026,
       "width": 1920,
       "x": 0,
-      "y": 28
+      "y": 0
     },
     "maximized": true,
     "normal_geometry": {
       "height": 1026,
       "width": 1920,
       "x": 0,
-      "y": 28
+      "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQdAAAAAAAAABwAAAd/AAAEHQAAAAACAAAAB4AAAAAAAAAAHAAAB38AAAQd"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQBAAAAAAAAAAAAAAd/AAAEAQAAAAACAAAAB4AAAAAAAAAAAAAAB38AAAQB"
     },
     "screen": {
-      "depth": 24,
+      "depth": 32,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
         "height": 1080,
@@ -365,7 +369,58 @@
       },
       "index_in_screens_list": 0,
       "manufacturer": "Lenovo Group Limited",
-      "model": "",
+      "model": "eDP-1-0x40BA",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-diff_dialog_geom": {
+    "frame_geometry": {
+      "height": 1026,
+      "width": 1920,
+      "x": 0,
+      "y": 0
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1026,
+      "width": 1920,
+      "x": 0,
+      "y": 0
+    },
+    "maximized": true,
+    "normal_geometry": {
+      "height": 1026,
+      "width": 1920,
+      "x": 617,
+      "y": 211
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQBAAACaQAAANMAAAnoAAAE1AAAAAACAAAAB4AAAAAAAAAAAAAAB38AAAQB"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "eDP-1-0x40BA",
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
@@ -417,6 +472,57 @@
       "index_in_screens_list": 0,
       "manufacturer": "Lenovo Group Limited",
       "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-metasingle_window_geometry3": {
+    "frame_geometry": {
+      "height": 1025,
+      "width": 1850,
+      "x": 25,
+      "y": 0
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1025,
+      "width": 1850,
+      "x": 25,
+      "y": 0
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 1025,
+      "width": 1850,
+      "x": 25,
+      "y": 0
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAZAAAAAAAAB1IAAAQAAAAAGQAAAAAAAAdSAAAEAAAAAAAAAAAAB4AAAAAZAAAAAAAAB1IAAAQA"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "eDP-1-0x40BA",
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
@@ -584,9 +690,60 @@
       }
     }
   },
+  "geometry-of-viewer_image_popup_geometry": {
+    "frame_geometry": {
+      "height": 124,
+      "width": 863,
+      "x": 0,
+      "y": 0
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 124,
+      "width": 863,
+      "x": 0,
+      "y": 0
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 124,
+      "width": 863,
+      "x": 0,
+      "y": 0
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAA14AAAB7AAAAAAAAAAAAAANeAAAAewAAAAAAAAAAB4AAAAAAAAAAAAAAA14AAAB7"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "Lenovo Group Limited",
+      "model": "eDP-1-0x40BA",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "grid view visible": false,
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Library": 10
+    "/home/mnt/catalin/Calibre Library": 26
   },
   "main_window_central_widget_state": {
     "layout": "wide",
@@ -679,7 +836,8 @@
     "#mm_annotations": false,
     "#priority": false,
     "#read": true,
-    "ondevice": false
+    "ondevice": false,
+    "timestamp": false
   },
   "quick_start_guide_added": true,
   "qv_open_at_shutdown": false,

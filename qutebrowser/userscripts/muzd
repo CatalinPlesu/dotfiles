@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    muzd -u "$QUTE_URL" -n -s
+else
+    playlist="$(rofi -dmenu -p "Playlist name" -l -0)"
+    muzd -u "$QUTE_URL" -p "$playlist" -n
+fi
+
+
+

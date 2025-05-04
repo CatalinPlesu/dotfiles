@@ -1,6 +1,43 @@
 {
   "k2pdfoptPath": "/home/mnt/catalin/k2pdfopt",
-  "lastUsedSettings": {},
+  "lastUsedSettings": {
+    "input_fmt": "PDF",
+    "k2pdfopt": {
+      "autocrop": false,
+      "autostraighten": false,
+      "break_after": false,
+      "cmdopts": "",
+      "color": false,
+      "conversion_mode": "def",
+      "device": "kol",
+      "dpi": 300,
+      "drf": 0.0,
+      "erase_hl": false,
+      "erase_vl": false,
+      "fixed_font_size": 0.0,
+      "height": [
+        1527,
+        "p"
+      ],
+      "landscape": false,
+      "margins": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_cols": 2,
+      "native": false,
+      "pages": "",
+      "reflow": true,
+      "rtl": false,
+      "width": [
+        1264,
+        "p"
+      ]
+    },
+    "preset_name": ""
+  },
   "postConvertAct": "addFormat",
   "presets": {},
   "schemaVersion": 1.0

@@ -22,7 +22,7 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAA4UAAALPAAAAAAAAAAAAAAOFAAACzwAAAAAAAAAAB4AAAAAAAAAAAAAAA4UAAALP"
+      "__value__": "AdnQywADAAAAAAAAAAAAAAAAA4UAAALPAAAAAAAAAAAAAAOFAAACzwAAAAEAAAAAB4AAAAAAAAAAAAAAA4UAAALP"
     },
     "screen": {
       "depth": 32,
@@ -31,9 +31,9 @@
         "height": 1080,
         "width": 1920,
         "x": 0,
-        "y": 0
+        "y": 1080
       },
-      "index_in_screens_list": 0,
+      "index_in_screens_list": 1,
       "manufacturer": "Lenovo Group Limited",
       "model": "eDP-1-0x40BA",
       "name": "eDP-1",
@@ -43,7 +43,7 @@
         "width": 1920
       },
       "virtual_geometry": {
-        "height": 1080,
+        "height": 2160,
         "width": 1920,
         "x": 0,
         "y": 0
@@ -67,6 +67,33 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "Albert Camus"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Albert Camus/The Myth of Sisyphus and Other Essays (715)/The Myth of Sisyphus and Other Essays - Albert Camus.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Albert Camus/The Myth of Sisyphus and Other Essays (715)/The Myth of Sisyphus and Other Essays - Albert Camus.epub",
+        "timestamp": "2025-05-04T09:51:03.315Z",
+        "title": "The Myth of Sisyphus and Other Essays"
+      },
+      {
+        "authors": [
+          "Peter Seibel"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Peter Seibel/Practical Common Lisp (709)/Practical Common Lisp - Peter Seibel.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Peter Seibel/Practical Common Lisp (709)/Practical Common Lisp - Peter Seibel.epub",
+        "timestamp": "2025-04-28T13:16:05.291Z",
+        "title": "Practical Common Lisp"
+      },
+      {
+        "authors": [
+          "Gary Keller"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Gary Keller/The One Thing (Tamil) (59)/The One Thing (Tamil) - Gary Keller.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Gary Keller/The One Thing (Tamil) (59)/The One Thing (Tamil) - Gary Keller.epub",
+        "timestamp": "2025-04-28T09:57:49.100Z",
+        "title": "The ONE Thing"
+      },
       {
         "authors": [
           "Andrew Aziz"

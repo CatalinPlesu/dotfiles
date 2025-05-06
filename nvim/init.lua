@@ -95,73 +95,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Install plugins
 require("lazy").setup({
-	-- Automatic indentation
-	"tpope/vim-sleuth",
-
 	-- Create directories if they are missing when saving files
 	"jghauser/mkdir.nvim",
-
-	-- Zen mode, distraction free
-	{
-		"folke/zen-mode.nvim",
-		init = function()
-			vim.keymap.set("n", "<leader>Z", ":ZenMode<CR>")
-		end,
-		opts = {
-			window = {
-				backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-				-- height and width can be:
-				-- * an absolute number of cells when > 1
-				-- * a percentage of the width / height of the editor when <= 1
-				-- * a function that returns the width or the height
-				width = 80, -- width of the Zen window
-				height = 1, -- height of the Zen window
-				-- by default, no options are changed for the Zen window
-				-- uncomment any of the options below, or add other vim.wo options you want to apply
-				options = {
-					signcolumn = "no", -- disable signcolumn
-					number = false, -- disable number column
-					relativenumber = false, -- disable relative numbers
-					cursorline = false, -- disable cursorline
-					cursorcolumn = false, -- disable cursor column
-					foldcolumn = "0", -- disable fold column
-					list = false, -- disable whitespace characters
-				},
-			},
-			plugins = {
-				-- disable some global vim options (vim.o...)
-				-- comment the lines to not apply the options
-				options = {
-					enabled = true,
-					ruler = false, -- disables the ruler text in the cmd line area
-					showcmd = false, -- disables the command in the last line of the screen
-					-- you may turn on/off statusline in zen mode by setting 'laststatus'
-					-- statusline will be shown only if 'laststatus' == 3
-					laststatus = 0, -- turn off the statusline in zen mode
-				},
-				twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-				gitsigns = { enabled = false }, -- disables git signs
-				tmux = { enabled = true }, -- disables the tmux statusline
-				-- this will change the font size on kitty when in zen mode
-				-- to make this work, you need to set the following kitty options:
-				-- - allow_remote_control socket-only
-			},
-			-- callback where you can add custom code when the Zen window opens
-			on_open = function(win) end,
-			-- callback where you can add custom code when the Zen window closes
-			on_close = function() end,
-		},
-	},
-
-	-- Twilight, fade unfocused text
-	{
-		"folke/twilight.nvim",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-	},
 
 	-- Mini plugins
 	{
@@ -174,37 +109,9 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Git & GitHub plugins
-	"tpope/vim-rhubarb",
-	{
-		"tpope/vim-fugitive",
-		init = function()
-			vim.keymap.set("n", "<leader>G", ":Git<CR>")
-		end,
-	},
-
 	-- Easy commenting in normal & visual mode
 	{ "numToStr/Comment.nvim", lazy = false },
 
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "williamboman/mason.nvim", config = true },
-			"williamboman/mason-lspconfig.nvim",
-		},
-	},
-
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-		},
-	},
 
 	-- Fuzzy finder
 	{
@@ -277,22 +184,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Tree file explorer
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup({
-				update_focused_file = { enable = true },
-				vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>"),
-			})
-		end,
-	},
-
 	-- Surround words with characters in normal mode
 	{
 		"kylechui/nvim-surround",
@@ -306,20 +197,6 @@ require("Comment").setup()
 -- Set up Lualine
 require("lualine").setup({
 	options = { theme = "gruvbox" },
-})
-
--- Set up Mason and install set up language servers
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-require("mason-lspconfig").setup_handlers({
-	function(server_name)
-		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
-		})
-	end,
 })
 
 -- Global LSP mappings
@@ -343,48 +220,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Set up nvim-cmp
-local luasnip = require("luasnip")
-local cmp = require("cmp")
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-	}),
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-	},
-})
-
 -- Define a custom command in your `init.lua` or a plugin
 vim.api.nvim_create_user_command('ClipboardCompare', function()
   vim.cmd('diffthis')
@@ -403,11 +238,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
--- Set langmap option for keyboard layout remapping
--- ASSET --> QWERTY
--- qwjfgypul;asetdhniorzxcvbkm,./
--- qwertyuiopasdfghjkl;zxcvbnm,./
--- local langmap_parts = {
--- 	'je', 'fr', 'gt', 'pu', 'ui', 'lo', '\\;p', 'ed', 'tf', 'dg', 'nj', 'ik', 'ol', 'R\\:', '\\:R','kn'
--- }
--- vim.opt.langmap = table.concat(langmap_parts, ',')

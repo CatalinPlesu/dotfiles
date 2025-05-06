@@ -1,4 +1,5 @@
 #!/bin/sh
+alias fd='fdfind'
 alias ls='eza'
 alias l='ls -l'
 alias la='ls -a'

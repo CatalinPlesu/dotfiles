@@ -77,4 +77,4 @@ PROMPT='%F{cyan}%3~%f > '
 
 # . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
-
+eval "$(pyenv init --path)"

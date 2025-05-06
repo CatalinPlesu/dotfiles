@@ -1,4 +1,5 @@
 export PATH=/home/catalin/scripts:$PATH
+export PATH=/home/catalin/.atuin/bin:$PATH
 # export PATH=$PATH:/home/catalin/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/catalin/.local/share/cargo/bin
 # export PATH=$PATH:/home/catalin/.local/share/go/bin

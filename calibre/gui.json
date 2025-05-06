@@ -393,28 +393,28 @@
   },
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 1080
+      "height": 1070,
+      "width": 1876,
+      "x": -11,
+      "y": -49
     },
     "full_screened": false,
     "geometry": {
-      "height": 1026,
-      "width": 1920,
+      "height": 1010,
+      "width": 1854,
       "x": 0,
-      "y": 1080
+      "y": 0
     },
     "maximized": true,
     "normal_geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 27
+      "height": 1010,
+      "width": 1854,
+      "x": 22,
+      "y": 5
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAEOAAAB38AAAg5AAAAAAAAABsAAAd/AAAEHAAAAAECAAAAB4AAAAAAAAAEOAAAB38AAAg5"
+      "__value__": "AdnQywADAAD////1////zwAAB0gAAAP8AAAAFgAAAAUAAAdTAAAD9gAAAAACAAAAB4AAAAAAAAAAAAAABz0AAAPx"
     },
     "screen": {
       "depth": 32,
@@ -423,11 +423,11 @@
         "height": 1080,
         "width": 1920,
         "x": 0,
-        "y": 1080
+        "y": 0
       },
-      "index_in_screens_list": 1,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "eDP-1-0x40BA",
+      "index_in_screens_list": 0,
+      "manufacturer": "LEN",
+      "model": "0x40ba",
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
@@ -435,7 +435,7 @@
         "width": 1920
       },
       "virtual_geometry": {
-        "height": 2160,
+        "height": 1080,
         "width": 1920,
         "x": 0,
         "y": 0
@@ -531,6 +531,57 @@
       "manufacturer": "Lenovo Group Limited",
       "model": "eDP-1-0x40BA",
       "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 2160,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-edit-open-with-programs-geometry": {
+    "frame_geometry": {
+      "height": 460,
+      "width": 622,
+      "x": 606,
+      "y": 216
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 400,
+      "width": 600,
+      "x": 617,
+      "y": 265
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 400,
+      "width": 600,
+      "x": 617,
+      "y": 265
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAJeAAAA2AAABMsAAAKjAAACaQAAAQkAAATAAAACmAAAAAAAAAAAB4AAAAJpAAABCQAABMAAAAKY"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "SAM",
+      "model": "S24C31x",
+      "name": "DP-2",
       "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
@@ -648,15 +699,15 @@
   },
   "geometry-of-k2pdf-main-dialog-geometry": {
     "frame_geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 0
+      "height": 1048,
+      "width": 1854,
+      "x": -3,
+      "y": -30
     },
     "full_screened": false,
     "geometry": {
-      "height": 1026,
-      "width": 1920,
+      "height": 1015,
+      "width": 1848,
       "x": 0,
       "y": 0
     },
@@ -665,11 +716,11 @@
       "height": 1026,
       "width": 1920,
       "x": 0,
-      "y": 0
+      "y": 27
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAB38AAAQBAAAAAAAAAAAAAAd/AAAEAQAAAAACAAAAB4AAAAAAAAAAAAAAB38AAAQB"
+      "__value__": "AdnQywADAAD////9////4gAABzoAAAP5AAAAAAAAABsAAAd/AAAEHAAAAAACAAAAB4AAAAAAAAAAAAAABzcAAAP2"
     },
     "screen": {
       "depth": 32,
@@ -681,16 +732,16 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "eDP-1-0x40BA",
-      "name": "eDP-1",
+      "manufacturer": "SAM",
+      "model": "S24C31x",
+      "name": "DP-2",
       "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
         "width": 1920
       },
       "virtual_geometry": {
-        "height": 1080,
+        "height": 2160,
         "width": 1920,
         "x": 0,
         "y": 0
@@ -1060,7 +1111,7 @@
     "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
   },
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Library": 42
+    "/home/mnt/catalin/Calibre Library": 56
   },
   "main_window_central_widget_state": {
     "layout": "wide",

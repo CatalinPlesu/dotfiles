@@ -1,0 +1,88 @@
+{
+  "entries": {
+    "epub": [
+      {
+        "Categories": "Office;Viewer;",
+        "Comment": "Read and manage eBooks",
+        "Exec": [
+          "com.github.babluboy.bookworm",
+          "%F"
+        ],
+        "GenericName": "eBook Reader",
+        "Icon": "/usr/share/icons/hicolor/128x128/apps/com.github.babluboy.bookworm.svg",
+        "Keywords": "Bookworm;Ebook;Reader;Epub;Mobi;Comic;Cbr;Cbz;Pdf;",
+        "MimeType": [
+          "",
+          "application/fb2+zip",
+          "application/x-pdf",
+          "application/epub+zip",
+          "application/pdf",
+          "application/x-cbz",
+          "application/fb2+xml",
+          "application/cbr"
+        ],
+        "Name": "Bookworm",
+        "Terminal": "false",
+        "Type": "Application",
+        "X-GNOME-Gettext-Domain": "bookworm",
+        "desktop_file_path": "/usr/share/applications/com.github.babluboy.bookworm.desktop",
+        "icon_data": {
+          "__class__": "bytearray",
+          "__value__": "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"
+        },
+        "uuid": "616fcb57-040e-4e5d-81d2-935b0534549e"
+      }
+    ]
+  },
+  "geometry-of-choose-open-with-program-dialog-geometry": {
+    "frame_geometry": {
+      "height": 560,
+      "width": 622,
+      "x": -11,
+      "y": -49
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 500,
+      "width": 600,
+      "x": 0,
+      "y": 0
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 500,
+      "width": 600,
+      "x": 0,
+      "y": 0
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAD////1////zwAAAmIAAAH+AAAAAAAAAAAAAAJXAAAB8wAAAAAAAAAAB4AAAAAAAAAAAAAAAlcAAAHz"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "SAM",
+      "model": "S24C31x",
+      "name": "DP-2",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1080,
+        "width": 1920
+      },
+      "virtual_geometry": {
+        "height": 2160,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}

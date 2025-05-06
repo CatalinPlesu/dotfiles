@@ -230,15 +230,14 @@ require("lazy").setup({
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = "all",
-				highlight = { enable = true },
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+				highlight = {
+					enable = true,
+					additional_vim_regex_highlighting = false,
+				},
 				indent = {
 					enable = true,
-					disable = {
-						"dart",
-					}
 				},
-				autotag = { enable = true, enable_close_on_slash = false },
 			})
 		end,
 	},

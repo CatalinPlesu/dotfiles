@@ -1,13 +1,41 @@
 # Lines configured by zsh-newuser-install
 
+# ✅ Ensure Zinit is installed and initialized correctly
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [[ ! -d $ZINIT_HOME ]]; then
+  echo "Installing Zinit..."
+  if bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
+    echo "Running initial Zinit self-update..."
+    zsh -ic 'zinit self-update'
+  else
+    echo "❌ Zinit installation failed" >&2
+  fi
+fi
+
+# Load Zinit
+if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+  source "${ZINIT_HOME}/zinit.zsh"
+else
+  echo "❌ Zinit not found in $ZINIT_HOME" >&2
+  return 1
+fi
+
+# Quick sanity check
+if ! command -v zinit &>/dev/null; then
+  echo "❌ zinit command not available after sourcing" >&2
+  return 1
+fi
+
+# Run self-update to finalize installation
+zinit self-update &>/dev/null || echo "⚠️ zinit self-update failed, proceed with caution"
+
+
 setopt AUTO_CD
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-# Source plugins
-for f in ~/.config/zsh/plugins/*; do source "$f"; done
 
 autoload -U compinit && compinit -u
 zstyle ':completion:*' menu select
@@ -66,8 +94,6 @@ source ~/.config/shell/alias
 source ~/.config/shell/env
 #sh ~/.config/shell/tty # zsh if is different ;(
 
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # eval "$(starship init zsh)"
 PROMPT='%F{cyan}%3~%f > '
 
@@ -77,27 +103,11 @@ PROMPT='%F{cyan}%3~%f > '
 
 # . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
+. "$HOME/.local/share/../bin/env"
 
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
 
-### End of Zinit's installer chunk
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting

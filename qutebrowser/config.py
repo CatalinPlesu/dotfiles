@@ -18,6 +18,9 @@ c.fonts.default_size = "15pt"
 c.downloads.position = 'bottom'
 c.zoom.default = "100%"
 
+# aliases
+c.aliases['e'] = 'session-load'
+
 
 c.url.default_page = "~/.config/qutebrowser/startpage/index.html"
 c.url.start_pages = ["https://en.wikipedia.org/wiki/Special:Random"]

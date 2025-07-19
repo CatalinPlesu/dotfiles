@@ -19,7 +19,7 @@ done
 # save
 if [ ! -z "$s_flag" ]; then
     if [ -z "$file_flag" ]; then
-        file_val=$(ls $bookmarks_dir | wofi -dmenu -p "save link in")
+        file_val=$(ls $bookmarks_dir | rofi -dmenu -p "save link in")
     fi
 
     if ! [ -f $file_val ]; then
@@ -36,11 +36,11 @@ if [ ! -z "$O_flag" ] || [ ! -z "$o_flag" ]; then
     fi
 
     if [ -z "$file_flag" ] || [ ! -f "$bookmarks_dir$file_val" ]; then
-        file_val=$(ls $bookmarks_dir | wofi -dmenu -p "open")
+        file_val=$(ls $bookmarks_dir | rofi -dmenu -p "open")
     fi
 
     if [ -f "$bookmarks_dir$file_val" ]; then
-        url_val=$(cat "$bookmarks_dir$file_val" | wofi -dmenu -p "$file_val")
+        url_val=$(cat "$bookmarks_dir$file_val" | rofi -dmenu -p "$file_val")
 
         if [ ! -z "$url_val" ]; then
             echo "open $tab_val $url_val" >> "$QUTE_FIFO"

@@ -9,4 +9,4 @@ settings:
   completion.shrink:
     global: true
   tabs.position:
-    global: left
+    global: top

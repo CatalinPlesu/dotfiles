@@ -13,6 +13,8 @@
 !/kitty/**
 !/nvim/
 !/nvim/**
+!/nvim.back/
+!/nvim.back/**
 !/shell/
 !/shell/**
 !/starship/

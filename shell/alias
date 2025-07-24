@@ -1,5 +1,4 @@
 #!/bin/sh
-alias fd='fdfind'
 alias ls='eza'
 alias l='ls -l'
 alias la='ls -a'
@@ -23,20 +22,8 @@ alias lls='ls | lolcat'
 alias ltop='htop | lolcat'
 alias cls='lah | lolcrab -i'
 
-alias ss='apt search'
-alias s='sudo apt install'
-
-alias r='ranger'
-
-alias sc='sudo systemctl'
-alias sct='systemctl status'
-alias scs='sudo systemctl start'
-alias sce='sudo systemctl enable'
-alias scE='sudo systemctl enable --now'
-alias scr='sudo systemctl restart'
-alias scD='sudo systemctl disable --now'
-alias scd='sudo systemctl disable'
-alias scS='sudo systemctl stop'
+alias ss='yay -Ss'
+alias s='yay -S'
 
 alias gad='git add'
 alias gst='git status'

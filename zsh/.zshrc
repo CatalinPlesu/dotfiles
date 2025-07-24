@@ -114,3 +114,4 @@ zinit light zsh-users/zsh-autosuggestions
 bindkey '^y' autosuggest-accept
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light agkozak/zsh-z
+zinit light fdellwing/zsh-bat

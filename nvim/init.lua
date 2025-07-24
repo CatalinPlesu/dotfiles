@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
@@ -149,14 +149,27 @@ vim.o.splitbelow = true
 --  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
-vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.o.list = false
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = "eol:¶,tab:<->,space:°,trail:#,extends:>,precedes:<"
+
+-- colorize the listchars
+vim.cmd([[
+  highlight NonText guifg=#d02dd2
+  highlight Whitespace guifg=#00ffff
+  highlight SpecialKey guifg=#c678dd
+]])
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.o.cursorline = true
+
+-- Show oh on which column you are on, crosshair
+vim.opt.cursorcolumn = true
+
+vim.opt.colorcolumn = "80,120,160"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -165,6 +178,11 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- Wrap off by default
+vim.wo.wrap = false
+-- Wrap entire word when wraping
+vim.wo.linebreak = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -256,17 +274,6 @@ require("lazy").setup({
 	-- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
 	--
 
-	-- Alternatively, use `config = function() ... end` for full control over the configuration.
-	-- If you prefer to call `setup` explicitly, use:
-	--    {
-	--        'lewis6991/gitsigns.nvim',
-	--        config = function()
-	--            require('gitsigns').setup({
-	--                -- Your gitsigns configuration here
-	--            })
-	--        end,
-	--    }
-	--
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`.
 	--
@@ -575,7 +582,7 @@ require("lazy").setup({
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
-					---@param bufnr? integer some lsp support methods only in specific files
+					---@param bufnr? integecopeFuzzyCommandSearch) some lsp support methods only in specific files
 					---@return boolean
 					local function client_supports_method(client, method, bufnr)
 						if vim.fn.has("nvim-0.11") == 1 then
@@ -888,10 +895,11 @@ require("lazy").setup({
 	},
 
 	{
-		"luisiacc/gruvbox-baby",
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+
 		config = function()
-			vim.cmd.colorscheme("gruvbox-baby")
-			vim.g.gruvbox_baby_telescope_theme = 1
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
@@ -958,6 +966,8 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
+				"heex",
+				"elixir",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,

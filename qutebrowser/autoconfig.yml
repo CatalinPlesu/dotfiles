@@ -6,7 +6,15 @@
 
 config_version: 2
 settings:
+  colors.webpage.bg:
+    global: black
+  colors.webpage.darkmode.enabled:
+    global: false
   completion.shrink:
     global: true
+  content.javascript.clipboard:
+    https://chat.qwen.ai: access-paste
+  statusbar.show:
+    global: always
   tabs.position:
-    global: top
+    global: left

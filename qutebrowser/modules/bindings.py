@@ -1,3 +1,10 @@
+keys_to_unbind = [
+    'b',  # open quickmark prompt
+]
+
+for key in keys_to_unbind:
+    config.unbind(key)
+
 bindings = {
     "co": "download-open",
     "ad": "nop",
@@ -55,15 +62,21 @@ bindings = {
     "xr": "hint all right-click",
     "xh": "hint all hover",
 
-    "aS": "spawn --userscript unified_links.sh -s",
-    "asa": "spawn --userscript unified_links.sh -s -f artists",
-    "asr": "spawn --userscript unified_links.sh -s -f read_list",
-    "asg": "spawn --userscript unified_links.sh -s -f gamedev",
-    "ar": "spawn --userscript unified_links.sh -r",
-    "ao": "spawn --userscript unified_links.sh -o",
-    "aO": "spawn --userscript unified_links.sh -O",
-    "<Ctrl-t>": "spawn --userscript random_page.sh" 
-
+    "bs": "spawn --userscript bookmarks.py --save",
+    "bsa": "spawn --userscript bookmarks.py --save --file artists",
+    "bsr": "spawn --userscript bookmarks.py --save --file read_list",
+    "bsg": "spawn --userscript bookmarks.py --save --file gamedev",
+    "br": "spawn --userscript bookmarks.py --remove",
+    "bo": "spawn --userscript bookmarks.py --open",
+    "boa": "spawn --userscript bookmarks.py --open --file artists",
+    "bor": "spawn --userscript bookmarks.py --open --file read_list",
+    "bog": "spawn --userscript bookmarks.py --open --file gamedev",
+    "bO": "spawn --userscript bookmarks.py --new-tab",
+    "bOa": "spawn --userscript bookmarks.py --new-tab --file artists",
+    "bOr": "spawn --userscript bookmarks.py --new-tab --file read_list",
+    "bOg": "spawn --userscript bookmarks.py --new-tab --file gamedev",
+    "ba": "spawn --userscript bookmarks.py --random artists",
 }
+
 for key, bind in bindings.items():
     config.bind(key, bind)

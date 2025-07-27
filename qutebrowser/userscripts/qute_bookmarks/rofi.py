@@ -1,18 +1,23 @@
-from typing import List, Optional, Union, Callable, Tuple, Any
+from typing import List, Optional, Union, Callable, Tuple, Any, Dict
 import subprocess
-import sys
-import os
+
 
 class Rofi:
     def __init__(self):
         self.is_on = False
 
-    def dmenu(self, 
-             prompt: str, 
-             options: List[str], 
-             allow_custom: bool = False) -> Optional[str]:
-        """Original rofi dmenu implementation"""
-        cmd = ["rofi", "-dmenu", "-i", "-p", prompt]
+    def dmenu(self,
+              prompt: str,
+              options: List[str],
+              allow_custom: bool = False) -> Tuple[Optional[str], int]:
+        """Rofi dmenu with support for Shift+H and Shift+L"""
+        cmd = [
+            "rofi", "-dmenu", "-i", "-p", prompt,
+            "-kb-move-char-back", "",
+            "-kb-move-char-forward", "",
+            "-kb-custom-1", "Left",
+            "-kb-custom-2", "Right"
+        ]
         if allow_custom:
             cmd.extend(["-mesg", "Type custom value and press Enter"])
         input_text = "\n".join(options) if options else ""
@@ -23,54 +28,63 @@ class Rofi:
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
-        if proc.returncode == 0:
-            return proc.stdout.strip()
-        return None
+        selected = proc.stdout.strip() if proc.stdout else None
+        return selected, proc.returncode
 
     def show_menu(self,
-                 items: List[Union[
-                     str,
-                     Tuple[str, Callable],
-                     Tuple[str, Callable, Tuple[Any, ...]]
-                 ]],
-                 prompt: str = "Select:",
-                 allow_custom: bool = False) -> Optional[str]:
+                  items: List[Union[
+                      str,
+                      Tuple[str, Callable],  # default enter
+                      # enter, shift+h, shift+l
+                      Tuple[str, Callable, Callable, Callable],
+                      Tuple[str, Callable, Callable, Callable, Tuple[Any, ...],
+                            Tuple[Any, ...], Tuple[Any, ...]]  # full
+                  ]],
+                  prompt: str = "Select:",
+                  allow_custom: bool = False) -> Optional[str]:
         """
-        Enhanced menu with callback support
-        
-        Args:
-            items: List of either:
-                  - str (display text only)
-                  - (str, Callable) (display text and callback)
-                  - (str, Callable, tuple) (display text, callback, and arguments)
-            prompt: Menu prompt text
-            allow_custom: Whether to allow custom user input
-            
-        Returns:
-            The selected display text or custom input
+        Enhanced menu with support for Enter, Shift+H and Shift+L callbacks.
+
+        Each item can be:
+            - str
+            - (text, enter_cb)
+            - (text, enter_cb, shift_h_cb, shift_l_cb)
+            - (text, enter_cb, shift_h_cb, shift_l_cb, enter_args, h_args, l_args)
         """
-        # Extract display texts
         display_options = []
-        callbacks = {}
-        
+        callback_map: Dict[str, Tuple[Optional[Callable], Optional[Callable],
+                                      Optional[Callable], Tuple[Any, ...], Tuple[Any, ...], Tuple[Any, ...]]] = {}
+
         for item in items:
             if isinstance(item, str):
                 display_options.append(item)
-            elif len(item) == 2:  # (text, callback)
-                text, callback = item
+                callback_map[item] = (None, None, None, (), (), ())
+            elif len(item) == 2:
+                text, enter_cb = item
                 display_options.append(text)
-                callbacks[text] = (callback, ())
-            elif len(item) >= 3:  # (text, callback, args)
-                text, callback, *args = item
+                callback_map[text] = (enter_cb, None, None, (), (), ())
+            elif len(item) == 4:
+                text, enter_cb, h_cb, l_cb = item
                 display_options.append(text)
-                callbacks[text] = (callback, args[0] if args else ())
-        
-        # Show menu
-        selected = self.dmenu(prompt, display_options, allow_custom)
-        
-        # Execute callback if exists
-        if selected in callbacks:
-            callback, args = callbacks[selected]
-            callback(*args)
-        
+                callback_map[text] = (enter_cb, h_cb, l_cb, (), (), ())
+            elif len(item) >= 7:
+                text, enter_cb, h_cb, l_cb, enter_args, h_args, l_args = item
+                display_options.append(text)
+                callback_map[text] = (
+                    enter_cb, h_cb, l_cb, enter_args, h_args, l_args)
+
+        selected, code = self.dmenu(prompt, display_options, allow_custom)
+
+        if not selected or selected not in callback_map:
+            return None
+
+        enter_cb, h_cb, l_cb, enter_args, h_args, l_args = callback_map[selected]
+
+        if code == 0 and enter_cb:
+            enter_cb(*enter_args)
+        elif code == 10 and h_cb:
+            h_cb(*h_args)
+        elif code == 11 and l_cb:
+            l_cb(*l_args)
+
         return selected

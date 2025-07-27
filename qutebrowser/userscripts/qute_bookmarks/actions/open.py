@@ -52,12 +52,11 @@ def prepare_items(x):
     e, t = x
     display = e.name if len(e.name) > 0 else e.url
     if t == "folder":
-        return (f"📁 {display}", open_collection, (e,))
+        return (f"📁 {display}", open_collection,  go_back, open_collection, (e,), (), (e,))
     else:
-        return (f"🔗 {display}", open_url, (e,))
-
-
+        return (f"🔗 {display}", open_url, go_back, open_url, (e,), (), (e,))
 # --- Your Callback Functions (accessing params from sm.context) ---
+
 
 def open_callback(sm: StateMachine) -> OpenAction:
     print(f"State: {sm.current_state}")
@@ -72,8 +71,8 @@ def open_callback(sm: StateMachine) -> OpenAction:
     items_list = [prepare_items(x) for x in items]
 
     custom_items = [
-        ("❌ QUIT", a_quit, ()),
-        ("❎ BACK", go_back, ()),
+        ("❌ QUIT", a_quit, go_back, a_quit),
+        ("❎ BACK", go_back, go_back, go_back),
     ]
     rofi.show_menu(custom_items + items_list)
 
@@ -114,5 +113,7 @@ def run(**kwargs):  # Accepts **kwargs
     new_tab = kwargs['new_tab']
     global new_window
     new_window = kwargs['new_window']
+    # Run the state machine, passing parameters to its run method
+    sm.run(**kwargs)
     # Run the state machine, passing parameters to its run method
     sm.run(**kwargs)

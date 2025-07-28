@@ -6,6 +6,14 @@
 
 config_version: 2
 settings:
+  colors.tabs.selected.even.bg:
+    global: '#d79921'
+  colors.tabs.selected.even.fg:
+    global: '#000'
+  colors.tabs.selected.odd.bg:
+    global: '#d79921'
+  colors.tabs.selected.odd.fg:
+    global: '#000'
   colors.webpage.bg:
     global: white
   colors.webpage.darkmode.enabled:
@@ -16,6 +24,8 @@ settings:
     global: access
     https://chat.qwen.ai: access-paste
     https://chatgpt.com: access-paste
+  content.pdfjs:
+    global: true
   statusbar.show:
     global: always
   tabs.position:

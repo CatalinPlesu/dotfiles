@@ -42,7 +42,7 @@
               "url": "https://999.md/ro/search?query=test",
               "created_date": "2025-07-28",
               "last_accessed_date": "2025-07-28",
-              "accessed_count": 0
+              "accessed_count": 1
             },
             {
               "name": "Land Rover Range Rover an. 2013 cu rulaj 193496 km, Diesel, 45499 \u20ac",
@@ -56,14 +56,14 @@
               "url": "https://999.md/ro/101718060",
               "created_date": "2025-07-28",
               "last_accessed_date": "2025-07-28",
-              "accessed_count": 0
+              "accessed_count": 1
             },
             {
               "name": "Margarita Levieva - Wikipedia",
               "url": "https://en.wikipedia.org/wiki/Margarita_Levieva",
               "created_date": "2025-07-28",
               "last_accessed_date": "2025-07-28",
-              "accessed_count": 0
+              "accessed_count": 1
             }
           ]
         }
@@ -80,7 +80,7 @@
         "url": "https://999.md/ro/search?query=abc",
         "created_date": "2025-07-28",
         "last_accessed_date": "2025-07-28",
-        "accessed_count": 0
+        "accessed_count": 3
       },
       {
         "name": "abcdac - Google Maps",
@@ -101,7 +101,7 @@
         "url": "https://www.google.com/maps/place/Libya/@39.4215599,-35.1512662,4z/data=!4m9!1m2!2m1!1sabcdac!3m5!1s0x13a892d98ece010d:0xfa076041c7f9c22a!8m2!3d26.3351!4d17.228331!16zL20vMDRncXI?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
         "created_date": "2025-07-28",
         "last_accessed_date": "2025-07-28",
-        "accessed_count": 0
+        "accessed_count": 2
       }
     ]
   }

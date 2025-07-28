@@ -15,4 +15,5 @@ def run(**kwargs):
     new_window = kwargs.get('new_window', False)
 
     entity = lib.get_random_entity(focuspath)
-    qb.open_url(entity.url, new_tab=new_tab, new_window=new_window)
+    qb.open_url(entity.access_url(), new_tab=new_tab, new_window=new_window)
+    lib.save_to_file(BOOKMARKS_FILE)

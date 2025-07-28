@@ -33,7 +33,7 @@ def open_collection(entity: Entity):
 def open_url(entity: Entity):
     global next
     next = OpenAction.URL
-    qb.open_url(entity.url, new_tab=new_tab, new_window=new_window)
+    qb.open_url(entity.access_url(), new_tab=new_tab, new_window=new_window)
 
 
 def a_quit():
@@ -54,7 +54,7 @@ def prepare_items(x):
     if t == "folder":
         return (f"📁 {display}", open_collection,  go_back, open_collection, (e,), (), (e,))
     else:
-        return (f"🔗 {display}", open_url, go_back, open_url, (e,), (), (e,))
+        return (f"🔗 (c:{e.accessed_count}) {display}", open_url, go_back, open_url, (e,), (), (e,))
 # --- Your Callback Functions (accessing params from sm.context) ---
 
 
@@ -115,5 +115,4 @@ def run(**kwargs):  # Accepts **kwargs
     new_window = kwargs['new_window']
     # Run the state machine, passing parameters to its run method
     sm.run(**kwargs)
-    # Run the state machine, passing parameters to its run method
-    sm.run(**kwargs)
+    lib.save_to_file(BOOKMARKS_FILE)

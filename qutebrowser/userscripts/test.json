@@ -1,6 +1,6 @@
 {
   "root": {
-    "ordering_strategy": "name",
+    "ordering_strategy": "created",
     "sort_by": "asc",
     "children": [
       {
@@ -87,7 +87,7 @@
         "url": "https://www.google.com/maps/search/abcdac",
         "created_date": "2025-07-28",
         "last_accessed_date": "2025-07-28",
-        "accessed_count": 0
+        "accessed_count": 1
       },
       {
         "name": "France - Google Maps",

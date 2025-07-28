@@ -19,6 +19,7 @@ import qute_bookmarks.actions.open as open
 import qute_bookmarks.actions.save as save
 import qute_bookmarks.actions.remove as remove
 import qute_bookmarks.actions.random as random
+import qute_bookmarks.actions.list_all as list_all
 
 # Ensure data directory exists
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -51,6 +52,8 @@ def main():
                         help="Removes entity's children as well")
     parser.add_argument("--random", action="store_true",
                         help="Open random url")
+    parser.add_argument("--list_all", action="store_true",
+                        help="List all url's in a flat menu")
 
     args = parser.parse_args()
 
@@ -62,7 +65,6 @@ def main():
         if args.open:
             open.run(focuspath=args.focuspath, new_tab=args.new_tab,
                      new_window=args.new_window)
-
         if args.save:
             save.run(focuspath=args.focuspath)
 
@@ -72,6 +74,8 @@ def main():
         if args.random:
             random.run(focuspath=args.focuspath,
                        new_tab=args.new_tab, new_window=args.new_window)
+        if args.list_all:
+            list_all.run(new_tab=args.new_tab, new_window=args.new_window)
 
     except e:
         print(f"Exception: {e}")

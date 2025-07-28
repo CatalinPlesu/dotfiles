@@ -2,6 +2,7 @@ from datetime import datetime, date
 from typing import Optional, List, Dict, Any
 from enum import Enum
 import json
+import random
 
 
 class OrderingStrategy(Enum):
@@ -62,6 +63,22 @@ class EntityCollection:
 
         self.children = new_children
         return removed_any
+
+    def get_all_entities_with_urls(self) -> List['Entity']:
+        """Recursively collect all entities that have non-empty URLs"""
+        entities_with_urls = []
+
+        for child in self.children:
+            # Add current entity if it has a URL
+            if child.url and child.url.strip():
+                entities_with_urls.append(child)
+
+            # Recursively check children if collection exists
+            if child.collection:
+                entities_with_urls.extend(
+                    child.collection.get_all_entities_with_urls())
+
+        return entities_with_urls
 
     def _to_dict(self) -> Dict[str, Any]:
         return {
@@ -260,6 +277,97 @@ class BookmarkLibrary:
             return self.current_collection.list_items()
         return []
 
+    def get_random_url(self, focuspath: Optional[str] = None) -> Optional[str]:
+        """
+        Return a random URL from entities with URLs across hierarchies.
+
+        Args:
+            focuspath: Optional path to limit random selection to entities within 
+                      this hierarchy. If None, selects from all entities.
+
+        Returns:
+            Random URL string or None if no entities with URLs found
+        """
+        if focuspath:
+            # Get collection at focus path
+            original_collection = self.current_collection
+            original_path = self.current_path
+            original_history = self._history_stack.copy()
+
+            focus_collection = self.focus_on_path(focuspath)
+            if focus_collection is None:
+                # Restore original state
+                self.current_collection = original_collection
+                self.current_path = original_path
+                self._history_stack = original_history
+                print(f"Invalid focus path: {focuspath}")
+                return None
+
+            # Get entities with URLs from focus path
+            entities_with_urls = focus_collection.get_all_entities_with_urls()
+
+            # Restore original state
+            self.current_collection = original_collection
+            self.current_path = original_path
+            self._history_stack = original_history
+        else:
+            # Get all entities with URLs from root
+            entities_with_urls = self.root.get_all_entities_with_urls()
+
+        if not entities_with_urls:
+            print("No entities with URLs found" +
+                  (f" in path '{focuspath}'" if focuspath else ""))
+            return None
+
+        # Select random entity and return its URL
+        random_entity = random.choice(entities_with_urls)
+        return random_entity.url
+
+    def get_random_entity(self, focuspath: Optional[str] = None) -> Optional[Entity]:
+        """
+        Return a random entity with URL from across hierarchies.
+
+        Args:
+            focuspath: Optional path to limit random selection to entities within 
+                      this hierarchy. If None, selects from all entities.
+
+        Returns:
+            Random Entity object or None if no entities with URLs found
+        """
+        if focuspath:
+            # Get collection at focus path
+            original_collection = self.current_collection
+            original_path = self.current_path
+            original_history = self._history_stack.copy()
+
+            focus_collection = self.focus_on_path(focuspath)
+            if focus_collection is None:
+                # Restore original state
+                self.current_collection = original_collection
+                self.current_path = original_path
+                self._history_stack = original_history
+                print(f"Invalid focus path: {focuspath}")
+                return None
+
+            # Get entities with URLs from focus path
+            entities_with_urls = focus_collection.get_all_entities_with_urls()
+
+            # Restore original state
+            self.current_collection = original_collection
+            self.current_path = original_path
+            self._history_stack = original_history
+        else:
+            # Get all entities with URLs from root
+            entities_with_urls = self.root.get_all_entities_with_urls()
+
+        if not entities_with_urls:
+            print("No entities with URLs found" +
+                  (f" in path '{focuspath}'" if focuspath else ""))
+            return None
+
+        # Select and return random entity
+        return random.choice(entities_with_urls)
+
     def create_entity_here(self, name: str, url: str = "") -> Optional[Entity]:
         if self.current_collection is None:
             self.current_collection = self.root
@@ -388,37 +496,6 @@ class BookmarkLibrary:
                     return found
         return None
 
-    def move_children(self, entity_name: str, target_path: str) -> bool:
-        entity = self._find_entity(self.root, entity_name)
-        if not entity:
-            print(f"Entity '{entity_name}' not found")
-            return False
-
-        if not entity.collection or not entity.collection.children:
-            print(f"Entity '{entity_name}' has no children to move")
-            return False
-
-        target_collection = self._create_path_if_needed(target_path)
-        children_to_move = entity.collection.children.copy()
-        moved_count = 0
-
-        for child in children_to_move:
-            if target_collection.add_item(child):
-                entity.collection.children.remove(child)
-                moved_count += 1
-            else:
-                print(f"Cannot move child '{
-                      child.name}' - name or url conflict")
-
-        if moved_count > 0:
-            print(f"Moved {moved_count} children from '{
-                  entity_name}' to '{target_path}'")
-            return True
-        else:
-            print(f"No children could be moved from '{
-                  entity_name}' to '{target_path}'")
-            return False
-
     def _find_entity(self, collection: EntityCollection, name: str) -> Optional[Entity]:
         for child in collection.children:
             if child.name == name:
@@ -428,26 +505,6 @@ class BookmarkLibrary:
                 if found:
                     return found
         return None
-        path_parts = [p for p in path.split('/') if p]
-        current_collection = self.root
-
-        for part in path_parts:
-            found = None
-            for child in current_collection.children:
-                if child.name == part:
-                    found = child
-                    break
-
-            if found:
-                if found.collection is None:
-                    found.collection = EntityCollection()
-                current_collection = found.collection
-            else:
-                new_entity = Entity(name=part, collection=EntityCollection())
-                current_collection.add_item(new_entity)
-                current_collection = new_entity.collection
-
-        return current_collection
 
     def _create_path_if_needed(self, path: str) -> EntityCollection:
         path_parts = [p for p in path.split('/') if p]

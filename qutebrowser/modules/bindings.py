@@ -1,5 +1,6 @@
 keys_to_unbind = [
     'b',  # open quickmark prompt
+    'B',  'm', 'M'
 ]
 
 for key in keys_to_unbind:
@@ -62,20 +63,20 @@ bindings = {
     "xr": "hint all right-click",
     "xh": "hint all hover",
 
-    "bs": "spawn --userscript bookmarks.py --save",
-    "bsa": "spawn --userscript bookmarks.py --save --file artists",
-    "bsr": "spawn --userscript bookmarks.py --save --file read_list",
-    "bsg": "spawn --userscript bookmarks.py --save --file gamedev",
-    "br": "spawn --userscript bookmarks.py --remove",
-    "bo": "spawn --userscript bookmarks.py --open",
-    "boa": "spawn --userscript bookmarks.py --open --file artists",
-    "bor": "spawn --userscript bookmarks.py --open --file read_list",
-    "bog": "spawn --userscript bookmarks.py --open --file gamedev",
-    "bO": "spawn --userscript bookmarks.py --new-tab",
-    "bOa": "spawn --userscript bookmarks.py --new-tab --file artists",
-    "bOr": "spawn --userscript bookmarks.py --new-tab --file read_list",
-    "bOg": "spawn --userscript bookmarks.py --new-tab --file gamedev",
-    "ba": "spawn --userscript bookmarks.py --random artists",
+
+    # My custom bookmarks
+    "bo": "spawn --userscript qute_bookmarks.py --open",
+    "bO": "spawn --userscript qute_bookmarks.py --open --new_tab",
+    "bW": "spawn --userscript qute_bookmarks.py --open --new_window",
+    "bs": "spawn --userscript qute_bookmarks.py --save",
+    "bS": "spawn --userscript qute_bookmarks.py --save --focuspath 'Development'",
+    "bR": "spawn --userscript qute_bookmarks.py --remove",
+    "bHR": "spawn --userscript qute_bookmarks.py --remove --hard_delete",
+    "bx": "spawn --userscript qute_bookmarks.py --random",
+    "bXTo": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING'",
+    "bXTw": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING' --new_window",
+    "bXTt": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING' --new_tab",
+    "bl": "spawn --userscript qute_bookmarks.py --list_all",
 }
 
 for key, bind in bindings.items():

@@ -13,7 +13,9 @@ settings:
   completion.shrink:
     global: true
   content.javascript.clipboard:
+    global: access
     https://chat.qwen.ai: access-paste
+    https://chatgpt.com: access-paste
   statusbar.show:
     global: always
   tabs.position:

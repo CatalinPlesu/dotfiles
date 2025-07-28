@@ -13,6 +13,8 @@ class Rofi:
         """Rofi dmenu with support for Shift+H and Shift+L"""
         cmd = [
             "rofi", "-dmenu", "-i", "-p", prompt,
+            "-matching",  "prefix",
+            "-sort",
             "-kb-move-char-back", "",
             "-kb-move-char-forward", "",
             "-kb-custom-1", "Left",
@@ -75,16 +77,26 @@ class Rofi:
 
         selected, code = self.dmenu(prompt, display_options, allow_custom)
 
-        if not selected or selected not in callback_map:
+        if selected is None:
             return None
 
-        enter_cb, h_cb, l_cb, enter_args, h_args, l_args = callback_map[selected]
+        # If a selection was made AND it exists in our callback map,
+        # then execute the corresponding callback.
+        if selected in callback_map:
+            enter_cb, h_cb, l_cb, enter_args, h_args, l_args = callback_map[selected]
 
-        if code == 0 and enter_cb:
-            enter_cb(*enter_args)
-        elif code == 10 and h_cb:
-            h_cb(*h_args)
-        elif code == 11 and l_cb:
-            l_cb(*l_args)
-
-        return selected
+            if code == 0 and enter_cb:
+                enter_cb(*enter_args)
+            elif code == 10 and h_cb:
+                h_cb(*h_args)
+            elif code == 11 and l_cb:
+                l_cb(*l_args)
+            return selected  # Return the selected item after callback execution
+        elif allow_custom and code == 0:
+            # If allow_custom is True, and Rofi returned a value (code 0),
+            # but it's not in our callback_map, it means it's a custom input.
+            return selected
+        else:
+            # This covers cases where selected is not in callback_map,
+            # allow_custom is False, or the return code is not 0 (e.g., Esc key).
+            return None

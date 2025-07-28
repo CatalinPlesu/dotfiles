@@ -16,6 +16,8 @@ from datetime import datetime
 # --- Configuration ---
 from qute_bookmarks.config import *
 import qute_bookmarks.actions.open as open
+import qute_bookmarks.actions.save as save
+import qute_bookmarks.actions.remove as remove
 
 # Ensure data directory exists
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -23,8 +25,8 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # to do
 # --save
-# --open
-# --open-newtab
+# DONE: --open
+# DONE: --open-newtab
 # --remove
 # --edit
 # --entitiy <entitiy/hierarchy> - as unicode, separated by /
@@ -40,6 +42,8 @@ def main():
                         help="Open in new tab")
     parser.add_argument("--new_window", action="store_true",
                         help="Open in new window")
+    parser.add_argument("--save", action="store_true", help="Save url")
+    parser.add_argument("--remove", action="store_true", help="Save url")
 
     args = parser.parse_args()
 
@@ -51,6 +55,9 @@ def main():
         if args.open:
             open.run(focuspath=args.focuspath, new_tab=args.new_tab,
                      new_window=args.new_window)
+        if args.save:
+            print("to save")
+            save.run(focuspath=args.focuspath)
     except:
         print(f"Something Else: {args}")
     print(f"Something Else: {args}")

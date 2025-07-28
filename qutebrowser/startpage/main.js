@@ -1,82 +1,76 @@
 data = {
-	"Soc":[
-		["206","https://discord.com/channels/742508750258176152/747139629634945054"],
-		["telegram","https://web.telegram.org/k/"],
-		["discord", "https://discord.com/app/"],
-		["twitter", "https://twitter.com/catalin_plesu"],
+	"💡 SaaS":[ // Emoji directly in category key
+		["📈 Indie Hackers","https://www.indiehackers.com/"],
+		["🚀 SaaStr", "https://www.saastr.com/"],
+		["🤝 MicroConf", "https://microconf.com/"],
+		["🧠 Paul Graham Essays", "http://www.paulgraham.com/articles.html"],
 	],
 
-	"Lrn":[
-		["type", "https://play.typeracer.com/"],
-		["read", "https://readspeeder.com/lessons.html"],
-		["monke", "https://monkeytype.com/"],
-		["wars", "https://www.codewars.com/dashboard"],
+	"🟣 Elixir Stack":[ // Emoji directly in category key
+		["✨ Elixir Lang", "https://elixir-lang.org/docs.html"],
+		["🔥 Phoenix Framework", "https://hexdocs.pm/phoenix/overview.html"],
+		["🌳 Ash Framework", "https://ash-hq.org/"],
+		["📚 HexDocs", "https://hexdocs.pm/"],
 	],
 
-	"Ent":[
-		["devian", "https://www.deviantart.com/"],
-		["pix", "https://www.pixiv.net/en/"],
-		["art", "https://www.artstation.com/?sort_by=community"],
-		["pint", "https://www.pinterest.com/"],
+	"🛠️ Dev Tools":[ // Emoji directly in category key
+		["⏰ Wakatime", "https://wakatime.com/dashboard"],
+		["🐙 GitHub", "https://github.com/"],
+		["🦊 GitLab", "https://gitlab.com/"],
+		["💻 Your SaaS Repo", "https://github.com/catalinplesu/your-saas-project"],
 	],
 
-	"Res":[
-		["wall", "https://wallhaven.cc/"],
-		["png", "https://www.pngfind.com/"],
-		["gifs", "http://1041uuu.tumblr.com/"],
-		["pivs", "https://unsplash.com/t/wallpapers"],
+	"⚙️ DevOps":[ // Emoji directly in category key
+		["☁️ Fly.io Dash", "https://fly.io/dashboard"],
+		["🐘 PostgreSQL Docs", "https://www.postgresql.org/docs/"],
+		["🚨 Sentry", "https://sentry.io/"],
+		["💳 Stripe Dash", "https://dashboard.stripe.com/"],
 	],
 
-	"UTM":[
-		["teams", "https://teams.microsoft.com/_?culture=en-us&country=WW&lm=deeplink&lmsrc=homePageWeb&cmpid=WebSignIn#/school/conversations/Comunitatea%20TI?threadId=19:90d27a023bb946789869210cebb6f86c@thread.tacv2&ctx=channel"],
-		["simu", "https://simu.utm.md/students/"],
-		["note", "file:///home/catalin/Documents/_notes/UTM/index.html"],
-		["else", "https://else.fcim.utm.md/my/"],
-		["outlook", "https://outlook.office.com/mail/inbox"],
-		["self", "https://mail.google.com/mail/u/1/#inbox"],
-		["fake", "https://mail.google.com/mail/u/0/#inbox"],
+	"🌐 UI/UX":[ // Emoji directly in category key
+		["🎨 Tailwind UI", "https://tailwindui.com/"],
+		["🖼️ Heroicons", "https://heroicons.com/"],
+		["📐 Figma", "https://www.figma.com/"],
+		["✏️ Open Doodles", "https://www.opendoodles.com/"],
 	],
 
-	"Tech":[
-		["arch", "https://archlinux.org/"],
-		["gentoo", "https://wiki.gentoo.org/wiki/Main_Page"],
-		["sync", "http://localhost:8384/"],
-	],
-
-	"Dev":[
-		["cat", "https://github.com/catalinplesu"],
-		["wakatime", "https://wakatime.com/dashboard"],
-		["hub", "https://github.com/"],
-		["lab", "https://gitlab.com/"],
+	"🗣️ Community":[ // Emoji directly in category key
+		["💬 Elixir Forum", "https://elixirforum.com/"],
+		["🗣️ Phoenix Discord", "https://discord.gg/your-phoenix-discord"],
+		["🐦 X (SaaS/Tech)", "https://x.com/CatalinPlesu"],
+		["📧 Main Mail", "https://mail.google.com/mail/u/1/#inbox"],
 	],
 }
+
 window.addEventListener('load', function () {
-	var target = document.getElementById("target");
-	let table = document.createElement("table");
-	
-	let tr = document.createElement("tr");
-	let max = 0;
-	for (head in data){
-		if (data[head].length > max)
-			max = data[head].length;
-		let th = document.createElement("th");
-		th.innerText = head;
-		tr.appendChild(th);
-	}
-	table.appendChild(tr);
-	for ( let i = 0 ; i <= max ; i++){
-		let tr = document.createElement("tr");
-			for (head in data){
-				let td = document.createElement("td");
-					if (data[head][i]){
-						let a = document.createElement("a");
-						a.innerText = data[head][i][0];
-						a.href = data[head][i][1];
-						td.appendChild(a);
-					}
-				tr.appendChild(td);
-			}
-		table.appendChild(tr);
-	}
-	target.appendChild(table);
-})
+    var target = document.getElementById("target");
+    // Clear existing content if any
+    target.innerHTML = '';
+
+    let container = document.createElement("div");
+    container.id = "links-container"; // Add an ID for styling
+    target.appendChild(container);
+
+    for (let head in data) {
+        let categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("category-column"); // Class for styling
+        
+        let header = document.createElement("h2");
+        header.innerText = head.replace(/_/g, ' '); // Replace underscores with spaces for display
+        categoryDiv.appendChild(header);
+
+        let linkList = document.createElement("div");
+        linkList.classList.add("link-list"); // Class for styling individual links within a column
+
+        data[head].forEach(linkInfo => {
+            let linkWrapper = document.createElement("div"); // Wrapper for each link to allow individual styling/wrapping
+            let a = document.createElement("a");
+            a.innerText = linkInfo[0];
+            a.href = linkInfo[1];
+            linkWrapper.appendChild(a);
+            linkList.appendChild(linkWrapper);
+        });
+        categoryDiv.appendChild(linkList);
+        container.appendChild(categoryDiv);
+    }
+});

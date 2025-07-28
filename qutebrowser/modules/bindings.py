@@ -65,18 +65,27 @@ bindings = {
 
 
     # My custom bookmarks
-    "bo": "spawn --userscript qute_bookmarks.py --open",
-    "bO": "spawn --userscript qute_bookmarks.py --open --new_tab",
-    "bW": "spawn --userscript qute_bookmarks.py --open --new_window",
-    "bs": "spawn --userscript qute_bookmarks.py --save",
-    "bS": "spawn --userscript qute_bookmarks.py --save --focuspath 'Development'",
-    "bR": "spawn --userscript qute_bookmarks.py --remove",
-    "bHR": "spawn --userscript qute_bookmarks.py --remove --hard_delete",
-    "bx": "spawn --userscript qute_bookmarks.py --random",
-    "bXTo": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING'",
-    "bXTw": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING' --new_window",
-    "bXTt": "spawn --userscript qute_bookmarks.py --random --focuspath 'THING' --new_tab",
-    "bl": "spawn --userscript qute_bookmarks.py --list_all",
+    "b": "spawn --userscript qute_bookmarks.py --open",
+    "B": "spawn --userscript qute_bookmarks.py --save",
+
+    "cRM": "spawn --userscript qute_bookmarks.py --remove",
+    "cHRM": "spawn --userscript qute_bookmarks.py --remove --hard_delete",
+
+
+    "aS": "spawn --userscript qute_bookmarks.py --save",
+    "asa": "spawn --userscript qute_bookmarks.py --save --focuspath 'artists'",
+    "asr": "spawn --userscript qute_bookmarks.py --save --focuspath 'read_list'",
+    "ao": "spawn --userscript qute_bookmarks.py --open",
+    "aO": "spawn --userscript qute_bookmarks.py --open --new_tab",
+    "aW": "spawn --userscript qute_bookmarks.py --open --new_window",
+    "al": "spawn --userscript qute_bookmarks.py --list_all",
+
+    "aR": "spawn --userscript qute_bookmarks.py --random --new_tab",
+    "ara": "spawn --userscript qute_bookmarks.py --random --focuspath 'artists' --new_tab",
+    "<Ctrl-Shift-t>": "spawn --userscript qute_bookmarks.py --random",
+    "<Ctrl-t>": "spawn --userscript qute_bookmarks.py --random --new_tab",
+    "<Ctrl-Shift-r>": "spawn --userscript qute_bookmarks.py --random --focuspath 'artists'",
+    "<Ctrl-r>": "spawn --userscript qute_bookmarks.py --random --focuspath 'artists' --new_tab",
 }
 
 for key, bind in bindings.items():

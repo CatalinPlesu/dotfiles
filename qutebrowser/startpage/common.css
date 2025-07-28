@@ -1,16 +1,37 @@
+/* 1. Import Fira Code from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+/* Styling for the entire page */
 ::selection {
   color: #fabd2f;
   background: #d3869b;
 }
-body{
-	background-color: #282828;
-	color: #b8bb26;
-	font-size: 30px;
+
+body {
+  background-color: #282828;
+  color: #b8bb26;
+  font-size: 20px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  
+  /* Set Fira Code as the primary font, with monospace and emoji fallbacks */
+  font-family: 'Fira Code', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+/* Link styling */
 a:link {
   color: #b8bb26;
   background-color: transparent;
   text-decoration: none;
+  display: flex; /* Keep this to align emoji and text vertically */
+  align-items: center; /* Keep this to align emoji and text vertically */
+  
+  /* NEW: Prevent link text from wrapping */
+  white-space: nowrap; 
 }
 
 a:visited {
@@ -20,7 +41,7 @@ a:visited {
 }
 
 a:hover {
-  color: #b8bb26;
+  color: #fabd2f;
   background-color: transparent;
   text-decoration: underline;
 }
@@ -30,24 +51,74 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
-div{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* Main container for all link categories - now this is the item being centered by body */
+#target {
+  padding: 20px;
+  box-sizing: border-box;
 }
-td, table{
-    border-collapse: collapse;
-	text-align: center;
+
+/* Container for the link categories themselves (the Flexbox parent) */
+#links-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Still centers the entire block of category columns */
+  gap: 30px;
+  max-width: 1200px; /* Limit overall width so columns wrap */
+  width: 100%;
+  box-sizing: border-box;
 }
-table{
-    border: 3px solid #b8bb26;
-}
-th, td {
+
+/* Styling for each category column/card */
+.category-column {
+  /* REMOVE fixed width: this allows cards to be flexible */
+  /* width: 250px; */ 
+
+  /* NEW: Flex properties for equal distribution and minimum size */
+  flex: 1; /* Allows columns to grow and shrink, trying to fill space equally */
+  min-width: 250px; /* Sets a minimum width, but allows it to expand */
+  max-width: 350px; /* Optional: Sets a maximum width to prevent excessively wide cards */
+  
+  background-color: #3c3836;
+  border: 2px solid #b8bb26;
+  border-radius: 8px;
   padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+  text-align: left; /* Keep this for links */
+  
+  box-sizing: border-box;
+  
+  /* NEW: Ensure this element itself doesn't force line breaks */
+  white-space: normal; /* Override potential inheritance, ensure inner text can wrap if needed, but we prevent it on h2 and a */
+  overflow: hidden; /* Prevent content from breaking out if too wide */
 }
-th{
+
+/* Category header styling */
+.category-column h2 {
+  color: #fe8019;
   text-decoration: underline;
   text-decoration-color: #d79921;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+  
+  text-align: center; /* Keep this for titles */
+
+  /* NEW: Prevent category title text from wrapping */
+  white-space: nowrap;
+  overflow: hidden; /* Hide anything that goes beyond the boundary */
+  text-overflow: ellipsis; /* Optional: Show ellipsis for overflowing title if it becomes too long */
+}
+
+/* List of links within each category */
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Styling for individual link wrappers to ensure consistent spacing */
+.link-list div {
+  padding: 5px 0;
 }

@@ -8,6 +8,8 @@ qb = QuteBrowser()
 
 
 def run(**kwargs):
+    hard_delete = kwargs.get('hard_delete', False)
+
     url = qb.get_url()
-    lib.remove_by_url(url)
+    lib.remove_by_url(url, hard_delete=hard_delete)
     lib.save_to_file(BOOKMARKS_FILE)

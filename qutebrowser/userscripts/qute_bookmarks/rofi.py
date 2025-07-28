@@ -13,7 +13,7 @@ class Rofi:
         """Rofi dmenu with support for Shift+H and Shift+L"""
         cmd = [
             "rofi", "-dmenu", "-i", "-p", prompt,
-            "-matching",  "prefix",
+            "-matching", "prefix",
             "-sort",
             "-kb-move-char-back", "",
             "-kb-move-char-forward", "",
@@ -85,13 +85,33 @@ class Rofi:
         if selected in callback_map:
             enter_cb, h_cb, l_cb, enter_args, h_args, l_args = callback_map[selected]
 
+            callback_executed = False  # Flag to track if any callback was executed
+
             if code == 0 and enter_cb:
                 enter_cb(*enter_args)
+                callback_executed = True
             elif code == 10 and h_cb:
                 h_cb(*h_args)
+                callback_executed = True
             elif code == 11 and l_cb:
                 l_cb(*l_args)
-            return selected  # Return the selected item after callback execution
+                callback_executed = True
+
+            # GUARD: If a callback was executed, we consider the action handled internally.
+            # So, we return None to signify that no "new entity" needs to be processed
+            # by the caller.
+            if callback_executed:
+                return None
+            else:
+                # This branch means it was in callback_map, but no specific callback
+                # for the returned code was found (e.g., just a plain string item with no callbacks defined).
+                # In this specific scenario, you might still want to return `selected`
+                # or `None` based on your exact desired behavior.
+                # Given your original intent, returning None here usually makes sense
+                # if the item was "known" by the menu, even if no callback fired for the specific key.
+                # Or you could return selected if you want to allow plain strings without callbacks to be processed.
+                return None
+
         elif allow_custom and code == 0:
             # If allow_custom is True, and Rofi returned a value (code 0),
             # but it's not in our callback_map, it means it's a custom input.

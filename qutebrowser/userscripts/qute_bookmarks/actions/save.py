@@ -76,6 +76,7 @@ def open_callback(sm: StateMachine) -> SaveAction:
         ("❌ QUIT", a_quit, go_back, a_quit),
         ("❎ BACK", go_back, go_back, go_back),
     ]
+
     new_entity = rofi.show_menu(custom_items + items_list, allow_custom=True)
     if new_entity is not None:
         entity = lib.create_entity_here(name=new_entity)

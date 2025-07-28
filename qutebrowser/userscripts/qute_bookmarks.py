@@ -26,12 +26,13 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # to do
 # --save
-# DONE: --open
-# DONE: --open-newtab
-# --remove
+# NOTE: --open
+# NOTE: --open-newtab
+# NOTE: --remove
+# NOTE: implmened as focuspath --entitiy <entitiy/hierarchy> - as unicode, separated by /
+# NOTE: implemenedd--random [enitity/hierarchy] - default is root enitity
 # --edit
-# --entitiy <entitiy/hierarchy> - as unicode, separated by /
-# --random [enitity/hierarchy] - default is root enitity
+# NOTE:-- manage settings- done for ordeoing and sort by
 
 def main():
     parser = argparse.ArgumentParser(

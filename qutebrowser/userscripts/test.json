@@ -1,7 +1,7 @@
 {
   "root": {
-    "ordering_strategy": "created",
-    "sort_by": "desc",
+    "ordering_strategy": "name",
+    "sort_by": "asc",
     "children": [
       {
         "name": "TEST",
@@ -34,15 +34,15 @@
         "last_accessed_date": "2025-07-28",
         "accessed_count": 0,
         "collection": {
-          "ordering_strategy": "created",
+          "ordering_strategy": "random",
           "sort_by": "desc",
           "children": [
             {
               "name": "Panou de anun\u021buri- 999.md",
               "url": "https://999.md/ro/search?query=test",
-              "created_date": "2025-07-28",
+              "created_date": "2025-07-27",
               "last_accessed_date": "2025-07-28",
-              "accessed_count": 1
+              "accessed_count": 2
             },
             {
               "name": "Land Rover Range Rover an. 2013 cu rulaj 193496 km, Diesel, 45499 \u20ac",

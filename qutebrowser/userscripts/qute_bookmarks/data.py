@@ -10,7 +10,7 @@ class OrderingStrategy(Enum):
     CREATED = "created"
     ACCESSED = "accessed"
     COUNT = "count"
-    MANUAL = "manual"
+    RANDOM = "random"
 
 
 class SortBy(Enum):
@@ -67,16 +67,17 @@ class EntityCollection:
     def get_all_entities_with_urls(self) -> List['Entity']:
         """Recursively collect all entities that have non-empty URLs"""
         entities_with_urls = []
-        
+
         for child in self.children:
             # Add current entity if it has a URL
             if child.url and child.url.strip():
                 entities_with_urls.append(child)
-            
+
             # Recursively check children if collection exists
             if child.collection:
-                entities_with_urls.extend(child.collection.get_all_entities_with_urls())
-        
+                entities_with_urls.extend(
+                    child.collection.get_all_entities_with_urls())
+
         return entities_with_urls
 
     def _to_dict(self) -> Dict[str, Any]:
@@ -129,7 +130,7 @@ class Entity:
     def access_url(self) -> str:
         """
         Access this entity's URL, incrementing the access count and updating the last accessed date.
-        
+
         Returns:
             The entity's URL
         """
@@ -290,11 +291,11 @@ class BookmarkLibrary:
     def get_random_entity(self, focuspath: Optional[str] = None) -> Optional[Entity]:
         """
         Return a random entity with URL from across hierarchies.
-        
+
         Args:
             focuspath: Optional path to limit random selection to entities within 
                       this hierarchy. If None, selects from all entities.
-        
+
         Returns:
             Random Entity object or None if no entities with URLs found
         """
@@ -303,7 +304,7 @@ class BookmarkLibrary:
             original_collection = self.current_collection
             original_path = self.current_path
             original_history = self._history_stack.copy()
-            
+
             focus_collection = self.focus_on_path(focuspath)
             if focus_collection is None:
                 # Restore original state
@@ -312,10 +313,10 @@ class BookmarkLibrary:
                 self._history_stack = original_history
                 print(f"Invalid focus path: {focuspath}")
                 return None
-            
+
             # Get entities with URLs from focus path
             entities_with_urls = focus_collection.get_all_entities_with_urls()
-            
+
             # Restore original state
             self.current_collection = original_collection
             self.current_path = original_path
@@ -323,11 +324,12 @@ class BookmarkLibrary:
         else:
             # Get all entities with URLs from root
             entities_with_urls = self.root.get_all_entities_with_urls()
-        
+
         if not entities_with_urls:
-            print("No entities with URLs found" + (f" in path '{focuspath}'" if focuspath else ""))
+            print("No entities with URLs found" +
+                  (f" in path '{focuspath}'" if focuspath else ""))
             return None
-        
+
         # Select and return random entity
         return random.choice(entities_with_urls)
 

@@ -914,8 +914,8 @@ require("lazy").setup({
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
-			-- Better Around/Inside textobjects
-			--
+			require("mini.files").setup()
+			vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
 			-- Examples:
 			--  - va)  - [V]isually select [A]round [)]paren
 			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote

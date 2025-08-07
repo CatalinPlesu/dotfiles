@@ -92,3 +92,4 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export OPENSSL_DIR=/etc/ssl
 export OPENSSLDIR=/etc/ssl
  
+export CHTSH_URL="http://localhost:8002"

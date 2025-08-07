@@ -24,9 +24,13 @@ settings:
     global: access
     https://chat.qwen.ai: access-paste
     https://chatgpt.com: access-paste
+  content.media.audio_capture:
+    https://audiopen.ai: true
   content.pdfjs:
     global: true
   statusbar.show:
     global: always
   tabs.position:
     global: left
+  tabs.width:
+    global: 200

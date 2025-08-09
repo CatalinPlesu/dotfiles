@@ -172,7 +172,7 @@ vim.o.inccommand = "split"
 vim.o.cursorline = true
 
 -- Show oh on which column you are on, crosshair
-vim.opt.cursorcolumn = true
+-- vim.opt.cursorcolumn = true
 
 vim.opt.colorcolumn = "80,120,160"
 
@@ -901,10 +901,39 @@ require("lazy").setup({
 		priority = 1000,
 
 		config = function()
-			vim.cmd.colorscheme("gruvbox")
+			-- vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
+	-- {
+	-- 	"neanias/everforest-nvim",
+	-- 	version = false,
+	-- 	lazy = false,
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	-- Optional; default configuration will be used if setup isn't called.
+	-- 	config = function()
+	-- 		require("everforest").setup({
+	-- 			background = "soft",
+	-- 		})
+	-- 		vim.o.background = "light"
+	-- 		vim.cmd.colorscheme("everforest")
+	-- 	end,
+	-- },
+	{
+		"https://gitlab.com/yorickpeterse/vim-paper.git",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function()
+			-- vim.o.background = "light"
+			-- vim.cmd.colorscheme("paper")
+		end,
+	},
+
+	{
+		"MarcoKorinth/onehalf.nvim",
+		lazy = false,
+	},
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -1048,3 +1077,7 @@ vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.foldenable = true
 vim.o.foldlevel = 99 -- or a value that suits your preference for initial fold level
 vim.o.foldlevelstart = 99 -- or a value that suits your preference for initial fold level
+
+vim.o.background = "light"
+-- vim.cmd.colorscheme("onehalflight")
+vim.cmd.colorscheme("paper")

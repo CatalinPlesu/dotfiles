@@ -1040,3 +1040,11 @@ require("lazy").setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+--
+-- fold
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldenable = true
+vim.o.foldlevel = 99 -- or a value that suits your preference for initial fold level
+vim.o.foldlevelstart = 99 -- or a value that suits your preference for initial fold level

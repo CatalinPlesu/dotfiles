@@ -4,32 +4,34 @@
 # ✅ Ensure Zinit is installed and initialized correctly
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
+if [[ ! -d $ZINIT_HOME ]]; then
+  echo "Installing Zinit..."
+  if bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
+	echo "Running initial Zinit self-update..."
+	zsh -ic 'zinit self-update'
+  else
+	echo "❌ Zinit installation failed" >&2
+  fi
+fi
+
+# Load Zinit
+if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+  source "${ZINIT_HOME}/zinit.zsh"
+else
+  echo "❌ Zinit not found in $ZINIT_HOME" >&2
+  return 1
+fi
+
+# Quick sanity check
+if ! command -v zinit &>/dev/null; then
+  echo "❌ zinit command not available after sourcing" >&2
+  return 1
+fi
+
+
 ZINIT_UPDATE_FILE="${TMPDIR:-/tmp}/zinit_last_update"
+
 if [[ ! -f "$ZINIT_UPDATE_FILE" ]]; then
-	if [[ ! -d $ZINIT_HOME ]]; then
-	  echo "Installing Zinit..."
-	  if bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
-		echo "Running initial Zinit self-update..."
-		zsh -ic 'zinit self-update'
-	  else
-		echo "❌ Zinit installation failed" >&2
-	  fi
-	fi
-
-	# Load Zinit
-	if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
-	  source "${ZINIT_HOME}/zinit.zsh"
-	else
-	  echo "❌ Zinit not found in $ZINIT_HOME" >&2
-	  return 1
-	fi
-
-	# Quick sanity check
-	if ! command -v zinit &>/dev/null; then
-	  echo "❌ zinit command not available after sourcing" >&2
-	  return 1
-	fi
-
 	# Run self-update to finalize installation
 	zinit self-update &>/dev/null || echo "⚠️ zinit self-update failed, proceed with caution"
 	touch "$ZINIT_UPDATE_FILE"

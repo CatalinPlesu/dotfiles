@@ -110,8 +110,11 @@ eval "$(atuin init zsh)"
 
 
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions 
+# zinit light zsh-users/zsh-autosuggestions 
 bindkey '^y' autosuggest-accept
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light agkozak/zsh-z
 zinit light fdellwing/zsh-bat
+
+# this should be at the end
+eval "$(starship init zsh)"

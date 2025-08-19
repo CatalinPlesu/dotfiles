@@ -275,7 +275,14 @@ require("lazy").setup({
 	--
 	-- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
 	--
-
+	{
+		"jiaoshijie/undotree",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = true,
+		keys = { -- load the plugin only when using it's keybinding:
+			{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+		},
+	},
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`.
 	--
@@ -1047,6 +1054,16 @@ require("lazy").setup({
 	-- you can continue same window with `<space>sr` which resumes last telescope search
 
 	{ "wakatime/vim-wakatime", lazy = false },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			-- Only one of these is needed.
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+	},
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -1083,3 +1100,7 @@ vim.o.foldlevelstart = 99 -- or a value that suits your preference for initial f
 vim.o.background = "light"
 -- vim.cmd.colorscheme("onehalflight")
 vim.cmd.colorscheme("paper")
+
+vim.keymap.set("n", "<leader>g", function()
+	require("neogit").open({ kind = "replace" })
+end, { desc = "Open Neogit (replace)" })

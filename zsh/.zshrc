@@ -124,3 +124,4 @@ zinit light fdellwing/zsh-bat
 eval "$(starship init zsh)"
 
 # zprof
+# fpath+=~/.zfunc; autoload -Uz compinit; compinit

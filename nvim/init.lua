@@ -840,6 +840,7 @@ require("lazy").setup({
 		--- @module 'blink.cmp'
 		--- @type blink.cmp.Config
 		opts = {
+			trigger = {}, -- This disables automatic completion
 			keymap = {
 				-- 'default' (recommended) for mappings similar to built-in completions
 				--   <c-y> to accept ([y]es) the completion.
@@ -1062,6 +1063,31 @@ require("lazy").setup({
 
 			-- Only one of these is needed.
 			"nvim-telescope/telescope.nvim", -- optional
+		},
+	},
+
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+
+			"nvim-telescope/telescope.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "Notes",
+					path = "~/Documents/Notes/",
+				},
+			},
+
+			-- see below for full list of options 👇
 		},
 	},
 }, {

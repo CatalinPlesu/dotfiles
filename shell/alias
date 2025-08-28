@@ -25,6 +25,7 @@ alias cls='lah | lolcrab -i'
 
 alias ss='paru -Ss'
 alias s='paru -S'
+alias syu='paru -Syu'
 
 alias gst='git status'
 alias glt='git log --oneline --decorate --graph'

@@ -46,7 +46,7 @@ alias v='nvim'
 alias V="sudoedit"
 alias rtop="radeontop -c"
 
-# alias p2='cd ~/Workspace/LifeSaga/'
+alias p='cd /home/mnt/catalin/NOTES/MainVault/Aphantasia\ Lab/'
 # alias p3='cd ~/Workspace/Dream Game/'
 
 # notebook

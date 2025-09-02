@@ -1,5 +1,6 @@
 {
   "Select binary dialog": "/home/mnt/catalin",
+  "auto add path choose": "/home/catalin/Kobo_Inbox",
   "catalogs_to_be_synced": {
     "__class__": "set",
     "__value__": []
@@ -8,21 +9,22 @@
   "notified-version-updates": {
     "__class__": "set",
     "__value__": [
-      "8.3"
+      "8.3",
+      "8.4"
     ]
   },
   "s_r_search_mode": 0,
   "sort_history": [
     [
-      "#priority",
-      false
-    ],
-    [
-      "title",
+      "timestamp",
       false
     ],
     [
       "#priority",
+      false
+    ],
+    [
+      "ondevice",
       false
     ],
     [

@@ -22,7 +22,8 @@
     "Connect Share",
     "Tweak ePub",
     "K2pdfopt Plugin",
-    "Annotations"
+    "Annotations",
+    "Action Chains"
   ],
   "action-layout-toolbar-device": [
     "Add Books",
@@ -46,8 +47,10 @@
     "Help",
     "Preferences",
     "K2pdfopt Plugin",
-    "Annotations"
+    "Annotations",
+    "Action Chains"
   ],
+  "advanced search dialog current tab": 0,
   "annotations plugin:custom column wizard": {
     "__class__": "bytearray",
     "__value__": "AdnQywADAAAAAAMmAAABkgAABEMAAAIfAAADJgAAAZIAAARDAAACHwAAAAAAAAAAB4AAAAMmAAABkgAABEMAAAIf"
@@ -60,6 +63,7 @@
     "__class__": "bytearray",
     "__value__": "AdnQywADAAAAAAKIAAAArQAABOEAAALqAAACiQAAAMkAAATgAAAC6QAAAAAAAAAAB4AAAAKJAAAAyQAABOAAAALp"
   },
+  "auto_add_path": "/home/catalin/Kobo_Inbox",
   "basic_metadata_widget_splitter_state": {
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAEAAAADAAAA6QAAAWMAAAEKAf////8BAAAAAQA="
@@ -117,14 +121,6 @@
       [
         "timestamp",
         false
-      ],
-      [
-        "inlibrary",
-        false
-      ],
-      [
-        "timestamp",
-        false
       ]
     ]
   },
@@ -156,14 +152,6 @@
     "last_modified_injected": true,
     "path_injected": true,
     "sort_history": [
-      [
-        "timestamp",
-        false
-      ],
-      [
-        "inlibrary",
-        false
-      ],
       [
         "timestamp",
         false
@@ -288,53 +276,317 @@
       255
     ]
   ],
+  "filename_pattern_history": [
+    "(?P<title>.+) - (?P<author>[^_]+)",
+    "(?P<title>.+)",
+    "(?P<author>[^_-]+) -?\\s*(?P<series>[^_0-9-]*)(?P<series_index>[0-9]*)\\s*-\\s*(?P<title>[^_].+) ?"
+  ],
+  "fts_search_splitter_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAEAAAAC//////////8A/////wEAAAABAA=="
+  },
   "general_category_editor_row_height": 30,
-  "geometry-of-Plugin Updater plugin:plugin updater dialog": {
+  "geometry-of-Action Chains::scope-settings-geometry": {
     "frame_geometry": {
-      "height": 486,
-      "width": 916,
-      "x": 501,
-      "y": 270
+      "height": 496,
+      "width": 993,
+      "x": 272,
+      "y": 200
     },
     "full_screened": false,
     "geometry": {
-      "height": 486,
-      "width": 916,
-      "x": 501,
-      "y": 270
+      "height": 457,
+      "width": 993,
+      "x": 272,
+      "y": 239
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 486,
-      "width": 916,
-      "x": 501,
-      "y": 270
+      "height": 457,
+      "width": 993,
+      "x": 272,
+      "y": 239
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAH1AAABDgAABYgAAALzAAAB9QAAAQ4AAAWIAAAC8wAAAAAAAAAAB4AAAAH1AAABDgAABYgAAALz"
+      "__value__": "AdnQywADAAAAAAEQAAAAyAAABPAAAAK3AAABEAAAAO8AAATwAAACtwAAAAAAAAAABgAAAAEQAAAA7wAABPAAAAK3"
     },
     "screen": {
       "depth": 24,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
+      "manufacturer": "",
       "model": "",
-      "name": "eDP-1",
+      "name": "rdp0",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-ActionsChain::Calibre Actions-geometry": {
+    "frame_geometry": {
+      "height": 477,
+      "width": 432,
+      "x": 552,
+      "y": 210
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 438,
+      "width": 432,
+      "x": 552,
+      "y": 249
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 438,
+      "width": 432,
+      "x": 552,
+      "y": 249
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAIoAAAA0gAAA9cAAAKuAAACKAAAAPkAAAPXAAACrgAAAAAAAAAABgAAAAIoAAAA+QAAA9cAAAKu"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-ActionsChain::Copy To Clipboard-geometry": {
+    "frame_geometry": {
+      "height": 393,
+      "width": 322,
+      "x": 607,
+      "y": 252
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 354,
+      "width": 322,
+      "x": 607,
+      "y": 291
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 354,
+      "width": 322,
+      "x": 607,
+      "y": 291
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAJfAAAA/AAAA6AAAAKEAAACXwAAASMAAAOgAAAChAAAAAAAAAAABgAAAAJfAAABIwAAA6AAAAKE"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-Plugin Updater plugin:plugin updater dialog": {
+    "frame_geometry": {
+      "height": 525,
+      "width": 916,
+      "x": 310,
+      "y": 186
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 310,
+      "y": 225
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 486,
+      "width": 916,
+      "x": 310,
+      "y": 225
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAE2AAAAugAABMkAAALGAAABNgAAAOEAAATJAAACxgAAAAAAAAAABgAAAAE2AAAA4QAABMkAAALG"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-action-chains-action-dialog-geometry": {
+    "frame_geometry": {
+      "height": 541,
+      "width": 1140,
+      "x": 198,
+      "y": 178
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 502,
+      "width": 1140,
+      "x": 198,
+      "y": 217
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 502,
+      "width": 1140,
+      "x": 198,
+      "y": 217
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAADGAAAAsgAABTkAAALOAAAAxgAAANkAAAU5AAACzgAAAAAAAAAABgAAAADGAAAA2QAABTkAAALO"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-action-chains-chains-dialog-geometry": {
+    "frame_geometry": {
+      "height": 600,
+      "width": 1486,
+      "x": 25,
+      "y": 148
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 561,
+      "width": 1486,
+      "x": 25,
+      "y": 187
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 561,
+      "width": 1486,
+      "x": 25,
+      "y": 187
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAZAAAAlAAABeYAAALrAAAAGQAAALsAAAXmAAAC6wAAAAAAAAAABgAAAAAZAAAAuwAABeYAAALr"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -393,35 +645,35 @@
   },
   "geometry-of-calibre_main_window_geometry": {
     "frame_geometry": {
-      "height": 1070,
-      "width": 1876,
+      "height": 854,
+      "width": 1558,
       "x": -11,
       "y": -49
     },
     "full_screened": false,
     "geometry": {
-      "height": 1010,
-      "width": 1854,
+      "height": 794,
+      "width": 1536,
       "x": 0,
       "y": 0
     },
     "maximized": true,
     "normal_geometry": {
-      "height": 1010,
-      "width": 1854,
-      "x": 22,
-      "y": 5
+      "height": 794,
+      "width": 1536,
+      "x": 0,
+      "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAD////1////zwAAB0gAAAP8AAAAFgAAAAUAAAdTAAAD9gAAAAACAAAAB4AAAAAAAAAAAAAABz0AAAPx"
+      "__value__": "AdnQywADAAD////1////zwAABgoAAAMkAAAAAAAAAAAAAAX/AAADGQAAAAACAAAABgAAAAAAAAAAAAAABf8AAAMZ"
     },
     "screen": {
       "depth": 32,
-      "device_pixel_ratio": 1.0,
+      "device_pixel_ratio": 2.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       },
@@ -431,12 +683,12 @@
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -493,52 +745,154 @@
       }
     }
   },
-  "geometry-of-diff_dialog_geom": {
+  "geometry-of-comments_dialog_geom": {
     "frame_geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 1080
+      "height": 660,
+      "width": 672,
+      "x": 422,
+      "y": 8
     },
     "full_screened": false,
     "geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 1080
+      "height": 600,
+      "width": 650,
+      "x": 433,
+      "y": 57
     },
-    "maximized": true,
+    "maximized": false,
     "normal_geometry": {
-      "height": 1026,
-      "width": 1920,
-      "x": 0,
-      "y": 1107
+      "height": 600,
+      "width": 650,
+      "x": 433,
+      "y": 57
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAEOAAAB38AAAg5AAAAAAAABFMAAAd/AAAIVAAAAAECAAAAB4AAAAAAAAAEOAAAB38AAAg5"
+      "__value__": "AdnQywADAAAAAAGmAAAACAAABEUAAAKbAAABsQAAADkAAAQ6AAACkAAAAAAAAAAABgAAAAGxAAAAOQAABDoAAAKQ"
     },
     "screen": {
       "depth": 32,
-      "device_pixel_ratio": 1.0,
+      "device_pixel_ratio": 2.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
-        "y": 1080
+        "y": 0
       },
-      "index_in_screens_list": 1,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "eDP-1-0x40BA",
+      "index_in_screens_list": 0,
+      "manufacturer": "LEN",
+      "model": "0x40ba",
       "name": "eDP-1",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 2160,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-convert_single_dialog_geom": {
+    "frame_geometry": {
+      "height": 824,
+      "width": 1488,
+      "x": 14,
+      "y": -49
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 764,
+      "width": 1466,
+      "x": 25,
+      "y": 0
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 764,
+      "width": 1466,
+      "x": 25,
+      "y": 0
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAO////zwAABd0AAAMGAAAAGQAAAAAAAAXSAAAC+wAAAAAAAAAABgAAAAAZAAAAAAAABdIAAAL7"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 2.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "LEN",
+      "model": "0x40ba",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-diff_dialog_geom": {
+    "frame_geometry": {
+      "height": 811,
+      "width": 1514,
+      "x": 11,
+      "y": 43
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 772,
+      "width": 1514,
+      "x": 11,
+      "y": 82
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 772,
+      "width": 1514,
+      "x": 11,
+      "y": 82
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAALAAAAKwAABfQAAANVAAAACwAAAFIAAAX0AAADVQAAAAAAAAAABgAAAAALAAAAUgAABfQAAANV"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -648,50 +1002,50 @@
   },
   "geometry-of-jobs_dialog_geometry": {
     "frame_geometry": {
-      "height": 342,
+      "height": 381,
       "width": 1037,
-      "x": 0,
-      "y": 0
+      "x": 238,
+      "y": 208
     },
     "full_screened": false,
     "geometry": {
       "height": 342,
       "width": 1037,
-      "x": 0,
-      "y": 0
+      "x": 238,
+      "y": 247
     },
     "maximized": false,
     "normal_geometry": {
       "height": 342,
       "width": 1037,
-      "x": 0,
-      "y": 0
+      "x": 238,
+      "y": 247
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAABAwAAAFVAAAAAAAAAAAAAAQMAAABVQAAAAAAAAAAB4AAAAAAAAAAAAAABAwAAAFV"
+      "__value__": "AdnQywADAAAAAADuAAAA0AAABPoAAAJMAAAA7gAAAPcAAAT6AAACTAAAAAAAAAAABgAAAADuAAAA9wAABPoAAAJM"
     },
     "screen": {
-      "depth": 32,
+      "depth": 24,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "eDP-1-0x40BA",
-      "name": "eDP-1",
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -699,50 +1053,50 @@
   },
   "geometry-of-k2pdf-main-dialog-geometry": {
     "frame_geometry": {
-      "height": 1048,
-      "width": 1854,
-      "x": -3,
-      "y": -30
+      "height": 832,
+      "width": 1530,
+      "x": 0,
+      "y": 32
     },
     "full_screened": false,
     "geometry": {
-      "height": 1015,
-      "width": 1848,
+      "height": 793,
+      "width": 1530,
       "x": 0,
-      "y": 0
+      "y": 71
     },
-    "maximized": true,
+    "maximized": false,
     "normal_geometry": {
-      "height": 1026,
-      "width": 1920,
+      "height": 793,
+      "width": 1530,
       "x": 0,
-      "y": 27
+      "y": 71
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAD////9////4gAABzoAAAP5AAAAAAAAABsAAAd/AAAEHAAAAAACAAAAB4AAAAAAAAAAAAAABzcAAAP2"
+      "__value__": "AdnQywADAAAAAAAAAAAAIAAABfkAAANfAAAAAAAAAEcAAAX5AAADXwAAAAAAAAAABgAAAAAAAAAARwAABfkAAANf"
     },
     "screen": {
-      "depth": 32,
+      "depth": 24,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "SAM",
-      "model": "S24C31x",
-      "name": "DP-2",
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 2160,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -794,6 +1148,57 @@
       "virtual_geometry": {
         "height": 1080,
         "width": 1920,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-library-fts-dialog-geometry": {
+    "frame_geometry": {
+      "height": 719,
+      "width": 1000,
+      "x": 258,
+      "y": 32
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 680,
+      "width": 1000,
+      "x": 258,
+      "y": 71
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 680,
+      "width": 1000,
+      "x": 258,
+      "y": 71
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAECAAAAIAAABOkAAALuAAABAgAAAEcAAATpAAAC7gAAAAAAAAAABgAAAAECAAAARwAABOkAAALu"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -1005,50 +1410,101 @@
   },
   "geometry-of-preferences dialog geometry": {
     "frame_geometry": {
-      "height": 749,
-      "width": 932,
-      "x": 484,
-      "y": 113
+      "height": 780,
+      "width": 952,
+      "x": -11,
+      "y": -49
     },
     "full_screened": false,
     "geometry": {
       "height": 720,
       "width": 930,
-      "x": 485,
-      "y": 141
+      "x": 0,
+      "y": 0
     },
     "maximized": false,
     "normal_geometry": {
       "height": 720,
       "width": 930,
-      "x": 485,
-      "y": 141
+      "x": 0,
+      "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAHkAAAAcQAABYcAAANdAAAB5QAAAI0AAAWGAAADXAAAAAAAAAAAB4AAAAHlAAAAjQAABYYAAANc"
+      "__value__": "AdnQywADAAD////1////zwAAA6wAAALaAAAAAAAAAAAAAAOhAAACzwAAAAAAAAAABgAAAAAAAAAAAAAAA6EAAALP"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 2.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "LEN",
+      "model": "0x40ba",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-template_editor_dialog_geometry": {
+    "frame_geometry": {
+      "height": 521,
+      "width": 1024,
+      "x": 256,
+      "y": 188
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 482,
+      "width": 1024,
+      "x": 256,
+      "y": 227
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 482,
+      "width": 1024,
+      "x": 256,
+      "y": 227
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAEAAAAAvAAABP8AAALEAAABAAAAAOMAAAT/AAACxAAAAAAAAAAABgAAAAEAAAAA4wAABP8AAALE"
     },
     "screen": {
       "depth": 24,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "Lenovo Group Limited",
+      "manufacturer": "",
       "model": "",
-      "name": "eDP-1",
+      "name": "rdp0",
       "serial": "",
       "size_in_logical_pixels": {
-        "height": 1080,
-        "width": 1920
+        "height": 864,
+        "width": 1536
       },
       "virtual_geometry": {
-        "height": 1080,
-        "width": 1920,
+        "height": 864,
+        "width": 1536,
         "x": 0,
         "y": 0
       }
@@ -1105,13 +1561,15 @@
       }
     }
   },
+  "gpm_template_editor_font": "Sans Serif",
+  "gpm_template_editor_word_wrap_mode": true,
   "grid view visible": false,
   "jobs view column layout3": {
     "__class__": "bytearray",
     "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAAAAAAAAAA=="
   },
   "library_usage_stats": {
-    "/home/mnt/catalin/Calibre Library": 56
+    "/home/mnt/catalin/Calibre Library": 110
   },
   "main_window_central_widget_state": {
     "layout": "wide",
@@ -1196,18 +1654,11 @@
       [
         "timestamp",
         false
-      ],
-      [
-        "inlibrary",
-        false
-      ],
-      [
-        "timestamp",
-        false
       ]
     ]
   },
   "previous_sort_order_BooksView": {
+    "#genre": false,
     "#mm_annotations": false,
     "#priority": false,
     "#read": true,
@@ -1220,6 +1671,22 @@
   "recently_used_languages": [
     "Tamil"
   ],
+  "replace_scene_breaks_history": [
+    "",
+    "<hr />",
+    "∗ ∗ ∗",
+    "• • •",
+    "♦ ♦ ♦",
+    "† †",
+    "‡ ‡ ‡",
+    "∞ ∞ ∞",
+    "¤ ¤ ¤"
+  ],
   "search bar visible": true,
-  "tag browser search box visible": false
+  "tag browser search box visible": false,
+  "template_editor_table_widths": [
+    80,
+    41,
+    813
+  ]
 }

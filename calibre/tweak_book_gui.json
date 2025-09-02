@@ -109,6 +109,57 @@
     "where": "current",
     "wrap": true
   },
+  "geometry-of-action-chains-manage-modules-geometry": {
+    "frame_geometry": {
+      "height": 285,
+      "width": 364,
+      "x": 586,
+      "y": 306
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 246,
+      "width": 364,
+      "x": 586,
+      "y": 345
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 246,
+      "width": 364,
+      "x": 586,
+      "y": 345
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAJKAAABMgAAA7UAAAJOAAACSgAAAVkAAAO1AAACTgAAAAAAAAAABgAAAAJKAAABWQAAA7UAAAJO"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "",
+      "model": "",
+      "name": "rdp0",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "geometry-of-import-foreign-geometry": {
     "frame_geometry": {
       "height": 190,

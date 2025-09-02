@@ -1,28 +1,79 @@
 {
   "geometry-of-main_window_geometry": {
     "frame_geometry": {
-      "height": 720,
-      "width": 902,
-      "x": 0,
-      "y": 0
+      "height": 636,
+      "width": 796,
+      "x": -11,
+      "y": -49
     },
     "full_screened": false,
     "geometry": {
-      "height": 720,
-      "width": 902,
+      "height": 576,
+      "width": 774,
       "x": 0,
       "y": 0
     },
     "maximized": false,
     "normal_geometry": {
-      "height": 720,
-      "width": 902,
+      "height": 576,
+      "width": 774,
       "x": 0,
       "y": 0
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAAAAAAAAAAAA4UAAALPAAAAAAAAAAAAAAOFAAACzwAAAAEAAAAAB4AAAAAAAAAAAAAAA4UAAALP"
+      "__value__": "AdnQywADAAD////1////zwAAAxAAAAJKAAAAAAAAAAAAAAMFAAACPwAAAAAAAAAABgAAAAAAAAAAAAAAAwUAAAI/"
+    },
+    "screen": {
+      "depth": 32,
+      "device_pixel_ratio": 2.0,
+      "geometry_in_logical_pixels": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "LEN",
+      "model": "0x40ba",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 864,
+        "width": 1536
+      },
+      "virtual_geometry": {
+        "height": 864,
+        "width": 1536,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "geometry-of-viewer_image_popup_geometry": {
+    "frame_geometry": {
+      "height": 184,
+      "width": 885,
+      "x": 508,
+      "y": 389
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 124,
+      "width": 863,
+      "x": 519,
+      "y": 438
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 124,
+      "width": 863,
+      "x": 519,
+      "y": 438
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAH8AAABhQAABXAAAAI8AAACBwAAAbYAAAVlAAACMQAAAAEAAAAAB4AAAAIHAAABtgAABWUAAAIx"
     },
     "screen": {
       "depth": 32,
@@ -31,12 +82,12 @@
         "height": 1080,
         "width": 1920,
         "x": 0,
-        "y": 1080
+        "y": 0
       },
       "index_in_screens_list": 1,
-      "manufacturer": "Lenovo Group Limited",
-      "model": "eDP-1-0x40BA",
-      "name": "eDP-1",
+      "manufacturer": "SAM",
+      "model": "S24C31x",
+      "name": "DP-2",
       "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,
@@ -52,7 +103,7 @@
   },
   "main_window_state": {
     "__class__": "bytearray",
-    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAAC0PwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAAC0AAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAACgAAAAtAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAACQPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawEAAAAAAAACQAAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACDAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANcA////AAACAAAAAkAAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
   },
   "old_prefs_migrated": true,
   "session_data": {
@@ -67,6 +118,97 @@
       "singleinstance": false
     },
     "standalone_recently_opened": [
+      {
+        "authors": [
+          "Thomas J. Peters",
+          "Robert H. Waterman Jr."
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Thomas J. Peters/In Search of Excellence_ Lessons From America's Best-Run Companies (745)/In Search of Excellence_ Lessons From Amer - Thomas J. Peters.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Thomas J. Peters/In Search of Excellence_ Lessons From America's Best-Run Companies (745)/In Search of Excellence_ Lessons From Amer - Thomas J. Peters.epub",
+        "timestamp": "2025-08-13T10:23:47.554Z",
+        "title": "In Search of Excellence: Lessons From America's Best-Run Companies"
+      },
+      {
+        "authors": [
+          "Russell Brunson"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Russell Brunson/Expert Secrets (741)/Expert Secrets - Russell Brunson.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Russell Brunson/Expert Secrets (741)/Expert Secrets - Russell Brunson.epub",
+        "timestamp": "2025-08-13T07:38:24.886Z",
+        "title": "Expert Secrets"
+      },
+      {
+        "key": "/home/mnt/catalin/Calibre Library/Unknown/Secrets of the  Millionaire  Mind (738)/Secrets of the  Millionaire  Mind - Unknown.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Unknown/Secrets of the  Millionaire  Mind (738)/Secrets of the  Millionaire  Mind - Unknown.epub",
+        "timestamp": "2025-08-13T07:37:32.217Z",
+        "title": "9780061336454"
+      },
+      {
+        "key": "/home/mnt/catalin/Calibre Library/Unknown/9780061336454 (738)/9780061336454 - Unknown.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Unknown/9780061336454 (738)/9780061336454 - Unknown.epub",
+        "timestamp": "2025-08-13T07:34:08.637Z",
+        "title": "9780061336454"
+      },
+      {
+        "authors": [
+          "Allen Carr; Hackauthor; Hackauthor²; Different_Guide_5205"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Allen Carr; Hackauthor; Hackauthor2; Different_Guide_5205/The Easyway to Quit Porn_ PMO Hacknotes for those still slipping up (736)/The Easyway to Quit Porn_ PMO Hacknotes fo - Allen Carr; Hackauthor; Hackauthor2; Diffe.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Allen Carr; Hackauthor; Hackauthor2; Different_Guide_5205/The Easyway to Quit Porn_ PMO Hacknotes for those still slipping up (736)/The Easyway to Quit Porn_ PMO Hacknotes fo - Allen Carr; Hackauthor; Hackauthor2; Diffe.epub",
+        "timestamp": "2025-07-21T19:20:31.286Z",
+        "title": "The Easyway to Quit Porn: PMO Hacknotes for those still slipping up"
+      },
+      {
+        "authors": [
+          "Esbjorn-Hargens, Sean.;"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Esbjorn-Hargens, Sean.;/Integral Theory in Action (735)/Integral Theory in Action - Esbjorn-Hargens, Sean.;.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Esbjorn-Hargens, Sean.;/Integral Theory in Action (735)/Integral Theory in Action - Esbjorn-Hargens, Sean.;.epub",
+        "timestamp": "2025-07-21T19:20:11.834Z",
+        "title": "Integral Theory in Action"
+      },
+      {
+        "authors": [
+          "Dan Martell"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Dan Martell/Software as a Science_ Unlock Limitless Recurring Revenue Without Losing Control (731)/Software as a Science_ Unlock Limitless Re - Dan Martell.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Dan Martell/Software as a Science_ Unlock Limitless Recurring Revenue Without Losing Control (731)/Software as a Science_ Unlock Limitless Re - Dan Martell.epub",
+        "timestamp": "2025-06-25T13:52:24.219Z",
+        "title": "Software as a Science: Unlock Limitless Recurring Revenue Without Losing Control"
+      },
+      {
+        "authors": [
+          "Rob Fitzpatrick"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Rob Fitzpatrick/The Mom Test_ How to Talk to Customers & Learn if Your Business Is a Good Idea When Everyone Is (728)/The Mom Test_ How to Talk to Customers & L - Rob Fitzpatrick.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Rob Fitzpatrick/The Mom Test_ How to Talk to Customers & Learn if Your Business Is a Good Idea When Everyone Is (728)/The Mom Test_ How to Talk to Customers & L - Rob Fitzpatrick.epub",
+        "timestamp": "2025-06-22T10:49:35.528Z",
+        "title": "The Mom Test"
+      },
+      {
+        "authors": [
+          "Jim Rohn"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Jim Rohn/The Seasons of Life (658)/The Seasons of Life - Jim Rohn.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Jim Rohn/The Seasons of Life (658)/The Seasons of Life - Jim Rohn.epub",
+        "timestamp": "2025-06-22T10:24:34.031Z",
+        "title": "The Seasons of Life"
+      },
+      {
+        "authors": [
+          "Ambrose Bierce"
+        ],
+        "key": "/home/mnt/catalin/Calibre Library/Ambrose Bierce/The Devil's Dictionary (720)/The Devil's Dictionary - Ambrose Bierce.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Ambrose Bierce/The Devil's Dictionary (720)/The Devil's Dictionary - Ambrose Bierce.epub",
+        "timestamp": "2025-05-18T16:29:18.073Z",
+        "title": "The Devil's Dictionary"
+      },
+      {
+        "key": "/home/mnt/catalin/Calibre Library/Unknown/The Tibetan Book Of The Dead Penguin Classics Edition Translated By Graham Coleman (719)/The Tibetan Book Of The Dead Penguin Class - Unknown.epub",
+        "pathtoebook": "/home/mnt/catalin/Calibre Library/Unknown/The Tibetan Book Of The Dead Penguin Classics Edition Translated By Graham Coleman (719)/The Tibetan Book Of The Dead Penguin Class - Unknown.epub",
+        "timestamp": "2025-05-17T19:34:12.576Z",
+        "title": "The Tibetan Book Of The Dead Penguin Classics Edition Translated By Graham Coleman"
+      },
       {
         "authors": [
           "Albert Camus"

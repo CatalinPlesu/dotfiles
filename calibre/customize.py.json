@@ -10,6 +10,7 @@
   "filetype_mapping": {},
   "plugin_customization": {},
   "plugins": {
+    "Action Chains": "/home/catalin/.config/calibre/plugins/Action Chains.zip",
     "Annotations": "/home/catalin/.config/calibre/plugins/Annotations.zip",
     "K2pdfopt Plugin": "/home/catalin/.config/calibre/plugins/K2pdfopt Plugin.zip"
   }

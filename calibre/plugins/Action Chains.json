@@ -1,0 +1,84 @@
+{
+  "ActionsChainMenus": {
+    "Menus": [
+      {
+        "active": true,
+        "chain_settings": {
+          "chain_links": [
+            {
+              "action_name": "Copy To Clipboard",
+              "action_settings": {
+                "allow_multiple": true,
+                "filename": "",
+                "template": "Title: {title}; Author(s): {authors}; Priority: {#priority}; Genres: {#genre}"
+              },
+              "comment": "",
+              "scope_settings": {
+                "icon": "",
+                "scope_manager_name": "Basic Scopes",
+                "scope_manager_settings": {
+                  "opt": "all_books",
+                  "vl": false
+                },
+                "tooltip": ""
+              }
+            }
+          ],
+          "refresh_gui": true,
+          "show_progress": true
+        },
+        "image": "",
+        "menuText": "Copy Metadata",
+        "subMenu": ""
+      }
+    ]
+  },
+  "chainsTableState": null,
+  "eventVariants": [],
+  "events": {
+    "eventEntries": []
+  },
+  "gprefs": {
+    "actionsTableState": {
+      "column_positions": {
+        "action_name": 2,
+        "action_settings": 3,
+        "comment": 4,
+        "conditions": 0,
+        "errors": 5,
+        "scope": 1
+      },
+      "column_sizes": {
+        "action_name": 300,
+        "action_settings": 58,
+        "comment": 200,
+        "conditions": 74,
+        "errors": 376,
+        "scope": 42
+      },
+      "hidden_columns": []
+    },
+    "chainsTableState": {
+      "column_positions": {
+        "active": 0,
+        "conditions": 1,
+        "menuText": 2,
+        "settings": 4,
+        "subMenu": 3
+      },
+      "column_sizes": {
+        "active": 41,
+        "conditions": 74,
+        "menuText": 200,
+        "settings": 58,
+        "subMenu": 66
+      },
+      "hidden_columns": []
+    },
+    "eventMembersTableState": null,
+    "eventVariantsTableState": null,
+    "eventsTableState": null,
+    "varsTableState": null
+  },
+  "schemaVersion": 1.9
+}

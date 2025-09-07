@@ -91,3 +91,5 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 export OPENSSL_DIR=/etc/ssl
 export OPENSSLDIR=/etc/ssl
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

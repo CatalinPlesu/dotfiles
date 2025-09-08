@@ -239,6 +239,7 @@ screens = [
             ],
             24,
         ),
+        wallpaper="/home/catalin/Pictures/wallpapers/pattern/wallhaven-kxp8dd_1920x1080.png"
     ),
 ]
 

@@ -8,7 +8,7 @@ from theme import *
 mod = "mod4"
 
 triangle = "◀"
-slash = ""
+slash = ""
 separator = slash
 
 keys = [
@@ -46,41 +46,46 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_floating(),),
     Key([mod], "f", lazy.window.toggle_fullscreen(),),
     Key([mod], "t", lazy.hide_show_bar(),),
-    # Rofi
+
+    # Rofi (works on both X11 and Wayland with rofi-wayland)
     Key([mod], "d", lazy.spawn("rofi -show combi")),
     Key([mod, "shift"], "d", lazy.spawn(
-        "rofi -show calc -theme dmenu | xclip -selection clipboard")),
+        "rofi -show calc -theme dmenu | wl-copy")),  # Updated for Wayland
     Key([mod, "shift"], "s", lazy.spawn(
-        "rofi -modi 'run,drun,emoji:/home/catalin/.config/rofi/rofiemoji/rofiemoji.sh' -show emoji -matching normal")),
+        "rofi -modi 'run,drun,emoji' -show emoji -matching normal")),
+
     # Apps
     Key([mod], "Return", lazy.spawn("kitty -e tmux new-session -A -s main")),
-    Key([mod, "shift"], "Return", lazy.spawn("kitty")),
-    Key([mod], "b", lazy.spawn("$BROWSER")),
+    Key([mod], "t", lazy.spawn("kitty")),
+    Key([mod], "b", lazy.spawn("firefox")),  # Default to Firefox
     Key([mod, "shift"], "b", lazy.spawn("chromium")),
-    Key([mod], "x", lazy.spawn("xsecurelock -- xset dpms force off")),
+    Key([mod], "x", lazy.spawn("swaylock")),  # Updated for Wayland
     Key([mod], "m", lazy.spawn(
         "mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip")),
     Key([mod], "e", lazy.spawn("thunar")),
-    Key([mod], "u", lazy.spawn(
-        "find -L ~/UTM/anul_ii/semestrul_iii -type d | rofi -dmenu | xargs --no-run-if-empty thunar")),
+    # Removed the university-specific shortcut
 
-    # Volume Control
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("vol.sh up")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("vol.sh down")),
-    Key([], "XF86AudioMute", lazy.spawn("vol.sh mute")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
+
+    # Volume Control (using wpctl for PipeWire, fallback to pactl)
+    Key([], "XF86AudioRaiseVolume", lazy.spawn(
+        "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn(
+        "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn(
+        "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86AudioMicMute", lazy.spawn(
-        "amixer -D pulse sset Capture toggle")),
+        "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")),
 
-    # Brightness Control
-    Key([], "XF86MonBrightnessUp", lazy.spawn("backlight_control +5")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("backlight_control -5")),
+    # Screenshots (updated for Wayland)
+    Key([], "Print", lazy.spawn("grim -g '$(slurp)' - | wl-copy")),
+    Key(["control"], "Print", lazy.spawn(
+        "grim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png")),
+    Key([mod], "s", lazy.spawn(
+        "grim -g '$(slurp)' ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png")),
 
-    # Screenshots
-    Key([], "Print", lazy.spawn(
-        "scrot -z '%d-%B-%Y-{%T}.png' -e 'xclip -selection clipboard -t \"image/png\" -i $n && mkdir -p ~/Pictures/Screenshots/%Y/%B/%d/ && mv $f ~/Pictures/Screenshots/%Y/%B/%d/'")),
-    Key(["control"], "Print", lazy.spawn("flameshot gui")),
-
-    # Keyboard Layout
+    # Keyboard Layout (works with both X11 and Wayland)
     Key([mod, "control"], "u", lazy.spawn("setxkbmap us")),
     Key([mod, "control"], "r", lazy.spawn("setxkbmap ro std")),
     Key([mod, "control"], "i", lazy.spawn("setxkbmap ru")),
@@ -119,12 +124,11 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='FiraCode',
+    font='FiraCode Nerd Font',  # Updated font name
     fontsize=18,
     padding=5,
     foreground=foreground,
     background=background,
-
 )
 extension_defaults = widget_defaults.copy()
 
@@ -151,28 +155,12 @@ screens = [
                     foreground=purple,
                 ),
                 widget.TextBox(
-                    text='scr:',
-                    background=purple,
-                    foreground=white0,
-                ),
-                widget.Backlight(
-                    backlight_name="amdgpu_bl0",
-                    background=purple,
-                    foreground=white0,
-                ),
-                widget.TextBox(
-                    padding=0,
-                    text=separator,
-                    foreground=yellow,
-                    background=purple,
-                ),
-                widget.TextBox(
                     text='vol:',
-                    background=yellow,
+                    background=purple,
                     foreground=white0,
                 ),
-                widget.Volume(
-                    background=yellow,
+                widget.Volume(  # Updated widget for modern audio systems
+                    background=purple,
                     foreground=white0,
                 ),
                 widget.TextBox(
@@ -182,14 +170,12 @@ screens = [
                     background=yellow,
                 ),
                 widget.TextBox(
-                    text='bat:',
+                    text='mem:',
                     background=green,
                     foreground=white0,
                 ),
-                widget.Battery(
-                    format='{percent:2.0%}',
-                    low_percentage=0.2,
-                    low_foreground=warning,
+                widget.Memory(
+                    format='{MemUsed: .0f}{mm}',
                     background=green,
                     foreground=white0,
                 ),
@@ -199,9 +185,13 @@ screens = [
                     foreground=aqua,
                     background=green,
                 ),
-                widget.KeyboardLayout(
-                    configured_keyboards=['us', 'ro std', 'ru'],
-                    display_map={'us': 'US', 'ro std': 'RO', 'ru': 'RU'},
+                widget.TextBox(
+                    text='cpu:',
+                    background=aqua,
+                    foreground=white0,
+                ),
+                widget.CPU(
+                    format='{freq_current}GHz {load_percent}%',
                     background=aqua,
                     foreground=white0,
                 ),
@@ -211,21 +201,31 @@ screens = [
                     foreground=blue,
                     background=aqua,
                 ),
-                widget.Clock(
-                    # format='%I:%M %p',
-                    format='%d.%m',
+                widget.KeyboardLayout(
+                    configured_keyboards=['us', 'ro std', 'ru'],
+                    display_map={'us': 'US', 'ro std': 'RO', 'ru': 'RU'},
                     background=blue,
                     foreground=white0,
                 ),
                 widget.TextBox(
                     padding=0,
                     text=separator,
-                    foreground=purple,
+                    foreground=yellow,
                     background=blue,
                 ),
                 widget.Clock(
-                    # format='%d.%m.%Y',
-                    format='%I:%M',
+                    format='%d.%m',
+                    background=yellow,
+                    foreground=white0,
+                ),
+                widget.TextBox(
+                    padding=0,
+                    text=separator,
+                    foreground=purple,
+                    background=yellow,
+                ),
+                widget.Clock(
+                    format='%H:%M',  # 24-hour format
                     background=purple,
                     foreground=white0,
                 ),
@@ -234,7 +234,7 @@ screens = [
                     icon_size=15,
                 ),
             ],
-            20,
+            24,  # Slightly taller bar for better visibility
         ),
     ),
 ]
@@ -267,6 +267,8 @@ floating_layout = layout.Floating(
         Match(title='branchdialog'),  # gitk
         Match(title='pinentry'),  # GPG key password entry
         Match(title='Application Finder'),
+        Match(wm_class='pavucontrol'),  # Audio control
+        Match(wm_class='blueman-manager'),  # Bluetooth manager
     ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

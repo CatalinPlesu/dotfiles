@@ -85,10 +85,7 @@ keys = [
     Key([mod], "s", lazy.spawn(
         "grim -g '$(slurp)' ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png")),
 
-    # Keyboard Layout (works with both X11 and Wayland)
-    Key([mod, "control"], "u", lazy.spawn("setxkbmap us")),
-    Key([mod, "control"], "r", lazy.spawn("setxkbmap ro std")),
-    Key([mod, "control"], "i", lazy.spawn("setxkbmap ru")),
+    Key([mod, "control"], "space", lazy.widget['keyboardlayout'].next_keyboard()),
 ]
 
 groups = []
@@ -124,7 +121,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='FiraCode Nerd Font',  # Updated font name
+    font='FiraCode Nerd Font',
     fontsize=18,
     padding=5,
     foreground=foreground,
@@ -159,7 +156,7 @@ screens = [
                     background=purple,
                     foreground=white0,
                 ),
-                widget.Volume(  # Updated widget for modern audio systems
+                widget.Volume(
                     background=purple,
                     foreground=white0,
                 ),
@@ -225,7 +222,7 @@ screens = [
                     background=yellow,
                 ),
                 widget.Clock(
-                    format='%H:%M',  # 24-hour format
+                    format='%H:%M',
                     background=purple,
                     foreground=white0,
                 ),
@@ -234,12 +231,11 @@ screens = [
                     icon_size=15,
                 ),
             ],
-            24,  # Slightly taller bar for better visibility
+            24,
         ),
     ),
 ]
 
-# Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
@@ -249,8 +245,8 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
+dgroups_app_rules = []
+main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False

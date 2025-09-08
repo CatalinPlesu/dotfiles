@@ -1122,9 +1122,10 @@ vim.o.foldenable = true
 vim.o.foldlevel = 99 -- or a value that suits your preference for initial fold level
 vim.o.foldlevelstart = 99 -- or a value that suits your preference for initial fold level
 
-vim.o.background = "light"
+-- vim.o.background = "light"
 -- vim.cmd.colorscheme("onehalflight")
-vim.cmd.colorscheme("paper")
+-- vim.cmd.colorscheme("paper")
+vim.cmd.colorscheme("gruvbox")
 
 vim.keymap.set("n", "<leader>g", function()
 	require("neogit").open({ kind = "replace" })

@@ -40,18 +40,19 @@ keys = [
 
     Key([mod], "Tab", lazy.next_layout(), ),
     Key([mod], "q", lazy.window.kill(), ),
-    Key([mod, "control"], "r", lazy.restart(), ),
+    Key([mod, "control"], "r", lazy.spawn(
+        "qtile cmd-obj -o cmd -f reload_config"), ),
     Key([mod, "control"], "q", lazy.shutdown(), ),
 
     Key([mod, "shift"], "f", lazy.window.toggle_floating(),),
     Key([mod], "f", lazy.window.toggle_fullscreen(),),
     Key([mod], "t", lazy.hide_show_bar(),),
 
-    # Rofi (works on both X11 and Wayland with rofi-wayland)
+    # Rofi
     Key([mod], "d", lazy.spawn("rofi -show combi")),
     Key([mod, "shift"], "d", lazy.spawn(
         "rofi -show calc -theme dmenu | wl-copy")),  # Updated for Wayland
-    Key([mod], ".", lazy.spawn("plasma-emojier")),
+    Key([mod, "shift"], "e", lazy.spawn("plasma-emojier")),
 
     # Apps
     Key([mod], "Return", lazy.spawn("kitty -e tmux new-session -A -s main")),
@@ -118,6 +119,7 @@ layouts = [
         border_width=3,
     ),
 ]
+
 
 widget_defaults = dict(
     font='FiraCode Nerd Font',

@@ -36,10 +36,10 @@ keys = [
     Key([mod, "mod1"], "l", lazy.layout.flip_right()),
 
     Key([mod, "shift"], "n", lazy.layout.normalize()),
-    Key([mod], "n", lazy.layout.toggle_split()),
+    Key([mod], "n", lazy.layout.togge_split()),
 
     Key([mod], "Tab", lazy.next_layout(), ),
-    Key([mod], "w", lazy.window.kill(), ),
+    Key([mod], "q", lazy.window.kill(), ),
     Key([mod, "control"], "r", lazy.restart(), ),
     Key([mod, "control"], "q", lazy.shutdown(), ),
 
@@ -51,15 +51,14 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show combi")),
     Key([mod, "shift"], "d", lazy.spawn(
         "rofi -show calc -theme dmenu | wl-copy")),  # Updated for Wayland
-    Key([mod, "shift"], "s", lazy.spawn(
-        "rofi -modi 'run,drun,emoji' -show emoji -matching normal")),
+    Key([mod], ".", lazy.spawn("plasma-emojier")),
 
     # Apps
     Key([mod], "Return", lazy.spawn("kitty -e tmux new-session -A -s main")),
-    Key([mod], "t", lazy.spawn("kitty")),
+    Key([mod, "shift"], "t", lazy.spawn("kitty")),
     Key([mod], "b", lazy.spawn("firefox")),  # Default to Firefox
     Key([mod, "shift"], "b", lazy.spawn("chromium")),
-    Key([mod], "x", lazy.spawn("swaylock")),  # Updated for Wayland
+    Key([mod], "x", lazy.spawn("loginctl lock-session")),
     Key([mod], "m", lazy.spawn(
         "mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip")),
     Key([mod], "e", lazy.spawn("thunar")),
@@ -145,6 +144,11 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground=background,
+                ),
+                widget.CurrentLayout(
+
+                    background=yellow,
+                    foreground=white0,
                 ),
                 widget.TextBox(
                     padding=0,

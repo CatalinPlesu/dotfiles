@@ -1,9 +1,19 @@
-from typing import List
+from gruvbox.gruvbox import *
 from libqtile import bar, layout, widget
+from libqtile import hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from gruvbox.gruvbox import *
 from theme import *
+from typing import List
+import os
+import subprocess
+
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/scripts/podman-compose-autostart')
+    subprocess.call(home)
+
 
 mod = "mod4"
 

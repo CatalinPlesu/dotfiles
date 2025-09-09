@@ -9,8 +9,8 @@
   "notified-version-updates": {
     "__class__": "set",
     "__value__": [
-      "8.3",
-      "8.4"
+      "8.4",
+      "8.3"
     ]
   },
   "s_r_search_mode": 0,

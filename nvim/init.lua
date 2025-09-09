@@ -1057,14 +1057,28 @@ require("lazy").setup({
 	{
 		"NeogitOrg/neogit",
 		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			-- Only one of these is needed.
-			"nvim-telescope/telescope.nvim", -- optional
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
 		},
-	},
+		config = function()
+			-- Neogit setup
+			require("neogit").setup({})
 
+			-- Diffview setup
+			require("diffview").setup({
+				view = {
+					diff_panel = {
+						win_options = {
+							wrap = false,
+							list = false,
+						},
+					},
+				},
+			})
+		end,
+		cmd = "Neogit",
+	},
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit

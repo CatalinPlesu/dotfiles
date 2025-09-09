@@ -57,8 +57,8 @@ keys = [
     # Apps
     Key([mod], "Return", lazy.spawn("kitty -e tmux new-session -A -s main")),
     Key([mod, "shift"], "t", lazy.spawn("kitty")),
-    Key([mod], "b", lazy.spawn("firefox")),  # Default to Firefox
-    Key([mod, "shift"], "b", lazy.spawn("chromium")),
+    Key([mod], "b", lazy.spawn("zen-browser")),
+    Key([mod, "shift"], "b", lazy.spawn("firefox")),
     Key([mod], "x", lazy.spawn("loginctl lock-session")),
     Key([mod], "m", lazy.spawn(
         "mpv av://v4l2:/dev/video0 --profile=low-latency --untimed -vf=hflip")),

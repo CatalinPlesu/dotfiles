@@ -13,6 +13,8 @@ import subprocess
 def autostart():
     home = os.path.expanduser('~/scripts/podman-compose-autostart')
     subprocess.call(home)
+    subprocess.Popen(['wlr-randr', '--output', 'DP-1', '--pos',
+                     '0,0', '--output', 'HDMI-A-1', '--pos', '1920,0'])
 
 
 mod = "mod4"
@@ -299,7 +301,7 @@ screens = [
             ],
             24,
         ),
-        wallpaper="/home/catalin/Pictures/wallpapers/pattern/wallhaven-kxp8dd_1920x1080.png"
+        wallpaper="/home/catalin/Pictures/wallpapers/anime/wallhaven-wel5e7_1920x1080.png"
     ),
 ]
 

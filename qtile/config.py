@@ -13,8 +13,9 @@ import subprocess
 def autostart():
     home = os.path.expanduser('~/scripts/podman-compose-autostart')
     subprocess.call(home)
-    subprocess.Popen(['wlr-randr', '--output', 'DP-1', '--pos',
-                     '0,0', '--output', 'HDMI-A-1', '--pos', '1920,0'])
+    subprocess.Popen(['wlr-randr',
+                     '--output', 'DP-1', '--on',
+                      '--output', 'HDMI-A-1', '--above', 'DP-1'])
 
 
 mod = "mod4"

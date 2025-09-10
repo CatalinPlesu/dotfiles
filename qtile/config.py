@@ -13,9 +13,7 @@ import subprocess
 def autostart():
     home = os.path.expanduser('~/scripts/podman-compose-autostart')
     subprocess.call(home)
-    subprocess.Popen(['wlr-randr',
-                     '--output', 'DP-1', '--on',
-                      '--output', 'HDMI-A-1', '--above', 'DP-1'])
+    randr()
 
 
 mod = "mod4"
@@ -55,6 +53,7 @@ keys = [
     Key([mod], "q", lazy.window.kill(), ),
     Key([mod, "control"], "r", lazy.spawn(
         "qtile cmd-obj -o cmd -f reload_config"), ),
+    Key([mod, "mod1"], "r", randr(), ),
     Key([mod, "control"], "q", lazy.shutdown(), ),
 
     Key([mod, "shift"], "f", lazy.window.toggle_floating(),),
@@ -354,3 +353,9 @@ def switch_group_no_move(qtile, group_name):
     else:
         # Just switch group on current screen
         group.cmd_toscreen()
+
+
+def randr():
+    subprocess.Popen(['wlr-randr',
+                     '--output', 'DP-1', '--on',
+                      '--output', 'HDMI-A-1', '--above', 'DP-1'])

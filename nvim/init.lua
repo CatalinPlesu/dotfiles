@@ -1070,7 +1070,7 @@ require("lazy").setup({
 				view = {
 					diff_panel = {
 						win_options = {
-							wrap = false,
+							wrap = true,
 							list = false,
 						},
 					},

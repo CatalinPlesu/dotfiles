@@ -172,7 +172,7 @@ vim.o.inccommand = "split"
 vim.o.cursorline = true
 
 -- Show oh on which column you are on, crosshair
--- vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = true
 
 vim.opt.colorcolumn = "80,120,160"
 
@@ -952,8 +952,8 @@ require("lazy").setup({
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
-			require("mini.files").setup()
-			vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
+			-- require("mini.files").setup()
+			-- vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
 			-- Examples:
 			--  - va)  - [V]isually select [A]round [)]paren
 			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
@@ -984,6 +984,68 @@ require("lazy").setup({
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
+		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- Optional but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			-- Enable 'follow_current_file'
+			vim.g.neo_tree_auto_follow = true
+
+			require("neo-tree").setup({
+				close_on_select = true,
+				popup_border = "rounded",
+				filesystem = {
+					filtered_items = {
+						visible = true,
+						hide_dotfiles = false,
+						hide_gitignored = false,
+					},
+					follow_current_file = {
+						enabled = true,
+						-- This is the key setting. 'true' means it will follow the file
+						-- when you open it from the tree or from an external source.
+						-- 'false' means it will only follow if you open it from the tree.
+					},
+					-- Other filesystem options can go here
+				},
+				window = {
+					position = "left",
+					width = 30,
+					mapping_options = {
+						noremap = true,
+						nowait = true,
+					},
+				},
+				default_component_configs = {
+					name = {
+						-- Other name configurations
+					},
+					-- Other component configs
+				},
+				commands = {
+					-- Custom commands
+				},
+				event_handlers = {
+					-- Event handlers
+				},
+			})
+
+			-- Optional: Keymaps for convenience
+			vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal toggle<CR>", { desc = "Toggle Neo-tree" })
+			vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal<CR>", { desc = "Reveal Neo-tree" })
+			vim.keymap.set(
+				"n",
+				"<leader>E",
+				":Neotree filesystem reveal left toggle<CR>",
+				{ desc = "Reveal and Toggle Neo-tree" }
+			)
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
@@ -1057,36 +1119,76 @@ require("lazy").setup({
 	{
 		"NeogitOrg/neogit",
 		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			-- Only one of these is needed.
-			"nvim-telescope/telescope.nvim", -- optional
-		},
-	},
-
-	{
-		"epwalsh/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
-		lazy = true,
-		ft = "markdown",
-		dependencies = {
-			-- Required.
 			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-
+			"sindrets/diffview.nvim",
 			"nvim-telescope/telescope.nvim",
-			"nvim-treesitter/nvim-treesitter",
 		},
+		config = function()
+			-- Neogit setup
+			require("neogit").setup({})
+
+			-- Diffview setup
+			require("diffview").setup({
+				view = {
+					diff_panel = {
+						win_options = {
+							wrap = true,
+							list = false,
+						},
+					},
+				},
+			})
+		end,
+		cmd = "Neogit",
+	},
+	{
+		"brenoprata10/nvim-highlight-colors",
+		config = function()
+			require("nvim-highlight-colors").setup({})
+		end,
+	},
+	{
+		"folke/zen-mode.nvim",
 		opts = {
-			workspaces = {
-				{
-					name = "Notes",
-					path = "~/Documents/Notes/",
+			window = {
+				backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+				-- height and width can be:
+				-- * an absolute number of cells when > 1
+				-- * a percentage of the width / height of the editor when <= 1
+				-- * a function that returns the width or the height
+				width = 100, -- width of the Zen window
+				height = 1, -- height of the Zen window
+				-- by default, no options are changed for the Zen window
+				-- uncomment any of the options below, or add other vim.wo options you want to apply
+				options = {
+					signcolumn = "no", -- disable signcolumn
+					number = false, -- disable number column
+					relativenumber = false, -- disable relative numbers
+					cursorline = false, -- disable cursorline
+					cursorcolumn = false, -- disable cursor column
+					foldcolumn = "0", -- disable fold column
+					list = false, -- disable whitespace characters
 				},
 			},
-
-			-- see below for full list of options 👇
+			plugins = {
+				-- disable some global vim options (vim.o...)
+				-- comment the lines to not apply the options
+				options = {
+					enabled = true,
+					ruler = false, -- disables the ruler text in the cmd line area
+					showcmd = false, -- disables the command in the last line of the screen
+					-- you may turn on/off statusline in zen mode by setting 'laststatus'
+					-- statusline will be shown only if 'laststatus' == 3
+					laststatus = 0, -- turn off the statusline in zen mode
+				},
+				twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+				gitsigns = { enabled = false }, -- disables git signs
+				tmux = { enabled = true }, -- disables the tmux statusline
+			},
+			-- callback where you can add custom code when the Zen window opens
+			on_open = function(win) end,
+			-- callback where you can add custom code when the Zen window closes
+			on_close = function() end,
 		},
 	},
 }, {
@@ -1130,3 +1232,4 @@ vim.cmd.colorscheme("gruvbox")
 vim.keymap.set("n", "<leader>g", function()
 	require("neogit").open({ kind = "replace" })
 end, { desc = "Open Neogit (replace)" })
+vim.api.nvim_create_user_command("CloseOtherBuffers", "1,bufdo %bd|e#|bd#", {})

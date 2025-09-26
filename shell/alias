@@ -62,6 +62,8 @@ alias dow="cd ~/Downloads/"
 alias e="bash ~/scripts/edit_config.sh"
 alias h="bash ~/scripts/window_menu.sh"
 
+alias ip='ip --color=auto'
+
 # MISC
 alias myip="ip addr | grep inet"
 alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'

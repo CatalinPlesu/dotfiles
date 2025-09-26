@@ -1,9 +1,22 @@
-from typing import List
+from gruvbox.gruvbox import *
 from libqtile import bar, layout, widget
+from libqtile import hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from gruvbox.gruvbox import *
 from theme import *
+from typing import List
+import os
+import subprocess
+
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/scripts/podman-compose-autostart')
+    subprocess.call(home)
+    subprocess.Popen(['wlr-randr',
+                     '--output', 'DP-1', '--on',
+                      '--output', 'HDMI-A-1', '--above', 'DP-1'])
+
 
 mod = "mod4"
 
@@ -36,7 +49,7 @@ keys = [
     Key([mod, "mod1"], "l", lazy.layout.flip_right()),
 
     Key([mod, "shift"], "n", lazy.layout.normalize()),
-    Key([mod], "n", lazy.layout.togge_split()),
+    Key([mod], "n", lazy.layout.toggle_split()),
 
     Key([mod], "Tab", lazy.next_layout(), ),
     Key([mod], "q", lazy.window.kill(), ),
@@ -91,19 +104,29 @@ keys = [
 groups = []
 group_names = "1234567890"
 group_labels = "一二三四五六七八九十"
+# HDMI-A-1 (screen 0) gets workspaces 1-5, DP-1 (screen 1) gets workspaces 6-0
+screen_affinities = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 group_layouts = ["Bsp", "Max", "Bsp", "Bsp",
                  "Bsp", "Bsp", "Bsp", "Bsp", "Bsp", "Bsp",]
 for i in range(len(group_names)):
     groups.append(Group(
-        name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i],))
+        name=group_names[i], layout=group_layouts[i].lower(), label=group_labels[i], screen_affinity=screen_affinities[i]))
 
 for i in groups:
     keys.extend([
-        Key([mod], i.name, lazy.group[i.name].toscreen(),),
+        Key([mod], i.name,
+            lazy.function(lambda qtile, group_name=i.name: switch_group_no_move(qtile, group_name))),
         Key([mod, "shift"], i.name, lazy.window.togroup(
-            i.name, switch_group=True),),
+            i.name, switch_group=True)),
     ])
 
+# Add keys to switch between screens
+keys.extend([
+    Key([mod, "control"], "h", lazy.to_screen(0)),  # Switch to screen 0
+    Key([mod, "control"], "l", lazy.to_screen(1)),  # Switch to screen 1
+    # You can also use this for cycling between screens
+    Key([mod], "w", lazy.next_screen()),
+])
 layouts = [
     layout.Columns(
         margin_on_single=0,
@@ -131,6 +154,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
+    # Screen 0 - HDMI-A-1 (LG TV) - Workspaces 1-5
     Screen(
         top=bar.Bar(
             [
@@ -143,12 +167,13 @@ screens = [
                     highlight_method="block",
                     this_current_screen_border=mark,
                     urgent_border=warning,
+                    # Show only workspaces 1-5
+                    visible_groups=["1", "2", "3", "4", "5"],
                 ),
                 widget.WindowName(
                     foreground=background,
                 ),
                 widget.CurrentLayout(
-
                     background=yellow,
                     foreground=white0,
                 ),
@@ -156,6 +181,7 @@ screens = [
                     padding=0,
                     text=separator,
                     foreground=purple,
+                    background=yellow,
                 ),
                 widget.TextBox(
                     text='vol:',
@@ -170,7 +196,7 @@ screens = [
                     padding=0,
                     text=separator,
                     foreground=green,
-                    background=yellow,
+                    background=purple,
                 ),
                 widget.TextBox(
                     text='mem:',
@@ -241,6 +267,43 @@ screens = [
         ),
         wallpaper="/home/catalin/Pictures/wallpapers/pattern/wallhaven-kxp8dd_1920x1080.png"
     ),
+    # Screen 1 - DP-1 (Samsung via VGA) - Workspaces 6-0
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    disable_drag=True,
+                    spacing=0,
+                    center_aligned=True,
+                    active=active,
+                    inactive=inactive,
+                    highlight_method="block",
+                    this_current_screen_border=mark,
+                    urgent_border=warning,
+                    # Show only workspaces 6-0
+                    visible_groups=["6", "7", "8", "9", "0"],
+                ),
+                widget.WindowName(),
+                widget.CurrentLayout(
+                    background=yellow,
+                    foreground=white0,
+                ),
+                widget.TextBox(
+                    padding=0,
+                    text=separator,
+                    foreground=blue,
+                    background=yellow,
+                ),
+                widget.Clock(
+                    format='%d.%m %H:%M',
+                    background=blue,
+                    foreground=white0,
+                ),
+            ],
+            24,
+        ),
+        wallpaper="/home/catalin/Pictures/wallpapers/anime/wallhaven-wel5e7_1920x1080.png"
+    ),
 ]
 
 mouse = [
@@ -278,3 +341,16 @@ focus_on_window_activation = "smart"
 
 # Needed by some Java programs
 wmname = "LG3D"
+
+
+def switch_group_no_move(qtile, group_name):
+    group = qtile.groups_map[group_name]
+    screen_affinity = getattr(group, 'screen_affinity', None)
+
+    if screen_affinity is not None and screen_affinity != qtile.current_screen.index:
+        # Switch screen first, then switch group — without moving window
+        qtile.cmd_to_screen(screen_affinity)
+        group.cmd_toscreen()
+    else:
+        # Just switch group on current screen
+        group.cmd_toscreen()

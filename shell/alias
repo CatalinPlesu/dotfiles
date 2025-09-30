@@ -4,7 +4,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lx='ls -lbhHigUmuSa@'
 alias lah='ls -lah'
-alias tree='eza -l --tree --level=2'
+alias tree='eza -l --tree --level=2 --git-ignore'
 alias grep='grep --color=auto'
 alias diff='diff --color'
 

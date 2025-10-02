@@ -1,5 +1,4 @@
 exit: esc
 exit: `
-exit: q
 cursor_color: #35FF45
 cursor_size: 8

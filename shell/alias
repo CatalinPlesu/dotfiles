@@ -81,3 +81,5 @@ alias clo="xsel -ob"
 
 # Distrobox
 alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
+
+alias crush='nix run github:numtide/nix-ai-tools#crush'

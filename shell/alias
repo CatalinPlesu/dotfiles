@@ -43,6 +43,14 @@ paru() {
     wrap_and_log paru "$@"
 }
 
+apt() {
+    wrap_and_log apt "$@"
+}
+
+apt-get() {
+    wrap_and_log apt-get "$@"
+}
+
 alias ls='eza'
 alias l='ls -l'
 alias la='ls -a'

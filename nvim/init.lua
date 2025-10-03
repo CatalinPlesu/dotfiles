@@ -952,8 +952,9 @@ require("lazy").setup({
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
-			-- require("mini.files").setup()
-			-- vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
+			require("mini.files").setup()
+			vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
+			vim.keymap.set("n", "<C-n>", MiniFiles.open, { desc = "Open Navigator" })
 			-- Examples:
 			--  - va)  - [V]isually select [A]round [)]paren
 			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
@@ -984,68 +985,6 @@ require("lazy").setup({
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
-		end,
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- Optional but recommended
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			-- Enable 'follow_current_file'
-			vim.g.neo_tree_auto_follow = true
-
-			require("neo-tree").setup({
-				close_on_select = true,
-				popup_border = "rounded",
-				filesystem = {
-					filtered_items = {
-						visible = true,
-						hide_dotfiles = false,
-						hide_gitignored = false,
-					},
-					follow_current_file = {
-						enabled = true,
-						-- This is the key setting. 'true' means it will follow the file
-						-- when you open it from the tree or from an external source.
-						-- 'false' means it will only follow if you open it from the tree.
-					},
-					-- Other filesystem options can go here
-				},
-				window = {
-					position = "left",
-					width = 30,
-					mapping_options = {
-						noremap = true,
-						nowait = true,
-					},
-				},
-				default_component_configs = {
-					name = {
-						-- Other name configurations
-					},
-					-- Other component configs
-				},
-				commands = {
-					-- Custom commands
-				},
-				event_handlers = {
-					-- Event handlers
-				},
-			})
-
-			-- Optional: Keymaps for convenience
-			vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal toggle<CR>", { desc = "Toggle Neo-tree" })
-			vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal<CR>", { desc = "Reveal Neo-tree" })
-			vim.keymap.set(
-				"n",
-				"<leader>E",
-				":Neotree filesystem reveal left toggle<CR>",
-				{ desc = "Reveal and Toggle Neo-tree" }
-			)
 		end,
 	},
 	{ -- Highlight, edit, and navigate code

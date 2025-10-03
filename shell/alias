@@ -1,4 +1,48 @@
 #!/bin/sh
+
+# Define a log file
+LOGFILE=~/.package_operation_log.txt
+
+# --- Generic Package Manager Wrapper Function ---
+# Usage: wrap_and_log <command_name>
+wrap_and_log() {
+    local cmd="$1"
+    shift # Remove the first argument (the command name)
+
+    local timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    local command_line="$cmd $*"
+    
+    # 1. Log the command
+    echo "$timestamp: $command_line" >> "$LOGFILE"
+
+    # 2. Execute the original command (assuming it's in /usr/bin/)
+    # We use command "$cmd" to ensure we call the *original* binary and not this function again.
+    command "$cmd" "$@"
+
+    # 3. Log the result
+    local exit_code=$?
+    echo "$timestamp: $cmd finished with exit code $exit_code" >> "$LOGFILE"
+    
+    return $exit_code
+}
+
+# --- Aliases using the generic function ---
+
+# Alias pacman to call the wrapper with 'pacman' as the command name
+pacman() {
+    wrap_and_log pacman "$@"
+}
+
+# Alias yay
+yay() {
+    wrap_and_log yay "$@"
+}
+
+# Alias paru
+paru() {
+    wrap_and_log paru "$@"
+}
+
 alias ls='eza'
 alias l='ls -l'
 alias la='ls -a'

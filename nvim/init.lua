@@ -159,13 +159,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
--- colorize the listchars
-vim.cmd([[
-  highlight NonText guifg=#d02dd2
-  highlight Whitespace guifg=#00ffff
-  highlight SpecialKey guifg=#c678dd
-]])
-
 -- Preview substitutions live, as you type!
 vim.o.inccommand = "split"
 
@@ -1153,3 +1146,16 @@ vim.keymap.set("n", "<leader>g", function()
 	require("neogit").open({ kind = "replace" })
 end, { desc = "Open Neogit (replace)" })
 vim.api.nvim_create_user_command("CloseOtherBuffers", "1,bufdo %bd|e#|bd#", {})
+
+local function toggle_listchars()
+	vim.o.list = not vim.o.list
+	-- colorize the listchars
+	vim.cmd([[
+	  highlight NonText guifg=#d02dd2
+	  highlight Whitespace guifg=#00ffff
+	  highlight SpecialKey guifg=#c678dd
+	]])
+end
+
+vim.keymap.set("n", "<leader>tl", toggle_listchars, { desc = "[T]oggle [L]istchars" })
+vim.keymap.set("n", "<leader>tw", "<cmd>set invwrap<CR>", { desc = "[T]oggle [W]rap" })

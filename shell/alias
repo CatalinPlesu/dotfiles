@@ -135,5 +135,6 @@ alias clo="xsel -ob"
 alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
 
 alias crush='nix run github:numtide/nix-ai-tools#crush'
+alias chat='cd dev/used/crush-chatting ; nix run github:numtide/nix-ai-tools#crush'
 alias melt='nix run nixpkgs#melt --'
 alias asdf='nix run nixpkgs#asdf-vm --'

@@ -1,0 +1,18 @@
+[Unit]
+Description=SSH Reverse Tunnels
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -i /home/catalin/.ssh/auto-tunel -N \
+    -o ServerAliveInterval=30 \
+    -o ServerAliveCountMax=3 \
+    -o ExitOnForwardFailure=yes \
+    -o ConnectTimeout=10 \
+    -R 3390:localhost:3389 -R 2222:localhost:22 laptop
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target

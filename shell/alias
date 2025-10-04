@@ -136,3 +136,4 @@ alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh 
 
 alias crush='nix run github:numtide/nix-ai-tools#crush'
 alias melt='nix run nixpkgs#melt --'
+alias asdf='nix run nixpkgs#asdf-vm --'

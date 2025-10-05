@@ -120,6 +120,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light agkozak/zsh-z
 zinit light fdellwing/zsh-bat
 
+eval "$(mise activate zsh)"
 # this should be at the end
 eval "$(starship init zsh)"
 

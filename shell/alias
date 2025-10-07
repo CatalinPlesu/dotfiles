@@ -3,6 +3,26 @@
 # Define a log file
 LOGFILE=~/.package_operation_log.txt
 
+# --- Mix Command Wrapper Function ---
+wrap_and_log_mix() {
+    local cmd="$1"
+    shift # Remove the first argument (the command name)
+
+    local timestamp=$(date +"[%Y-%m-%d %H:%M:%S]")
+    local command_line="mix $*"
+    
+    # Log the command to mix.log in current directory
+    echo "$timestamp - $command_line" >> "mix.log"
+
+    # Execute the original command
+    command "$cmd" "$@"
+}
+
+# Alias mix to call the wrapper
+mix() {
+    wrap_and_log_mix mix "$@"
+}
+
 # --- Generic Package Manager Wrapper Function ---
 # Usage: wrap_and_log <command_name>
 wrap_and_log() {

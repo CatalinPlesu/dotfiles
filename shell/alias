@@ -156,6 +156,9 @@ alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh 
 
 alias crush='nix run github:numtide/nix-ai-tools#crush'
 alias chat='cd dev/used/crush-chatting ; nix run github:numtide/nix-ai-tools#crush'
-alias melt='nix run nixpkgs#melt --'
-alias asdf='nix run nixpkgs#asdf-vm --'
-alias wrk='nix run nixpkgs#wrk --'
+
+nix_packages=("melt" "wrk" "pipes" "cmatrix")
+# Auto-create aliases for all packages in the array
+for pkg in "${nix_packages[@]}"; do
+    alias "$pkg"="nix run nixpkgs#$pkg --"
+done

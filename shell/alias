@@ -110,7 +110,7 @@ alias cr='cargo run'
 alias cre='cargo run --example'
 alias crr='cargo run --release'
 alias pypy='pypy3'
-alias pt='ptpython --vi'
+alias pt='ptpython3 --vi'
 alias act='source venv/bin/activate'
 
 alias vi='nvim -u NONE'

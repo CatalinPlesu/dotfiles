@@ -1,5 +1,7 @@
 #!/bin/sh
 
+alias zen=zen-browser
+
 # Define a log file
 LOGFILE=~/.package_operation_log.txt
 

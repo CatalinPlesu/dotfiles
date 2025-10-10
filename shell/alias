@@ -165,9 +165,11 @@ nix_packages=(
     pipes     # Unix pipes implementation
     cmatrix   # Matrix screensaver effect
     tokei     # Code statistics counter
+    nim       # nim lang
+    nimble    # nim package manage
 )
 
 # Auto-create aliases for all packages in the array
-for pkg in "${nix_packages[@]::5}"; do  # Only iterate over every other element (the package names)
+for pkg in "${nix_packages[@]}"; do
     alias "$pkg"="nix run nixpkgs#$pkg --"
 done

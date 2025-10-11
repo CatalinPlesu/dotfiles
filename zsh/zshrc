@@ -100,9 +100,8 @@ source ~/.config/shell/alias
 source ~/.config/shell/env
 #sh ~/.config/shell/tty # zsh if is different ;(
 
-# eval "$(starship init zsh)"
-# PROMPT='%F{cyan}%3~%f > '
-
+# for uv
+. "$HOME/.local/share/../bin/env"
 
 zinit light zsh-users/zsh-completions
 # zinit light zsh-users/zsh-autosuggestions 
@@ -119,3 +118,5 @@ source ~/.config/shell/init
 # zprof
 # fpath+=~/.zfunc; autoload -Uz compinit; compinit
 ### End of Zinit's installer chunk
+
+. "$HOME/.local/share/../bin/env"

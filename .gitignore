@@ -14,3 +14,5 @@
 !/tmux/**
 !/zsh/
 !/zsh/**
+!/atuin/
+!/atuin/**

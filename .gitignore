@@ -1,0 +1,16 @@
+*
+*/
+!/.gitignore
+!/bat/
+!/bat/**
+!/ghostty/
+!/ghostty/**
+!/nvim/
+!/nvim/**
+!/shell/
+!/shell/**
+!/starship**
+!/tmux/
+!/tmux/**
+!/zsh/
+!/zsh/**

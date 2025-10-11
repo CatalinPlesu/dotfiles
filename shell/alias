@@ -1,0 +1,181 @@
+#!/bin/sh
+
+alias zen=zen-browser
+
+# Define a log file
+LOGFILE=~/.package_operation_log.txt
+
+# --- Mix Command Wrapper Function ---
+wrap_and_log_mix() {
+    local cmd="$1"
+    shift # Remove the first argument (the command name)
+
+    local timestamp=$(date +"[%Y-%m-%d %H:%M:%S]")
+    local command_line="mix $*"
+    
+    # Log the command to mix.log in current directory
+    echo "$timestamp - $command_line" >> "mix.log"
+
+    # Execute the original command
+    command "$cmd" "$@"
+}
+
+# Alias mix to call the wrapper
+mix() {
+    wrap_and_log_mix mix "$@"
+}
+
+# --- Generic Package Manager Wrapper Function ---
+# Usage: wrap_and_log <command_name>
+wrap_and_log() {
+    local cmd="$1"
+    shift # Remove the first argument (the command name)
+
+    local timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    local command_line="$cmd $*"
+    
+    # 1. Log the command
+    echo "$timestamp: $command_line" >> "$LOGFILE"
+
+    # 2. Execute the original command (assuming it's in /usr/bin/)
+    # We use command "$cmd" to ensure we call the *original* binary and not this function again.
+    command "$cmd" "$@"
+
+    # 3. Log the result
+    local exit_code=$?
+    echo "$timestamp: $cmd finished with exit code $exit_code" >> "$LOGFILE"
+    
+    return $exit_code
+}
+
+# --- Aliases using the generic function ---
+
+# Alias pacman to call the wrapper with 'pacman' as the command name
+pacman() {
+    wrap_and_log pacman "$@"
+}
+
+# Alias yay
+yay() {
+    wrap_and_log yay "$@"
+}
+
+# Alias paru
+paru() {
+    wrap_and_log paru "$@"
+}
+
+apt() {
+    wrap_and_log apt "$@"
+}
+
+apt-get() {
+    wrap_and_log apt-get "$@"
+}
+
+alias ls='eza'
+alias l='ls -l'
+alias la='ls -a'
+alias lx='ls -lbhHigUmuSa@'
+alias lah='ls -lah'
+alias tree='eza -l --tree --level=2 --git-ignore --long --icons --git'
+alias grep='grep --color=auto'
+alias diff='diff --color'
+
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+
+open() {
+  xdg-open "$@" >/dev/null 2>&1 &
+}
+
+# alias cd='cdenv_func() { cd "$@" && if [ -f .env ]; then source .env; fi; }; cdenv_func'
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+cd/() { mkdir "$1" && cd "$1"; }
+
+# useful programs
+alias gpt='tgpt -i'
+alias cht='cht.sh --shell'
+
+#lolthings
+alias lls='ls | lolcat'
+alias ltop='htop | lolcat'
+alias cls='lah | lolcrab -i'
+
+alias ss='paru -Ss'
+alias s='paru -S'
+alias syu='paru -Syu'
+
+alias gst='git status'
+alias glt='git log --oneline --decorate --graph'
+alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+alias gdc='git log --since="1 year ago" --date=short --pretty=format:"%ad" | sort -r | awk "{ split(\$0, a, \"-\"); printf \"%02d %s %d\\n\", a[3], strftime(\"%b\", mktime(a[1]\" \"a[2]\" 01 00 00 00\")), a[1] }" | uniq -c'
+
+# DEV
+alias cargo-t='cargo test -- --nocapture'
+alias cr='cargo run'
+alias cre='cargo run --example'
+alias crr='cargo run --release'
+alias pypy='pypy3'
+alias pt='ptpython3 --vi'
+alias act='source venv/bin/activate'
+
+alias vi='nvim -u NONE'
+alias v='nvim'
+alias V="sudoedit"
+alias rtop="radeontop -c"
+
+alias p='cd /home/mnt/catalin/NOTES/MainVault/Aphantasia\ Lab/'
+# alias p3='cd ~/Workspace/Dream Game/'
+
+# notebook
+alias wiki='cd ~/mnt/catalin/NOTES/Wiki && nvim index.md'
+alias note='cd ~/mnt/catalin/NOTES/Notes/ && nvim index.norg'
+alias graph='cd ~/mnt/catalin/NOTES/Graph/'
+alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
+
+alias doc="cd ~/Documents/"
+alias dow="cd ~/Downloads/"
+
+# edit config
+alias e="bash ~/scripts/edit_config.sh"
+alias h="bash ~/scripts/window_menu.sh"
+
+alias ip='ip --color=auto'
+
+# MISC
+alias myip="ip addr | grep inet"
+alias reflector='sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
+# alias code=codium
+alias t='tmux new-session -A -s main'
+
+alias wget_website='wget --recursive --no-clobber --page-requisites  --html-extension  --convert-links  --restrict-file-names=windows  --domains website.org  --no-parent '
+
+# alias pdf_presentation='libreoffice --headless --convert-to pdf *.pp* --outdir ./out'
+# alias pdfjoin='pdfjam --fitpaper true --suffix joined'
+
+alias cli="xsel -ib"
+alias clo="xsel -ob"
+
+
+# Distrobox
+alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
+
+alias crush='nix run github:numtide/nix-ai-tools#crush'
+alias chat='cd dev/used/crush-chatting ; nix run github:numtide/nix-ai-tools#crush'
+
+nix_packages=(
+    melt      # recover ssh keys from seed pharse
+    wrk       # HTTP benchmarking tool
+    pipes     # Unix pipes implementation
+    cmatrix   # Matrix screensaver effect
+    tokei     # Code statistics counter
+    nim       # nim lang
+    nimble    # nim package manage
+)
+
+# Auto-create aliases for all packages in the array
+for pkg in "${nix_packages[@]}"; do
+    alias "$pkg"="nix run nixpkgs#$pkg --"
+done

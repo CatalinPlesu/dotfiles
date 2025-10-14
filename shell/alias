@@ -120,7 +120,7 @@ alias crr='cargo run --release'
 alias pypy='pypy3'
 alias pt='ptpython3 --vi'
 alias uv-py="uv run python"
-alias act='source venv/bin/activate'
+alias act='source .venv/bin/activate'
 
 alias vi='nvim -u NONE'
 alias v='nvim'

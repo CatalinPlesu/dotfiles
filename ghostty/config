@@ -1,5 +1,6 @@
 # Dynamic theme colors
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+theme = Gruvbox Dark
 
 # Font
 font-family = "FiraCode Nerd Font"

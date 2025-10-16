@@ -25,6 +25,8 @@
 !/starship/**
 !/tmux/
 !/tmux/**
+!/nix/
+!/nix/**
 !/warpd/
 !/warpd/**
 !/zsh/

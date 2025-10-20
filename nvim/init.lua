@@ -778,28 +778,7 @@ require("lazy").setup({
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
-	{ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		main = "nvim-treesitter.configs", -- Sets main module to use for opts
-		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-		opts = {
-			ensure_installed = {
-				"bash",
-				"c",
-				"html",
-				"lua",
-				"markdown",
-				"heex",
-				"elixir",
-			},
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = { enable = true },
-			indent = { enable = true },
-		},
-	},
-
+	{ "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"NeogitOrg/neogit",
@@ -915,3 +894,29 @@ vim.keymap.set("n", "<leader>tw", "<cmd>set invwrap<CR>", { desc = "[T]oggle [W]
 -- Prevents the delay caused by the existence of <leader>s mappings
 vim.keymap.set("n", "s", "cl", { desc = "Substitute character and insert" })
 vim.keymap.set("n", "S", "cc", { desc = "Substitute line and insert" })
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"c",
+		"lua",
+		"vim",
+		"markdown",
+		"markdown_inline",
+		"elixir",
+		"heex",
+		"html",
+		"css",
+		"javascript",
+	},
+	sync_install = false,
+	auto_install = true,
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_incremental = "grn",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		},
+	},
+})

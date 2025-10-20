@@ -920,3 +920,7 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+
+-- for jk to be as normal when we are in wrap mode
+vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
+vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })

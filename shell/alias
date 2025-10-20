@@ -123,6 +123,7 @@ alias uv-py="uv run python"
 alias act='source .venv/bin/activate'
 
 alias vi='nvim -u NONE'
+alias zed=zeditor
 alias v='nvim'
 alias V="sudoedit"
 alias rtop="radeontop -c"

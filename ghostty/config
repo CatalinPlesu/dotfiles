@@ -25,3 +25,11 @@ keybind = control+insert=copy_to_clipboard
 
 # Auto launch tmux
 # command=tmux
+# Increase font size by 1 point
+keybind = ctrl+shift+equal=increase_font_size:1
+
+# Decrease font size by 1 point
+keybind = ctrl+minus=decrease_font_size:1
+
+# Reset font size to the configured default
+keybind = ctrl+equal=reset_font_size

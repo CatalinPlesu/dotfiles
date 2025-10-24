@@ -9,6 +9,7 @@ export PATH=$PATH:/home/catalin/.local/share/npm/bin
 export PATH=$PATH:/home/catalin/dev/flutter/bin
 export PATH=$PATH:/home/catalin/.local/bin
 export PATH=$PATH:/home/catalin/.config/git/
+export PATH=$PATH:/home/catalin/.dotnet/tools
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
@@ -17,7 +18,7 @@ export GOPATH="$HOME/&lt;workspaces_path&gt;/go"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="ghostty"
 export BROWSER="qutebrowser"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -91,3 +92,5 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 export OPENSSL_DIR=/etc/ssl
 export OPENSSLDIR=/etc/ssl
+
+export SUDO_EDITOR="$EDITOR"

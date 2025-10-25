@@ -1,4 +1,9 @@
-font-family = Fira Code
+font-family = "FiraCode Nerd Font"
 command=tmux new-session -A -s main
 theme = Gruvbox Dark
 confirm-close-surface = false
+
+
+keybind = ctrl+shift+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+equal=reset_font_size

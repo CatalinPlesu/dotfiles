@@ -1050,6 +1050,20 @@ require("lazy").setup({
 
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
+		"echaya/neowiki.nvim",
+		opts = {
+			wiki_dirs = {
+				-- neowiki.nvim supports both absolute and tilde-expanded paths
+				{ name = "Echo", path = "~/Documents/wiki/echo/" },
+				{ name = "Vault", path = "~/Documents/Notes/" },
+			},
+		},
+		keys = {
+			{ "<leader>ww", "<cmd>lua require('neowiki').open_wiki('Echo')<cr>", desc = "Open Wiki" },
+			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Open Wiki" },
+		},
+	},
+	{
 		"NeogitOrg/neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim",

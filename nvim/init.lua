@@ -275,6 +275,7 @@ require("lazy").setup({
 		config = true,
 		keys = { -- load the plugin only when using it's keybinding:
 			{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+			{ "<C-u>", "<cmd>lua require('undotree').toggle()<cr>" },
 		},
 	},
 	-- Here is a more advanced example where we pass configuration
@@ -1197,4 +1198,5 @@ end
 vim.keymap.set("n", "<leader>tl", toggle_listchars, { desc = "[T]oggle [L]istchars" })
 vim.keymap.set("n", "<leader>tw", "<cmd>set invwrap<CR>", { desc = "[T]oggle [W]rap" })
 
+vim.keymap.set("n", "<leader>n", ":Neotree<cr>", { desc = "Open Navigator" })
 vim.keymap.set("n", "<C-n>", ":Neotree<cr>", { desc = "Open Navigator" })

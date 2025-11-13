@@ -946,9 +946,9 @@ require("lazy").setup({
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
-			require("mini.files").setup()
-			vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
-			vim.keymap.set("n", "<C-n>", MiniFiles.open, { desc = "Open Navigator" })
+			-- require("mini.files").setup()
+			-- vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
+			-- vim.keymap.set("n", "<C-n>", MiniFiles.open, { desc = "Open Navigator" })
 			-- Examples:
 			--  - va)  - [V]isually select [A]round [)]paren
 			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
@@ -980,6 +980,18 @@ require("lazy").setup({
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
+	},
+	{
+		{
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v3.x",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"MunifTanjim/nui.nvim",
+				"nvim-tree/nvim-web-devicons", -- optional, but recommended
+			},
+			lazy = false, -- neo-tree will lazily load itself
+		},
 	},
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
@@ -1173,3 +1185,5 @@ end
 
 vim.keymap.set("n", "<leader>tl", toggle_listchars, { desc = "[T]oggle [L]istchars" })
 vim.keymap.set("n", "<leader>tw", "<cmd>set invwrap<CR>", { desc = "[T]oggle [W]rap" })
+
+vim.keymap.set("n", "<C-n>", ":Neotree<cr>", { desc = "Open Navigator" })

@@ -946,6 +946,17 @@ require("lazy").setup({
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
+			local gen_loader = require("mini.snippets").gen_loader
+			require("mini.snippets").setup({
+				snippets = {
+					-- Load custom file with global snippets first (adjust for Windows)
+					gen_loader.from_file("~/.config/nvim/snippets/global.json"),
+
+					-- Load snippets based on current language by reading files from
+					-- "snippets/" subdirectories from 'runtimepath' directories.
+					gen_loader.from_lang(),
+				},
+			})
 			-- require("mini.files").setup()
 			-- vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
 			-- vim.keymap.set("n", "<C-n>", MiniFiles.open, { desc = "Open Navigator" })

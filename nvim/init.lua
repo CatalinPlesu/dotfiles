@@ -1200,3 +1200,15 @@ vim.keymap.set("n", "<leader>tw", "<cmd>set invwrap<CR>", { desc = "[T]oggle [W]
 
 vim.keymap.set("n", "<leader>n", ":Neotree<cr>", { desc = "Open Navigator" })
 vim.keymap.set("n", "<C-n>", ":Neotree<cr>", { desc = "Open Navigator" })
+
+-- Set the keymap
+vim.keymap.set(
+	"n", -- Mode: Normal mode
+	"<leader>cd", -- The key sequence, e.g., <Space>cd
+	"<cmd>cd %:h<CR>", -- The command to execute
+	{
+		noremap = true,
+		silent = true,
+		desc = "Change CWD to current file directory", -- Description for which-key, etc.
+	}
+)

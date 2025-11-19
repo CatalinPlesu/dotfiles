@@ -1212,3 +1212,12 @@ vim.keymap.set(
 		desc = "Change CWD to current file directory", -- Description for which-key, etc.
 	}
 )
+
+vim.keymap.set(
+	"i",
+	"<C-n>",
+	"<C-r>=strftime('%Y/%m/%d %H:%M:%S - ')<CR>",
+	{ desc = "Insert current date and time (yyyy/mm/dd hh:mm:ss)" }
+)
+vim.keymap.set("i", "<C-d>", "<C-r>=strftime('%Y/%m/%d')<CR>", { desc = "Insert current date only (yyyy/mm/dd)" })
+vim.keymap.set("i", "<C-t>", "<C-r>=strftime('%H:%M:%S')<CR>", { desc = "Insert current time only (hh:mm:ss)" })

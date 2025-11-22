@@ -13,6 +13,8 @@
 !/htop/**
 !/kitty/
 !/kitty/**
+!/systemd/
+!/systemd/**
 !/ghostty/
 !/ghostty/**
 !/nvim/

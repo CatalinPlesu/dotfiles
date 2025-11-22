@@ -1,0 +1,12 @@
+[Unit]
+Description=Tailscale operator permission setup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tailscale set --operator=catalin
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

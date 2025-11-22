@@ -1,0 +1,11 @@
+[Unit]
+Description=Tailscale systray
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/tailscale systray
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

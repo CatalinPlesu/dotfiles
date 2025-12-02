@@ -581,6 +581,14 @@ require("lazy").setup({
 					require("luasnip.loaders.from_lua").lazy_load({
 						paths = vim.fn.stdpath("config") .. "/snippets/",
 					})
+
+					local ls = require("luasnip")
+					vim.keymap.set({ "i", "s" }, "<C-l>", function()
+						ls.jump(1)
+					end, { silent = true })
+					vim.keymap.set({ "i", "s" }, "<C-h>", function()
+						ls.jump(-1)
+					end, { silent = true })
 				end,
 			},
 			"folke/lazydev.nvim",
@@ -589,36 +597,10 @@ require("lazy").setup({
 		--- @type blink.cmp.Config
 		opts = {
 			keymap = {
-				-- 'default' (recommended) for mappings similar to built-in completions
-				--   <c-y> to accept ([y]es) the completion.
-				--    This will auto-import if your LSP supports it.
-				--    This will expand snippets if the LSP sent a snippet.
-				-- 'super-tab' for tab to accept
-				-- 'enter' for enter to accept
-				-- 'none' for no mappings
-				--
-				-- For an understanding of why the 'default' preset is recommended,
-				-- you will need to read `:help ins-completion`
-				--
-				-- No, but seriously. Please read `:help ins-completion`, it is really good!
-				--
-				-- All presets have the following mappings:
-				-- <tab>/<s-tab>: move to right/left of your snippet expansion
-				-- <c-space>: Open menu or open docs if already open
-				-- <c-n>/<c-p> or <up>/<down>: Select next/previous item
-				-- <c-e>: Hide menu
-				-- <c-k>: Toggle signature help
-				--
-				-- See :h blink-cmp-config-keymap for defining your own keymap
 				preset = "default",
-
-				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			},
 
 			appearance = {
-				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-				-- Adjusts spacing to ensure icons are aligned
 				nerd_font_variant = "mono",
 			},
 
@@ -634,16 +616,8 @@ require("lazy").setup({
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				},
 			},
-
 			snippets = { preset = "luasnip" },
 
-			-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-			-- which automatically downloads a prebuilt binary when enabled.
-			--
-			-- By default, we use the Lua implementation instead, but you may enable
-			-- the rust implementation via `'prefer_rust_with_warning'`
-			--
-			-- See :h blink-cmp-config-fuzzy for more information
 			fuzzy = { implementation = "lua" },
 
 			-- Shows a signature help window while you type arguments for a function
@@ -681,28 +655,8 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.nvim",
 		config = function()
-			-- local gen_loader = require("mini.snippets").gen_loader
-			-- require("mini.snippets").setup({
-			-- 	snippets = {
-			-- 		-- Load custom file with global snippets first (adjust for Windows)
-			-- 		gen_loader.from_file("~/.config/nvim/snippets/global.json"),
-			--
-			-- 		-- Load snippets based on current language by reading files from
-			-- 		-- "snippets/" subdirectories from 'runtimepath' directories.
-			-- 		gen_loader.from_lang(),
-			-- 	},
-			-- })
-			-- require("mini.files").setup()
-			-- vim.keymap.set("n", "<leader>n", MiniFiles.open, { desc = "Open Navigator" })
-			-- vim.keymap.set("n", "<C-n>", MiniFiles.open, { desc = "Open Navigator" })
-			-- Examples:
-			--  - va)  - [V]isually select [A]round [)]paren
-			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
-
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
@@ -736,7 +690,7 @@ require("lazy").setup({
 				"MunifTanjim/nui.nvim",
 				"nvim-tree/nvim-web-devicons", -- optional, but recommended
 			},
-			lazy = false, -- neo-tree will lazily load itself
+			lazy = false,
 		},
 	},
 	{
@@ -750,11 +704,8 @@ require("lazy").setup({
 				"diff",
 				"html",
 				"lua",
-				"luadoc",
 				"markdown",
-				"markdown_inline",
 				"query",
-				"vim",
 				"vimdoc",
 				"heex",
 				"elixir",
@@ -763,9 +714,10 @@ require("lazy").setup({
 			auto_install = true,
 			highlight = {
 				enable = true,
-				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby" } },
+			indent = {
+				enable = true,
+			},
 		},
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
@@ -888,19 +840,3 @@ vim.keymap.set(
 	"<cmd>cd %:h<CR>",
 	{ noremap = true, silent = true, desc = "Change CWD to current file directory" }
 )
-
-vim.keymap.set(
-	"i",
-	"<C-n>",
-	"<C-r>=strftime('%Y/%m/%d %H:%M:%S - ')<CR>",
-	{ desc = "Insert current date and time (yyyy/mm/dd hh:mm:ss)" }
-)
-
-local ls = require("luasnip")
-
-vim.keymap.set({ "i", "s" }, "<C-l>", function()
-	ls.jump(1)
-end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-h>", function()
-	ls.jump(-1)
-end, { silent = true })

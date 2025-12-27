@@ -1,0 +1,12 @@
+[Unit]
+Description=Save Zen Browser Profile to Disk
+After=network.target
+
+[Service]
+Type=oneshot
+Environment="XDG_RUNTIME_DIR=/run/user/1000"
+ExecStart=/usr/local/bin/save-zen-profile.sh
+RemainAfterExit=no
+
+[Install]
+WantedBy=default.target

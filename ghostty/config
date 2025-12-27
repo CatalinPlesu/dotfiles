@@ -1,5 +1,4 @@
 font-family = "FiraCode Nerd Font"
-command=tmux new-session -A -s main
 theme = Gruvbox Dark
 confirm-close-surface = false
 

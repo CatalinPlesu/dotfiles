@@ -161,6 +161,8 @@ alias cli="xsel -ib"
 alias clo="xsel -ob"
 
 
+alias zen='~/.local/bin/zen-with-autosave.sh'
+
 # Distrobox
 alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
 
@@ -175,6 +177,7 @@ nix_packages=(
     tokei     # Code statistics counter
     nim       # nim lang
     nimble    # nim package manage
+    powershell
 )
 
 # Auto-create aliases for all packages in the array

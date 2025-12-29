@@ -184,3 +184,18 @@ nix_packages=(
 for pkg in "${nix_packages[@]}"; do
     alias "$pkg"="nix run nixpkgs#$pkg --"
 done
+
+command_not_found_handler() {
+    local pkg="$1"
+    local exists
+    exists=$(nix eval --impure --expr "with import <nixpkgs> {}; builtins.hasAttr \"$pkg\" pkgs" 2>/dev/null)
+    
+    if [[ "$exists" == 'true' ]]; then
+        nix run nixpkgs#"$pkg" -- "${@:2}"
+        return $?
+    else
+        print -u2 "zsh: command not found: $1"
+        print -u2 "nix: package not found: $1"
+        return 127
+    fi
+}

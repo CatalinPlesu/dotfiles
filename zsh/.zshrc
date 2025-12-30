@@ -98,6 +98,7 @@ bindkey -M vicmd 'p' vi-put-xclip
 # ----------------------------------------------------------------------------
 # External Configurations
 # ----------------------------------------------------------------------------
+. /home/catalin/.nix-profile/etc/profile.d/nix.sh
 source ~/.config/shell/alias
 source ~/.config/shell/env
 
@@ -151,13 +152,6 @@ _comp_options+=(globdots)  # Include hidden files
 # Tool Integrations
 # ----------------------------------------------------------------------------
 
-# Mise (formerly rtx) - lazy load for faster startup
-mise() {
-    unfunction mise
-    eval "$(command ~/.local/bin/mise activate zsh)"
-    mise "$@"
-}
-
 # Atuin - shell history
 eval "$(atuin init zsh)"
 
@@ -176,3 +170,14 @@ eval "$(starship init zsh)"
 # To force rebuild completions: rm ~/.cache/zsh/zcompdump
 # To profile startup time: uncomment zprof lines at top and bottom
 # ============================================================================
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+eval "$(/home/catalin/.local/bin/mise activate zsh)"

@@ -19,6 +19,7 @@
 !/ghostty/**
 !/nvim/
 !/nvim/**
+nvim/*lock*
 !/nvim.back/
 !/nvim.back/**
 !/shell/

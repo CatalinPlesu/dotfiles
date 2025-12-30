@@ -7,39 +7,7 @@ vim.o.showmode = false
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
 end)
--- Detection Logic
-local function is_wsl()
-	local output = vim.fn.readfile("/proc/version")
-	return output[1] and output[1]:find("Microsoft") ~= nil
-end
-
-if is_wsl() then
-	-- 1. Use DOS format so Neovim handles endings correctly
-	vim.o.fileformat = "dos"
-
-	-- 2. Hide any remaining ^M characters visually
-	vim.opt.conceallevel = 2
-	vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave" }, {
-		callback = function()
-			vim.fn.matchadd("Conceal", [[\r$]], 10, -1, { conceal = "" })
-		end,
-	})
-else
-	-- Personal Linux settings
-	vim.o.fileformat = "unix"
-end
-
--- Logic for your specific machines
-if vim.fn.has("win32") == 1 then
-	-- Native Windows machine
-	vim.o.fileformat = "dos"
-elseif is_wsl() then
-	-- Work machine (Ubuntu inside WSL)
-	vim.o.fileformat = "dos"
-else
-	-- Personal machine (Native Linux)
-	vim.o.fileformat = "unix"
-end
+vim.o.fileformats = "dos,unix"
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.swapfile = false

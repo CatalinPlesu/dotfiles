@@ -696,29 +696,25 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		main = "nvim-treesitter.configs",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"c",
-				"diff",
-				"html",
-				"lua",
-				"markdown",
-				"query",
-				"vimdoc",
-				"heex",
-				"elixir",
-			},
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
-			indent = {
-				enable = true,
-			},
-		},
+		init = function()
+			-- Set before plugin loads
+			vim.g.treesitter_install_compilers = { "cl", "gcc", "clang" }
+		end,
+		config = function()
+			local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+			if not status_ok then
+				return
+			end
+
+			configs.setup({
+				ensure_installed = {
+					"html",
+				},
+				auto_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end,
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
 	{

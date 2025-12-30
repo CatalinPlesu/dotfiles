@@ -7,6 +7,39 @@ vim.o.showmode = false
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
 end)
+-- Detection Logic
+local function is_wsl()
+	local output = vim.fn.readfile("/proc/version")
+	return output[1] and output[1]:find("Microsoft") ~= nil
+end
+
+if is_wsl() then
+	-- 1. Use DOS format so Neovim handles endings correctly
+	vim.o.fileformat = "dos"
+
+	-- 2. Hide any remaining ^M characters visually
+	vim.opt.conceallevel = 2
+	vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave" }, {
+		callback = function()
+			vim.fn.matchadd("Conceal", [[\r$]], 10, -1, { conceal = "" })
+		end,
+	})
+else
+	-- Personal Linux settings
+	vim.o.fileformat = "unix"
+end
+
+-- Logic for your specific machines
+if vim.fn.has("win32") == 1 then
+	-- Native Windows machine
+	vim.o.fileformat = "dos"
+elseif is_wsl() then
+	-- Work machine (Ubuntu inside WSL)
+	vim.o.fileformat = "dos"
+else
+	-- Personal machine (Native Linux)
+	vim.o.fileformat = "unix"
+end
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.swapfile = false
@@ -245,6 +278,29 @@ require("lazy").setup({
 				-- Load luvit types when the `vim.uv` word is found
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
+		},
+	},
+	{
+		"seblyng/roslyn.nvim",
+		ft = "cs",
+		opts = {
+			config = {
+				-- Important for .NET 10 projects using a server built for .NET 9
+				env = {
+					DOTNET_ROLL_FORWARD = "LatestMajor",
+				},
+				settings = {
+					["csharp|background_analysis"] = {
+						dotnet_analyzer_diagnostics_scope = "fullSolution",
+						dotnet_compiler_diagnostics_scope = "fullSolution",
+					},
+				},
+			},
+			-- This helps Roslyn find your project files faster
+			choose_target = true,
+			ignore_target = function(target)
+				return string.find(target, "Test") ~= nil
+			end,
 		},
 	},
 	{
@@ -836,3 +892,10 @@ vim.keymap.set(
 	"<cmd>cd %:h<CR>",
 	{ noremap = true, silent = true, desc = "Change CWD to current file directory" }
 )
+
+require("mason").setup({
+	registries = {
+		"github:mason-org/mason-registry",
+		"github:Crashdummyy/mason-registry",
+	},
+})

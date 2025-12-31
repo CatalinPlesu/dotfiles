@@ -41,7 +41,7 @@ vim.opt.clipboard = "unnamedplus"
 -- VISUAL SETTINGS
 -- ============================================================================
 vim.opt.list = false
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "¶", extends = ">", precedes = "<" }
 vim.opt.cursorcolumn = false
 vim.opt.colorcolumn = "100"
 vim.opt.wrap = false

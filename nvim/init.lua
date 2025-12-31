@@ -213,58 +213,11 @@ require("lazy").setup({
 	-- Dashboard
 	{
 		"goolord/alpha-nvim",
-		event = "VimEnter",
-		opts = function()
-			local dashboard = require("alpha.themes.dashboard")
-
-			dashboard.section.header.val = {
-				[[                                                    ]],
-				[[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-				[[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-				[[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-				[[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-				[[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-				[[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-				[[                                                    ]],
-			}
-
-			dashboard.section.buttons.val = {
-				dashboard.button("f", " " .. " Find file", "<cmd>Telescope find_files<CR>"),
-				dashboard.button("n", " " .. " New file", "<cmd>ene <BAR> startinsert<CR>"),
-				dashboard.button("r", " " .. " Recent files", "<cmd>Telescope oldfiles<CR>"),
-				dashboard.button("g", " " .. " Find text", "<cmd>Telescope live_grep<CR>"),
-				dashboard.button("c", " " .. " Config", "<cmd>e $MYVIMRC<CR>"),
-				dashboard.button("s", " " .. " Restore Session", "<cmd>lua require('persistence').load()<CR>"),
-				dashboard.button("l", "󰒲 " .. " Lazy", "<cmd>Lazy<CR>"),
-				dashboard.button("q", " " .. " Quit", "<cmd>qa<CR>"),
-			}
-
-			for _, button in ipairs(dashboard.section.buttons.val) do
-				button.opts.hl = "AlphaButtons"
-				button.opts.hl_shortcut = "AlphaShortcut"
-			end
-
-			dashboard.section.header.opts.hl = "AlphaHeader"
-			dashboard.section.buttons.opts.hl = "AlphaButtons"
-			dashboard.section.footer.opts.hl = "AlphaFooter"
-
-			return dashboard
-		end,
-		config = function(_, dashboard)
-			require("alpha").setup(dashboard.opts)
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "LazyVimStarted",
-				callback = function()
-					local stats = require("lazy").stats()
-					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-					dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-					pcall(vim.cmd.AlphaRedraw)
-				end,
-			})
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
 		end,
 	},
-
 	-- Better statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -459,6 +412,80 @@ require("lazy").setup({
 			},
 			fzf_opts = {
 				["--no-scrollbar"] = true,
+			},
+		},
+	},
+
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("harpoon"):setup({})
+		end,
+		keys = {
+			{
+				"<leader>ha",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "Harpoon: Add file",
+			},
+			{
+				"<leader>hm",
+				function()
+					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+				end,
+				desc = "Harpoon: Toggle menu",
+			},
+			{
+				"<leader>1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "Harpoon: Go to file 1",
+			},
+			{
+				"<leader>2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "Harpoon: Go to file 2",
+			},
+			{
+				"<leader>3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon: Go to file 3",
+			},
+			{
+				"<leader>4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "Harpoon: Go to file 4",
+			},
+			{
+				"<leader>5",
+				function()
+					require("harpoon"):list():select(5)
+				end,
+				desc = "Harpoon: Go to file 5",
+			},
+			{
+				"<C-S-P>",
+				function()
+					require("harpoon"):list():prev()
+				end,
+				desc = "Harpoon: Previous file",
+			},
+			{
+				"<C-S-N>",
+				function()
+					require("harpoon"):list():next()
+				end,
+				desc = "Harpoon: Next file",
 			},
 		},
 	},

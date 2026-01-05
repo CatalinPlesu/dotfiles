@@ -864,6 +864,26 @@ require("lazy").setup({
 		},
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended by the author for stable rendering
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons", -- or "echasnovski/mini.icons"
+		},
+		opts = {
+			-- This section makes it behave like render-markdown
+			modes = { "n", "i", "no", "c" }, -- Modes where the plugin is active
+			hybrid_modes = { "i" }, -- Enable "unconceal under cursor" in Insert mode
+
+			-- Optional: Match the "look" of render-markdown
+			callbacks = {
+				on_enable = function(_, win)
+					vim.wo[win].conceallevel = 2
+				end,
+			},
+		},
+	},
 })
 
 -- ============================================================================

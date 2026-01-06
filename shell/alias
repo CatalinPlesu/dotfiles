@@ -199,3 +199,9 @@ command_not_found_handler() {
         return 127
     fi
 }
+
+fman() {
+    man -k . | fzf --prompt='Man> ' \
+                   --preview="echo {} | grep -o '^[^(]*' | xargs man" \
+                   --bind "enter:execute(echo {} | grep -o '^[^(]*' | xargs man)"
+}

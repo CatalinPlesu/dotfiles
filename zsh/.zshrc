@@ -98,7 +98,7 @@ bindkey -M vicmd 'p' vi-put-xclip
 # ----------------------------------------------------------------------------
 # External Configurations
 # ----------------------------------------------------------------------------
-. /home/catalin/.nix-profile/etc/profile.d/nix.sh
+# . /home/catalin/.nix-profile/etc/profile.d/nix.sh
 source ~/.config/shell/alias
 source ~/.config/shell/env
 

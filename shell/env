@@ -94,3 +94,4 @@ export OPENSSL_DIR=/etc/ssl
 export OPENSSLDIR=/etc/ssl
 
 export SUDO_EDITOR="$EDITOR"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"

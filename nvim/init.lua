@@ -296,6 +296,7 @@ require("lazy").setup({
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
+			require("mini.files").setup()
 			require("mini.comment").setup()
 			require("mini.pairs").setup()
 			require("mini.bufremove").setup()
@@ -356,33 +357,6 @@ require("lazy").setup({
 	-- ========================================================================
 	-- FILE NAVIGATION
 	-- ========================================================================
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		cmd = "Neotree",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		keys = {
-			{ "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Explorer" },
-			{ "<C-n>", "<cmd>Neotree toggle<CR>", desc = "Explorer" },
-			{ "<leader>ge", "<cmd>Neotree git_status<CR>", desc = "Git explorer" },
-		},
-		opts = {
-			filesystem = {
-				follow_current_file = { enabled = true },
-				use_libuv_file_watcher = true,
-			},
-			window = {
-				width = 30,
-				mappings = {
-					["<space>"] = "none",
-				},
-			},
-		},
-	},
 
 	-- Fuzzy finder (fzf-lua is faster than telescope)
 	{
@@ -900,3 +874,7 @@ require("mason").setup({
 -- COLORSCHEME
 -- ============================================================================
 vim.cmd.colorscheme("gruvbox")
+
+vim.keymap.set("n", "<Leader>n", function()
+	require("mini.files").open()
+end, { desc = "Open MiniFiles" })

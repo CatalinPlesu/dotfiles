@@ -751,7 +751,7 @@ require("lazy").setup({
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
 					require("luasnip.loaders.from_lua").lazy_load({
-						paths = vim.fn.stdpath("config") .. "/snippets/",
+						paths = vim.fn.stdpath("config") .. "/snippets",
 					})
 
 					local ls = require("luasnip")
@@ -876,5 +876,9 @@ require("mason").setup({
 vim.cmd.colorscheme("gruvbox")
 
 vim.keymap.set("n", "<Leader>n", function()
+	require("mini.files").open()
+end, { desc = "Open MiniFiles" })
+
+vim.keymap.set("n", "<C-n>", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })

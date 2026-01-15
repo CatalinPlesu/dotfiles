@@ -144,6 +144,19 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" }
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix" })
 
+-- Debugging keymaps (wrapped in pcall to avoid errors during startup)
+pcall(function()
+  vim.keymap.set("n", "<F5>", function() require('dap').continue() end, { desc = "Debug: Start/Continue" })
+  vim.keymap.set("n", "<F1>", function() require('dap').step_into() end, { desc = "Debug: Step Into" })
+  vim.keymap.set("n", "<F2>", function() require('dap').step_over() end, { desc = "Debug: Step Over" })
+  vim.keymap.set("n", "<F3>", function() require('dap').step_out() end, { desc = "Debug: Step Out" })
+  vim.keymap.set("n", "<F4>", function() require('dap').terminate() end, { desc = "Debug: Terminate" })
+  vim.keymap.set("n", "<leader>b", function() require('dap').toggle_breakpoint() end, { desc = "Debug: Toggle Breakpoint" })
+  vim.keymap.set("n", "<leader>B", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Debug: Set Conditional Breakpoint" })
+  vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Debug: Toggle UI" })
+  vim.keymap.set("n", "<leader>dr", function() require('dap').repl.toggle() end, { desc = "Debug: Toggle REPL" })
+end)
+
 -- Terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
@@ -195,6 +208,184 @@ vim.opt.rtp:prepend(lazypath)
 -- PLUGINS
 -- ============================================================================
 require("lazy").setup({
+	-- ========================================================================
+	-- DEBUGGING PLUGINS
+	-- ========================================================================
+	{
+		'mfussenegger/nvim-dap',
+		dependencies = {
+			'rcarriga/nvim-dap-ui',
+			'nvim-neotest/nvim-nio',
+			'jay-babu/mason-nvim-dap.nvim',
+			'theHamsta/nvim-dap-virtual-text',
+			'williamboman/mason-registry',
+		},
+		config = function()
+			local dap = require 'dap'
+			local dapui = require 'dapui'
+			
+			-- Setup nvim-dap-ui
+			dapui.setup {
+				icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+				controls = {
+					icons = {
+						pause = '⏸',
+						play = '▶',
+						step_into = '⏎',
+						step_over = '⏭',
+						step_out = '⏮',
+						step_back = 'b',
+						run_last = '▶▶',
+						terminate = '⏹',
+						disconnect = '⏏',
+					},
+				},
+				layouts = {
+					{
+						elements = {
+							'scopes',
+							'breakpoints',
+							'stacks',
+							'watches',
+						},
+						size = 0.33,
+						position = 'right',
+					},
+					{
+						elements = {
+							'repl',
+							'console',
+						},
+						size = 0.27,
+						position = 'bottom',
+					},
+				},
+				floating = {
+					border = 'rounded',
+					mappings = {
+						close = { 'q', '<Esc>' },
+					},
+				},
+			}
+			
+			-- Setup nvim-dap-virtual-text
+			require('nvim-dap-virtual-text').setup {}
+			
+			-- Configure debug adapters using Mason
+			require('mason-nvim-dap').setup {
+				automatic_installation = true,
+				ensure_installed = {
+					'netcoredbg', -- C# debugging
+				},
+			}
+			
+			-- C# debugging configurations
+			dap.configurations.cs = {
+				{
+					type = 'netcoredbg',
+					request = 'launch',
+					name = 'Launch - Current File',
+					program = function()
+						local cwd = vim.fn.getcwd()
+						local project_name = vim.fn.fnamemodify(cwd, ':t')
+						-- Look for DLL in net10.0 folder first, then fallback
+						local dll_paths = {
+							string.format('%s/bin/Debug/net10.0/%s.dll', cwd, project_name),
+							string.format('%s/bin/Debug/%s.dll', cwd, project_name),
+							string.format('%s/bin/Debug/net10.0/*.dll', cwd),
+							string.format('%s/bin/Debug/*.dll', cwd)
+						}
+						
+						for _, path in ipairs(dll_paths) do
+							if path:find('%.dll$') then
+								-- Exact DLL path
+								if vim.fn.filereadable(path) == 1 then
+									return path
+								end
+							else
+								-- Wildcard pattern - find first DLL
+								local files = vim.fn.glob(path)
+								if files ~= '' then
+									local first_file = vim.fn.split(files, '\n')[1]
+									if first_file then
+										return first_file
+									end
+								end
+							end
+						end
+						
+						-- Fallback to manual input if auto-detection fails
+						return vim.fn.input('Path to dll: ', cwd .. '/bin/Debug/net10.0/', 'file')
+					end,
+					cwd = '${workspaceFolder}',
+					stopAtEntry = false,
+				},
+				{
+					type = 'netcoredbg',
+					request = 'attach',
+					name = 'Attach to running process',
+					processId = require('dap.utils').pick_process,
+					cwd = '${workspaceFolder}',
+				},
+			}
+			
+			-- Explicitly set up netcoredbg adapter
+			dap.adapters['netcoredbg'] = {
+				type = 'executable',
+				command = vim.fn.stdpath('data') .. '/mason/packages/netcoredbg/netcoredbg',
+				args = { '--interpreter=vscode' }
+			}
+			
+			-- DAP event listeners
+			dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+			dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+			dap.listeners.before.event_exited['dapui_config'] = dapui.close
+			
+			-- Custom keymaps for debugging (widgets might not be available immediately)
+			local function safe_dap_keymap()
+				local widgets_ok, widgets = pcall(require, 'dap.ui.widgets')
+				if widgets_ok then
+					vim.keymap.set('n', '<leader>de', function() widgets.centered_float(widgets, {}) end, { desc = 'Debug: Centered Float' })
+					vim.keymap.set('n', '<leader>df', function() widgets.frames(widgets, {}) end, { desc = 'Debug: Frames' })
+					vim.keymap.set('n', '<leader>dv', function() widgets.variables(widgets, {}) end, { desc = 'Debug: Variables' })
+				end
+			end
+			
+			-- Function to ensure netcoredbg is installed
+			local function ensure_netcoredbg()
+				local mason_registry = require('mason-registry')
+				local ok, pkg = pcall(mason_registry.get_package, 'netcoredbg')
+				if ok and not pkg:is_installed() then
+					vim.notify('Installing netcoredbg...', vim.log.levels.INFO)
+					pkg:install()
+				end
+			end
+			
+			-- Enhanced debug start function
+			local function start_debugging()
+				ensure_netcoredbg()
+				local dap = require('dap')
+				dap.continue()
+			end
+			
+			-- Try to set keymaps, if widgets aren't available yet, they'll be set later
+			safe_dap_keymap()
+			vim.cmd([[autocmd User DapUIReady lua safe_dap_keymap()]])
+			
+			vim.keymap.set('n', '<leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = 'Debug: Set Log Point' })
+			vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end, { desc = 'Debug: Run Last' })
+			vim.keymap.set('n', '<F5>', start_debugging, { desc = 'Debug: Start/Continue (enhanced)' })
+			
+			-- C# specific keymaps
+			vim.api.nvim_create_autocmd('FileType', {
+				pattern = 'cs',
+				callback = function()
+					vim.keymap.set('n', '<leader>ds', start_debugging, { buffer = true, desc = 'Debug: Start C# debugging' })
+				end,
+			})
+		end,
+	},
+
 	-- ========================================================================
 	-- UI AND COLORSCHEMES
 	-- ========================================================================
@@ -474,6 +665,7 @@ require("lazy").setup({
 			spec = {
 				{ "<leader>b", group = "buffer" },
 				{ "<leader>c", group = "code" },
+				{ "<leader>d", group = "debug" },
 				{ "<leader>f", group = "find" },
 				{ "<leader>g", group = "git" },
 				{ "<leader>s", group = "search" },
@@ -882,3 +1074,5 @@ end, { desc = "Open MiniFiles" })
 vim.keymap.set("n", "<C-n>", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
+
+

@@ -263,7 +263,7 @@ require("lazy").setup({
 						label = "Recent Files",
 					},
 					packages = { enable = true },
-					footer = { "Fzf-lua is ready." },
+					footer = { "You are awesome" },
 				},
 			})
 		end,

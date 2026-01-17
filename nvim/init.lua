@@ -212,10 +212,60 @@ require("lazy").setup({
 
 	-- Dashboard
 	{
-		"goolord/alpha-nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" }, { "ibhagwan/fzf-lua" } },
 		config = function()
-			require("alpha").setup(require("alpha.themes.startify").config)
+			require("dashboard").setup({
+				theme = "hyper",
+				config = {
+					week_header = {
+						enable = true,
+					},
+					shortcut = {
+						{
+							desc = "󰊄 Files",
+							group = "DashboardShortCut",
+							key = "f",
+							action = "FzfLua files",
+						},
+						{
+							desc = "󰱼 Text",
+							group = "DashboardShortCut",
+							key = "g",
+							action = "FzfLua live_grep",
+						},
+						{
+							desc = "󰈚 Recent",
+							group = "DashboardShortCut",
+							key = "r",
+							action = "FzfLua oldfiles",
+						},
+						{
+							desc = " Config",
+							group = "DashboardShortCut",
+							key = "c",
+							action = "edit $MYVIMRC",
+						},
+					},
+					project = {
+						enable = true,
+						limit = 8,
+						icon = "󰏖 ",
+						label = "Projects",
+						-- This ensures when you select a project, it opens the file picker in that directory
+						action = "FzfLua files cwd=",
+					},
+					mru = {
+						enable = true,
+						limit = 10,
+						icon = "󰈚 ",
+						label = "Recent Files",
+					},
+					packages = { enable = true },
+					footer = { "Fzf-lua is ready." },
+				},
+			})
 		end,
 	},
 	-- Better statusline

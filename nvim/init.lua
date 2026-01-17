@@ -932,3 +932,13 @@ end, { desc = "Open MiniFiles" })
 vim.keymap.set("n", "<C-n>", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
+
+-- Disable terminal flow control (allows Ctrl+S to reach Neovim)
+vim.api.nvim_command("silent !stty -ixon")
+-- Ctrl + S: Save current buffer
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save current buffer" })
+-- Ctrl + Shift + S: Save all buffers
+-- Note: Terminal support for Ctrl+Shift combinations varies
+vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<Esc>:wa<CR>", { desc = "Save all buffers" })
+-- Ctrl + Z: Save all (forced) and quit Neovim
+vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Force save all and quit" })

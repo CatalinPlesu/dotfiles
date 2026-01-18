@@ -686,6 +686,7 @@ require("lazy").setup({
 
 			-- Example keybinding
 			vim.keymap.set("n", "<leader>D", "<cmd>Dotnet<CR>", { desc = "Run Dotnet FZF" })
+			vim.keymap.set("n", "<C-D>", "<cmd>Dotnet<CR>", { desc = "Run Dotnet FZF" })
 		end,
 	},
 

@@ -846,9 +846,6 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		init = function()
-			vim.g.treesitter_install_compilers = { "cl", "gcc", "clang" }
-		end,
 		config = function()
 			local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 			if not status_ok then
@@ -942,11 +939,6 @@ require("mason").setup({
 	},
 })
 
--- ============================================================================
--- COLORSCHEME
--- ============================================================================
-vim.cmd.colorscheme("gruvbox")
-
 vim.keymap.set("n", "<Leader>n", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
@@ -955,8 +947,6 @@ vim.keymap.set("n", "<C-n>", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
 
--- Disable terminal flow control (allows Ctrl+S to reach Neovim)
-vim.api.nvim_command("silent !stty -ixon")
 -- Ctrl + S: Save current buffer
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save current buffer" })
 -- Ctrl + Shift + S: Save all buffers

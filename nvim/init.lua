@@ -212,10 +212,60 @@ require("lazy").setup({
 
 	-- Dashboard
 	{
-		"goolord/alpha-nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" }, { "ibhagwan/fzf-lua" } },
 		config = function()
-			require("alpha").setup(require("alpha.themes.startify").config)
+			require("dashboard").setup({
+				theme = "hyper",
+				config = {
+					week_header = {
+						enable = true,
+					},
+					shortcut = {
+						{
+							desc = "󰊄 Files",
+							group = "DashboardShortCut",
+							key = "f",
+							action = "FzfLua files",
+						},
+						{
+							desc = "󰱼 Text",
+							group = "DashboardShortCut",
+							key = "g",
+							action = "FzfLua live_grep",
+						},
+						{
+							desc = "󰈚 Recent",
+							group = "DashboardShortCut",
+							key = "r",
+							action = "FzfLua oldfiles",
+						},
+						{
+							desc = " Config",
+							group = "DashboardShortCut",
+							key = "c",
+							action = "edit $MYVIMRC",
+						},
+					},
+					project = {
+						enable = true,
+						limit = 8,
+						icon = "󰏖 ",
+						label = "Projects",
+						-- This ensures when you select a project, it opens the file picker in that directory
+						action = "FzfLua files cwd=",
+					},
+					mru = {
+						enable = true,
+						limit = 10,
+						icon = "󰈚 ",
+						label = "Recent Files",
+					},
+					packages = { enable = true },
+					footer = { "You are awesome" },
+				},
+			})
 		end,
 	},
 	-- Better statusline
@@ -280,6 +330,7 @@ require("lazy").setup({
 			max_width = function()
 				return math.floor(vim.o.columns * 0.75)
 			end,
+			background_colour = "#000000",
 		},
 		config = function(_, opts)
 			require("notify").setup(opts)
@@ -298,6 +349,7 @@ require("lazy").setup({
 			require("mini.surround").setup()
 			require("mini.files").setup()
 			require("mini.comment").setup()
+			require("mini.pairs").setup()
 			require("mini.bufremove").setup()
 		end,
 	},
@@ -750,7 +802,7 @@ require("lazy").setup({
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
 					require("luasnip.loaders.from_lua").lazy_load({
-						paths = vim.fn.stdpath("config") .. "/snippets/",
+						paths = vim.fn.stdpath("config") .. "/snippets",
 					})
 
 					local ls = require("luasnip")
@@ -794,9 +846,6 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		init = function()
-			vim.g.treesitter_install_compilers = { "cl", "gcc", "clang" }
-		end,
 		config = function()
 			local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 			if not status_ok then
@@ -836,6 +885,27 @@ require("lazy").setup({
 			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Open Wiki" },
 		},
 	},
+	{
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add options here
+			-- or leave it empty to use the default settings
+		},
+		keys = {
+			-- suggested keymap
+			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+		},
+	},
+	{
+		"3rd/image.nvim",
+		build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+		opts = {
+			backend = "kitty",
+			processor = "magick_cli",
+			tmux_show_only_in_active_window = true,
+		},
+	},
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"OXY2DEV/markview.nvim",
@@ -869,11 +939,6 @@ require("mason").setup({
 	},
 })
 
--- ============================================================================
--- COLORSCHEME
--- ============================================================================
-vim.cmd.colorscheme("gruvbox")
-
 vim.keymap.set("n", "<Leader>n", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
@@ -881,3 +946,11 @@ end, { desc = "Open MiniFiles" })
 vim.keymap.set("n", "<C-n>", function()
 	require("mini.files").open()
 end, { desc = "Open MiniFiles" })
+
+-- Ctrl + S: Save current buffer
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save current buffer" })
+-- Ctrl + Shift + S: Save all buffers
+-- Note: Terminal support for Ctrl+Shift combinations varies
+vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<Esc>:wa<CR>", { desc = "Save all buffers" })
+-- Ctrl + Z: Save all (forced) and quit Neovim
+vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Force save all and quit" })

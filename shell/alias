@@ -84,12 +84,8 @@ alias diff='diff --color'
 
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
-# Standard: Fuzzy find from current directory
-alias zd='cd $(find . -maxdepth 4 -type d | fzf)'
-# -h: Fuzzy find starting from your Home directory
-alias zh='cd $(find ~ -maxdepth 4 -type d | fzf)'
-# -g: Fuzzy find starting from the Git root directory
-alias zg='cd $(find $(git rev-parse --show-toplevel 2>/dev/null || echo .) -maxdepth 4 -type d | fzf)'
+alias zh='cd $(echo -e "~\n$(fdfind --type d --max-depth 4 . ~)" | fzf)'
+alias zd='cd $(echo -e "$(git rev-parse --show-toplevel 2>/dev/null || echo .)\n$(fdfind --type d --max-depth 4 . $(git rev-parse --show-toplevel 2>/dev/null || echo .))" | fzf)'
 
 open() {
   xdg-open "$@" >/dev/null 2>&1 &

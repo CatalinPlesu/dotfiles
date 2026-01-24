@@ -83,6 +83,7 @@ alias grep='grep --color=auto'
 alias diff='diff --color'
 
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias fcd='cd $(find . -maxdepth 4 -type d | fzf)'
 
 open() {
   xdg-open "$@" >/dev/null 2>&1 &
@@ -205,3 +206,12 @@ fman() {
                    --preview="echo {} | grep -o '^[^(]*' | xargs man" \
                    --bind "enter:execute(echo {} | grep -o '^[^(]*' | xargs man)"
 }
+
+
+# -------------------------------------------
+# DOTNET
+
+alias dotnet-sln-add='find . -name "*.csproj" -exec dotnet sln add {} +'
+
+
+#

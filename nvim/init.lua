@@ -9,9 +9,15 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim", -- neogit
 	"https://github.com/sindrets/diffview.nvim", -- neogit     
 	"https://github.com/ibhagwan/fzf-lua", -- neogit
-	"https://github.com/wakatime/vim-wakatime"
+	"https://github.com/wakatime/vim-wakatime",
+	"https://github.com/HakonHarnes/img-clip.nvim",
+	"https://github.com/3rd/image.nvim",
+    "https://github.com/echaya/neowiki.nvim",
+    "https://github.com/folke/todo-comments.nvim",
+    "https://github.com/OXY2DEV/markview.nvim",
+    "https://github.com/nvim-treesitter/nvim-treesitter", -- markview
+    "https://github.com/nvim-tree/nvim-web-devicons", -- markview
 })
-
 
 -- Vim Options
 vim.g.mapleader = " "
@@ -109,3 +115,22 @@ end
 
 vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = 'Undotree' })
 vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Open Neogit UI" })
+vim.keymap.set("n", "<leader>p", "<cmd>PasteImage<cr>", { desc = "Paste image from system clipboard" })
+
+
+require("image").setup({
+  backend = "kitty", 
+  processor = "magick_cli", 
+  tmux_show_only_in_active_window = true, 
+})
+
+
+require("neowiki").setup({
+    wiki_dirs = {
+        { name = "Echo", path = "~/Documents/wiki/echo/" },
+        { name = "Vault", path = "~/Documents/Notes/" },
+    },
+})
+
+vim.keymap.set("n", "<leader>ww", function() require('neowiki').open_wiki('Echo') end, { desc = "Open Wiki - Echo" })
+vim.keymap.set("n", "<leader>ws", function() require('neowiki').open_wiki() end, { desc = "Open Wiki - All" })

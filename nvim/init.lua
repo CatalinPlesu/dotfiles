@@ -17,6 +17,7 @@ vim.pack.add({
     "https://github.com/OXY2DEV/markview.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter", -- markview
     "https://github.com/nvim-tree/nvim-web-devicons", -- markview
+    "https://github.com/folke/which-key.nvim",
 })
 
 -- Vim Options
@@ -134,3 +135,26 @@ require("neowiki").setup({
 
 vim.keymap.set("n", "<leader>ww", function() require('neowiki').open_wiki('Echo') end, { desc = "Open Wiki - Echo" })
 vim.keymap.set("n", "<leader>ws", function() require('neowiki').open_wiki() end, { desc = "Open Wiki - All" })
+
+
+require("fzf-lua").setup {
+  winopts = { 
+	height = 0.85,
+				width = 0.80,
+				preview = {
+					scrollbar = "float",
+				},
+        },     
+}
+vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", {desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", {desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", {desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", {desc = "Help tags" })
+vim.keymap.set("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", {desc = "Recent files" })
+vim.keymap.set("n", "<leader>fw", "<cmd>FzfLua grep_cword<CR>", {desc = "Find word" })
+vim.keymap.set("n", "<leader>fc", "<cmd>FzfLua commands<CR>", {desc = "Commands" })
+vim.keymap.set("n", "<leader>fk", "<cmd>FzfLua keymaps<CR>", {desc = "Keymaps" })
+vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>", {desc = "Document diagnostics" })
+vim.keymap.set("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<CR>", {desc = "Workspace diagnostics" })
+vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<CR>", {desc = "Buffer lines" })
+vim.keymap.set("n", "<leader><leader>", "<cmd>FzfLua buffers<CR>", {desc = "Buffers" })

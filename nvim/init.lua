@@ -815,31 +815,23 @@ require("lazy").setup({
 				if not file then
 					return false
 				end
-
 				local content = file:read("*a")
 				file:close()
 
 				-- Explicit executable check
-				if content:match("<OutputType>Exe</OutputType>") then
+				if content:match("Exe") then
 					return true
 				end
 
 				-- For SDK-style projects, check if it's NOT a library
-				-- If no OutputType is specified in an SDK project, it defaults to Exe for certain SDKs
-				local has_sdk = content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk%.Web"')
-					or content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk%.Worker"')
-					or content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk"')
+				local has_sdk = content:match("Library")
 
-				local is_library = content:match("<OutputType>Library</OutputType>")
-
-				-- If it's an SDK project and not explicitly a library, it might be executable
 				if has_sdk and not is_library then
-					-- Check for common executable indicators
 					if
-						content:match("<OutputType>Exe</OutputType>")
+						content:match("Exe")
 						or content:match("Microsoft%.NET%.Sdk%.Web")
 						or content:match("Microsoft%.NET%.Sdk%.Worker")
-						or content:match("<EnableDefaultItems>")
+						or content:match("")
 					then
 						return true
 					end
@@ -859,22 +851,16 @@ require("lazy").setup({
 				local project_dir = vim.fn.fnamemodify(csproj_path, ":h")
 				local project_name = get_project_name(csproj_path)
 
-				-- Search for the DLL in bin/Debug or bin/Release with various .NET versions
 				local bin_base = project_dir .. "/bin/" .. config_type
-
-				-- Try to find the DLL with its runtimeconfig.json
 				local search_cmd = string.format("find '%s' -name '%s.dll' 2>/dev/null", bin_base, project_name)
-
 				local handle = io.popen(search_cmd)
 				if not handle then
 					return nil
 				end
-
 				local result = handle:read("*a")
 				handle:close()
 
 				for dll in result:gmatch("[^\r\n]+") do
-					-- Check if runtimeconfig.json exists (indicates this is an executable)
 					local runtimeconfig = dll:gsub("%.dll$", ".runtimeconfig.json")
 					if vim.loop.fs_stat(runtimeconfig) then
 						return dll
@@ -886,17 +872,12 @@ require("lazy").setup({
 
 			-- Main function: Find executable projects and let user choose
 			local function get_dll_path()
-				-- 1. Find the current file's directory
 				local current_file_dir = vim.fn.expand("%:p:h")
 				local home_dir = vim.fn.expand("~")
-
-				-- 2. Search upwards for solution root (.sln, .slnx, or .git)
-				-- Keep searching until we hit home directory
 				local search_root = current_file_dir
 				local solution_root = nil
 
 				while search_root ~= home_dir and search_root ~= "/" do
-					-- Check for solution files
 					local sln_files = vim.fn.glob(search_root .. "/*.sln", false, true)
 					local slnx_files = vim.fn.glob(search_root .. "/*.slnx", false, true)
 					local git_dir = vim.fn.glob(search_root .. "/.git", false, true)
@@ -906,11 +887,9 @@ require("lazy").setup({
 						break
 					end
 
-					-- Move up one directory
 					search_root = vim.fn.fnamemodify(search_root, ":h")
 				end
 
-				-- 3. If no solution found, treat as standalone project
 				if not solution_root then
 					local csproj_path = vim.fs.find(function(name)
 						return name:match("%.csproj$")
@@ -918,26 +897,20 @@ require("lazy").setup({
 
 					if csproj_path then
 						solution_root = vim.fn.fnamemodify(csproj_path, ":h")
-						-- For standalone projects, just try to find the DLL
 						local dll_path = find_dll_for_project(csproj_path)
 						if dll_path then
 							print("Debugging: " .. get_project_name(csproj_path))
 							return dll_path
 						end
 					end
-
 					return vim.fn.input("Could not find project DLL. Path: ", vim.fn.getcwd() .. "/", "file")
 				end
 
-				-- 4. Find all .csproj files in the solution
 				local csproj_files = vim.fn.globpath(solution_root, "**/*.csproj", false, true)
-
-				-- 5. Filter to only executable projects (check for DLL + runtimeconfig.json)
 				local executable_projects = {}
+
 				for _, csproj in ipairs(csproj_files) do
-					-- First check if it looks like an executable project
 					if is_executable_project(csproj) then
-						-- Then verify the DLL actually exists
 						local dll_path = find_dll_for_project(csproj)
 						if dll_path then
 							table.insert(executable_projects, {
@@ -947,8 +920,6 @@ require("lazy").setup({
 							})
 						end
 					else
-						-- Even if not marked as executable, check if a DLL with runtimeconfig exists
-						-- (some projects don't have explicit OutputType)
 						local dll_path = find_dll_for_project(csproj)
 						if dll_path then
 							table.insert(executable_projects, {
@@ -960,14 +931,12 @@ require("lazy").setup({
 					end
 				end
 
-				-- 6. Handle results
 				if #executable_projects == 0 then
 					return vim.fn.input("No executable DLLs found. Path: ", solution_root .. "/", "file")
 				elseif #executable_projects == 1 then
 					print("Debugging: " .. executable_projects[1].name)
 					return executable_projects[1].dll
 				else
-					-- Multiple executables found - prompt user with project names
 					local choice = nil
 					vim.ui.select(executable_projects, {
 						prompt = "Select project to debug (" .. #executable_projects .. " found):",
@@ -978,7 +947,6 @@ require("lazy").setup({
 						choice = selected
 					end)
 
-					-- Return the selected DLL path
 					if choice then
 						print("Debugging: " .. choice.name)
 						return choice.dll
@@ -991,11 +959,9 @@ require("lazy").setup({
 			-- Helper: Get project root for the selected DLL
 			local function get_project_root()
 				local current_file_dir = vim.fn.expand("%:p:h")
-
 				local project_root = vim.fs.dirname(vim.fs.find(function(name)
 					return name:match("%.csproj$")
 				end, { upward = true, path = current_file_dir })[1])
-
 				return project_root or vim.fn.getcwd()
 			end
 
@@ -1016,23 +982,165 @@ require("lazy").setup({
 						return get_dll_path()
 					end,
 					cwd = function()
-						-- Sets CWD to the project root so appsettings.json is found
 						return get_project_root()
 					end,
 				},
 			}
 
-			-- Keymaps (VS Style)
-			vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start" })
+			-- ========================================================================
+			-- ENHANCED VISUAL STUDIO-STYLE KEYMAPS
+			-- ========================================================================
+
+			-- Basic debugging controls (VS-style F-keys)
+			vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
 			vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
 			vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
 			vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "Debug: Step Out" })
-			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-			vim.keymap.set("n", "<leader>B", function()
+			vim.keymap.set("n", "<S-F5>", dap.terminate, { desc = "Debug: Stop" })
+			vim.keymap.set("n", "<C-S-F5>", dap.restart, { desc = "Debug: Restart" })
+
+			-- Breakpoint controls
+			vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+
+			-- Conditional Breakpoint
+			vim.keymap.set("n", "<leader>dB", function()
 				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 			end, { desc = "Conditional Breakpoint" })
 
-			vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+			-- Log Point (breakpoint that logs a message instead of stopping)
+			vim.keymap.set("n", "<leader>dl", function()
+				dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+			end, { desc = "Log Point" })
+
+			-- Hit Count Breakpoint
+			vim.keymap.set("n", "<leader>dh", function()
+				local condition = vim.fn.input("Hit count condition (e.g., >5, ==3): ")
+				if condition ~= "" then
+					dap.set_breakpoint(condition)
+				end
+			end, { desc = "Hit Count Breakpoint" })
+
+			-- Clear all breakpoints
+			vim.keymap.set("n", "<leader>dC", function()
+				dap.clear_breakpoints()
+				print("All breakpoints cleared")
+			end, { desc = "Clear All Breakpoints" })
+
+			-- List all breakpoints
+			vim.keymap.set("n", "<leader>dL", function()
+				dap.list_breakpoints()
+			end, { desc = "List Breakpoints" })
+
+			-- Run to Cursor (like Ctrl+F10 in VS)
+			vim.keymap.set("n", "<C-F10>", dap.run_to_cursor, { desc = "Run to Cursor" })
+			vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Run to Cursor" })
+
+			-- Session controls
+			vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Open REPL" })
+			vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle Debug UI" })
+
+			-- Evaluate expression under cursor
+			vim.keymap.set({ "n", "v" }, "<leader>de", function()
+				dapui.eval()
+			end, { desc = "Evaluate Expression" })
+
+			-- Hover (Quick Watch in VS)
+			vim.keymap.set("n", "<leader>dh", function()
+				require("dap.ui.widgets").hover()
+			end, { desc = "Debug Hover/Quick Watch" })
+
+			-- Scopes (view local variables)
+			vim.keymap.set("n", "<leader>ds", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes)
+			end, { desc = "View Scopes" })
+
+			-- Frames (call stack)
+			vim.keymap.set("n", "<leader>df", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.frames)
+			end, { desc = "View Frames/Call Stack" })
+
+			-- Go to line without executing
+			vim.keymap.set("n", "<leader>dj", function()
+				dap.set_breakpoint()
+				dap.continue()
+			end, { desc = "Jump to Line" })
+
+			-- Step back (if debugger supports it)
+			vim.keymap.set("n", "<leader>dk", dap.step_back, { desc = "Step Back" })
+
+			-- Pause execution
+			vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause" })
+
+			-- Up/Down in call stack
+			vim.keymap.set("n", "<leader>d<Up>", dap.up, { desc = "Stack Frame Up" })
+			vim.keymap.set("n", "<leader>d<Down>", dap.down, { desc = "Stack Frame Down" })
+
+			-- ========================================================================
+			-- BREAKPOINT SIGNS (Visual indicators)
+			-- ========================================================================
+
+			vim.fn.sign_define("DapBreakpoint", {
+				text = "🔴",
+				texthl = "DapBreakpoint",
+				linehl = "",
+				numhl = "DapBreakpoint",
+			})
+
+			vim.fn.sign_define("DapBreakpointCondition", {
+				text = "🟡",
+				texthl = "DapBreakpoint",
+				linehl = "",
+				numhl = "DapBreakpoint",
+			})
+
+			vim.fn.sign_define("DapBreakpointRejected", {
+				text = "⭕",
+				texthl = "DapBreakpoint",
+				linehl = "",
+				numhl = "DapBreakpoint",
+			})
+
+			vim.fn.sign_define("DapLogPoint", {
+				text = "📝",
+				texthl = "DapLogPoint",
+				linehl = "",
+				numhl = "DapLogPoint",
+			})
+
+			vim.fn.sign_define("DapStopped", {
+				text = "▶️",
+				texthl = "DapStopped",
+				linehl = "DapStoppedLine",
+				numhl = "DapStopped",
+			})
+
+			-- ========================================================================
+			-- WHICH-KEY INTEGRATION (Optional - shows available commands)
+			-- ========================================================================
+
+			-- If you have which-key installed, this creates a nice menu
+			local ok, wk = pcall(require, "which-key")
+			if ok then
+				wk.add({
+					{ "<leader>d", group = "Debug" },
+					{ "<leader>db", desc = "Toggle Breakpoint" },
+					{ "<leader>dB", desc = "Conditional Breakpoint" },
+					{ "<leader>dl", desc = "Log Point" },
+					{ "<leader>dh", desc = "Hit Count Breakpoint" },
+					{ "<leader>dC", desc = "Clear All Breakpoints" },
+					{ "<leader>dL", desc = "List Breakpoints" },
+					{ "<leader>dc", desc = "Run to Cursor" },
+					{ "<leader>dr", desc = "Open REPL" },
+					{ "<leader>du", desc = "Toggle Debug UI" },
+					{ "<leader>de", desc = "Evaluate Expression" },
+					{ "<leader>ds", desc = "View Scopes" },
+					{ "<leader>df", desc = "View Frames" },
+					{ "<leader>dp", desc = "Pause" },
+				})
+			end
 		end,
 	},
 	-- ========================================================================

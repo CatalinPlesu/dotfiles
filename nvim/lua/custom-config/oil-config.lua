@@ -2,7 +2,7 @@
 local opts = {
   -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
   -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
-  default_file_explorer = true,
+  default_file_explorer = false,
   -- Id is automatically added at the beginning, and name at the end
   -- See :help oil-columns
   columns = {
@@ -183,7 +183,7 @@ local opts = {
 
 require("oil").setup(opts)
 
-vim.api.nvim_command('Oil')                                            -- Open Oil file tree on startup
+-- vim.api.nvim_command('Oil')                                            -- Open Oil file tree on startup
 -- vim.api.nvim_command('autocmd FileType * setlocal formatoptions-=cro') -- prevent from proceeding with comment
 
 map("n", "<A-a>", require("oil").open_float, "Oil")

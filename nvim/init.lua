@@ -783,7 +783,258 @@ require("lazy").setup({
 	},
 
 	-- ========================================================================
-	-- SYNTAX AND PARSING
+	-- ROBUST MULTI-PROJECT .NET DEBUGGING
+	-- ========================================================================
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"williamboman/mason.nvim",
+		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			dapui.setup()
+
+			-- UI Triggers
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
+
+			-- Helper: Check if a .csproj is likely an executable project
+			local function is_executable_project(csproj_path)
+				local file = io.open(csproj_path, "r")
+				if not file then
+					return false
+				end
+
+				local content = file:read("*a")
+				file:close()
+
+				-- Explicit executable check
+				if content:match("<OutputType>Exe</OutputType>") then
+					return true
+				end
+
+				-- For SDK-style projects, check if it's NOT a library
+				-- If no OutputType is specified in an SDK project, it defaults to Exe for certain SDKs
+				local has_sdk = content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk%.Web"')
+					or content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk%.Worker"')
+					or content:match('<Project%s+Sdk="Microsoft%.NET%.Sdk"')
+
+				local is_library = content:match("<OutputType>Library</OutputType>")
+
+				-- If it's an SDK project and not explicitly a library, it might be executable
+				if has_sdk and not is_library then
+					-- Check for common executable indicators
+					if
+						content:match("<OutputType>Exe</OutputType>")
+						or content:match("Microsoft%.NET%.Sdk%.Web")
+						or content:match("Microsoft%.NET%.Sdk%.Worker")
+						or content:match("<EnableDefaultItems>")
+					then
+						return true
+					end
+				end
+
+				return false
+			end
+
+			-- Helper: Extract project name from .csproj path
+			local function get_project_name(csproj_path)
+				return vim.fn.fnamemodify(csproj_path, ":t:r")
+			end
+
+			-- Helper: Find DLL path for a given .csproj and verify it's executable
+			local function find_dll_for_project(csproj_path, config_type)
+				config_type = config_type or "Debug"
+				local project_dir = vim.fn.fnamemodify(csproj_path, ":h")
+				local project_name = get_project_name(csproj_path)
+
+				-- Search for the DLL in bin/Debug or bin/Release with various .NET versions
+				local bin_base = project_dir .. "/bin/" .. config_type
+
+				-- Try to find the DLL with its runtimeconfig.json
+				local search_cmd = string.format("find '%s' -name '%s.dll' 2>/dev/null", bin_base, project_name)
+
+				local handle = io.popen(search_cmd)
+				if not handle then
+					return nil
+				end
+
+				local result = handle:read("*a")
+				handle:close()
+
+				for dll in result:gmatch("[^\r\n]+") do
+					-- Check if runtimeconfig.json exists (indicates this is an executable)
+					local runtimeconfig = dll:gsub("%.dll$", ".runtimeconfig.json")
+					if vim.loop.fs_stat(runtimeconfig) then
+						return dll
+					end
+				end
+
+				return nil
+			end
+
+			-- Main function: Find executable projects and let user choose
+			local function get_dll_path()
+				-- 1. Find the current file's directory
+				local current_file_dir = vim.fn.expand("%:p:h")
+				local home_dir = vim.fn.expand("~")
+
+				-- 2. Search upwards for solution root (.sln, .slnx, or .git)
+				-- Keep searching until we hit home directory
+				local search_root = current_file_dir
+				local solution_root = nil
+
+				while search_root ~= home_dir and search_root ~= "/" do
+					-- Check for solution files
+					local sln_files = vim.fn.glob(search_root .. "/*.sln", false, true)
+					local slnx_files = vim.fn.glob(search_root .. "/*.slnx", false, true)
+					local git_dir = vim.fn.glob(search_root .. "/.git", false, true)
+
+					if #sln_files > 0 or #slnx_files > 0 or #git_dir > 0 then
+						solution_root = search_root
+						break
+					end
+
+					-- Move up one directory
+					search_root = vim.fn.fnamemodify(search_root, ":h")
+				end
+
+				-- 3. If no solution found, treat as standalone project
+				if not solution_root then
+					local csproj_path = vim.fs.find(function(name)
+						return name:match("%.csproj$")
+					end, { upward = true, path = current_file_dir })[1]
+
+					if csproj_path then
+						solution_root = vim.fn.fnamemodify(csproj_path, ":h")
+						-- For standalone projects, just try to find the DLL
+						local dll_path = find_dll_for_project(csproj_path)
+						if dll_path then
+							print("Debugging: " .. get_project_name(csproj_path))
+							return dll_path
+						end
+					end
+
+					return vim.fn.input("Could not find project DLL. Path: ", vim.fn.getcwd() .. "/", "file")
+				end
+
+				-- 4. Find all .csproj files in the solution
+				local csproj_files = vim.fn.globpath(solution_root, "**/*.csproj", false, true)
+
+				-- 5. Filter to only executable projects (check for DLL + runtimeconfig.json)
+				local executable_projects = {}
+				for _, csproj in ipairs(csproj_files) do
+					-- First check if it looks like an executable project
+					if is_executable_project(csproj) then
+						-- Then verify the DLL actually exists
+						local dll_path = find_dll_for_project(csproj)
+						if dll_path then
+							table.insert(executable_projects, {
+								name = get_project_name(csproj),
+								csproj = csproj,
+								dll = dll_path,
+							})
+						end
+					else
+						-- Even if not marked as executable, check if a DLL with runtimeconfig exists
+						-- (some projects don't have explicit OutputType)
+						local dll_path = find_dll_for_project(csproj)
+						if dll_path then
+							table.insert(executable_projects, {
+								name = get_project_name(csproj),
+								csproj = csproj,
+								dll = dll_path,
+							})
+						end
+					end
+				end
+
+				-- 6. Handle results
+				if #executable_projects == 0 then
+					return vim.fn.input("No executable DLLs found. Path: ", solution_root .. "/", "file")
+				elseif #executable_projects == 1 then
+					print("Debugging: " .. executable_projects[1].name)
+					return executable_projects[1].dll
+				else
+					-- Multiple executables found - prompt user with project names
+					local choice = nil
+					vim.ui.select(executable_projects, {
+						prompt = "Select project to debug (" .. #executable_projects .. " found):",
+						format_item = function(item)
+							return item.name
+						end,
+					}, function(selected)
+						choice = selected
+					end)
+
+					-- Return the selected DLL path
+					if choice then
+						print("Debugging: " .. choice.name)
+						return choice.dll
+					else
+						return executable_projects[1].dll
+					end
+				end
+			end
+
+			-- Helper: Get project root for the selected DLL
+			local function get_project_root()
+				local current_file_dir = vim.fn.expand("%:p:h")
+
+				local project_root = vim.fs.dirname(vim.fs.find(function(name)
+					return name:match("%.csproj$")
+				end, { upward = true, path = current_file_dir })[1])
+
+				return project_root or vim.fn.getcwd()
+			end
+
+			-- DAP Adapter Configuration
+			dap.adapters.coreclr = {
+				type = "executable",
+				command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+
+			-- DAP Launch Configuration
+			dap.configurations.cs = {
+				{
+					type = "coreclr",
+					name = "Launch Project",
+					request = "launch",
+					program = function()
+						return get_dll_path()
+					end,
+					cwd = function()
+						-- Sets CWD to the project root so appsettings.json is found
+						return get_project_root()
+					end,
+				},
+			}
+
+			-- Keymaps (VS Style)
+			vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start" })
+			vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
+			vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
+			vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "Debug: Step Out" })
+			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+			vim.keymap.set("n", "<leader>B", function()
+				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end, { desc = "Conditional Breakpoint" })
+
+			vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+		end,
+	},
 	-- ========================================================================
 	{
 		"nvim-treesitter/nvim-treesitter",

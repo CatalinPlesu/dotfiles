@@ -1144,6 +1144,329 @@ require("lazy").setup({
 		end,
 	},
 	-- ========================================================================
+	-- TESTING (.NET SPECIFIC) - IMPROVED VERSION
+	-- ========================================================================
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"Issafalcon/neotest-dotnet",
+			"mfussenegger/nvim-dap", -- For test debugging
+		},
+		config = function()
+			local neotest = require("neotest")
+
+			-- Helper: Find solution/project root
+			local function find_solution_root()
+				local current_file_dir = vim.fn.expand("%:p:h")
+				local home_dir = vim.fn.expand("~")
+				local search_root = current_file_dir
+
+				while search_root ~= home_dir and search_root ~= "/" do
+					local sln_files = vim.fn.glob(search_root .. "/*.sln", false, true)
+					local slnx_files = vim.fn.glob(search_root .. "/*.slnx", false, true)
+					local git_dir = vim.fn.glob(search_root .. "/.git", false, true)
+
+					if #sln_files > 0 or #slnx_files > 0 or #git_dir > 0 then
+						return search_root
+					end
+
+					search_root = vim.fn.fnamemodify(search_root, ":h")
+				end
+
+				-- Fallback to finding any .csproj
+				local csproj_path = vim.fs.find(function(name)
+					return name:match("%.csproj$")
+				end, { upward = true, path = current_file_dir })[1]
+
+				if csproj_path then
+					return vim.fn.fnamemodify(csproj_path, ":h")
+				end
+
+				return vim.fn.getcwd()
+			end
+
+			neotest.setup({
+				adapters = {
+					require("neotest-dotnet")({
+						-- Use solution as discovery root for multi-project support
+						discovery_root = "solution",
+
+						-- Additional dotnet test arguments
+						dotnet_additional_args = {
+							"--verbosity=normal",
+							"--logger=console;verbosity=detailed",
+						},
+
+						-- Enable this to see test output immediately
+						say_test_success = true,
+					}),
+				},
+
+				-- Discovery settings
+				discovery = {
+					enabled = true,
+					concurrent = 5, -- Discover multiple test files in parallel
+				},
+
+				-- UI settings
+				status = {
+					enabled = true,
+					virtual_text = true,
+					signs = true,
+				},
+
+				output = {
+					enabled = true,
+					open_on_run = "short", -- "short" | "long" | true | false
+				},
+
+				-- Show test output in floating window
+				output_panel = {
+					enabled = true,
+					open = "botright split | resize 15",
+				},
+
+				-- Quick fix list for failed tests
+				quickfix = {
+					enabled = true,
+					open = false,
+				},
+
+				-- Summary window settings
+				summary = {
+					enabled = true,
+					expand_errors = true,
+					follow = true,
+					mappings = {
+						attach = "a",
+						clear_marked = "M",
+						clear_target = "T",
+						debug = "d",
+						debug_marked = "D",
+						expand = { "<CR>", "<2-LeftMouse>" },
+						expand_all = "e",
+						jumpto = "i",
+						mark = "m",
+						next_failed = "J",
+						output = "o",
+						prev_failed = "K",
+						run = "r",
+						run_marked = "R",
+						short = "O",
+						stop = "u",
+						target = "t",
+						watch = "w",
+					},
+				},
+
+				-- Diagnostic settings
+				diagnostic = {
+					enabled = true,
+					severity = vim.diagnostic.severity.ERROR,
+				},
+
+				-- Floating window settings
+				floating = {
+					border = "rounded",
+					max_height = 0.8,
+					max_width = 0.8,
+					options = {},
+				},
+
+				-- Icons
+				icons = {
+					passed = "✓",
+					running = "⟳",
+					failed = "✗",
+					skipped = "⊘",
+					unknown = "?",
+					running_animated = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+				},
+
+				-- Highlights
+				highlights = {
+					passed = "NeotestPassed",
+					running = "NeotestRunning",
+					failed = "NeotestFailed",
+					skipped = "NeotestSkipped",
+				},
+			})
+
+			-- ========================================================================
+			-- ENHANCED TEST KEYMAPS
+			-- ========================================================================
+
+			-- Run nearest test (at cursor)
+			vim.keymap.set("n", "<C-r>t", function()
+				neotest.run.run()
+			end, { desc = "Run Nearest Test" })
+
+			-- Run current file's tests
+			vim.keymap.set("n", "<C-r>f", function()
+				neotest.run.run(vim.fn.expand("%"))
+			end, { desc = "Run Current File Tests" })
+
+			-- Run all tests in solution
+			vim.keymap.set("n", "<C-r>a", function()
+				local root = find_solution_root()
+				neotest.run.run(root)
+			end, { desc = "Run All Tests in Solution" })
+
+			-- Run last test
+			vim.keymap.set("n", "<C-r>l", function()
+				neotest.run.run_last()
+			end, { desc = "Run Last Test" })
+
+			-- Run all tests in current project directory
+			vim.keymap.set("n", "<C-r>p", function()
+				local csproj = vim.fs.find(function(name)
+					return name:match("%.csproj$")
+				end, { upward = true, path = vim.fn.expand("%:p:h") })[1]
+
+				if csproj then
+					local project_dir = vim.fn.fnamemodify(csproj, ":h")
+					neotest.run.run(project_dir)
+				else
+					print("No .csproj found")
+				end
+			end, { desc = "Run Current Project Tests" })
+
+			-- ========================================================================
+			-- DEBUG TEST SUPPORT
+			-- ========================================================================
+
+			-- Debug nearest test
+			vim.keymap.set("n", "<leader>td", function()
+				neotest.run.run({ strategy = "dap" })
+			end, { desc = "Debug Nearest Test" })
+
+			-- Debug current file's tests
+			vim.keymap.set("n", "<leader>tD", function()
+				neotest.run.run({ vim.fn.expand("%"), strategy = "dap" })
+			end, { desc = "Debug Current File Tests" })
+
+			-- Debug last test
+			vim.keymap.set("n", "<leader>tl", function()
+				neotest.run.run_last({ strategy = "dap" })
+			end, { desc = "Debug Last Test" })
+
+			-- ========================================================================
+			-- UI KEYMAPS
+			-- ========================================================================
+
+			-- Toggle test summary (explorer)
+			vim.keymap.set("n", "<leader>ts", function()
+				neotest.summary.toggle()
+			end, { desc = "Toggle Test Summary" })
+
+			-- Show test output
+			vim.keymap.set("n", "<leader>to", function()
+				neotest.output.open({ enter = true, auto_close = true })
+			end, { desc = "Show Test Output" })
+
+			-- Toggle output panel
+			vim.keymap.set("n", "<leader>tp", function()
+				neotest.output_panel.toggle()
+			end, { desc = "Toggle Test Output Panel" })
+
+			-- Stop running tests
+			vim.keymap.set("n", "<leader>tS", function()
+				neotest.run.stop()
+			end, { desc = "Stop Running Tests" })
+
+			-- Jump to next failed test
+			vim.keymap.set("n", "]t", function()
+				neotest.jump.next({ status = "failed" })
+			end, { desc = "Next Failed Test" })
+
+			-- Jump to previous failed test
+			vim.keymap.set("n", "[t", function()
+				neotest.jump.prev({ status = "failed" })
+			end, { desc = "Previous Failed Test" })
+
+			-- Attach to nearest test (for debugging running tests)
+			vim.keymap.set("n", "<leader>ta", function()
+				neotest.run.attach()
+			end, { desc = "Attach to Nearest Test" })
+
+			-- Watch file (auto-run tests on save)
+			vim.keymap.set("n", "<leader>tw", function()
+				neotest.watch.toggle(vim.fn.expand("%"))
+			end, { desc = "Watch Current File" })
+
+			-- Mark test for batch operations
+			vim.keymap.set("n", "<leader>tm", function()
+				neotest.summary.mark()
+			end, { desc = "Mark Test" })
+
+			-- Clear all marks
+			vim.keymap.set("n", "<leader>tM", function()
+				neotest.summary.clear_marked()
+			end, { desc = "Clear Marked Tests" })
+
+			-- Run marked tests
+			vim.keymap.set("n", "<leader>tR", function()
+				neotest.summary.run_marked()
+			end, { desc = "Run Marked Tests" })
+
+			-- ========================================================================
+			-- WHICH-KEY INTEGRATION
+			-- ========================================================================
+
+			local ok, wk = pcall(require, "which-key")
+			if ok then
+				wk.add({
+					{ "<leader>t", group = "Test" },
+					{ "<leader>td", desc = "Debug Nearest Test" },
+					{ "<leader>tD", desc = "Debug Current File" },
+					{ "<leader>tl", desc = "Debug Last Test" },
+					{ "<leader>ts", desc = "Toggle Summary" },
+					{ "<leader>to", desc = "Show Output" },
+					{ "<leader>tp", desc = "Toggle Output Panel" },
+					{ "<leader>tS", desc = "Stop Tests" },
+					{ "<leader>ta", desc = "Attach to Test" },
+					{ "<leader>tw", desc = "Watch File" },
+					{ "<leader>tm", desc = "Mark Test" },
+					{ "<leader>tM", desc = "Clear Marks" },
+					{ "<leader>tR", desc = "Run Marked" },
+					{ "<C-r>", group = "Run Test" },
+					{ "<C-r>t", desc = "Run Nearest" },
+					{ "<C-r>f", desc = "Run File" },
+					{ "<C-r>a", desc = "Run All" },
+					{ "<C-r>l", desc = "Run Last" },
+					{ "<C-r>p", desc = "Run Project" },
+				})
+			end
+
+			-- ========================================================================
+			-- AUTO-COMMANDS
+			-- ========================================================================
+
+			-- Auto-open summary when running tests (optional)
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "NeotestRunStarted",
+				callback = function()
+					-- Uncomment if you want summary to auto-open
+					-- neotest.summary.open()
+				end,
+			})
+
+			-- Show notification when all tests complete
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "NeotestRunComplete",
+				callback = function()
+					local stats = neotest.state.positions()
+					if stats then
+						print(string.format("Tests complete - Check summary for results"))
+					end
+				end,
+			})
+		end,
+	}, -- ========================================================================
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",

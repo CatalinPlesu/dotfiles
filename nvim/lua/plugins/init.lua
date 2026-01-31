@@ -174,4 +174,25 @@ return {
 		},
 	},
 	{ "smithbm2316/centerpad.nvim" },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		cmd = "Neogit",
+		keys = {
+			{ "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
+			{ "<leader>gc", "<cmd>Neogit commit<CR>", desc = "Commit" },
+			{ "<leader>gp", "<cmd>Neogit pull<CR>", desc = "Pull" },
+			{ "<leader>gP", "<cmd>Neogit push<CR>", desc = "Push" },
+		},
+		opts = {
+			integrations = {
+				fzf_lua = true,
+				diffview = true,
+			},
+		},
+	},
 }

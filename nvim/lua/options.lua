@@ -15,3 +15,8 @@ vim.o.scroll = 15
 -- configer make
 vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true                          -- persistent undo
+vim.opt.undodir = vim.fn.stdpath("data") .. "/nvim/undo"

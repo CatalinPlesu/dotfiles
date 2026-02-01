@@ -12,14 +12,16 @@ require("fzf-lua").setup({
 
   grep_curbuf = {
     fzf_opts = {
-      ['--exact'] = '',
-      ['--no-sort'] = '',
+      -- ['--exact'] = '',
+      -- ['--no-sort'] = '',
+      ["--cycle"] = "",
     }
   },
   files = {
     fzf_opts = {
-      ['--exact'] = '',
-      ['--no-sort'] = '',
+      -- ['--exact'] = '',
+      -- ['--no-sort'] = '',
+      ["--cycle"] = "",
     }
   },
 

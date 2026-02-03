@@ -1300,28 +1300,28 @@ require("lazy").setup({
 			-- ========================================================================
 
 			-- Run nearest test (at cursor)
-			vim.keymap.set("n", "<C-r>t", function()
+			vim.keymap.set("n", "<C-t>t", function()
 				neotest.run.run()
 			end, { desc = "Run Nearest Test" })
 
 			-- Run current file's tests
-			vim.keymap.set("n", "<C-r>f", function()
+			vim.keymap.set("n", "<C-t>f", function()
 				neotest.run.run(vim.fn.expand("%"))
 			end, { desc = "Run Current File Tests" })
 
 			-- Run all tests in solution
-			vim.keymap.set("n", "<C-r>a", function()
+			vim.keymap.set("n", "<C-t>a", function()
 				local root = find_solution_root()
 				neotest.run.run(root)
 			end, { desc = "Run All Tests in Solution" })
 
 			-- Run last test
-			vim.keymap.set("n", "<C-r>l", function()
+			vim.keymap.set("n", "<C-t>l", function()
 				neotest.run.run_last()
 			end, { desc = "Run Last Test" })
 
 			-- Run all tests in current project directory
-			vim.keymap.set("n", "<C-r>p", function()
+			vim.keymap.set("n", "<C-t>p", function()
 				local csproj = vim.fs.find(function(name)
 					return name:match("%.csproj$")
 				end, { upward = true, path = vim.fn.expand("%:p:h") })[1]
@@ -1432,12 +1432,12 @@ require("lazy").setup({
 					{ "<leader>tm", desc = "Mark Test" },
 					{ "<leader>tM", desc = "Clear Marks" },
 					{ "<leader>tR", desc = "Run Marked" },
-					{ "<C-r>", group = "Run Test" },
-					{ "<C-r>t", desc = "Run Nearest" },
-					{ "<C-r>f", desc = "Run File" },
-					{ "<C-r>a", desc = "Run All" },
-					{ "<C-r>l", desc = "Run Last" },
-					{ "<C-r>p", desc = "Run Project" },
+					{ "<C-t>", group = "Run Test" },
+					{ "<C-t>t", desc = "Run Nearest" },
+					{ "<C-t>f", desc = "Run File" },
+					{ "<C-t>a", desc = "Run All" },
+					{ "<C-t>l", desc = "Run Last" },
+					{ "<C-t>p", desc = "Run Project" },
 				})
 			end
 

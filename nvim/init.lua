@@ -370,10 +370,10 @@ require("lazy").setup({
 		},
 		opts = {
 			winopts = {
-				height = 0.85,
-				width = 0.80,
+				fullscreen = true,
 				preview = {
-					scrollbar = "float",
+					layout = "vertical",
+					vertical = "up:70%",
 				},
 			},
 			fzf_opts = {

@@ -1496,16 +1496,17 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 	{
-		"echaya/neowiki.nvim",
+		dir = "~/exp/kiwi.nvim",
+		name = "kiwi.nvim",
+		-- "serenevoid/kiwi.nvim",
 		opts = {
-			wiki_dirs = {
-				{ name = "Echo", path = "~/Documents/wiki/echo/" },
-				{ name = "Vault", path = "~/Documents/Notes/" },
-			},
+			{ name = "Echo", path = "Documents/wiki/echo/" },
+			{ name = "Vault", path = "Documents/Notes/" },
 		},
 		keys = {
-			{ "<leader>ww", "<cmd>lua require('neowiki').open_wiki('Echo')<cr>", desc = "Open Wiki" },
-			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Open Wiki" },
+			{ "<leader>ww", "<cmd>lua require('kiwi').open_wiki_index('Echo')<cr>", desc = "Open Echo Wiki" },
+			{ "<leader>ws", "<cmd>lua require('kiwi').open_wiki_index()<cr>", desc = "Open Wiki Selector" },
+			{ "<leader>wt", "<cmd>lua require('kiwi').todo.toggle()<cr>", desc = "Toggle Todo" },
 		},
 	},
 	{

@@ -169,7 +169,6 @@ alias zen='~/.local/bin/zen-with-autosave.sh'
 # Distrobox
 alias arch='cd /home/distrobox/archlinux/ && distrobox enter --name arch -- zsh -i -c "TMUX="" && tmux new-session -A -s arch"'
 
-alias crush='nix run github:numtide/nix-ai-tools#crush'
 alias chat='cd dev/used/crush-chatting ; nix run github:numtide/nix-ai-tools#crush'
 
 nix_packages=(

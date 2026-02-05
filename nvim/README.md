@@ -239,3 +239,68 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
 
+---
+
+## .NET Development
+
+This configuration includes comprehensive support for .NET development with C#.
+
+### Features
+
+- **Debugger**: nvim-dap with netcoredbg for .NET debugging
+- **Test Runner**: neotest with neotest-dotnet for xUnit/NUnit/MSTest
+- **LSP**: roslyn.nvim for modern C# language server
+- **Project Management**: justfile integration for common .NET operations
+
+### Key Bindings
+
+**Debugging** (`<leader>d` prefix):
+- `<F5>` - Start/Continue debugging
+- `<F10>` - Step over
+- `<F11>` - Step into
+- `<F9>` - Toggle breakpoint
+- `<leader>db` - Toggle breakpoint
+- `<leader>dB` - Conditional breakpoint
+- `<leader>dr` - Open REPL
+- `<leader>du` - Toggle Debug UI
+
+**Testing** (`<leader>t` prefix and `<C-t>` prefix):
+- `<C-t>t` - Run nearest test
+- `<C-t>f` - Run current file tests
+- `<C-t>a` - Run all tests in solution
+- `<leader>td` - Debug nearest test
+- `<leader>ts` - Toggle test summary
+- `<leader>to` - Show test output
+
+### Healthcheck
+
+Run `:DotnetHealth` to check your .NET development environment.
+
+### Troubleshooting Test Discovery
+
+If tests are not discovered properly:
+
+1. Build the test project:
+   ```bash
+   dotnet build TimeSheet.Test/TimeSheet.Test.csproj
+   ```
+
+2. Run `:TestDiagnose` in Neovim to check test DLL paths
+
+3. Run `:TestBuild` to rebuild the test project
+
+4. Toggle test summary with `<leader>ts` to see discovered tests
+
+### Using justfile
+
+The TimeSheet project includes a justfile for common operations:
+
+- `just build` - Build solution
+- `just test` - Run tests
+- `just run` - Run startup project
+- `just watch` - Run in watch mode
+- `just migrate <name>` - Add migration
+- `just update` - Apply migrations
+
+Run `just` to see all available commands.
+

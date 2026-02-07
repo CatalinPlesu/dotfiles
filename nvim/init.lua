@@ -872,13 +872,24 @@ require("lazy").setup({
 		opts = {
 			wiki_dirs = {
 				{ name = "Echo", path = "~/Documents/wiki/echo/" },
+				{ name = "Delta", path = "~/Documents/wiki/delta/" },
 				{ name = "Vault", path = "~/Documents/Notes/" },
 			},
 		},
-		keys = {
-			{ "<leader>ww", "<cmd>lua require('neowiki').open_wiki('Echo')<cr>", desc = "Wiki: Open Echo wiki" },
-			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Wiki: Select and open a wiki" },
-		},
+		keys = function()
+			-- Only check environment variable
+			local is_work = vim.env.WORK_MACHINE == "1"
+			local default_wiki = is_work and "Delta" or "Echo"
+
+			return {
+				{
+					"<leader>ww",
+					string.format("<cmd>lua require('neowiki').open_wiki('%s')<cr>", default_wiki),
+					desc = "Wiki: Open default wiki",
+				},
+				{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Wiki: Select and open a wiki" },
+			}
+		end,
 	},
 	{
 		"HakonHarnes/img-clip.nvim",

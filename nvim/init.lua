@@ -190,6 +190,29 @@ vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write c
 vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<cmd>wa<CR>", { desc = "Save: Write all buffers" })
 vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Quit: Force save all and exit nvim" })
 
+-- Wiki keybindings
+vim.keymap.set("n", "<leader>wd", function()
+	require("wiki").daily()
+end, { desc = "Daily: Daily note" })
+vim.keymap.set("n", "<leader>wW", function()
+	require("wiki").weekly()
+end, { desc = "Daily: Weekly note" })
+vim.keymap.set("n", "<leader>wq", function()
+	require("wiki").quarterly()
+end, { desc = "Daily: Quarterly note" })
+vim.keymap.set("n", "<leader>wy", function()
+	require("wiki").yearly()
+end, { desc = "Daily: Yearly note" })
+vim.keymap.set("n", "<leader>wf", function()
+	require("wiki").find_notes()
+end, { desc = "Daily: Find notes" })
+vim.keymap.set("n", "<leader>wS", function()
+	require("wiki").search_notes()
+end, { desc = "Daily: Search notes" })
+vim.keymap.set("n", "<leader>wo", function()
+	require("wiki").open_wiki()
+end, { desc = "Daily: Open wiki root" })
+
 -- ============================================================================
 -- LAZY.NVIM SETUP
 -- ============================================================================
@@ -875,12 +898,13 @@ require("lazy").setup({
 				{ name = "Delta", path = "~/Documents/wiki/delta/" },
 				{ name = "Vault", path = "~/Documents/Notes/" },
 			},
+			keymaps = {
+				delete_page = "", -- Disable delete keybinding
+			},
 		},
 		keys = function()
-			-- Only check environment variable
 			local is_work = vim.env.WORK_MACHINE == "1"
 			local default_wiki = is_work and "Delta" or "Echo"
-
 			return {
 				{
 					"<leader>ww",

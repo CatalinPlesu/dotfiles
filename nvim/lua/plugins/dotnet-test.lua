@@ -218,20 +218,20 @@ return {
 
 		vim.keymap.set("n", "<C-t>t", function()
 			neotest.run.run()
-		end, { desc = "Run Nearest Test" })
+		end, { desc = "Test: Run nearest test to cursor" })
 
 		vim.keymap.set("n", "<C-t>f", function()
 			neotest.run.run(vim.fn.expand("%"))
-		end, { desc = "Run Current File Tests" })
+		end, { desc = "Test: Run all tests in current file" })
 
 		vim.keymap.set("n", "<C-t>a", function()
 			local root = find_solution_root()
 			neotest.run.run(root)
-		end, { desc = "Run All Tests in Solution" })
+		end, { desc = "Test: Run all tests in entire solution" })
 
 		vim.keymap.set("n", "<C-t>l", function()
 			neotest.run.run_last()
-		end, { desc = "Run Last Test" })
+		end, { desc = "Test: Re-run last executed test" })
 
 		vim.keymap.set("n", "<C-t>p", function()
 			local csproj = find_csproj_for_file(vim.fn.expand("%:p"))
@@ -242,106 +242,74 @@ return {
 			else
 				print("No .csproj found")
 			end
-		end, { desc = "Run Current Project Tests" })
+		end, { desc = "Test: Run all tests in current .csproj project" })
 
 		vim.keymap.set("n", "<leader>td", function()
 			neotest.run.run({ strategy = "dap" })
-		end, { desc = "Debug Nearest Test" })
+		end, { desc = "Test: Debug nearest test with DAP debugger" })
 
 		vim.keymap.set("n", "<leader>tD", function()
 			neotest.run.run({ vim.fn.expand("%"), strategy = "dap" })
-		end, { desc = "Debug Current File Tests" })
+		end, { desc = "Test: Debug all tests in current file" })
 
 		vim.keymap.set("n", "<leader>tl", function()
 			neotest.run.run_last({ strategy = "dap" })
-		end, { desc = "Debug Last Test" })
+		end, { desc = "Test: Debug last executed test again" })
 
 		vim.keymap.set("n", "<leader>ts", function()
 			neotest.summary.toggle()
-		end, { desc = "Toggle Test Summary" })
+		end, { desc = "Test: Toggle test summary sidebar" })
 
 		vim.keymap.set("n", "<leader>to", function()
 			neotest.output.open({ enter = true, auto_close = true })
-		end, { desc = "Show Test Output" })
+		end, { desc = "Test: Show output of nearest test in float" })
 
 		vim.keymap.set("n", "<leader>tp", function()
 			neotest.output_panel.toggle()
-		end, { desc = "Toggle Test Output Panel" })
+		end, { desc = "Test: Toggle test output panel at bottom" })
 
 		vim.keymap.set("n", "<leader>tS", function()
 			neotest.run.stop()
-		end, { desc = "Stop Running Tests" })
+		end, { desc = "Test: Stop currently running tests" })
 
 		vim.keymap.set("n", "]t", function()
 			neotest.jump.next({ status = "failed" })
-		end, { desc = "Next Failed Test" })
+		end, { desc = "Test: Jump to next failed test" })
 
 		vim.keymap.set("n", "[t", function()
 			neotest.jump.prev({ status = "failed" })
-		end, { desc = "Previous Failed Test" })
+		end, { desc = "Test: Jump to previous failed test" })
 
 		vim.keymap.set("n", "<leader>ta", function()
 			neotest.run.attach()
-		end, { desc = "Attach to Nearest Test" })
+		end, { desc = "Test: Attach to nearest running test process" })
 
 		vim.keymap.set("n", "<leader>tw", function()
 			neotest.watch.toggle(vim.fn.expand("%"))
-		end, { desc = "Watch Current File" })
+		end, { desc = "Test: Toggle auto-run on file save (watch mode)" })
 
 		vim.keymap.set("n", "<leader>tm", function()
 			neotest.summary.mark()
-		end, { desc = "Mark Test" })
+		end, { desc = "Test: Mark test in summary for batch run" })
 
 		vim.keymap.set("n", "<leader>tM", function()
 			neotest.summary.clear_marked()
-		end, { desc = "Clear Marked Tests" })
+		end, { desc = "Test: Clear all marked tests" })
 
 		vim.keymap.set("n", "<leader>tR", function()
 			neotest.summary.run_marked()
-		end, { desc = "Run Marked Tests" })
+		end, { desc = "Test: Run all marked tests at once" })
 
 		vim.keymap.set("n", "<leader>tr", function()
 			diagnose_test_discovery()
-		end, { desc = "Diagnose Test Discovery" })
+		end, { desc = "Test: Diagnose test discovery issues" })
 
-		local ok, wk = pcall(require, "which-key")
-		if ok then
-			wk.add({
-				{ "<leader>t", group = "Test" },
-				{ "<leader>td", desc = "Debug Nearest Test" },
-				{ "<leader>tD", desc = "Debug Current File" },
-				{ "<leader>tl", desc = "Debug Last Test" },
-				{ "<leader>ts", desc = "Toggle Summary" },
-				{ "<leader>to", desc = "Show Output" },
-				{ "<leader>tp", desc = "Toggle Output Panel" },
-				{ "<leader>tS", desc = "Stop Tests" },
-				{ "<leader>ta", desc = "Attach to Test" },
-				{ "<leader>tw", desc = "Watch File" },
-				{ "<leader>tm", desc = "Mark Test" },
-				{ "<leader>tM", desc = "Clear Marks" },
-				{ "<leader>tR", desc = "Run Marked" },
-				{ "<leader>tr", desc = "Diagnose Discovery" },
-				{ "<leader>tF", desc = "Refresh Tests" },
-				{ "<C-t>", group = "Run Test" },
-				{ "<C-t>t", desc = "Run Nearest" },
-				{ "<C-t>f", desc = "Run File" },
-				{ "<C-t>a", desc = "Run All" },
-				{ "<C-t>l", desc = "Run Last" },
-				{ "<C-t>p", desc = "Run Project" },
-			})
-		end
 
 		vim.keymap.set("n", "<leader>tF", function()
 			local neotest = require("neotest")
 			neotest.run.run({ vim.fn.expand("%") })
 			print("Refreshing test discovery...")
 		end, { desc = "Force refresh test discovery" })
-
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "NeotestRunStarted",
-			callback = function()
-			end,
-		})
 
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "NeotestRunComplete",
@@ -411,20 +379,5 @@ return {
 			print("Refreshing test discovery...")
 		end, { desc = "Force refresh test discovery" })
 
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "cs",
-			callback = function()
-				if vim.fn.expand("%"):match("%.Test%.cs$") or vim.fn.expand("%"):match("%.Tests%.cs$") then
-					vim.api.nvim_buf_create_user_command(0, "TestDiagnose", function()
-						diagnose_test_discovery()
-					end, { desc = "Diagnose test discovery" })
-					vim.api.nvim_buf_create_user_command(0, "TestRefresh", function()
-						local neotest = require("neotest")
-						neotest.run.run({ vim.fn.expand("%") })
-						print("Refreshing test discovery...")
-					end, { desc = "Force refresh test discovery" })
-				end
-			end,
-		})
 	end,
 }

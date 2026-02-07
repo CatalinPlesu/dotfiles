@@ -120,6 +120,7 @@ end
 -- Better default experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("i", "jk", "<Esc>")
 
 -- Better navigation
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -138,39 +139,56 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 -- Better paste
 vim.keymap.set("v", "p", '"_dP')
 
--- Diagnostics
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix" })
+-- Diagnostics - navigate and view errors/warnings
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "Diagnostic: Jump to previous error/warning" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "Diagnostic: Jump to next error/warning" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic: Show error details in float" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostic: Send all to quickfix list" })
 
 -- Terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Terminal: Exit terminal mode back to normal" })
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window: Move focus left" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window: Move focus down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window: Move focus up" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window: Move focus right" })
 
 -- Resize windows
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Window: Increase height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Window: Decrease height" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Window: Decrease width" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Window: Increase width" })
 
--- Toggles
-vim.keymap.set("n", "<leader>tl", toggle_listchars, { desc = "Toggle listchars" })
-vim.keymap.set("n", "<leader>tw", "<cmd>set wrap!<CR>", { desc = "Toggle wrap" })
-vim.keymap.set("n", "<leader>tn", "<cmd>set relativenumber!<CR>", { desc = "Toggle relative number" })
+-- UI Toggles
+vim.keymap.set("n", "<leader>ul", toggle_listchars, { desc = "UI: Toggle listchars visibility" })
+vim.keymap.set("n", "<leader>uw", "<cmd>set wrap!<CR>", { desc = "UI: Toggle line wrapping" })
+vim.keymap.set("n", "<leader>un", "<cmd>set relativenumber!<CR>", { desc = "UI: Toggle relative line numbers" })
 
 -- Buffer management
-vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Delete buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>bd!<CR>", { desc = "Delete buffer (force)" })
-vim.keymap.set("n", "<leader>bo", "<cmd>CloseOtherBuffers<CR>", { desc = "Close other buffers" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Buffer: Delete current buffer" })
+vim.keymap.set("n", "<leader>bD", "<cmd>bd!<CR>", { desc = "Buffer: Force delete current (discard changes)" })
+vim.keymap.set("n", "<leader>bo", "<cmd>CloseOtherBuffers<CR>", { desc = "Buffer: Close all other buffers" })
 
 -- Directory management
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Change to file directory" })
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Dir: Change to current file's directory" })
+
+-- File explorer
+vim.keymap.set("n", "<Leader>n", function()
+	require("mini.files").open()
+end, { desc = "Explorer: Open mini.files file browser" })
+vim.keymap.set("n", "<C-n>", function()
+	require("mini.files").open()
+end, { desc = "Explorer: Open mini.files file browser" })
+
+-- Save and quit shortcuts
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write current buffer" })
+vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<cmd>wa<CR>", { desc = "Save: Write all buffers" })
+vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Quit: Force save all and exit nvim" })
 
 -- ============================================================================
 -- LAZY.NVIM SETUP
@@ -265,7 +283,6 @@ require("lazy").setup({
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
 		opts = {
-			timeout = 2000,
 			max_height = function()
 				return math.floor(vim.o.lines * 0.75)
 			end,
@@ -295,7 +312,6 @@ require("lazy").setup({
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
 			require("mini.files").setup()
-			require("mini.comment").setup()
 			require("mini.bufremove").setup()
 		end,
 	},
@@ -325,7 +341,7 @@ require("lazy").setup({
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
 		keys = {
-			{ "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Undo tree" },
+			{ "<leader>uu", "<cmd>UndotreeToggle<CR>", desc = "Undo: Toggle undo tree visualizer" },
 		},
 	},
 
@@ -334,7 +350,7 @@ require("lazy").setup({
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
 		keys = {
-			{ "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen mode" },
+			{ "<leader>z", "<cmd>ZenMode<CR>", desc = "UI: Toggle zen mode (distraction-free editing)" },
 		},
 		opts = {
 			window = {
@@ -360,18 +376,18 @@ require("lazy").setup({
 		"ibhagwan/fzf-lua",
 		cmd = "FzfLua",
 		keys = {
-			{ "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find files" },
-			{ "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Live grep" },
-			{ "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Find buffers" },
-			{ "<leader>fh", "<cmd>FzfLua help_tags<CR>", desc = "Help tags" },
-			{ "<leader>fo", "<cmd>FzfLua oldfiles<CR>", desc = "Recent files" },
-			{ "<leader>fw", "<cmd>FzfLua grep_cword<CR>", desc = "Find word" },
-			{ "<leader>fc", "<cmd>FzfLua commands<CR>", desc = "Commands" },
-			{ "<leader>fk", "<cmd>FzfLua keymaps<CR>", desc = "Keymaps" },
-			{ "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>", desc = "Document diagnostics" },
-			{ "<leader>fD", "<cmd>FzfLua diagnostics_workspace<CR>", desc = "Workspace diagnostics" },
-			{ "<leader>/", "<cmd>FzfLua blines<CR>", desc = "Buffer lines" },
-			{ "<leader><leader>", "<cmd>FzfLua buffers<CR>", desc = "Buffers" },
+			{ "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find: Files by name in project" },
+			{ "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Find: Grep text across all files (live)" },
+			{ "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Find: Open buffers list" },
+			{ "<leader>fh", "<cmd>FzfLua help_tags<CR>", desc = "Find: Neovim help tags" },
+			{ "<leader>fo", "<cmd>FzfLua oldfiles<CR>", desc = "Find: Recently opened files" },
+			{ "<leader>fw", "<cmd>FzfLua grep_cword<CR>", desc = "Find: Word under cursor in all files" },
+			{ "<leader>fc", "<cmd>FzfLua commands<CR>", desc = "Find: Available commands" },
+			{ "<leader>fk", "<cmd>FzfLua keymaps<CR>", desc = "Find: All keybindings (search by desc)" },
+			{ "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>", desc = "Find: Diagnostics in current file" },
+			{ "<leader>fD", "<cmd>FzfLua diagnostics_workspace<CR>", desc = "Find: Diagnostics across workspace" },
+			{ "<leader>/", "<cmd>FzfLua blines<CR>", desc = "Find: Lines in current buffer" },
+			{ "<leader><leader>", "<cmd>FzfLua buffers<CR>", desc = "Find: Switch between open buffers" },
 		},
 		opts = {
 			winopts = {
@@ -396,67 +412,67 @@ require("lazy").setup({
 		end,
 		keys = {
 			{
-				"<leader>ha",
+				"<leader>ma",
 				function()
 					require("harpoon"):list():add()
 				end,
-				desc = "Harpoon: Add file",
+				desc = "Marks: Add current file to harpoon list",
 			},
 			{
-				"<leader>hm",
+				"<leader>mm",
 				function()
 					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 				end,
-				desc = "Harpoon: Toggle menu",
+				desc = "Marks: Open harpoon quick menu to reorder/remove",
 			},
 			{
 				"<leader>1",
 				function()
 					require("harpoon"):list():select(1)
 				end,
-				desc = "Harpoon: Go to file 1",
+				desc = "Marks: Jump to harpoon file 1",
 			},
 			{
 				"<leader>2",
 				function()
 					require("harpoon"):list():select(2)
 				end,
-				desc = "Harpoon: Go to file 2",
+				desc = "Marks: Jump to harpoon file 2",
 			},
 			{
 				"<leader>3",
 				function()
 					require("harpoon"):list():select(3)
 				end,
-				desc = "Harpoon: Go to file 3",
+				desc = "Marks: Jump to harpoon file 3",
 			},
 			{
 				"<leader>4",
 				function()
 					require("harpoon"):list():select(4)
 				end,
-				desc = "Harpoon: Go to file 4",
+				desc = "Marks: Jump to harpoon file 4",
 			},
 			{
 				"<leader>5",
 				function()
 					require("harpoon"):list():select(5)
 				end,
-				desc = "Harpoon: Go to file 5",
+				desc = "Marks: Jump to harpoon file 5",
 			},
 			{
-				"<C-S-P>",
+				"[m",
 				function()
 					require("harpoon"):list():prev()
 				end,
-				desc = "Harpoon: Previous file",
+				desc = "Marks: Previous harpoon file",
 			},
 			{
-				"<C-S-N>",
+				"]m",
 				function()
 					require("harpoon"):list():next()
 				end,
-				desc = "Harpoon: Next file",
+				desc = "Marks: Next harpoon file",
 			},
 		},
 	},
@@ -471,12 +487,14 @@ require("lazy").setup({
 			spec = {
 				{ "<leader>b", group = "buffer" },
 				{ "<leader>c", group = "code" },
+				{ "<leader>d", group = "debug" },
 				{ "<leader>f", group = "find" },
 				{ "<leader>g", group = "git" },
-				{ "<leader>s", group = "search" },
-				{ "<leader>t", group = "toggle" },
+				{ "<leader>h", group = "hunks" },
+				{ "<leader>m", group = "marks" },
+				{ "<leader>t", group = "test" },
+				{ "<leader>u", group = "ui/undo" },
 				{ "<leader>w", group = "wiki" },
-				{ "<leader>x", group = "diagnostics" },
 				{ "[", group = "prev" },
 				{ "]", group = "next" },
 				{ "g", group = "goto" },
@@ -505,33 +523,38 @@ require("lazy").setup({
 					vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
 				end
 
-				-- Navigation
-				map("n", "]c", gs.next_hunk, "Next hunk")
-				map("n", "[c", gs.prev_hunk, "Previous hunk")
+				-- Navigation between git hunks (changed blocks)
+				map("n", "]c", gs.next_hunk, "Hunk: Jump to next changed block")
+				map("n", "[c", gs.prev_hunk, "Hunk: Jump to previous changed block")
 
-				-- Actions
-				map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
-				map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
+				-- Hunk actions - stage/reset individual changed blocks
+				map("n", "<leader>hs", gs.stage_hunk, "Hunk: Stage current hunk (git add this change)")
+				map("n", "<leader>hr", gs.reset_hunk, "Hunk: Reset current hunk (discard this change)")
 				map("v", "<leader>hs", function()
 					gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-				end, "Stage hunk")
+				end, "Hunk: Stage selected lines")
 				map("v", "<leader>hr", function()
 					gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-				end, "Reset hunk")
-				map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
-				map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-				map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
-				map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
+				end, "Hunk: Reset selected lines")
+				map("n", "<leader>hS", gs.stage_buffer, "Hunk: Stage entire buffer (git add file)")
+				map("n", "<leader>hu", gs.undo_stage_hunk, "Hunk: Undo last stage (unstage hunk)")
+				map("n", "<leader>hR", gs.reset_buffer, "Hunk: Reset entire buffer (discard all changes)")
+				map("n", "<leader>hp", gs.preview_hunk, "Hunk: Preview change in floating window")
 				map("n", "<leader>hb", function()
 					gs.blame_line({ full = true })
-				end, "Blame line")
-				map("n", "<leader>hd", gs.diffthis, "Diff this")
+				end, "Hunk: Show git blame for current line")
+				map("n", "<leader>hd", gs.diffthis, "Hunk: Diff buffer against index (staged)")
 				map("n", "<leader>hD", function()
 					gs.diffthis("~")
-				end, "Diff this ~")
+				end, "Hunk: Diff buffer against last commit")
 
-				-- Text object
-				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns select hunk")
+				-- Text object - use 'ih' in visual/operator mode to select a hunk
+				map(
+					{ "o", "x" },
+					"ih",
+					":<C-U>Gitsigns select_hunk<CR>",
+					"Hunk: Select hunk as text object (e.g. dih, vih)"
+				)
 			end,
 		},
 	},
@@ -545,10 +568,10 @@ require("lazy").setup({
 		},
 		cmd = "Neogit",
 		keys = {
-			{ "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
-			{ "<leader>gc", "<cmd>Neogit commit<CR>", desc = "Commit" },
-			{ "<leader>gp", "<cmd>Neogit pull<CR>", desc = "Pull" },
-			{ "<leader>gP", "<cmd>Neogit push<CR>", desc = "Push" },
+			{ "<leader>gg", "<cmd>Neogit<CR>", desc = "Git: Open Neogit status panel" },
+			{ "<leader>gc", "<cmd>Neogit commit<CR>", desc = "Git: Commit staged changes" },
+			{ "<leader>gp", "<cmd>Neogit pull<CR>", desc = "Git: Pull from remote" },
+			{ "<leader>gP", "<cmd>Neogit push<CR>", desc = "Git: Push to remote" },
 		},
 		opts = {
 			integrations = {
@@ -575,7 +598,15 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "williamboman/mason.nvim", opts = {} },
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					registries = {
+						"github:mason-org/mason-registry",
+						"github:Crashdummyy/mason-registry",
+					},
+				},
+			},
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			{ "j-hui/fidget.nvim", opts = {} },
@@ -589,16 +620,24 @@ require("lazy").setup({
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					map("gd", require("fzf-lua").lsp_definitions, "Goto definition")
-					map("gr", require("fzf-lua").lsp_references, "Goto references")
-					map("gI", require("fzf-lua").lsp_implementations, "Goto implementation")
-					map("gy", require("fzf-lua").lsp_typedefs, "Goto type definition")
-					map("<leader>ds", require("fzf-lua").lsp_document_symbols, "Document symbols")
-					map("<leader>ws", require("fzf-lua").lsp_live_workspace_symbols, "Workspace symbols")
-					map("<leader>rn", vim.lsp.buf.rename, "Rename")
-					map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-					map("K", vim.lsp.buf.hover, "Hover documentation")
-					map("gD", vim.lsp.buf.declaration, "Goto declaration")
+					map("gd", require("fzf-lua").lsp_definitions, "Go to definition of symbol under cursor")
+					map("gr", require("fzf-lua").lsp_references, "Find all references of symbol under cursor")
+					map("gI", require("fzf-lua").lsp_implementations, "Go to implementation of interface/abstract")
+					map("gy", require("fzf-lua").lsp_typedefs, "Go to type definition of symbol")
+					map(
+						"<leader>cs",
+						require("fzf-lua").lsp_document_symbols,
+						"Code: Search document symbols (functions, classes)"
+					)
+					map(
+						"<leader>cS",
+						require("fzf-lua").lsp_live_workspace_symbols,
+						"Code: Search workspace symbols across all files"
+					)
+					map("<leader>cr", vim.lsp.buf.rename, "Code: Rename symbol across project")
+					map("<leader>ca", vim.lsp.buf.code_action, "Code: Show available code actions (fixes, refactors)")
+					map("K", vim.lsp.buf.hover, "Show hover documentation for symbol under cursor")
+					map("gD", vim.lsp.buf.declaration, "Go to declaration (header/forward decl)")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -616,9 +655,9 @@ require("lazy").setup({
 					end
 
 					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-						map("<leader>th", function()
+						map("<leader>uh", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-						end, "Toggle inlay hints")
+						end, "UI: Toggle inlay type hints in code")
 					end
 				end,
 			})
@@ -665,7 +704,6 @@ require("lazy").setup({
 				},
 			}
 
-			require("mason").setup()
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, { "stylua" })
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -702,12 +740,12 @@ require("lazy").setup({
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				"<leader>f",
+				"<leader>cf",
 				function()
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
-				desc = "[F]ormat buffer",
+				desc = "Code: Format buffer with conform/LSP",
 			},
 		},
 		opts = {
@@ -807,7 +845,11 @@ require("lazy").setup({
 
 			configs.setup({
 				ensure_installed = {
+					"c_sharp",
 					"html",
+					"lua",
+					"markdown",
+					"markdown_inline",
 				},
 				auto_install = false,
 				highlight = { enable = true },
@@ -834,8 +876,8 @@ require("lazy").setup({
 			},
 		},
 		keys = {
-			{ "<leader>ww", "<cmd>lua require('neowiki').open_wiki('Echo')<cr>", desc = "Open Wiki" },
-			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Open Wiki" },
+			{ "<leader>ww", "<cmd>lua require('neowiki').open_wiki('Echo')<cr>", desc = "Wiki: Open Echo wiki" },
+			{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Wiki: Select and open a wiki" },
 		},
 	},
 	{
@@ -847,7 +889,7 @@ require("lazy").setup({
 		},
 		keys = {
 			-- suggested keymap
-			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Image: Paste image from system clipboard into file" },
 		},
 	},
 	{
@@ -881,29 +923,3 @@ require("lazy").setup({
 		},
 	},
 })
-
--- ============================================================================
--- MASON SETUP (Must be after lazy.setup)
--- ============================================================================
-require("mason").setup({
-	registries = {
-		"github:mason-org/mason-registry",
-		"github:Crashdummyy/mason-registry",
-	},
-})
-
-vim.keymap.set("n", "<Leader>n", function()
-	require("mini.files").open()
-end, { desc = "Open MiniFiles" })
-
-vim.keymap.set("n", "<C-n>", function()
-	require("mini.files").open()
-end, { desc = "Open MiniFiles" })
-
--- Ctrl + S: Save current buffer
-vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save current buffer" })
--- Ctrl + Shift + S: Save all buffers
--- Note: Terminal support for Ctrl+Shift combinations varies
-vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<Esc>:wa<CR>", { desc = "Save all buffers" })
--- Ctrl + Z: Save all (forced) and quit Neovim
-vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Force save all and quit" })

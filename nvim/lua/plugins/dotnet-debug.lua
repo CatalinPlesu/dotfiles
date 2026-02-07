@@ -32,18 +32,11 @@ return {
 			if content:match("Exe") then
 				return true
 			end
-
-			local has_sdk = content:match("Library")
-
-			if has_sdk and not is_library then
-				if
-					content:match("Exe")
-					or content:match("Microsoft%.NET%.Sdk%.Web")
-					or content:match("Microsoft%.NET%.Sdk%.Worker")
-					or content:match("")
-				then
-					return true
-				end
+			if content:match("Microsoft%.NET%.Sdk%.Web") then
+				return true
+			end
+			if content:match("Microsoft%.NET%.Sdk%.Worker") then
+				return true
 			end
 
 			return false
@@ -116,24 +109,13 @@ return {
 			local executable_projects = {}
 
 			for _, csproj in ipairs(csproj_files) do
-				if is_executable_project(csproj) then
-					local dll_path = find_dll_for_project(csproj)
-					if dll_path then
-						table.insert(executable_projects, {
-							name = get_project_name(csproj),
-							csproj = csproj,
-							dll = dll_path,
-						})
-					end
-				else
-					local dll_path = find_dll_for_project(csproj)
-					if dll_path then
-						table.insert(executable_projects, {
-							name = get_project_name(csproj),
-							csproj = csproj,
-							dll = dll_path,
-						})
-					end
+				local dll_path = find_dll_for_project(csproj)
+				if dll_path then
+					table.insert(executable_projects, {
+						name = get_project_name(csproj),
+						csproj = csproj,
+						dll = dll_path,
+					})
 				end
 			end
 
@@ -190,75 +172,75 @@ return {
 			},
 		}
 
-		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-		vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
-		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
-		vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "Debug: Step Out" })
-		vim.keymap.set("n", "<S-F5>", dap.terminate, { desc = "Debug: Stop" })
-		vim.keymap.set("n", "<C-S-F5>", dap.restart, { desc = "Debug: Restart" })
+		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start or continue execution" })
+		vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step over current line" })
+		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step into function call" })
+		vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "Debug: Step out of current function" })
+		vim.keymap.set("n", "<S-F5>", dap.terminate, { desc = "Debug: Stop debugging session" })
+		vim.keymap.set("n", "<C-S-F5>", dap.restart, { desc = "Debug: Restart debugging session" })
 
-		vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+		vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Debug: Toggle breakpoint on current line" })
+		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug: Toggle breakpoint on current line" })
 
 		vim.keymap.set("n", "<leader>dB", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-		end, { desc = "Conditional Breakpoint" })
+		end, { desc = "Debug: Set conditional breakpoint (breaks when expr is true)" })
 
 		vim.keymap.set("n", "<leader>dl", function()
 			dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-		end, { desc = "Log Point" })
+		end, { desc = "Debug: Set log point (prints message without stopping)" })
 
 		vim.keymap.set("n", "<leader>dh", function()
 			local condition = vim.fn.input("Hit count condition (e.g., >5, ==3): ")
 			if condition ~= "" then
 				dap.set_breakpoint(condition)
 			end
-		end, { desc = "Hit Count Breakpoint" })
+		end, { desc = "Debug: Set hit count breakpoint (breaks after N hits)" })
 
 		vim.keymap.set("n", "<leader>dC", function()
 			dap.clear_breakpoints()
 			print("All breakpoints cleared")
-		end, { desc = "Clear All Breakpoints" })
+		end, { desc = "Debug: Clear all breakpoints in session" })
 
 		vim.keymap.set("n", "<leader>dL", function()
 			dap.list_breakpoints()
-		end, { desc = "List Breakpoints" })
+		end, { desc = "Debug: List all breakpoints in quickfix" })
 
-		vim.keymap.set("n", "<C-F10>", dap.run_to_cursor, { desc = "Run to Cursor" })
-		vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Run to Cursor" })
+		vim.keymap.set("n", "<C-F10>", dap.run_to_cursor, { desc = "Debug: Run to cursor position" })
+		vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Debug: Run to cursor position" })
 
-		vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Open REPL" })
-		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle Debug UI" })
+		vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Debug: Open REPL to evaluate expressions" })
+		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle debug UI panels" })
 
 		vim.keymap.set({ "n", "v" }, "<leader>de", function()
 			dapui.eval()
-		end, { desc = "Evaluate Expression" })
+		end, { desc = "Debug: Evaluate expression under cursor or selection" })
 
 		vim.keymap.set("n", "<leader>dH", function()
 			require("dap.ui.widgets").hover()
-		end, { desc = "Debug Hover/Quick Watch" })
+		end, { desc = "Debug: Hover/quick watch variable under cursor" })
 
 		vim.keymap.set("n", "<leader>ds", function()
 			local widgets = require("dap.ui.widgets")
 			widgets.centered_float(widgets.scopes)
-		end, { desc = "View Scopes" })
+		end, { desc = "Debug: View local/global variable scopes" })
 
 		vim.keymap.set("n", "<leader>df", function()
 			local widgets = require("dap.ui.widgets")
 			widgets.centered_float(widgets.frames)
-		end, { desc = "View Frames/Call Stack" })
+		end, { desc = "Debug: View call stack frames" })
 
 		vim.keymap.set("n", "<leader>dj", function()
 			dap.set_breakpoint()
 			dap.continue()
-		end, { desc = "Jump to Line" })
+		end, { desc = "Debug: Jump to current line (set bp + continue)" })
 
-		vim.keymap.set("n", "<leader>dk", dap.step_back, { desc = "Step Back" })
+		vim.keymap.set("n", "<leader>dk", dap.step_back, { desc = "Debug: Step back to previous line" })
 
-		vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause" })
+		vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Debug: Pause running program" })
 
-		vim.keymap.set("n", "<leader>d<Up>", dap.up, { desc = "Stack Frame Up" })
-		vim.keymap.set("n", "<leader>d<Down>", dap.down, { desc = "Stack Frame Down" })
+		vim.keymap.set("n", "<leader>d<Up>", dap.up, { desc = "Debug: Navigate up in call stack" })
+		vim.keymap.set("n", "<leader>d<Down>", dap.down, { desc = "Debug: Navigate down in call stack" })
 
 		vim.fn.sign_define("DapBreakpoint", {
 			text = "🔴",
@@ -295,24 +277,5 @@ return {
 			numhl = "DapStopped",
 		})
 
-		local ok, wk = pcall(require, "which-key")
-		if ok then
-			wk.add({
-				{ "<leader>d", group = "Debug" },
-				{ "<leader>db", desc = "Toggle Breakpoint" },
-				{ "<leader>dB", desc = "Conditional Breakpoint" },
-				{ "<leader>dl", desc = "Log Point" },
-				{ "<leader>dH", desc = "Hit Count Breakpoint" },
-				{ "<leader>dC", desc = "Clear All Breakpoints" },
-				{ "<leader>dL", desc = "List Breakpoints" },
-				{ "<leader>dc", desc = "Run to Cursor" },
-				{ "<leader>dr", desc = "Open REPL" },
-				{ "<leader>du", desc = "Toggle Debug UI" },
-				{ "<leader>de", desc = "Evaluate Expression" },
-				{ "<leader>ds", desc = "View Scopes" },
-				{ "<leader>df", desc = "View Frames" },
-				{ "<leader>dp", desc = "Pause" },
-			})
-		end
 	end,
 }

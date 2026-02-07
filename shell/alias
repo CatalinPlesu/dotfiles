@@ -215,4 +215,4 @@ fman() {
 alias dotnet-sln-add='find . -name "*.csproj" -exec dotnet sln add {} +'
 
 
-#
+alias claudex="claude --dangerously-skip-permissions"

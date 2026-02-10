@@ -1,0 +1,12 @@
+[Unit]
+Description=Auto-sync Git repo at %f
+After=network.target
+
+[Service]
+Type=oneshot
+# %f provides the unescaped path automatically in newer systemd versions
+WorkingDirectory=%f
+ExecStart=/usr/bin/bash -c 'git pull --rebase && git add . && (git diff-index --quiet HEAD || git commit -m "Auto-sync [%u] on %H - $(date +%%Y-%%m-%%d\ %%H:%%M)") && git push'
+
+[Install]
+WantedBy=default.target

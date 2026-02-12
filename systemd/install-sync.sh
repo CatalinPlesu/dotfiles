@@ -20,7 +20,8 @@ After=network.target
 Type=oneshot
 # %f provides the unescaped path automatically in newer systemd versions
 WorkingDirectory=%f
-ExecStart=/usr/bin/bash -c 'git add . && (git diff-index --quiet HEAD || git commit -m "Auto-sync [$(hostname)] - $(date +%%Y-%%m-%%d\ %%H:%%M:%%S)") && git pull --rebase --autostash && git push'
+ExecStart=/usr/bin/bash -c 'git add . && (git diff-index --quiet HEAD || git commit -m "Auto-sync [%H] - $(date +%%Y-%%m-%%d\ %%H:%%M:%%S)") && git pull --rebase --autostash && git push'
+
 [Install]
 WantedBy=default.target
 EOF

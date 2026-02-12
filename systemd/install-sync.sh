@@ -20,7 +20,11 @@ After=network.target
 Type=oneshot
 # %f provides the unescaped path automatically in newer systemd versions
 WorkingDirectory=%f
-ExecStart=/usr/bin/bash -c 'git pull --rebase && git add . && (git diff-index --quiet HEAD || git commit -m "Auto-sync [%u] on %H - $(date +%%Y-%%m-%%d\ %%H:%%M)") && git push'
+ExecStart=/usr/bin/bash -c ' \
+    git add . && \
+    (git diff-index --quiet HEAD || git commit -m "Auto-sync [%u] on %H") && \
+    git pull --rebase --autostash && \
+    git push'
 
 [Install]
 WantedBy=default.target
@@ -32,7 +36,7 @@ EOF
 Description=Run Git sync for %f every 15 mins
 
 [Timer]
-OnCalendar=*:0/5
+OnCalendar=*:0/2
 Persistent=true
 
 [Install]

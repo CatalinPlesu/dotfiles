@@ -2,10 +2,10 @@
   "first_run": false,
   "geometry-of-geometry": {
     "frame_geometry": {
-      "height": 660,
-      "width": 822,
-      "x": 506,
-      "y": 116
+      "height": 625,
+      "width": 802,
+      "x": 516,
+      "y": 141
     },
     "full_screened": false,
     "geometry": {
@@ -23,10 +23,10 @@
     },
     "qt": {
       "__class__": "bytearray",
-      "__value__": "AdnQywADAAAAAAH6AAAAdAAABS8AAAMHAAACBQAAAKUAAAUkAAAC/AAAAAAAAAAAB4AAAAIFAAAApQAABSQAAAL8"
+      "__value__": "AdnQywADAAAAAAIEAAAAjQAABSUAAAL9AAACBQAAAKUAAAUkAAAC/AAAAAAAAAAAB4AAAAIFAAAApQAABSQAAAL8"
     },
     "screen": {
-      "depth": 32,
+      "depth": 24,
       "device_pixel_ratio": 1.0,
       "geometry_in_logical_pixels": {
         "height": 1080,
@@ -35,9 +35,9 @@
         "y": 0
       },
       "index_in_screens_list": 0,
-      "manufacturer": "LEN",
-      "model": "0x40ba",
-      "name": "eDP-1",
+      "manufacturer": "Lenovo Group Limited",
+      "model": "",
+      "name": "eDP",
       "serial": "",
       "size_in_logical_pixels": {
         "height": 1080,

@@ -1,5 +1,5 @@
 [Unit]
-Description=Run Git sync for %f every 15 mins
+Description=Run git sync every 5 minutes
 
 [Timer]
 OnCalendar=*:0/2

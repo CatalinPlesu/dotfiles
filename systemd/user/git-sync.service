@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync all git repos
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/catalin/.local/bin/git-sync-all.sh

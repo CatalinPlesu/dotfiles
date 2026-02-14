@@ -2,7 +2,7 @@
 Description=Run git sync every 5 minutes
 
 [Timer]
-OnCalendar=*:0/2
+OnCalendar=*:0/5
 Persistent=true
 
 [Install]

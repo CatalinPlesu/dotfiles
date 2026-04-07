@@ -743,19 +743,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- C# LSP
-	{
-		"seblj/roslyn.nvim",
-		ft = "cs",
-		opts = {
-			config = {
-				settings = {
-					["csharp|inlay_hints"] = {},
-				},
-			},
-		},
-	},
-
 	-- Formatting
 	{
 		"stevearc/conform.nvim",
@@ -958,3 +945,12 @@ require("lazy").setup({
 		},
 	},
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nim",
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
+
+vim.lsp.enable("roslyn_ls")

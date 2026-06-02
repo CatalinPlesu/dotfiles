@@ -74,6 +74,9 @@ default_border pixel 1
     # Lock screen
     bindsym $mod+x exec loginctl lock-session
 
+    # Power menu (shutdown/reboot/logout)
+    bindsym $mod+Shift+p exec wlogout
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     floating_modifier $mod normal

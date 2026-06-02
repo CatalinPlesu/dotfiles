@@ -3,6 +3,8 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/sway/
+!/sway/**
 !/qtile/
 !/qtile/**
 !/bat/

@@ -182,10 +182,10 @@ nix_packages=(
     powershell
 )
 
-# Auto-create aliases for all packages in the array
-for pkg in "${nix_packages[@]}"; do
-    alias "$pkg"="nix run nixpkgs#$pkg --"
-done
+# # Auto-create aliases for all packages in the array
+# for pkg in "${nix_packages[@]}"; do
+#     alias "$pkg"="nix run nixpkgs#$pkg --"
+# done
 
 command_not_found_handler() {
     local pkg="$1"

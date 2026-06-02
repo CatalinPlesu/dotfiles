@@ -923,7 +923,6 @@ require("lazy").setup({
 			tmux_show_only_in_active_window = true,
 		},
 	},
-	{ "wakatime/vim-wakatime", lazy = false },
 })
 
 vim.api.nvim_create_autocmd("FileType", {

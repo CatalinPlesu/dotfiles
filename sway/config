@@ -25,7 +25,7 @@ set $browser zen-browser
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 {
     scale 1.33
-    bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    bg /home/catalin/Pictures/wallpapers/after_school_stroll_gruvbox.png fill
 }
 
 ### Idle configuration
@@ -232,10 +232,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
+    position bottom
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
@@ -244,8 +241,5 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
-
-exec nm-applet --indicator
-exec blueman-applet
 
 include /etc/sway/config.d/*

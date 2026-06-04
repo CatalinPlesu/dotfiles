@@ -25,7 +25,7 @@ set $browser zen-browser
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 {
     scale 1.33
-    bg /home/catalin/Pictures/wallpapers/after_school_stroll_gruvbox.png fill
+    bg /home/catalin/Pictures/frieren.png fill
 }
 
 ### Idle configuration

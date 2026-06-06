@@ -233,12 +233,13 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    status_command ~/.config/sway/status.sh
 
     colors {
         statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background #282a36
+        inactive_workspace #282a3600 #282a3600 #bfbfbf
     }
 }
 

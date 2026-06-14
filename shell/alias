@@ -216,3 +216,15 @@ alias dotnet-sln-add='find . -name "*.csproj" -exec dotnet sln add {} +'
 
 
 alias claudex="claude --dangerously-skip-permissions"
+
+# Charge Framework battery to 100% on demand
+charge_full() {
+    echo "Unlocking battery ceiling to 100%..."
+    sudo ectool fwchargelimit 100
+}
+
+# Reset Framework battery back to 80% manually
+charge_normal() {
+    echo "Resetting battery ceiling to 80%..."
+    sudo ectool fwchargelimit 80
+}

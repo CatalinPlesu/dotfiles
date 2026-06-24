@@ -177,14 +177,6 @@ vim.keymap.set("n", "<leader>bo", "<cmd>CloseOtherBuffers<CR>", { desc = "Buffer
 -- Directory management
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Dir: Change to current file's directory" })
 
--- File explorer
-vim.keymap.set("n", "<Leader>n", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
-vim.keymap.set("n", "<C-n>", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
-
 -- Save and quit shortcuts
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write current buffer" })
 vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<cmd>wa<CR>", { desc = "Save: Write all buffers" })
@@ -334,7 +326,6 @@ require("lazy").setup({
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
-			require("mini.files").setup()
 			require("mini.bufremove").setup()
 		end,
 	},

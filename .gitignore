@@ -3,6 +3,8 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/opencode/
+!/opencode/**
 !/qtile/
 !/qtile/**
 !/bat/

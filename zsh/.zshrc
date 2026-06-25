@@ -180,3 +180,55 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+export RQ_FILE="$HOME/.rq_queue"
+
+rq() {
+    case "$1" in
+        --list|-l)
+            if [ -s "$RQ_FILE" ]; then
+                cat -n "$RQ_FILE"
+            else
+                echo "Queue is empty."
+            fi
+            ;;
+        "")
+            if [ ! -s "$RQ_FILE" ]; then
+                echo "Queue is empty!"
+                return 1
+            fi
+            local next_cmd tmp_file
+            next_cmd=$(head -n 1 "$RQ_FILE")
+            tmp_file=$(mktemp)
+            tail -n +2 "$RQ_FILE" > "$tmp_file" && \mv -f "$tmp_file" "$RQ_FILE"
+            echo "Executing: $next_cmd"
+            eval "$next_cmd"
+            ;;
+        *)
+            echo "$@" >> "$RQ_FILE"
+            echo "Added: $@"
+            echo "Queue size: $(wc -l < "$RQ_FILE" | xargs)"
+            ;;
+    esac
+}
+
+_rq_tab_widget() {
+    if [[ "$BUFFER" == "rq" ]]; then
+        if [ ! -s "$RQ_FILE" ]; then
+            zle -M "Queue is empty."
+            return
+        fi
+        local next_cmd tmp_file
+        next_cmd=$(head -n 1 "$RQ_FILE")
+        tmp_file=$(mktemp)
+        tail -n +2 "$RQ_FILE" > "$tmp_file" && \mv -f "$tmp_file" "$RQ_FILE"
+        BUFFER="$next_cmd"
+        CURSOR=${#BUFFER}
+        zle -M "From queue ($(wc -l < "$RQ_FILE" | xargs) left) — edit or Enter to run"
+    else
+        zle expand-or-complete
+    fi
+}
+
+zle -N _rq_tab_widget
+bindkey '\t' _rq_tab_widget

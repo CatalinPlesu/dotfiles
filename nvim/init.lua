@@ -417,80 +417,6 @@ require("lazy").setup({
 		},
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("harpoon"):setup({})
-		end,
-		keys = {
-			{
-				"<leader>ma",
-				function()
-					require("harpoon"):list():add()
-				end,
-				desc = "Marks: Add current file to harpoon list",
-			},
-			{
-				"<leader>mm",
-				function()
-					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-				end,
-				desc = "Marks: Open harpoon quick menu to reorder/remove",
-			},
-			{
-				"<leader>1",
-				function()
-					require("harpoon"):list():select(1)
-				end,
-				desc = "Marks: Jump to harpoon file 1",
-			},
-			{
-				"<leader>2",
-				function()
-					require("harpoon"):list():select(2)
-				end,
-				desc = "Marks: Jump to harpoon file 2",
-			},
-			{
-				"<leader>3",
-				function()
-					require("harpoon"):list():select(3)
-				end,
-				desc = "Marks: Jump to harpoon file 3",
-			},
-			{
-				"<leader>4",
-				function()
-					require("harpoon"):list():select(4)
-				end,
-				desc = "Marks: Jump to harpoon file 4",
-			},
-			{
-				"<leader>5",
-				function()
-					require("harpoon"):list():select(5)
-				end,
-				desc = "Marks: Jump to harpoon file 5",
-			},
-			{
-				"[m",
-				function()
-					require("harpoon"):list():prev()
-				end,
-				desc = "Marks: Previous harpoon file",
-			},
-			{
-				"]m",
-				function()
-					require("harpoon"):list():next()
-				end,
-				desc = "Marks: Next harpoon file",
-			},
-		},
-	},
-
 	-- Which-key
 	{
 		"folke/which-key.nvim",
@@ -826,15 +752,6 @@ require("lazy").setup({
 	},
 
 	-- ========================================================================
-	-- .NET DEBUGGING
-	-- ========================================================================
-	require("plugins.dotnet-debug"),
-	-- ========================================================================
-	-- .NET TESTING
-	-- ========================================================================
-	require("plugins.dotnet-test"),
-
-	-- ========================================================================
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -858,48 +775,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
-	-- ========================================================================
-	-- UTILITIES
-	-- ========================================================================
-	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
-	{
-		"echaya/neowiki.nvim",
-		opts = {
-			wiki_dirs = {
-				{ name = "Echo", path = "~/Documents/wiki/echo/" },
-				{ name = "Delta", path = "~/Documents/wiki/delta/" },
-				{ name = "Vault", path = "~/Documents/Notes/" },
-			},
-			keymaps = {
-				delete_page = "", -- Disable delete keybinding
-			},
-		},
-		keys = function()
-			local is_work = vim.env.WORK_MACHINE == "1"
-			local default_wiki = is_work and "Delta" or "Echo"
-			return {
-				{
-					"<leader>ww",
-					string.format("<cmd>lua require('neowiki').open_wiki('%s')<cr>", default_wiki),
-					desc = "Wiki: Open default wiki",
-				},
-				{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Wiki: Select and open a wiki" },
-			}
-		end,
-	},
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "nim",
-	callback = function()
-		vim.treesitter.start()
-	end,
 })
 
 vim.lsp.enable("roslyn_ls")

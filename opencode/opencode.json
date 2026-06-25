@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "agent": {
+    "dotnet-architect": {
+      "description": ".NET software architect specialized in vertical slice architecture on .NET 10. Use for architecture design, code review, project scaffolding, and system design decisions.",
+      "mode": "subagent"
+    }
+  },
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    }
+  }
+}

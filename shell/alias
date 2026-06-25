@@ -143,6 +143,8 @@ alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
 alias doc="cd ~/Documents/"
 alias dow="cd ~/Downloads/"
 
+alias b="btop"
+
 # edit config
 alias e="bash ~/scripts/edit_config.sh"
 alias h="bash ~/scripts/window_menu.sh"

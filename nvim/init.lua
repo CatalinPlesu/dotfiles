@@ -179,11 +179,14 @@ vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Dir: 
 
 -- File explorer
 vim.keymap.set("n", "<Leader>n", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
+	vim.cmd("Neotree toggle left filesystem")
+end, { desc = "Explorer: Toggle file tree (neo-tree)" })
 vim.keymap.set("n", "<C-n>", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
+	vim.cmd("Neotree toggle left filesystem")
+end, { desc = "Explorer: Toggle file tree (neo-tree)" })
+vim.keymap.set("n", "<Leader>E", function()
+	vim.cmd("Neotree reveal left filesystem")
+end, { desc = "Explorer: Reveal current file in tree" })
 
 -- Save and quit shortcuts
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write current buffer" })
@@ -334,7 +337,6 @@ require("lazy").setup({
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
-			require("mini.files").setup()
 			require("mini.bufremove").setup()
 		end,
 	},
@@ -393,6 +395,69 @@ require("lazy").setup({
 	-- ========================================================================
 	-- FILE NAVIGATION
 	-- ========================================================================
+
+	-- File tree (Zed-like sidebar)
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				popup_border_style = "rounded",
+				sources = { "filesystem", "buffers", "git_status" },
+				filesystem = {
+					bind_to_cwd = false,
+					cwd_target = "current",
+					follow_current_file = {
+						enabled = true,
+						leave_dirs_open = false,
+					},
+					use_libuv_file_watcher = true,
+					filtered_items = {
+						visible = false,
+						hide_dotfiles = false,
+						hide_gitignored = true,
+					},
+				},
+				buffers = {
+					follow_current_file = {
+						enabled = true,
+					},
+					group_empty_dirs = true,
+				},
+				default_component_configs = {
+					indent = {
+						with_markers = true,
+						indent_size = 2,
+					},
+					name = {
+						trailing_slash = false,
+						use_git_status_colors = true,
+					},
+				},
+				window = {
+					position = "left",
+					width = 32,
+					mappings = {
+						["<cr>"] = "open",
+						["o"] = "open",
+						["s"] = "open_split",
+						["v"] = "open_vsplit",
+						["t"] = "open_tabnew",
+						["/"] = "fuzzy_finder",
+						["f"] = "filter_on_submit",
+						["F"] = "clear_filter",
+						["R"] = "reveal_in_tree",
+					},
+				},
+			})
+		end,
+	},
 
 	-- Fuzzy finder (fzf-lua is faster than telescope)
 	{

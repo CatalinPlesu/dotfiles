@@ -143,6 +143,8 @@ alias obs='cd ~/mnt/catalin/NOTES/CommonplaceBook/'
 alias doc="cd ~/Documents/"
 alias dow="cd ~/Downloads/"
 
+alias b="btop"
+
 # edit config
 alias e="bash ~/scripts/edit_config.sh"
 alias h="bash ~/scripts/window_menu.sh"
@@ -182,10 +184,10 @@ nix_packages=(
     powershell
 )
 
-# Auto-create aliases for all packages in the array
-for pkg in "${nix_packages[@]}"; do
-    alias "$pkg"="nix run nixpkgs#$pkg --"
-done
+# # Auto-create aliases for all packages in the array
+# for pkg in "${nix_packages[@]}"; do
+#     alias "$pkg"="nix run nixpkgs#$pkg --"
+# done
 
 command_not_found_handler() {
     local pkg="$1"
@@ -216,3 +218,15 @@ alias dotnet-sln-add='find . -name "*.csproj" -exec dotnet sln add {} +'
 
 
 alias claudex="claude --dangerously-skip-permissions"
+
+# Charge Framework battery to 100% on demand
+charge_full() {
+    echo "Unlocking battery ceiling to 100%..."
+    sudo ectool fwchargelimit 100
+}
+
+# Reset Framework battery back to 80% manually
+charge_normal() {
+    echo "Resetting battery ceiling to 80%..."
+    sudo ectool fwchargelimit 80
+}

@@ -56,6 +56,7 @@ if status is-interactive
     alias vi='nvim -u NONE'
     alias v='nvim'
     alias V='sudoedit'
+    alias hx='helix'
 
     # Package Manager Shortcuts (Paru / Pacman)
     alias ss='paru -Ss'

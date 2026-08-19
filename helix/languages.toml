@@ -1,0 +1,34 @@
+# ==========================================
+# Markdown / Obsidian Setup
+# ==========================================
+
+[[language]]
+name = "markdown"
+scope = "source.md"
+roots = [".obsidian", ".marksman.toml", ".git"]
+language-servers = ["marksman"]
+
+[language-server.marksman]
+command = "marksman"
+args = ["server"]
+
+
+# ==========================================
+# C# / Roslyn Setup
+# ==========================================
+
+[[language]]
+name = "c-sharp"
+scope = "source.cs"
+file-types = ["cs"]
+roots = ["*.slnx", "*.sln", "*.csproj"]
+language-servers = ["roslyn"]
+
+[language-server.roslyn]
+command = "roslyn-language-server"
+args = ["--stdio", "--autoLoadProjects", "--logLevel", "Information"]
+
+[language-server.roslyn.config]
+dotnet_enable_decompilation_support = true
+dotnet_show_decompiled_sources = true
+dotnet_navigate_to_decompiled_sources = true

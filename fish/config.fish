@@ -2,10 +2,10 @@ if status is-interactive
     # -------------------------------------------------------------------------
     # 1. Environment Variables
     # -------------------------------------------------------------------------
-    set -gx EDITOR nvim
+    set -gx EDITOR helix
     set -gx TERMINAL ghostty
     set -gx BROWSER qutebrowser
-    set -gx SUDO_EDITOR nvim
+    set -gx SUDO_EDITOR helix
 
     # -------------------------------------------------------------------------
     # 2. PATH Additions
@@ -13,14 +13,15 @@ if status is-interactive
     fish_add_path ~/scripts
     fish_add_path ~/.atuin/bin
     fish_add_path ~/.local/bin
+    fish_add_path ~/.dotnet/tools
 
     # -------------------------------------------------------------------------
     # 3. Vi Mode & Bindings
     # -------------------------------------------------------------------------
     fish_vi_key_bindings
-    
-    bind -M default y 'fish_clipboard_copy'
-    bind -M default p 'fish_clipboard_paste'
+
+    bind -M default y fish_clipboard_copy
+    bind -M default p fish_clipboard_paste
     bind -M insert \cy accept-autosuggestion
     bind -M default \cy accept-autosuggestion
     bind -M insert \cv edit_command_buffer
@@ -52,10 +53,7 @@ if status is-interactive
 
     # Terminal & Editors
     alias b="btop"
-    alias t='tmux new-session -A -s main'
-    alias vi='nvim -u NONE'
-    alias v='nvim'
-    alias V='sudoedit'
+    alias h='herdr'
     alias hx='helix'
 
     # Package Manager Shortcuts (Paru / Pacman)

@@ -3,6 +3,9 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/helix/
+!/helix/**
+/helix/runtime
 !/fish/config.fish
 !/opencode/config.fish
 !/qtile/

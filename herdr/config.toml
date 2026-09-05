@@ -3,3 +3,9 @@ onboarding = false
 [ui]
 agent_panel_sort = "spaces"
 prompt_new_tab_name = false
+
+[session]
+resume_agents_on_restore = false
+
+[experimental]
+kitty_graphics = true

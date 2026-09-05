@@ -15,6 +15,13 @@ if status is-interactive
     fish_add_path ~/.local/bin
     fish_add_path ~/.dotnet/tools
 
+    function update_path_cwd --on-variable PWD
+        if set -q PWD_PREV
+            set -g PATH (string match -v -e "$PWD_PREV" $PATH)
+        end
+        set -g PATH $PATH $PWD
+        set -g PWD_PREV $PWD
+    end
     # -------------------------------------------------------------------------
     # 3. Vi Mode & Bindings
     # -------------------------------------------------------------------------

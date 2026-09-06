@@ -13,7 +13,6 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.fileformats = "unix,dos"
-vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -45,7 +44,6 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "¶", exten
 vim.opt.cursorcolumn = false
 vim.opt.colorcolumn = "100"
 vim.opt.wrap = false
-vim.opt.linebreak = true
 vim.opt.smoothscroll = true
 
 -- ============================================================================
@@ -179,39 +177,19 @@ vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Dir: 
 
 -- File explorer
 vim.keymap.set("n", "<Leader>n", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
+	vim.cmd("Neotree toggle left filesystem")
+end, { desc = "Explorer: Toggle file tree (neo-tree)" })
 vim.keymap.set("n", "<C-n>", function()
-	require("mini.files").open()
-end, { desc = "Explorer: Open mini.files file browser" })
+	vim.cmd("Neotree toggle left filesystem")
+end, { desc = "Explorer: Toggle file tree (neo-tree)" })
+vim.keymap.set("n", "<Leader>E", function()
+	vim.cmd("Neotree reveal left filesystem")
+end, { desc = "Explorer: Reveal current file in tree" })
 
 -- Save and quit shortcuts
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write current buffer" })
 vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<cmd>wa<CR>", { desc = "Save: Write all buffers" })
 vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Quit: Force save all and exit nvim" })
-
--- Wiki keybindings
-vim.keymap.set("n", "<leader>wd", function()
-	require("wiki").daily()
-end, { desc = "Daily: Daily note" })
-vim.keymap.set("n", "<leader>wW", function()
-	require("wiki").weekly()
-end, { desc = "Daily: Weekly note" })
-vim.keymap.set("n", "<leader>wq", function()
-	require("wiki").quarterly()
-end, { desc = "Daily: Quarterly note" })
-vim.keymap.set("n", "<leader>wy", function()
-	require("wiki").yearly()
-end, { desc = "Daily: Yearly note" })
-vim.keymap.set("n", "<leader>wf", function()
-	require("wiki").find_notes()
-end, { desc = "Daily: Find notes" })
-vim.keymap.set("n", "<leader>wS", function()
-	require("wiki").search_notes()
-end, { desc = "Daily: Search notes" })
-vim.keymap.set("n", "<leader>wo", function()
-	require("wiki").open_wiki()
-end, { desc = "Daily: Open wiki root" })
 
 -- ============================================================================
 -- LAZY.NVIM SETUP
@@ -273,13 +251,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Better UI components
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
-
 	-- Indent guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -334,8 +305,6 @@ require("lazy").setup({
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
-			require("mini.files").setup()
-			require("mini.bufremove").setup()
 		end,
 	},
 
@@ -368,31 +337,72 @@ require("lazy").setup({
 		},
 	},
 
-	-- Zen mode
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		keys = {
-			{ "<leader>z", "<cmd>ZenMode<CR>", desc = "UI: Toggle zen mode (distraction-free editing)" },
-		},
-		opts = {
-			window = {
-				backdrop = 0.95,
-				width = 120,
-				options = {
-					signcolumn = "no",
-					number = false,
-					relativenumber = false,
-					cursorline = false,
-					cursorcolumn = false,
-				},
-			},
-		},
-	},
-
 	-- ========================================================================
 	-- FILE NAVIGATION
 	-- ========================================================================
+
+	-- File tree (Zed-like sidebar)
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				popup_border_style = "rounded",
+				sources = { "filesystem", "buffers", "git_status" },
+				filesystem = {
+					bind_to_cwd = false,
+					cwd_target = "current",
+					follow_current_file = {
+						enabled = true,
+						leave_dirs_open = false,
+					},
+					use_libuv_file_watcher = true,
+					filtered_items = {
+						visible = false,
+						hide_dotfiles = false,
+						hide_gitignored = true,
+					},
+				},
+				buffers = {
+					follow_current_file = {
+						enabled = true,
+					},
+					group_empty_dirs = true,
+				},
+				default_component_configs = {
+					indent = {
+						with_markers = true,
+						indent_size = 2,
+					},
+					name = {
+						trailing_slash = false,
+						use_git_status_colors = true,
+					},
+				},
+				window = {
+					position = "left",
+					width = 32,
+					mappings = {
+						["<cr>"] = "open",
+						["o"] = "open",
+						["s"] = "open_split",
+						["v"] = "open_vsplit",
+						["t"] = "open_tabnew",
+						["/"] = "fuzzy_finder",
+						["f"] = "filter_on_submit",
+						["F"] = "clear_filter",
+						["R"] = "reveal_in_tree",
+					},
+				},
+			})
+		end,
+	},
 
 	-- Fuzzy finder (fzf-lua is faster than telescope)
 	{
@@ -426,80 +436,6 @@ require("lazy").setup({
 		},
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("harpoon"):setup({})
-		end,
-		keys = {
-			{
-				"<leader>ma",
-				function()
-					require("harpoon"):list():add()
-				end,
-				desc = "Marks: Add current file to harpoon list",
-			},
-			{
-				"<leader>mm",
-				function()
-					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-				end,
-				desc = "Marks: Open harpoon quick menu to reorder/remove",
-			},
-			{
-				"<leader>1",
-				function()
-					require("harpoon"):list():select(1)
-				end,
-				desc = "Marks: Jump to harpoon file 1",
-			},
-			{
-				"<leader>2",
-				function()
-					require("harpoon"):list():select(2)
-				end,
-				desc = "Marks: Jump to harpoon file 2",
-			},
-			{
-				"<leader>3",
-				function()
-					require("harpoon"):list():select(3)
-				end,
-				desc = "Marks: Jump to harpoon file 3",
-			},
-			{
-				"<leader>4",
-				function()
-					require("harpoon"):list():select(4)
-				end,
-				desc = "Marks: Jump to harpoon file 4",
-			},
-			{
-				"<leader>5",
-				function()
-					require("harpoon"):list():select(5)
-				end,
-				desc = "Marks: Jump to harpoon file 5",
-			},
-			{
-				"[m",
-				function()
-					require("harpoon"):list():prev()
-				end,
-				desc = "Marks: Previous harpoon file",
-			},
-			{
-				"]m",
-				function()
-					require("harpoon"):list():next()
-				end,
-				desc = "Marks: Next harpoon file",
-			},
-		},
-	},
-
 	-- Which-key
 	{
 		"folke/which-key.nvim",
@@ -510,14 +446,10 @@ require("lazy").setup({
 			spec = {
 				{ "<leader>b", group = "buffer" },
 				{ "<leader>c", group = "code" },
-				{ "<leader>d", group = "debug" },
 				{ "<leader>f", group = "find" },
 				{ "<leader>g", group = "git" },
 				{ "<leader>h", group = "hunks" },
-				{ "<leader>m", group = "marks" },
-				{ "<leader>t", group = "test" },
 				{ "<leader>u", group = "ui/undo" },
-				{ "<leader>w", group = "wiki" },
 				{ "[", group = "prev" },
 				{ "]", group = "next" },
 				{ "g", group = "goto" },
@@ -623,12 +555,7 @@ require("lazy").setup({
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
-				opts = {
-					registries = {
-						"github:mason-org/mason-registry",
-						"github:Crashdummyy/mason-registry",
-					},
-				},
+				opts = {},
 			},
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -663,7 +590,7 @@ require("lazy").setup({
 					map("gD", vim.lsp.buf.declaration, "Go to declaration (header/forward decl)")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
-					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
@@ -677,7 +604,7 @@ require("lazy").setup({
 						})
 					end
 
-					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 						map("<leader>uh", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "UI: Toggle inlay type hints in code")
@@ -808,7 +735,6 @@ require("lazy").setup({
 					end, { silent = true })
 				end,
 			},
-			"folke/lazydev.nvim",
 		},
 		--- @module 'blink.cmp'
 		--- @type blink.cmp.Config
@@ -837,11 +763,36 @@ require("lazy").setup({
 	-- ========================================================================
 	-- .NET DEBUGGING
 	-- ========================================================================
-	require("plugins.dotnet-debug"),
+	-- .NET LANGUAGE SERVER (roslyn.nvim replaces vim.lsp.enable("roslyn_ls"))
 	-- ========================================================================
-	-- .NET TESTING
-	-- ========================================================================
-	require("plugins.dotnet-test"),
+	{
+		"seblj/roslyn.nvim",
+		ft = { "cs", "razor", "cshtml" },
+		config = function()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
+
+			vim.lsp.config("roslyn", {
+				capabilities = capabilities,
+				settings = {
+					["csharp"] = {
+						format = {
+							enable = true,
+						},
+					},
+				},
+			})
+
+			require("roslyn").setup({})
+		end,
+	},
+	{
+		"tris203/rzls.nvim",
+		ft = { "razor", "cshtml" },
+		config = function()
+			require("rzls").setup({})
+		end,
+	},
 
 	-- ========================================================================
 	{
@@ -877,38 +828,11 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
-	{
-		"echaya/neowiki.nvim",
-		opts = {
-			wiki_dirs = {
-				{ name = "Echo", path = "~/Documents/wiki/echo/" },
-				{ name = "Delta", path = "~/Documents/wiki/delta/" },
-				{ name = "Vault", path = "~/Documents/Notes/" },
-			},
-			keymaps = {
-				delete_page = "", -- Disable delete keybinding
-			},
-		},
-		keys = function()
-			local is_work = vim.env.WORK_MACHINE == "1"
-			local default_wiki = is_work and "Delta" or "Echo"
-			return {
-				{
-					"<leader>ww",
-					string.format("<cmd>lua require('neowiki').open_wiki('%s')<cr>", default_wiki),
-					desc = "Wiki: Open default wiki",
-				},
-				{ "<leader>ws", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Wiki: Select and open a wiki" },
-			}
-		end,
+})
+
+vim.filetype.add({
+	extension = {
+		razor = "razor",
+		cshtml = "razor",
 	},
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "nim",
-	callback = function()
-		vim.treesitter.start()
-	end,
-})
-
-vim.lsp.enable("roslyn_ls")

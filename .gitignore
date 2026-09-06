@@ -3,6 +3,13 @@
 !/.gitignore
 !/bash/
 !/bash/**
+!/helix/
+!/helix/**
+/helix/runtime
+!/herdr/
+!/herdr/config.toml
+!/fish/config.fish
+!/opencode/config.fish
 !/qtile/
 !/qtile/**
 !/bat/

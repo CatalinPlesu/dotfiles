@@ -2,10 +2,10 @@ if status is-interactive
     # -------------------------------------------------------------------------
     # 1. Environment Variables
     # -------------------------------------------------------------------------
-    set -gx EDITOR helix
+    set -gx EDITOR nvim
     set -gx TERMINAL ghostty
     set -gx BROWSER qutebrowser
-    set -gx SUDO_EDITOR helix
+    set -gx SUDO_EDITOR nvim
 
     # -------------------------------------------------------------------------
     # 2. PATH Additions
@@ -59,9 +59,8 @@ if status is-interactive
     alias rm="rm -iv"
 
     # Terminal & Editors
-    alias b="btop"
-    alias h='herdr'
-    alias hx='helix'
+    alias b=btop
+    alias v=nvim
 
     # Package Manager Shortcuts (Paru / Pacman)
     alias ss='paru -Ss'

@@ -14,6 +14,7 @@ if status is-interactive
     fish_add_path ~/.atuin/bin
     fish_add_path ~/.local/bin
     fish_add_path ~/.dotnet/tools
+    fish_add_path ~/.local/share/npm-global/bin
 
     function update_path_cwd --on-variable PWD
         if set -q PWD_PREV
@@ -61,6 +62,8 @@ if status is-interactive
     # Terminal & Editors
     alias b=btop
     alias v=nvim
+    alias t='tmux new-session -A -s main'
+
 
     # Package Manager Shortcuts (Paru / Pacman)
     alias ss='paru -Ss'

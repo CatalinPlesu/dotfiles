@@ -1,5 +1,9 @@
 #!/bin/bash
 
+git config --global user.name "Catalin Plesu"
+
+git config --global user.email "catalin@plesu.net"
+
 git config --global alias.nuke '!git reset --hard && git clean -fd'
 
 git config --global alias.nuke-all '!git reset --hard && git clean -idx'

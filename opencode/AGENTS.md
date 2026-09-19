@@ -17,3 +17,4 @@ These are common instructions for agents across all scenarios.
   If something clearly looks off, even if it is not directly related to what you are doing, try to get it fixed along the way.
 * Apply that same high standard to engineering excellence: lint, test failures, and test flakiness.
   If you see one, even if it is not caused by what you are working on right now, still get it fixed.
+* Assume the .env is correctly setup, and dont read it unless the app running clearly shows signs of not working.

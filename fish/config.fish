@@ -15,6 +15,8 @@ if status is-interactive
     fish_add_path ~/.local/bin
     fish_add_path ~/.dotnet/tools
     fish_add_path ~/.local/share/npm-global/bin
+    fish_add_path "$(go env GOPATH)/bin"
+    fish_add_path ~/.bun/bin
 
     function update_path_cwd --on-variable PWD
         if set -q PWD_PREV
@@ -64,7 +66,6 @@ if status is-interactive
     alias v=nvim
     alias t='tmux new-session -A -s main'
 
-
     # Package Manager Shortcuts (Paru / Pacman)
     alias ss='paru -Ss'
     alias s='paru -S'
@@ -83,3 +84,7 @@ if status is-interactive
     type -q mise; and mise activate fish | source
     type -q zoxide; and zoxide init fish | source
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

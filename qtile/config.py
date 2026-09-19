@@ -1,5 +1,5 @@
 from gruvbox.gruvbox import *
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from theme import *
@@ -7,7 +7,7 @@ import os
 import shutil
 import subprocess
 
-_wp_src = os.path.expanduser("~/Pictures/frieren.png")
+_wp_src = os.path.expanduser("~/Pictures/wallhaven.png")
 _wp_out = os.path.expanduser("~/.local/share/qtile/wallpaper.png")
 os.makedirs(os.path.dirname(_wp_out), exist_ok=True)
 try:
@@ -26,15 +26,10 @@ except Exception:
     shutil.copy2(_wp_src, _wp_out)
 
 mod = "mod1"
-term = "ghostty"
-browser = "zen-browser"
+term = "kitty"
+browser = "flatpak run app.zen_browser.zen"
 
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser("~/scripts/podman-compose-autostart")
-    subprocess.call(home)
-    subprocess.Popen(["wlr-randr", "--output", "DP-1", "--on",
-                      "--output", "HDMI-A-1", "--above", "DP-1"])
+
 
 # ═══════════════════════════════════════════════════════════
 #  Key bindings
@@ -86,15 +81,13 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("rofi -show calc -theme dmenu | wl-copy")),
     Key([mod, "shift"], "e", lazy.spawn("plasma-emojier")),
 
-    # ── Screenshots (Wayland: grim + slurp + wl-copy) ──
-    Key([], "Print", lazy.spawn(
-        'grim ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png')),
-    Key(["control"], "Print", lazy.spawn(
-        "grim -g '$(slurp)' ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png")),
-    Key([mod], "Print", lazy.spawn("grim -g '$(slurp)' - | wl-copy")),
-    Key([mod], "s", lazy.spawn(
-        "grim -g '$(slurp)' ~/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png")),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
+    # ── Screenshots (flameshot) ──
+    Key([], "Print", lazy.spawn("flameshot gui")),
+    Key([mod], "s", lazy.spawn("flameshot gui")),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot full")),
+
+    # ── Display Settings ──
+    Key([mod, "shift"], "d", lazy.spawn("systemsettings")),
 
     # ── Audio (PipeWire) ──
     Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
@@ -110,7 +103,6 @@ keys = [
     # ── Misc ──
     Key([mod, "shift"], "w", lazy.spawn(
         "swww img $(find ~/Pictures/wallpapers -type f | shuf -n1)")),
-    Key([mod, "shift"], "c", lazy.spawn("wtype -k caps_lock")),
 ]
 
 # ═══════════════════════════════════════════════════════════
@@ -120,10 +112,8 @@ keys = [
 # ── super + a : Terminal Apps ──
 keys.append(KeyChord([mod], "a", [
     Key([], "e", lazy.spawn(f'{term} -e nvim')),
-    Key([], "n", lazy.spawn(f'{term} -e note')),
-    Key([], "N", lazy.spawn(f'{term} -e now')),
-    Key([], "m", lazy.spawn(f'{term} -e ncmpcpp')),
-    Key([], "r", lazy.spawn(f'{term} -e ranger')),
+    Key([], "y", lazy.spawn(f'{term} -e yazi')),
+    Key([], "b", lazy.spawn(f'{term} -e btop')),
     Key([], "h", lazy.spawn(f'{term} -e htop')),
     Key([], "Return", lazy.spawn(f'{term} -e tmux new-session -A -s main')),
     Key([], "t", lazy.spawn(term)),
@@ -144,19 +134,9 @@ keys.append(KeyChord([mod], "v", [
 # keyboard layouts via widget: super + ctrl + space
 keys.append(KeyChord([mod], "r", [
     Key([], "w", lazy.spawn("swww img $(find ~/Pictures/wallpapers -type f | shuf -n1)")),
-    Key([], "t", lazy.spawn("switch")),
     Key([], "s", lazy.spawn("pkill wshowkeys || wshowkeys")),
     Key([], "S", lazy.spawn("pkill wshowkeys")),
 ], name="extras"))
-
-# ── Romanian Diacritics (Wayland: wtype) ──
-keys.extend([
-    Key(["mod1"], "bracketleft", lazy.spawn("wtype ă")),
-    Key(["mod1"], "bracketright", lazy.spawn("wtype î")),
-    Key(["mod1"], "backslash", lazy.spawn("wtype â")),
-    Key(["mod1"], "apostrophe", lazy.spawn("wtype ș")),
-    Key(["mod1"], "semicolon", lazy.spawn("wtype ț")),
-])
 
 # ═══════════════════════════════════════════════════════════
 #  Groups & Layouts

@@ -9,7 +9,10 @@
 !/herdr/
 !/herdr/config.toml
 !/fish/config.fish
-!/opencode/config.fish
+# opencode - opencode.json contains secrets (e.g. VIKUNJA_API_TOKEN), never track
+/opencode/opencode.json
+/opencode/opencode.jsonc
+/opencode/auth.json
 !/qtile/
 !/qtile/**
 !/bat/

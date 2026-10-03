@@ -42,7 +42,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "¶", extends = ">", precedes = "<" }
 vim.opt.cursorcolumn = false
-vim.opt.colorcolumn = "100"
 vim.opt.wrap = false
 vim.opt.smoothscroll = true
 
@@ -54,14 +53,6 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
--- ============================================================================
--- FOLDING (using UFO later)
--- ============================================================================
-vim.opt.foldcolumn = "1"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
 
 -- ============================================================================
 -- AUTOCOMMANDS
@@ -86,23 +77,6 @@ autocmd("VimResized", {
 		vim.cmd("tabdo wincmd =")
 	end,
 })
-
--- Close certain filetypes with q
-autocmd("FileType", {
-	pattern = { "qf", "help", "man", "notify", "lspinfo", "startuptime" },
-	group = augroup("close-with-q", { clear = true }),
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-	end,
-})
-
--- ============================================================================
--- USER COMMANDS
--- ============================================================================
-vim.api.nvim_create_user_command("CloseOtherBuffers", function()
-	vim.cmd("silent! %bd|e#|bd#")
-end, { desc = "Close all buffers except current" })
 
 -- ============================================================================
 -- HELPER FUNCTIONS
@@ -167,11 +141,6 @@ vim.keymap.set("n", "<leader>ul", toggle_listchars, { desc = "UI: Toggle listcha
 vim.keymap.set("n", "<leader>uw", "<cmd>set wrap!<CR>", { desc = "UI: Toggle line wrapping" })
 vim.keymap.set("n", "<leader>un", "<cmd>set relativenumber!<CR>", { desc = "UI: Toggle relative line numbers" })
 
--- Buffer management
-vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Buffer: Delete current buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>bd!<CR>", { desc = "Buffer: Force delete current (discard changes)" })
-vim.keymap.set("n", "<leader>bo", "<cmd>CloseOtherBuffers<CR>", { desc = "Buffer: Close all other buffers" })
-
 -- Directory management
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR><cmd>pwd<CR>", { desc = "Dir: Change to current file's directory" })
 
@@ -189,7 +158,6 @@ end, { desc = "Explorer: Reveal current file in tree" })
 -- Save and quit shortcuts
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save: Write current buffer" })
 vim.keymap.set({ "n", "i", "v" }, "<C-S-s>", "<cmd>wa<CR>", { desc = "Save: Write all buffers" })
-vim.keymap.set({ "n", "i", "v" }, "<C-z>", "<Esc>:wa!<CR>:qall<CR>", { desc = "Quit: Force save all and exit nvim" })
 
 -- ============================================================================
 -- LAZY.NVIM SETUP
@@ -244,7 +212,7 @@ require("lazy").setup({
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
-				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
@@ -284,10 +252,7 @@ require("lazy").setup({
 				return math.floor(vim.o.columns * 0.75)
 			end,
 			background_colour = "#000000",
-			render = "default",
-			stages = "fade",
 			timeout = 3000,
-			minimum_width = 10,
 		},
 		config = function(_, opts)
 			local notify = require("notify")
@@ -305,26 +270,6 @@ require("lazy").setup({
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
-		end,
-	},
-
-	-- Better folding
-	{
-		"kevinhwang91/nvim-ufo",
-		event = { "BufReadPost", "BufNewFile" },
-		dependencies = { "kevinhwang91/promise-async" },
-		opts = {
-			provider_selector = function()
-				return { "treesitter", "indent" }
-			end,
-		},
-		config = function(_, opts)
-			vim.opt.foldmethod = "expr"
-			vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-			require("ufo").setup(opts)
-
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
 		end,
 	},
 
@@ -354,7 +299,7 @@ require("lazy").setup({
 			require("neo-tree").setup({
 				close_if_last_window = true,
 				popup_border_style = "rounded",
-				sources = { "filesystem", "buffers", "git_status" },
+				sources = { "filesystem" },
 				filesystem = {
 					bind_to_cwd = false,
 					cwd_target = "current",
@@ -368,12 +313,6 @@ require("lazy").setup({
 						hide_dotfiles = false,
 						hide_gitignored = true,
 					},
-				},
-				buffers = {
-					follow_current_file = {
-						enabled = true,
-					},
-					group_empty_dirs = true,
 				},
 				default_component_configs = {
 					indent = {
@@ -444,7 +383,6 @@ require("lazy").setup({
 			preset = "modern",
 			delay = 300,
 			spec = {
-				{ "<leader>b", group = "buffer" },
 				{ "<leader>c", group = "code" },
 				{ "<leader>f", group = "find" },
 				{ "<leader>g", group = "git" },
@@ -559,7 +497,6 @@ require("lazy").setup({
 			},
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
 			"saghen/blink.cmp",
 		},
 		config = function()
@@ -623,10 +560,10 @@ require("lazy").setup({
 				severity_sort = true,
 				signs = {
 					text = {
-						[vim.diagnostic.severity.ERROR] = " ",
-						[vim.diagnostic.severity.WARN] = " ",
-						[vim.diagnostic.severity.HINT] = " ",
-						[vim.diagnostic.severity.INFO] = " ",
+						[vim.diagnostic.severity.ERROR] = "󰅚 ",
+						[vim.diagnostic.severity.WARN] = "󰀪 ",
+						[vim.diagnostic.severity.HINT] = "󰌶 ",
+						[vim.diagnostic.severity.INFO] = "󰋽 ",
 					},
 				},
 			})
@@ -642,7 +579,6 @@ require("lazy").setup({
 							workspace = {
 								checkThirdParty = false,
 								library = {
-									"${3rd}/luv/library",
 									unpack(vim.api.nvim_get_runtime_file("", true)),
 								},
 							},
@@ -687,16 +623,11 @@ require("lazy").setup({
 		},
 		opts = {
 			notify_on_error = false,
-			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
-				if disable_filetypes[vim.bo[bufnr].filetype] then
-					return nil
-				else
-					return {
-						timeout_ms = 500,
-						lsp_format = "fallback",
-					}
-				end
+			format_on_save = function()
+				return {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				}
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
@@ -707,35 +638,6 @@ require("lazy").setup({
 		"saghen/blink.cmp",
 		event = "VimEnter",
 		version = "1.*",
-		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				version = "2.*",
-				build = (function()
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-				dependencies = {
-					"rafamadriz/friendly-snippets",
-				},
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
-					require("luasnip.loaders.from_lua").lazy_load({
-						paths = vim.fn.stdpath("config") .. "/snippets",
-					})
-
-					local ls = require("luasnip")
-					vim.keymap.set({ "i", "s" }, "<C-l>", function()
-						ls.jump(1)
-					end, { silent = true })
-					vim.keymap.set({ "i", "s" }, "<C-h>", function()
-						ls.jump(-1)
-					end, { silent = true })
-				end,
-			},
-		},
 		--- @module 'blink.cmp'
 		--- @type blink.cmp.Config
 		opts = {
@@ -749,12 +651,11 @@ require("lazy").setup({
 				documentation = { auto_show = false, auto_show_delay_ms = 500 },
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "lazydev" },
+				default = { "lsp", "path", "buffer", "lazydev" },
 				providers = {
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				},
 			},
-			snippets = { preset = "luasnip" },
 			fuzzy = { implementation = "lua" },
 			signature = { enabled = true },
 		},
@@ -827,12 +728,5 @@ require("lazy").setup({
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
-	},
-})
-
-vim.filetype.add({
-	extension = {
-		razor = "razor",
-		cshtml = "razor",
 	},
 })

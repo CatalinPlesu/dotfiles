@@ -112,11 +112,20 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "p", '"_dP')
 
 -- Diagnostics - navigate and view errors/warnings
+-- Native 0.10+: vim.diagnostic.jump; on 0.12+ use on_jump (float=true is deprecated)
+local function diagnostic_jump(count)
+	vim.diagnostic.jump({
+		count = count,
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	})
+end
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.jump({ count = -1 })
+	diagnostic_jump(-1)
 end, { desc = "Diagnostic: Jump to previous error/warning" })
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.jump({ count = 1 })
+	diagnostic_jump(1)
 end, { desc = "Diagnostic: Jump to next error/warning" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic: Show error details in float" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostic: Send all to quickfix list" })
@@ -282,6 +291,63 @@ require("lazy").setup({
 		},
 	},
 
+	-- Instant visual jumps (replaces hop/leap)
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"S",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash: Select treesitter node",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Flash: Remote operator-pending jump",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Flash: Treesitter search",
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function()
+					require("flash").toggle()
+				end,
+				desc = "Flash: Toggle search jump",
+			},
+		},
+	},
+
+	-- Live diagnostics / references panel (replaces plain quickfix)
+	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", desc = "Trouble: Workspace diagnostics" },
+			{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Trouble: Buffer diagnostics" },
+			{ "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", desc = "Trouble: Document symbols" },
+			{ "<leader>xS", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>", desc = "Trouble: LSP view" },
+			{ "<leader>xL", "<cmd>Trouble loclist toggle<CR>", desc = "Trouble: Location list" },
+			{ "<leader>xQ", "<cmd>Trouble qflist toggle<CR>", desc = "Trouble: Quickfix list" },
+			{ "gR", "<cmd>Trouble lsp_references toggle<CR>", desc = "Trouble: LSP references" },
+		},
+		opts = {},
+	},
+
 	-- ========================================================================
 	-- FILE NAVIGATION
 	-- ========================================================================
@@ -343,22 +409,42 @@ require("lazy").setup({
 		end,
 	},
 
+	-- Filesystem as buffer (edit files with vim motions + :w)
+	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = "Oil",
+		keys = {
+			{ "-", "<cmd>Oil<CR>", desc = "Explorer: Open parent directory in oil buffer" },
+			{ "<leader>O", "<cmd>Oil --float<CR>", desc = "Explorer: Open oil floating window" },
+		},
+		opts = {
+			default_file_explorer = true,
+			view_options = { show_hidden = true },
+			float = { max_width = 90, max_height = 30 },
+		},
+	},
+
 	-- Fuzzy finder (fzf-lua is faster than telescope)
+	-- Helix Space-mode: one key after <leader>, each key fires instantly.
+	-- NOTE: <leader>f must stay the ONLY <leader>f* mapping, otherwise vim
+	-- waits timeoutlen to disambiguate ff/fg/... - that was the lag.
+	-- Ex-ff/fg/... actions live on non-f keys now; help/keymaps via :FzfLua.
 	{
 		"ibhagwan/fzf-lua",
 		cmd = "FzfLua",
 		keys = {
-			{ "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find: Files by name in project" },
-			{ "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Find: Grep text across all files (live)" },
-			{ "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Find: Open buffers list" },
-			{ "<leader>fh", "<cmd>FzfLua help_tags<CR>", desc = "Find: Neovim help tags" },
-			{ "<leader>fo", "<cmd>FzfLua oldfiles<CR>", desc = "Find: Recently opened files" },
-			{ "<leader>fw", "<cmd>FzfLua grep_cword<CR>", desc = "Find: Word under cursor in all files" },
-			{ "<leader>fc", "<cmd>FzfLua commands<CR>", desc = "Find: Available commands" },
-			{ "<leader>fk", "<cmd>FzfLua keymaps<CR>", desc = "Find: All keybindings (search by desc)" },
-			{ "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>", desc = "Find: Diagnostics in current file" },
-			{ "<leader>fD", "<cmd>FzfLua diagnostics_workspace<CR>", desc = "Find: Diagnostics across workspace" },
-			{ "<leader>/", "<cmd>FzfLua blines<CR>", desc = "Find: Lines in current buffer" },
+			{ "<leader>f", "<cmd>FzfLua files<CR>", desc = "Find: Files by name in project" },
+			{ "<leader>b", "<cmd>FzfLua buffers<CR>", desc = "Find: Open buffers list" },
+			{ "<leader>/", "<cmd>FzfLua live_grep<CR>", desc = "Find: Grep text across all files (live)" },
+			{ "<leader>l", "<cmd>FzfLua blines<CR>", desc = "Find: Lines in current buffer" },
+			{ "<leader>o", "<cmd>FzfLua oldfiles<CR>", desc = "Find: Recently opened files" },
+			{ "<leader>*", "<cmd>FzfLua grep_cword<CR>", desc = "Find: Word under cursor in all files" },
+			{ "<leader>d", "<cmd>FzfLua diagnostics_document<CR>", desc = "Find: Diagnostics in current file" },
+			{ "<leader>D", "<cmd>FzfLua diagnostics_workspace<CR>", desc = "Find: Diagnostics across workspace" },
+			{ "<leader>p", "<cmd>FzfLua commands<CR>", desc = "Find: Command palette" },
+			{ "<leader>?", "<cmd>FzfLua keymaps<CR>", desc = "Find: All keybindings (search by desc)" },
+			{ "<leader>'", "<cmd>FzfLua resume<CR>", desc = "Find: Last picker" },
 			{ "<leader><leader>", "<cmd>FzfLua buffers<CR>", desc = "Find: Switch between open buffers" },
 		},
 		opts = {
@@ -384,10 +470,12 @@ require("lazy").setup({
 			delay = 300,
 			spec = {
 				{ "<leader>c", group = "code" },
-				{ "<leader>f", group = "find" },
 				{ "<leader>g", group = "git" },
 				{ "<leader>h", group = "hunks" },
+				{ "<leader>t", group = "transpose/swap" },
 				{ "<leader>u", group = "ui/undo" },
+				{ "<leader>w", group = "window" },
+				{ "<leader>x", group = "trouble" },
 				{ "[", group = "prev" },
 				{ "]", group = "next" },
 				{ "g", group = "goto" },
@@ -411,7 +499,7 @@ require("lazy").setup({
 				untracked = { text = "┆" },
 			},
 			on_attach = function(bufnr)
-				local gs = package.loaded.gitsigns
+				local gs = require("gitsigns")
 				local map = function(mode, l, r, desc)
 					vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
 				end
@@ -507,24 +595,39 @@ require("lazy").setup({
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					map("gd", require("fzf-lua").lsp_definitions, "Go to definition of symbol under cursor")
-					map("gr", require("fzf-lua").lsp_references, "Find all references of symbol under cursor")
-					map("gI", require("fzf-lua").lsp_implementations, "Go to implementation of interface/abstract")
-					map("gy", require("fzf-lua").lsp_typedefs, "Go to type definition of symbol")
+					-- NOTE: <cmd>FzfLua ...> strings (not require) so lazy.nvim
+					-- loads fzf-lua on first use; eager require here would
+					-- error when LSP attaches before fzf-lua ever loaded,
+					-- aborting the whole callback and losing every LSP map.
+					map("gd", "<cmd>FzfLua lsp_definitions<CR>", "Go to definition of symbol under cursor")
+					map("gr", "<cmd>FzfLua lsp_references<CR>", "Find all references of symbol under cursor")
+					map("gI", "<cmd>FzfLua lsp_implementations<CR>", "Go to implementation of interface/abstract")
+					map("gy", "<cmd>FzfLua lsp_typedefs<CR>", "Go to type definition of symbol")
 					map(
 						"<leader>cs",
-						require("fzf-lua").lsp_document_symbols,
+						"<cmd>FzfLua lsp_document_symbols<CR>",
 						"Code: Search document symbols (functions, classes)"
 					)
 					map(
 						"<leader>cS",
-						require("fzf-lua").lsp_live_workspace_symbols,
+						"<cmd>FzfLua lsp_live_workspace_symbols<CR>",
 						"Code: Search workspace symbols across all files"
 					)
 					map("<leader>cr", vim.lsp.buf.rename, "Code: Rename symbol across project")
 					map("<leader>ca", vim.lsp.buf.code_action, "Code: Show available code actions (fixes, refactors)")
 					map("K", vim.lsp.buf.hover, "Show hover documentation for symbol under cursor")
 					map("gD", vim.lsp.buf.declaration, "Go to declaration (header/forward decl)")
+
+					-- Helix Space-mode flat aliases (single key, same targets as above)
+					map("<leader>r", vim.lsp.buf.rename, "Code: Rename symbol (Helix Space+r)")
+					map("<leader>a", vim.lsp.buf.code_action, "Code: Code action (Helix Space+a)")
+					map("<leader>k", vim.lsp.buf.hover, "Hover docs (Helix Space+k)")
+					map("<leader>s", "<cmd>FzfLua lsp_document_symbols<CR>", "Code: Document symbols (Helix Space+s)")
+					map(
+						"<leader>S",
+						"<cmd>FzfLua lsp_live_workspace_symbols<CR>",
+						"Code: Workspace symbols (Helix Space+S)"
+					)
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -543,7 +646,11 @@ require("lazy").setup({
 
 					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 						map("<leader>uh", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+							local bufnr = event.buf
+							vim.lsp.inlay_hint.enable(
+								not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+								{ bufnr = bufnr }
+							)
 						end, "UI: Toggle inlay type hints in code")
 					end
 				end,
@@ -575,13 +682,7 @@ require("lazy").setup({
 				lua_ls = {
 					settings = {
 						Lua = {
-							runtime = { version = "LuaJIT" },
-							workspace = {
-								checkThirdParty = false,
-								library = {
-									unpack(vim.api.nvim_get_runtime_file("", true)),
-								},
-							},
+							-- runtime/workspace.library resolved dynamically by lazydev.nvim
 							completion = {
 								callSnippet = "Replace",
 							},
@@ -638,6 +739,7 @@ require("lazy").setup({
 		"saghen/blink.cmp",
 		event = "VimEnter",
 		version = "1.*",
+		build = "cargo build --release",
 		--- @module 'blink.cmp'
 		--- @type blink.cmp.Config
 		opts = {
@@ -656,7 +758,8 @@ require("lazy").setup({
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				},
 			},
-			fuzzy = { implementation = "lua" },
+			-- Rust fuzzy matcher (prebuilt binary, no `implementation = "lua"` fallback)
+			fuzzy = { implementation = "prefer_rust_with_warning" },
 			signature = { enabled = true },
 		},
 	},
@@ -696,27 +799,130 @@ require("lazy").setup({
 	},
 
 	-- ========================================================================
+	-- TREESITTER (main branch rewrite: no ensure_installed / configs.setup)
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
 		build = ":TSUpdate",
 		config = function()
-			local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-			if not status_ok then
-				return
-			end
+			local ts = require("nvim-treesitter")
+			local parsers = {
+				"c_sharp",
+				"html",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"vim",
+				"vimdoc",
+				"query",
+				"regex",
+			}
+			ts.install(parsers)
 
-			configs.setup({
-				ensure_installed = {
-					"c_sharp",
-					"html",
-					"lua",
-					"markdown",
-					"markdown_inline",
-				},
-				auto_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
+			-- Replaces old `auto_install = true`: install parser on demand, then enable.
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					-- Try to enable treesitter highlighting + indent.
+					local ok = pcall(vim.treesitter.start, args.buf)
+					if ok then
+						vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					else
+						-- Parser missing: map filetype -> parser name and install async.
+						local lang = vim.treesitter.language.get_lang(args.match)
+						if lang then
+							ts.install({ lang })
+						end
+					end
+				end,
 			})
+		end,
+	},
+
+	-- AST-aware textobjects (af/if/ac/ic) + move/swap
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = { "BufReadPost", "BufNewFile" },
+		init = function()
+			vim.g.no_plugin_maps = true
+		end,
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				select = {
+					lookahead = true,
+					selection_modes = {
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
+						["@class.outer"] = "V",
+					},
+					include_surrounding_whitespace = false,
+				},
+				move = { set_jumps = true },
+			})
+
+			local select = require("nvim-treesitter-textobjects.select")
+			vim.keymap.set({ "x", "o" }, "af", function()
+				select.select_textobject("@function.outer", "textobjects")
+			end, { desc = "Function: around (outer)" })
+			vim.keymap.set({ "x", "o" }, "if", function()
+				select.select_textobject("@function.inner", "textobjects")
+			end, { desc = "Function: inside" })
+			vim.keymap.set({ "x", "o" }, "ac", function()
+				select.select_textobject("@class.outer", "textobjects")
+			end, { desc = "Class: around (outer)" })
+			vim.keymap.set({ "x", "o" }, "ic", function()
+				select.select_textobject("@class.inner", "textobjects")
+			end, { desc = "Class: inside" })
+			vim.keymap.set({ "x", "o" }, "aa", function()
+				select.select_textobject("@parameter.outer", "textobjects")
+			end, { desc = "Param: around" })
+			vim.keymap.set({ "x", "o" }, "ia", function()
+				select.select_textobject("@parameter.inner", "textobjects")
+			end, { desc = "Param: inside" })
+
+			local move = require("nvim-treesitter-textobjects.move")
+			vim.keymap.set({ "n", "x", "o" }, "]m", function()
+				move.goto_next_start("@function.outer", "textobjects")
+			end, { desc = "Next function start" })
+			vim.keymap.set({ "n", "x", "o" }, "[m", function()
+				move.goto_previous_start("@function.outer", "textobjects")
+			end, { desc = "Prev function start" })
+			vim.keymap.set({ "n", "x", "o" }, "]]", function()
+				move.goto_next_start("@class.outer", "textobjects")
+			end, { desc = "Next class start" })
+			vim.keymap.set({ "n", "x", "o" }, "[[", function()
+				move.goto_previous_start("@class.outer", "textobjects")
+			end, { desc = "Prev class start" })
+
+			-- Helix unimpaired aliases: ]f function, ]t class, ]a param
+			vim.keymap.set({ "n", "x", "o" }, "]f", function()
+				move.goto_next_start("@function.outer", "textobjects")
+			end, { desc = "Next function (Helix ]f)" })
+			vim.keymap.set({ "n", "x", "o" }, "[f", function()
+				move.goto_previous_start("@function.outer", "textobjects")
+			end, { desc = "Prev function (Helix [f)" })
+			vim.keymap.set({ "n", "x", "o" }, "]t", function()
+				move.goto_next_start("@class.outer", "textobjects")
+			end, { desc = "Next class (Helix ]t)" })
+			vim.keymap.set({ "n", "x", "o" }, "[t", function()
+				move.goto_previous_start("@class.outer", "textobjects")
+			end, { desc = "Prev class (Helix [t)" })
+			vim.keymap.set({ "n", "x", "o" }, "]a", function()
+				move.goto_next_start("@parameter.inner", "textobjects")
+			end, { desc = "Next param (Helix ]a)" })
+			vim.keymap.set({ "n", "x", "o" }, "[a", function()
+				move.goto_previous_start("@parameter.inner", "textobjects")
+			end, { desc = "Prev param (Helix [a)" })
+
+			local swap = require("nvim-treesitter-textobjects.swap")
+			vim.keymap.set("n", "<leader>ta", function()
+				swap.swap_next("@parameter.inner")
+			end, { desc = "Swap: next parameter" })
+			vim.keymap.set("n", "<leader>tA", function()
+				swap.swap_previous("@parameter.outer")
+			end, { desc = "Swap: previous parameter" })
 		end,
 	},
 
@@ -728,5 +934,20 @@ require("lazy").setup({
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+	},
+
+	-- Offline docs via Zeal GUI (Fedora: sudo dnf install zeal).
+	-- Docsets are installed/managed in Zeal itself (File > Docset Library);
+	-- filetype->docset is auto-detected, no manual table. NOTE: <leader>Z
+	-- (not <leader>zk) so <leader>z stays prefix-free and fires instantly.
+	{
+		"KabbAmine/zeavim.vim",
+		cmd = { "Zeavim", "ZeavimV", "Docset", "ZvV" },
+		keys = {
+			{ "<leader>z", "<Plug>Zeavim", mode = "n", desc = "Zeal: docs for word under cursor" },
+			{ "<leader>z", "<Plug>ZVVisSelection", mode = "x", desc = "Zeal: docs for visual selection" },
+			{ "gz", "<Plug>ZVOperator", mode = "n", desc = "Zeal: docs with motion (e.g. gziw)" },
+			{ "<leader>Z", "<Plug>ZVKeyDocset", mode = "n", desc = "Zeal: pick docset manually" },
+		},
 	},
 })

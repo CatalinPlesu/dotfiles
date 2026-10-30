@@ -1,3 +1,9 @@
+-- Disable unused remote providers (silences :checkhealth warnings).
+-- Re-enable by deleting these lines if you ever use perl/python/ruby plugins.
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 -- ============================================================================
 -- LEADER KEYS
 -- ============================================================================
@@ -365,10 +371,12 @@ require("lazy").setup({
 			require("neo-tree").setup({
 				close_if_last_window = true,
 				popup_border_style = "rounded",
-				sources = { "filesystem" },
 				filesystem = {
 					bind_to_cwd = false,
-					cwd_target = "current",
+					cwd_target = {
+						sidebar = "tab",
+						current = "window",
+					},
 					follow_current_file = {
 						enabled = true,
 						leave_dirs_open = false,
@@ -949,5 +957,9 @@ require("lazy").setup({
 			{ "gz", "<Plug>ZVOperator", mode = "n", desc = "Zeal: docs with motion (e.g. gziw)" },
 			{ "<leader>Z", "<Plug>ZVKeyDocset", mode = "n", desc = "Zeal: pick docset manually" },
 		},
+	},
+}, {
+	rocks = {
+		enabled = false,
 	},
 })
